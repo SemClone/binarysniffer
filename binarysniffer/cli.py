@@ -15,7 +15,6 @@ from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeElapsedColumn
 from tabulate import tabulate
 
-from .core.analyzer import BinarySniffer
 from .core.analyzer_enhanced import EnhancedBinarySniffer
 from .core.config import Config
 from .core.results import BatchAnalysisResult
@@ -77,9 +76,8 @@ def cli(ctx, config, data_dir, verbose):
 @click.option('--output', '-o', type=click.Path(), help='Save results to file')
 @click.option('--patterns', '-p', multiple=True, help='File patterns to match (e.g., *.exe, *.so)')
 @click.option('--parallel/--no-parallel', default=True, help='Enable parallel processing')
-@click.option('--enhanced', is_flag=True, help='Use enhanced detection (recommended)')
 @click.pass_context
-def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, enhanced):
+def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel):
     """
     Analyze files for OSS components.
     
@@ -97,12 +95,9 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         # Export results as JSON
         binarysniffer analyze project/ -f json -o results.json
     """
-    # Initialize sniffer
+    # Initialize sniffer (always use enhanced mode for better detection)
     if ctx.obj['sniffer'] is None:
-        if enhanced:
-            ctx.obj['sniffer'] = EnhancedBinarySniffer(ctx.obj['config'])
-        else:
-            ctx.obj['sniffer'] = BinarySniffer(ctx.obj['config'])
+        ctx.obj['sniffer'] = EnhancedBinarySniffer(ctx.obj['config'])
     
     sniffer = ctx.obj['sniffer']
     path = Path(path)

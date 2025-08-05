@@ -7,7 +7,7 @@
 4. [Command Reference](#command-reference)
 5. [Usage Examples](#usage-examples)
 6. [Output Formats](#output-formats)
-7. [Enhanced Detection Mode](#enhanced-detection-mode)
+7. [Detection Modes](#detection-modes)
 8. [Performance Tips](#performance-tips)
 9. [Troubleshooting](#troubleshooting)
 
@@ -16,9 +16,9 @@
 BinarySniffer is a high-performance CLI tool for detecting open source components in binary files through semantic signature matching. It can analyze executables, shared libraries, APK files, and other binary formats to identify embedded open source software components.
 
 ### Key Features
-- Fast binary analysis with multi-tier matching system
+- Fast binary analysis with dual matching system (Progressive + Direct)
 - Support for multiple file types (ELF, PE, Mach-O, APK, JAR, etc.)
-- Enhanced detection mode for improved accuracy
+- Enhanced detection enabled by default for superior accuracy
 - Multiple output formats (table, JSON, CSV)
 - Parallel processing for large directories
 - Comprehensive signature database with 100+ components
@@ -88,7 +88,7 @@ binarysniffer analyze [OPTIONS] PATH
 - `-o, --output PATH` - Save results to file
 - `-p, --patterns TEXT` - File patterns to match (e.g., *.exe, *.so)
 - `--parallel/--no-parallel` - Enable/disable parallel processing
-- `--enhanced` - Use enhanced detection (recommended)
+- `--threshold FLOAT` - Confidence threshold (default: 0.3)
 
 #### `update` - Update signature database
 ```bash
@@ -210,9 +210,9 @@ my_android_app.apk,FFMPEG@unknown,0.880,-,string,unknown
 my_android_app.apk,libpng@unknown,0.740,-,string,unknown
 ```
 
-## Enhanced Detection Mode
+## Detection Modes
 
-The `--enhanced` flag enables improved detection capabilities:
+BinarySniffer uses enhanced detection by default with dual matching strategy:
 
 ### Benefits
 - **Better Detection Rate**: Finds more components with higher accuracy

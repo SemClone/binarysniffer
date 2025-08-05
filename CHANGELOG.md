@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.4.6] - 2025-08-05
 
 ### Improved
+- **Enhanced mode is now default** - All analysis now uses dual matching strategy (ProgressiveMatcher + DirectMatcher) for superior detection accuracy
+- **Lower default threshold** - Reduced from 0.5 to 0.3 for better component detection without requiring manual threshold adjustment
+- **Simplified CLI interface** - Removed `--enhanced` flag as enhanced detection is always active
 - **Multi-language regex patterns** - Enhanced SourceCodeExtractor with comprehensive language support
 - **Pattern coverage** - Achieved 100% test coverage across all 9 supported programming languages
 - **Language-specific parsing** - Added support for Ruby methods without parentheses, C/C++ macros, Rust const syntax, Go imports and structs, C# using statements, C++ method declarations, and Kotlin functions
@@ -18,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Comprehensive class patterns** - 5 patterns for class, struct, interface, Go types, and enums
 - **Extended import patterns** - 8 patterns supporting Python, JS, Rust, C/C++, Go, C#, Kotlin imports
 - **Robust constant patterns** - 5 patterns for general constants, assignments, C macros, Rust, and Kotlin
+
+### Breaking Changes
+- **Enhanced mode always enabled** - The `--enhanced` flag has been removed as enhanced detection is now the default behavior
 
 ## [1.4.5] - 2025-08-05
 

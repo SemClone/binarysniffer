@@ -55,10 +55,10 @@ pip install semantic-copycat-binarysniffer[fast]
 ### CLI Usage
 
 ```bash
-# Analyze a single file
+# Analyze a single file (enhanced detection is always enabled)
 binarysniffer analyze /path/to/binary
 
-# Analyze mobile applications (NEW in v1.1.0)
+# Analyze mobile applications
 binarysniffer analyze app.apk                    # Android APK
 binarysniffer analyze app.ipa                    # iOS IPA
 binarysniffer analyze library.jar                # Java JAR
@@ -66,23 +66,24 @@ binarysniffer analyze library.jar                # Java JAR
 # Analyze directories recursively
 binarysniffer analyze /path/to/project --recursive
 
-# Show detailed matches with confidence scores
-binarysniffer analyze file.exe --detailed --threshold 0.7
+# Custom threshold (default is 0.3 for optimal detection)
+binarysniffer analyze file.exe --threshold 0.1   # More sensitive
+binarysniffer analyze file.exe --threshold 0.8   # More conservative
 
 # Export results as JSON
 binarysniffer analyze project/ --format json -o results.json
 
-# CTags-enhanced source analysis (if universal-ctags installed)
-binarysniffer analyze source_project/ --detailed
+# Deep analysis with pattern filtering
+binarysniffer analyze project/ --recursive --deep -p "*.so" -p "*.dll"
 ```
 
 ### Python Library Usage
 
 ```python
-from binarysniffer import BinarySniffer
+from binarysniffer import EnhancedBinarySniffer
 
-# Initialize analyzer
-sniffer = BinarySniffer()
+# Initialize analyzer (enhanced mode is default)
+sniffer = EnhancedBinarySniffer()
 
 # Analyze a single file
 result = sniffer.analyze_file("/path/to/binary")
@@ -90,13 +91,14 @@ for match in result.matches:
     print(f"{match.component} - {match.confidence:.2%}")
     print(f"License: {match.license}")
 
-# Analyze mobile applications (NEW in v1.1.0)
+# Analyze mobile applications
 apk_result = sniffer.analyze_file("app.apk")
 ipa_result = sniffer.analyze_file("app.ipa")
 jar_result = sniffer.analyze_file("library.jar")
 
-# Analyze with custom threshold
-result = sniffer.analyze_file("file.exe", confidence_threshold=0.8)
+# Analyze with custom threshold (default is 0.3)
+result = sniffer.analyze_file("file.exe", confidence_threshold=0.1)  # More sensitive
+result = sniffer.analyze_file("file.exe", confidence_threshold=0.8)  # More conservative
 
 # Directory analysis
 results = sniffer.analyze_directory("/path/to/project", recursive=True)
