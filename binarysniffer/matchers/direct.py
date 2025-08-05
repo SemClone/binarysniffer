@@ -7,6 +7,7 @@ import json
 import logging
 from typing import List, Dict, Any, Set
 from collections import defaultdict
+from tqdm import tqdm
 
 from ..core.config import Config
 from ..core.results import ComponentMatch
@@ -121,11 +122,14 @@ class DirectMatcher:
         
         logger.debug(f"Direct matching against {len(string_set)} unique strings")
         
-        # Match each signature
-        for sig in self.signatures:
+        # Pre-filter strings for substring matching (exclude very short/generic ones)
+        valid_strings = [s for s in string_set if len(s) >= 6 and s not in self._get_generic_terms()]
+        
+        # Match each signature with progress bar
+        for sig in tqdm(self.signatures, desc="Matching signatures", disable=not logger.isEnabledFor(logging.INFO)):
             pattern = sig['pattern']
             
-            # Check for exact match
+            # Check for exact match first (fast)
             if pattern in string_set:
                 component_scores[sig['component_id']].append({
                     'sig_id': sig['id'],
@@ -136,36 +140,28 @@ class DirectMatcher:
                 })
                 continue
             
-            # Smart substring matching - avoid generic terms and require meaningful prefixes
-            # Only check substring matching for patterns that are sufficiently specific
-            if len(pattern) >= 10 and not self._contains_only_generic_terms(pattern):
-                for string in string_set:
-                    # Skip if the string is too generic or too short
-                    if len(string) < 6 or string in self._get_generic_terms():
-                        continue
+            # Smart substring matching - only for specific patterns
+            # Skip if pattern is too short or generic
+            if len(pattern) < 5 or self._contains_only_generic_terms(pattern):
+                continue
+                
+            # For common patterns, use more efficient matching
+            matches_found = 0
+            for string in valid_strings:
+                # Limit matches per pattern to avoid excessive matching
+                if matches_found >= 5:
+                    break
                     
-                    # For substring matching, require that:
-                    # 1. The string is contained in the pattern
-                    # 2. The string is at least 70% of the pattern length
-                    # 3. If the pattern has a prefix (like "av_"), the string should include it
-                    if string in pattern and len(string) >= len(pattern) * 0.7:
-                        # Check for prefix matching - if pattern has a prefix, string should too
-                        pattern_parts = pattern.split('_', 1)
-                        string_parts = string.split('_', 1)
-                        
-                        # If pattern has a library-specific prefix, string must have the same prefix
-                        if len(pattern_parts) > 1 and len(pattern_parts[0]) <= 4:  # Common prefixes are short
-                            if len(string_parts) == 1 or pattern_parts[0] != string_parts[0]:
-                                continue  # Skip if prefix doesn't match
-                        
-                        component_scores[sig['component_id']].append({
-                            'sig_id': sig['id'],
-                            'confidence': sig['confidence'] * 0.6,  # Lower confidence for partial match
-                            'sig_type': sig['sig_type'],
-                            'pattern': pattern,
-                            'matched_string': string
-                        })
-                        break
+                # Check if pattern is substring of string
+                if pattern in string:
+                    matches_found += 1
+                    component_scores[sig['component_id']].append({
+                        'sig_id': sig['id'],
+                        'confidence': sig['confidence'] * 0.8,  # Slightly lower confidence for substring match
+                        'sig_type': sig['sig_type'],
+                        'pattern': pattern,
+                        'matched_string': string
+                    })
         
         # Aggregate scores by component
         for component_id, sig_matches in component_scores.items():

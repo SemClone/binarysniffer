@@ -1,0 +1,90 @@
+{
+  "component": {
+    "name": "WebKit",
+    "version": "",
+    "publisher": "WebKit Contributors",
+    "description": "Open source web browser engine",
+    "license": "LGPL-2.1",
+    "category": "web-engine",
+    "ecosystem": "native",
+    "platforms": ["linux", "macos", "android", "ios"],
+    "languages": ["c++", "objective-c"]
+  },
+  "signature_metadata": {
+    "creation_date": "2025-08-05",
+    "confidence_threshold": 0.7,
+    "source": "extracted from Kindle APK analysis"
+  },
+  "signatures": [
+    {
+      "pattern": "WebCore::",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "_ZN7WebCore",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "WebKit::",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "JavaScriptCore",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "WTF::",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "-webkit-",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebKitWebView",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "WebKitSettings",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "JSContext",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "JSValue",
+      "type": "string",
+      "confidence": 0.75
+    },
+    {
+      "pattern": "WebCoreKRF",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "DOMWindow",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "HTMLElement",
+      "type": "string",
+      "confidence": 0.75
+    },
+    {
+      "pattern": "CSSStyleDeclaration",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
+}

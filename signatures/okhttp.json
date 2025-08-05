@@ -1,0 +1,70 @@
+{
+  "component": {
+    "name": "OkHttp",
+    "version": "",
+    "publisher": "Square",
+    "description": "An HTTP & HTTP/2 client for Android and Java applications",
+    "license": "Apache-2.0",
+    "category": "networking",
+    "ecosystem": "java",
+    "platforms": ["android", "java"],
+    "languages": ["java", "kotlin"]
+  },
+  "signature_metadata": {
+    "creation_date": "2025-08-05",
+    "confidence_threshold": 0.7,
+    "source": "extracted from Kindle APK analysis"
+  },
+  "signatures": [
+    {
+      "pattern": "okhttp3.internal",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "Lokhttp3/",
+      "type": "string", 
+      "confidence": 0.85
+    },
+    {
+      "pattern": "okio.Okio",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "square.okhttp",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "okhttp3.OkHttpClient",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "okhttp3.Request",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "okhttp3.Response",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "okhttp3.Interceptor",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "okhttp3.ConnectionPool",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "okhttp3.internal.publicsuffix.PublicSuffixDatabase",
+      "type": "string",
+      "confidence": 0.85
+    }
+  ]
+}

@@ -151,7 +151,12 @@ class ProgressiveMatcher:
             score = self._calculate_match_score(sig_data, feature_set)
             
             if score >= threshold:
-                component_key = f"{sig_data['name']}@{sig_data['version']}"
+                # Don't append version if it's 'unknown' or None
+                version = sig_data.get('version')
+                if version and version != 'unknown':
+                    component_key = f"{sig_data['name']}@{version}"
+                else:
+                    component_key = sig_data['name']
                 
                 # Avoid duplicate components
                 if component_key not in seen_components:
