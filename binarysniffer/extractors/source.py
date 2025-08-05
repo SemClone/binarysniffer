@@ -22,19 +22,22 @@ class SourceCodeExtractor(BaseExtractor):
         '.go', '.rs', '.rb', '.php', '.cs', '.swift', '.kt'
     }
     
-    # Language-specific patterns
+    # Language-specific patterns (improved for better coverage)
     PATTERNS = {
         'function': [
-            r'def\s+([a-zA-Z_]\w+)\s*\(',  # Python
+            r'def\s+([a-zA-Z_]\w+)(?:\s*\(|$|\s)',  # Python/Ruby (improved)
             r'function\s+([a-zA-Z_]\w+)\s*\(',  # JavaScript
             r'func\s+([a-zA-Z_]\w+)\s*\(',  # Go/Swift
             r'fn\s+([a-zA-Z_]\w+)\s*\(',  # Rust
-            r'(?:public|private|protected)?\s*\w+\s+([a-zA-Z_]\w+)\s*\([^)]*\)\s*{',  # Java/C#
+            r'fun\s+([a-zA-Z_]\w+)\s*\(',  # Kotlin
+            r'(?:public|private|protected)?\s*\w+\s+([a-zA-Z_]\w+)\s*\([^)]*\)\s*[{;]',  # Java/C#/C++ (improved)
         ],
         'class': [
             r'class\s+([A-Z]\w+)',  # Most languages
             r'struct\s+([A-Z]\w+)',  # C/C++/Rust
             r'interface\s+([A-Z]\w+)',  # TypeScript/Java
+            r'type\s+([A-Z]\w+)\s+struct',  # Go
+            r'enum\s+([A-Z]\w+)',  # Rust/Swift/C#
         ],
         'import': [
             r'import\s+([a-zA-Z0-9_.]+)',  # Python/Java
@@ -42,10 +45,16 @@ class SourceCodeExtractor(BaseExtractor):
             r'require\s*\([\'"]([^\'\"]+)[\'"]',  # Node.js
             r'use\s+([a-zA-Z0-9_:]+)',  # Rust
             r'#include\s*[<"]([^>"]+)[>"]',  # C/C++
+            r'import\s+"([^"]+)"',  # Go
+            r'using\s+([a-zA-Z0-9_.]+)',  # C#
+            r'import\s+([a-zA-Z0-9_.]+)\.\*',  # Kotlin wildcard imports
         ],
         'constant': [
             r'(?:const|final|readonly)\s+\w+\s+([A-Z_][A-Z0-9_]+)',  # Constants
             r'([A-Z_][A-Z0-9_]+)\s*=\s*["\'\d]',  # Assignment to uppercase
+            r'#define\s+([A-Z_][A-Z0-9_]+)',  # C/C++ macros
+            r'const\s+([A-Z_][A-Z0-9_]+)\s*:',  # Rust
+            r'const\s+val\s+([A-Z_][A-Z0-9_]+)',  # Kotlin
         ]
     }
     
