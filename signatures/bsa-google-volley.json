@@ -1,0 +1,87 @@
+{
+  "component": {
+    "name": "Volley HTTP Lib",
+    "version": "unknown",
+    "category": "networking",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Volley HTTP Lib - Google",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.449663Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 6,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-volley.json"
+  },
+  "signatures": [
+    {
+      "id": "google_volley_0",
+      "type": "string_pattern",
+      "pattern": "volley",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_volley_1",
+      "type": "string_pattern",
+      "pattern": "VolleyLog",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_volley_2",
+      "type": "string_pattern",
+      "pattern": "volley-request",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_volley_3",
+      "type": "string_pattern",
+      "pattern": "Volley",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_volley_4",
+      "type": "string_pattern",
+      "pattern": "VolleyLog",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_volley_5",
+      "type": "string_pattern",
+      "pattern": "VolleyError",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

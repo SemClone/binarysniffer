@@ -1,0 +1,127 @@
+{
+  "component": {
+    "name": "Apache Cordova",
+    "version": "unknown",
+    "category": "enterprise-library",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Apache Cordova - The Apache Software Foundation",
+    "license": "Apache-2.0",
+    "publisher": "The Apache Software Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.447677Z",
+    "updated": "2022-06-12T00:00:00Z",
+    "signature_count": 10,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "apache-cordova.json"
+  },
+  "signatures": [
+    {
+      "id": "apache_cordova_0",
+      "type": "string_pattern",
+      "pattern": "cordova",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_1",
+      "type": "string_pattern",
+      "pattern": "cordovaInterface",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_2",
+      "type": "string_pattern",
+      "pattern": "CordovaHttpAuthHandler",
+      "confidence": 0.8,
+      "context": "networking",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_3",
+      "type": "string_pattern",
+      "pattern": "cordova",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_4",
+      "type": "string_pattern",
+      "pattern": "cordova-plugin-fake-ios-frameworks",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_5",
+      "type": "string_pattern",
+      "pattern": "wwwcordova_plugins",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_6",
+      "type": "string_pattern",
+      "pattern": "CordovaClientCertRequest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_7",
+      "type": "string_pattern",
+      "pattern": "cordova-plugin-fake",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_8",
+      "type": "string_pattern",
+      "pattern": "CordovaInterfaceImpl",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_cordova_9",
+      "type": "string_pattern",
+      "pattern": "CordovaPlugin",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

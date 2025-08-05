@@ -1,0 +1,77 @@
+{
+  "component": {
+    "name": "Kerberos libraries",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Kerberos libraries - MIT",
+    "license": "BSD-2-Clause",
+    "publisher": "MIT"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.445622Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 5,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "mit-krb5.json"
+  },
+  "signatures": [
+    {
+      "id": "mit_krb5_0",
+      "type": "string_pattern",
+      "pattern": "krb5_get_permitted_enctypes",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "mit_krb5_1",
+      "type": "string_pattern",
+      "pattern": "krb5_decode_test",
+      "confidence": 0.8,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "mit_krb5_2",
+      "type": "string_pattern",
+      "pattern": "krb5",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "mit_krb5_3",
+      "type": "string_pattern",
+      "pattern": "jgss",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "mit_krb5_4",
+      "type": "string_pattern",
+      "pattern": "ietf",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

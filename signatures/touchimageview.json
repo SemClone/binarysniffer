@@ -1,0 +1,46 @@
+{
+  "component": {
+    "name": "TouchImageView",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - TouchImageView",
+    "license": "MIT"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531515Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "touchimageview_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "9d45d997c52bdd173f3722e0f0ccdea5e50fa98f64b16af92bdd2b1bcfeff74a"
+    },
+    {
+      "id": "touchimageview_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "e61799194522fe780a7154ae8fd75f7ba7d39b14bd55fad7b9503f404101a02d"
+    }
+  ]
+}

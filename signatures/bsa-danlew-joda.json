@@ -1,0 +1,237 @@
+{
+  "component": {
+    "name": "Joda-Time library",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Joda-Time library - Daniel Lew",
+    "license": "Apache-2.0",
+    "publisher": "Daniel Lew"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.399829Z",
+    "updated": "2022-06-12T00:00:00Z",
+    "signature_count": 21,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "danlew-joda.json"
+  },
+  "signatures": [
+    {
+      "id": "danlew_joda_0",
+      "type": "string_pattern",
+      "pattern": "OldDefaultJoda",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_1",
+      "type": "string_pattern",
+      "pattern": "JodaSampleActivity",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_2",
+      "type": "string_pattern",
+      "pattern": "jodaDateUtils",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_3",
+      "type": "string_pattern",
+      "pattern": "jodaJodaTimeAndroid",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_4",
+      "type": "string_pattern",
+      "pattern": "joda_keep",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_5",
+      "type": "string_pattern",
+      "pattern": "jodaResUtils",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_6",
+      "type": "string_pattern",
+      "pattern": "JodaSampleActivity",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_7",
+      "type": "string_pattern",
+      "pattern": "JodaTimeAndroid",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_8",
+      "type": "string_pattern",
+      "pattern": "jodasample",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_9",
+      "type": "string_pattern",
+      "pattern": "jodaTzDataPlugin",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_10",
+      "type": "string_pattern",
+      "pattern": "jodaTzDataPluginExtension",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_11",
+      "type": "string_pattern",
+      "pattern": "jodaTimeZoneChangedReceiver",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_12",
+      "type": "string_pattern",
+      "pattern": "jodaResourceZoneInfoProvider",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_13",
+      "type": "string_pattern",
+      "pattern": "qjoda",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_14",
+      "type": "string_pattern",
+      "pattern": "mDefaultJodaTz",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_15",
+      "type": "string_pattern",
+      "pattern": "jodaCompileTzDataTask",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_16",
+      "type": "string_pattern",
+      "pattern": "activity_joda_sample",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_17",
+      "type": "string_pattern",
+      "pattern": "JodaTimeInitializer",
+      "confidence": 0.8,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_18",
+      "type": "string_pattern",
+      "pattern": "jodatest",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_19",
+      "type": "string_pattern",
+      "pattern": "jodaJodaTimeInitializer",
+      "confidence": 0.8,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "danlew_joda_20",
+      "type": "string_pattern",
+      "pattern": "joda",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

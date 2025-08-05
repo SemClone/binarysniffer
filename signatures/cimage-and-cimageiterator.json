@@ -1,0 +1,90 @@
+{
+  "component": {
+    "name": "CImage and CImageIterator",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - CImage and CImageIterator",
+    "license": "BSD-3-Clause"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.530401Z",
+    "signature_count": 6,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "cimage_and_cimageiterator_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "8b6ccb38575e5c243d11fec507d62112af2d28fa3588cfdfa05f1134d0440734"
+    },
+    {
+      "id": "cimage_and_cimageiterator_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "9e7e1cb942d951cf447e71e31e9306ec17af43ad119cf86143b0dc20bcaabec7"
+    },
+    {
+      "id": "cimage_and_cimageiterator_2",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "f4ee4677b389618963cdeeb51120a30737b7a7cfa6474be695a27f50cb929dcd"
+    },
+    {
+      "id": "cimage_and_cimageiterator_3",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "6be522430f6e9d8f3ebaa5655ae21ca45927c1be26823dddaed243d9f08e8a41"
+    },
+    {
+      "id": "cimage_and_cimageiterator_4",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "ec171cbfa17363d4a0ef9e16c67baad5699e15135d23312e1bb50e55063597cf"
+    },
+    {
+      "id": "cimage_and_cimageiterator_5",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "5867799adf78e476e2132bf4229e495bde14c32fbbb33c0035344b5c2ccdc887"
+    }
+  ]
+}

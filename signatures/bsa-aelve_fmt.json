@@ -1,0 +1,47 @@
+{
+  "component": {
+    "name": "FMT formatting library",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for FMT formatting library - Aelve",
+    "license": "BSD-3-Clause",
+    "publisher": "Aelve"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.396482Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "aelve_fmt.json"
+  },
+  "signatures": [
+    {
+      "id": "aelve_fmt_0",
+      "type": "string_pattern",
+      "pattern": "fmt:",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "aelve_fmt_1",
+      "type": "string_pattern",
+      "pattern": "fmt",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

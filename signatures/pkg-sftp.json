@@ -1,0 +1,46 @@
+{
+  "component": {
+    "name": "pkg-sftp",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - pkg-sftp",
+    "license": "BSD-2-Clause"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531910Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "pkg_sftp_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "3a6c4d607df3f2612f8c5691f1b738915059ddbd33584cd4607af82abc83d55f"
+    },
+    {
+      "id": "pkg_sftp_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "2c1eaa9ed07060f2f515992bc876c24fb44d663ee1bd40dfe5f9f457652dbe90"
+    }
+  ]
+}

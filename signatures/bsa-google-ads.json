@@ -1,0 +1,187 @@
+{
+  "component": {
+    "name": "Google Ads Library",
+    "version": "unknown",
+    "category": "enterprise-library",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Google Ads Library - Google",
+    "license": "Apache-2.0+CommercialToS",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.449056Z",
+    "updated": "2022-06-14T00:00:00Z",
+    "signature_count": 16,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-ads.json"
+  },
+  "signatures": [
+    {
+      "id": "google_ads_0",
+      "type": "string_pattern",
+      "pattern": "apiservice",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_1",
+      "type": "string_pattern",
+      "pattern": "X509",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_2",
+      "type": "string_pattern",
+      "pattern": "POLICY_MAPPING",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_3",
+      "type": "string_pattern",
+      "pattern": "KindCase",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_4",
+      "type": "string_pattern",
+      "pattern": "LocalizedText",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_5",
+      "type": "string_pattern",
+      "pattern": "getThisUpdate",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_6",
+      "type": "string_pattern",
+      "pattern": "GzipInflatingBuffer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_7",
+      "type": "string_pattern",
+      "pattern": "MetricDescriptor",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_8",
+      "type": "string_pattern",
+      "pattern": "jobjectl",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_9",
+      "type": "string_pattern",
+      "pattern": "getClientId",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_10",
+      "type": "string_pattern",
+      "pattern": "ByteBufferInputStream",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_11",
+      "type": "string_pattern",
+      "pattern": "google-ads-stubs",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_12",
+      "type": "string_pattern",
+      "pattern": "google-ads-stubs",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_13",
+      "type": "string_pattern",
+      "pattern": "google",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_14",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_ADS_CLIENT_SECRET",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_15",
+      "type": "string_pattern",
+      "pattern": "SHARED_SECRETS_CLASSNAME",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

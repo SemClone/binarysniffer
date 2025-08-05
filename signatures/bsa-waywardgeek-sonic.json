@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "Waywardgeek Sonic Library",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Waywardgeek Sonic Library - waywardgeek",
+    "license": "Apache-2.0",
+    "publisher": "waywardgeek"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.391287Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "waywardgeek-sonic.json"
+  },
+  "signatures": [
+    {
+      "id": "waywardgeek_sonic_0",
+      "type": "string_pattern",
+      "pattern": "sonic.Sonic",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "waywardgeek_sonic_1",
+      "type": "string_pattern",
+      "pattern": "sonicSonic",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "waywardgeek_sonic_2",
+      "type": "string_pattern",
+      "pattern": "Sonic",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

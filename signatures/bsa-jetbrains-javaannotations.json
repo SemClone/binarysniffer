@@ -1,0 +1,67 @@
+{
+  "component": {
+    "name": "JetBrains - java-annotations",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for JetBrains - java-annotations - JetBrains",
+    "license": "Apache-2.0",
+    "publisher": "JetBrains"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.392377Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 4,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "jetbrains-javaannotations.json"
+  },
+  "signatures": [
+    {
+      "id": "jetbrains_javaannotations_0",
+      "type": "string_pattern",
+      "pattern": "org.intellij.lang",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "jetbrains_javaannotations_1",
+      "type": "string_pattern",
+      "pattern": "intellij",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "jetbrains_javaannotations_2",
+      "type": "string_pattern",
+      "pattern": "jetbrains",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "jetbrains_javaannotations_3",
+      "type": "string_pattern",
+      "pattern": "org.jetbrains.annotations",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

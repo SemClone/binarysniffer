@@ -1,0 +1,48 @@
+{
+  "component": {
+    "name": "UTF8 CPP",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ],
+    "description": "Signatures for UTF8 CPP - Nemanja Trifunovic",
+    "license": "MIT-Like",
+    "publisher": "Nemanja Trifunovic"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.401087Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "utf_cpp.json"
+  },
+  "signatures": [
+    {
+      "id": "utf_cpp_0",
+      "type": "string_pattern",
+      "pattern": "utf8",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "utf_cpp_1",
+      "type": "string_pattern",
+      "pattern": "utf8:",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

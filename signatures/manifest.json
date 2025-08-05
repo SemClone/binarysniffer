@@ -1,0 +1,1733 @@
+{
+  "version": "1.3.0",
+  "signature_format_version": "1.0",
+  "last_updated": "2025-08-04T15:40:01.463693Z",
+  "total_signatures": 8767,
+  "signature_files": [
+    {
+      "filename": "cimage-and-cimageiterator.json",
+      "version": "1.0.0",
+      "component": "CImage and CImageIterator",
+      "description": "Signatures for CImage and CImageIterator",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "facebook-android-sdk.json",
+      "version": "1.0.0",
+      "component": "Facebook Android SDK",
+      "description": "Signatures for Facebook Android SDK",
+      "signature_count": 16,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "fast-c++-logging---spdlog.json",
+      "version": "1.0.0",
+      "component": "Fast C++ logging - spdlog",
+      "description": "Signatures for Fast C++ logging - spdlog",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "fasterxml-jackson.json",
+      "version": "1.0.0",
+      "component": "FasterXML Jackson",
+      "description": "Signatures for FasterXML Jackson",
+      "signature_count": 25,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "photoview.json",
+      "version": "1.0.0",
+      "component": "PhotoView",
+      "description": "Signatures for PhotoView",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "picasso.json",
+      "version": "1.0.0",
+      "component": "Picasso",
+      "description": "Signatures for Picasso",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "touchimageview.json",
+      "version": "1.0.0",
+      "component": "TouchImageView",
+      "description": "Signatures for TouchImageView",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "xiph-vorbis.json",
+      "version": "1.0.0",
+      "component": "Xiph Vorbis",
+      "description": "Signatures for Xiph Vorbis",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "pkg-errors.json",
+      "version": "1.0.0",
+      "component": "pkg-errors",
+      "description": "Signatures for pkg-errors",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "pkg-sftp.json",
+      "version": "1.0.0",
+      "component": "pkg-sftp",
+      "description": "Signatures for pkg-sftp",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ]
+    },
+    {
+      "filename": "bsa-facebook-android-sdk.json",
+      "version": "1.0.0",
+      "component": "Facebook Android SDK",
+      "description": "Signatures for Facebook Android SDK - Facebook",
+      "signature_count": 16,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-xiph_vorbis.json",
+      "version": "1.0.0",
+      "component": "Xiph Vorbis",
+      "description": "Signatures for Xiph Vorbis - Xiph.Org Foundation",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-picasso.json",
+      "version": "1.0.0",
+      "component": "Picasso",
+      "description": "Signatures for Picasso - Square",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-mikeortiz-touchimageview.json",
+      "version": "1.0.0",
+      "component": "TouchImageView",
+      "description": "Signatures for TouchImageView - MikeOrtiz",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-xdp_cximage.json",
+      "version": "1.0.0",
+      "component": "CImage and CImageIterator",
+      "description": "Signatures for CImage and CImageIterator - Davide Pizzolato",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-chrisbanes-photoview.json",
+      "version": "1.0.0",
+      "component": "PhotoView",
+      "description": "Signatures for PhotoView - Chris Banes",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-fasterxml-jackson.json",
+      "version": "1.0.0",
+      "component": "FasterXML Jackson",
+      "description": "Signatures for FasterXML Jackson - FasterXML",
+      "signature_count": 25,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-gabime_spdlog.json",
+      "version": "1.0.0",
+      "component": "Fast C++ logging - spdlog",
+      "description": "Signatures for Fast C++ logging - spdlog - Gabi Melman",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "c",
+        "c++"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-pkg-sftp.json",
+      "version": "1.0.0",
+      "component": "pkg-sftp",
+      "description": "Signatures for pkg-sftp - Dave Cheney",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-pkg-errors.json",
+      "version": "1.0.0",
+      "component": "pkg-errors",
+      "description": "Signatures for pkg-errors - Dave Cheney",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-hunspell_hyphen.json",
+      "version": "1.0.0",
+      "component": "Hunspell Hyphen",
+      "description": "Signatures for Hunspell Hyphen - Hunspell",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-waywardgeek-sonic.json",
+      "version": "1.0.0",
+      "component": "Waywardgeek Sonic Library",
+      "description": "Signatures for Waywardgeek Sonic Library - waywardgeek",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-avro.json",
+      "version": "1.0.0",
+      "component": "Apache Avro",
+      "description": "Signatures for Apache Avro - The Apache Software Foundation",
+      "signature_count": 6,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-viper.json",
+      "version": "1.0.0",
+      "component": "Viper",
+      "description": "Signatures for Viper - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-nostra13-universalimageloader.json",
+      "version": "1.0.0",
+      "component": "NOSTRA13 Android Universal Image Loader",
+      "description": "Signatures for NOSTRA13 Android Universal Image Loader - NOSTRA13",
+      "signature_count": 2,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-hashicorp-hcl.json",
+      "version": "1.0.0",
+      "component": "HCL",
+      "description": "Signatures for HCL - HashiCorp",
+      "signature_count": 5,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-kotlin-core.json",
+      "version": "1.0.0",
+      "component": "Open Source Kotlin Core",
+      "description": "Signatures for Open Source Kotlin Core - JetBrains",
+      "signature_count": 22,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-leakcanary.json",
+      "version": "1.0.0",
+      "component": "LeakCanary",
+      "description": "Signatures for LeakCanary - Square",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-go.json",
+      "version": "1.0.0",
+      "component": "Go",
+      "description": "Signatures for Go - The Go Authors",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "go"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-jetbrains-javaannotations.json",
+      "version": "1.0.0",
+      "component": "JetBrains - java-annotations",
+      "description": "Signatures for JetBrains - java-annotations - JetBrains",
+      "signature_count": 4,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-javapoet.json",
+      "version": "1.0.0",
+      "component": "JavaPoet",
+      "description": "Signatures for JavaPoet - Square",
+      "signature_count": 4,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-libjpeg.json",
+      "version": "1.0.0",
+      "component": "Libjpeg",
+      "description": "Signatures for Libjpeg - Independent JPEG Group (IJG)",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-haha.json",
+      "version": "1.0.0",
+      "component": "HAHA - Headless Android Heap Analyzer",
+      "description": "Signatures for HAHA - Headless Android Heap Analyzer - Square",
+      "signature_count": 4,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-fangyidong-json-simple.json",
+      "version": "1.0.0",
+      "component": "JSON Simple",
+      "description": "Signatures for JSON Simple - Fangyidong",
+      "signature_count": 19,
+      "platforms": [
+        "web",
+        "node"
+      ],
+      "languages": [
+        "javascript"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-facebook-yoga.json",
+      "version": "1.0.0",
+      "component": "Facebook Yoga",
+      "description": "Signatures for Facebook Yoga - Yoga",
+      "signature_count": 12,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-immutables-immutables.json",
+      "version": "1.0.0",
+      "component": "Immutables",
+      "description": "Signatures for Immutables - Immutables",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-webkit.json",
+      "version": "1.0.0",
+      "component": "WebKit, WebCore and JSC",
+      "description": "Signatures for WebKit, WebCore and JSC - KDE",
+      "signature_count": 4,
+      "platforms": [
+        "web",
+        "node"
+      ],
+      "languages": [
+        "javascript"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google_pdfium.json",
+      "version": "1.0.0",
+      "component": "pdfium",
+      "description": "Signatures for pdfium - Google",
+      "signature_count": 289,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-thoughtworks-paranamer.json",
+      "version": "1.0.0",
+      "component": "Paranamer",
+      "description": "Signatures for Paranamer - Thoughtworks",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-lucene.json",
+      "version": "1.0.0",
+      "component": "Apache Lucene",
+      "description": "Signatures for Apache Lucene - The Apache Software Foundation",
+      "signature_count": 6,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-icu_unicode.json",
+      "version": "1.0.0",
+      "component": "International Components for Unicode",
+      "description": "Signatures for International Components for Unicode - Unicode",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-netinsight-sye.json",
+      "version": "1.0.0",
+      "component": "Netinsight Sye Tools",
+      "description": "Signatures for Netinsight Sye Tools - Netinsight",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-netty-netty.json",
+      "version": "1.0.0",
+      "component": "Netty project",
+      "description": "Signatures for Netty project - Netty",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-firebase.json",
+      "version": "1.0.0",
+      "component": "Firebase - Fabric Library",
+      "description": "Signatures for Firebase - Fabric Library - Google",
+      "signature_count": 17,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-aelve_fmt.json",
+      "version": "1.0.0",
+      "component": "FMT formatting library",
+      "description": "Signatures for FMT formatting library - Aelve",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-cobra.json",
+      "version": "1.0.0",
+      "component": "cobra",
+      "description": "Signatures for cobra - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google_skia.json",
+      "version": "1.0.0",
+      "component": "SKIA",
+      "description": "Signatures for SKIA - Google",
+      "signature_count": 268,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-facebook-react-native.json",
+      "version": "1.0.0",
+      "component": "React Native",
+      "description": "Signatures for React Native - Facebook",
+      "signature_count": 42,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-comscore-android-sdk.json",
+      "version": "1.0.0",
+      "component": "Comscore Analytics SDK",
+      "description": "Signatures for Comscore Analytics SDK - Comscore",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-guava.json",
+      "version": "1.0.0",
+      "component": "Guava",
+      "description": "Signatures for Guava - Google",
+      "signature_count": 5,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-bumptech-glide.json",
+      "version": "1.0.0",
+      "component": "BumpTech Glide Library",
+      "description": "Signatures for BumpTech Glide Library - BumpTech",
+      "signature_count": 38,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-jwalterweatherman.json",
+      "version": "1.0.0",
+      "component": "Jwalterweatherman",
+      "description": "Signatures for Jwalterweatherman - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-rtyley-spongycastle.json",
+      "version": "1.0.0",
+      "component": "Spongy Castle",
+      "description": "Signatures for Spongy Castle - rtyley",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-roughike-bottombar.json",
+      "version": "1.0.0",
+      "component": "Roughike BottomBar",
+      "description": "Signatures for Roughike BottomBar - Roughike",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-danlew-joda.json",
+      "version": "1.0.0",
+      "component": "Joda-Time library",
+      "description": "Signatures for Joda-Time library - Daniel Lew",
+      "signature_count": 21,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-conscrypt.json",
+      "version": "1.0.0",
+      "component": "Google Conscrypt",
+      "description": "Signatures for Google Conscrypt - Google",
+      "signature_count": 88,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-kakadu_kdu_image.json",
+      "version": "1.0.0",
+      "component": "Kakadu framework",
+      "description": "Signatures for Kakadu framework - David Taubman",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-bouncycastle.json",
+      "version": "1.0.0",
+      "component": "BouncyCastle",
+      "description": "Signatures for BouncyCastle - Legion of the Bouncy Castle Inc",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-okio.json",
+      "version": "1.0.0",
+      "component": "Okio",
+      "description": "Signatures for Okio - Square",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-utf_cpp.json",
+      "version": "1.0.0",
+      "component": "UTF8 CPP",
+      "description": "Signatures for UTF8 CPP - Nemanja Trifunovic",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "c",
+        "c++"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-zxing.json",
+      "version": "1.0.0",
+      "component": "ZXing barcode scanner",
+      "description": "Signatures for ZXing barcode scanner - Google",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-okhttp.json",
+      "version": "1.0.0",
+      "component": "OkHttp",
+      "description": "Signatures for OkHttp - Square",
+      "signature_count": 5,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-gson.json",
+      "version": "1.0.0",
+      "component": "GSON Library",
+      "description": "Signatures for GSON Library - Google",
+      "signature_count": 10,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-magiconair-properties.json",
+      "version": "1.0.0",
+      "component": "magiconair/properties",
+      "description": "Signatures for magiconair/properties - Frank Schroder",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-costigliola-assertj.json",
+      "version": "1.0.0",
+      "component": "AssertJ - Fluent assertions for java",
+      "description": "Signatures for AssertJ - Fluent assertions for java - Joel Costigliola",
+      "signature_count": 22,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-arm_mbedtlssockets.json",
+      "version": "1.0.0",
+      "component": "ARMmbed TLS C++ Socket API",
+      "description": "Signatures for ARMmbed TLS C++ Socket API - ARMmbed",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "c",
+        "c++"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-leolin-shortcutbadger.json",
+      "version": "1.0.0",
+      "component": "ShortcutBadger",
+      "description": "Signatures for ShortcutBadger - LeoLin",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-dagger.json",
+      "version": "1.0.0",
+      "component": "Google Dagger",
+      "description": "Signatures for Google Dagger - Google",
+      "signature_count": 41,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-sax-sax-parser.json",
+      "version": "1.0.0",
+      "component": "SAX Parser",
+      "description": "Signatures for SAX Parser - SAX Project",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-greenrobot-eventbus.json",
+      "version": "1.0.0",
+      "component": "GreenRobot EventBus",
+      "description": "Signatures for GreenRobot EventBus - GreenRobot",
+      "signature_count": 13,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-pixar_opensubdiv.json",
+      "version": "1.0.0",
+      "component": "OpenSubdiv",
+      "description": "Signatures for OpenSubdiv - Pixar Animation Studios",
+      "signature_count": 1,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-pelletier-gotoml.json",
+      "version": "1.0.0",
+      "component": "go-toml",
+      "description": "Signatures for go-toml - Thomas Pelletier",
+      "signature_count": 7,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "go"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-ffmpeg.json",
+      "version": "1.0.0",
+      "component": "FFMPEG",
+      "description": "Signatures for FFMPEG - FFMPEG",
+      "signature_count": 6660,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "c",
+        "c++"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-libunwind.json",
+      "version": "1.0.0",
+      "component": "Libunwind",
+      "description": "Signatures for Libunwind - Libunwind",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache_xpat.json",
+      "version": "1.0.0",
+      "component": "The Expat XML Parser",
+      "description": "Signatures for The Expat XML Parser - W3C",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-rzwitserloot-lombok.json",
+      "version": "1.0.0",
+      "component": "Project Lombok",
+      "description": "Signatures for Project Lombok - Lombok",
+      "signature_count": 4,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-umd-multithreadedtc.json",
+      "version": "1.0.0",
+      "component": "MultithreadedTC framework",
+      "description": "Signatures for MultithreadedTC framework - University of Maryland",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-facebook-fresco.json",
+      "version": "1.0.0",
+      "component": "Facebook Fresco",
+      "description": "Signatures for Facebook Fresco - Facebook",
+      "signature_count": 7,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-cast.json",
+      "version": "1.0.0",
+      "component": "Cast",
+      "description": "Signatures for Cast - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-localytics-sdk.json",
+      "version": "1.0.0",
+      "component": "Localytics Android SDK",
+      "description": "Signatures for Localytics Android SDK - Localytics",
+      "signature_count": 2,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-pflag.json",
+      "version": "1.0.0",
+      "component": "Pflag",
+      "description": "Signatures for Pflag - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-facebook_folly.json",
+      "version": "1.0.0",
+      "component": "Facebook Folly",
+      "description": "Signatures for Facebook Folly - Facebook",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google_snappy.json",
+      "version": "1.0.0",
+      "component": "Snappy",
+      "description": "Signatures for Snappy - Google",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google_webrtc.json",
+      "version": "1.0.0",
+      "component": "WebRTC",
+      "description": "Signatures for WebRTC - Google",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-fsnotify-fsnotify.json",
+      "version": "1.0.0",
+      "component": "fsnotify",
+      "description": "Signatures for fsnotify - The Go Authors",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-harfbuzz_harfbuzz.json",
+      "version": "1.0.0",
+      "component": "HarfBuzz",
+      "description": "Signatures for HarfBuzz - HarfBuzz",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-mit-krb5.json",
+      "version": "1.0.0",
+      "component": "Kerberos libraries",
+      "description": "Signatures for Kerberos libraries - MIT",
+      "signature_count": 5,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-arm_mbedtls.json",
+      "version": "1.0.0",
+      "component": "ARMmbed TLS",
+      "description": "Signatures for ARMmbed TLS - ARMmbed",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-kazuho_picojson.json",
+      "version": "1.0.0",
+      "component": "PicoJSON",
+      "description": "Signatures for PicoJSON - kazuho",
+      "signature_count": 2,
+      "platforms": [
+        "web",
+        "node"
+      ],
+      "languages": [
+        "javascript"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-java-core.json",
+      "version": "1.0.0",
+      "component": "Open Source Java Core",
+      "description": "Signatures for Open Source Java Core - SUN/Oracle/OpenJDK",
+      "signature_count": 60,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-samsung-android.json",
+      "version": "1.0.0",
+      "component": "Samsung Android SDK",
+      "description": "Signatures for Samsung Android SDK - Samsung",
+      "signature_count": 3,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-airbnb-lottie-android.json",
+      "version": "1.0.0",
+      "component": "AirBNB Lottie Android",
+      "description": "Signatures for AirBNB Lottie Android - AirBNB",
+      "signature_count": 11,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-solr.json",
+      "version": "1.0.0",
+      "component": "Apache Solr",
+      "description": "Signatures for Apache Solr - The Apache Software Foundation",
+      "signature_count": 30,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-nanohttpd-nanohttpd.json",
+      "version": "1.0.0",
+      "component": "NanoHttpd - HTTP server",
+      "description": "Signatures for NanoHttpd - HTTP server - NanoHttpd",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-boltsframework-android.json",
+      "version": "1.0.0",
+      "component": "Bolts for Android",
+      "description": "Signatures for Bolts for Android - Facebook",
+      "signature_count": 8,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-h6ah4i_openslmediaplayer.json",
+      "version": "1.0.0",
+      "component": "OpenSLMediaPlayer",
+      "description": "Signatures for OpenSLMediaPlayer - h6ah4i",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-square-retrofit.json",
+      "version": "1.0.0",
+      "component": "Retrofit",
+      "description": "Signatures for Retrofit - Square",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-reactivex-rxjava.json",
+      "version": "1.0.0",
+      "component": "ReactiveX RxJava",
+      "description": "Signatures for ReactiveX RxJava - ReactiveX",
+      "signature_count": 3,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-cordova.json",
+      "version": "1.0.0",
+      "component": "Apache Cordova",
+      "description": "Signatures for Apache Cordova - The Apache Software Foundation",
+      "signature_count": 10,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-j2objc.json",
+      "version": "1.0.0",
+      "component": "J2ObjC Annotations",
+      "description": "Signatures for J2ObjC Annotations - Google",
+      "signature_count": 14,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-protobuf.json",
+      "version": "1.0.0",
+      "component": "Protobuf Library",
+      "description": "Signatures for Protobuf Library - Google",
+      "signature_count": 7,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-commons.json",
+      "version": "1.0.0",
+      "component": "Apache Commons",
+      "description": "Signatures for Apache Commons - The Apache Software Foundation",
+      "signature_count": 4,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-xiph_libopus.json",
+      "version": "1.0.0",
+      "component": "Xiph LibOpus",
+      "description": "Signatures for Xiph LibOpus - Xiph.Org Foundation",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-x265.json",
+      "version": "1.0.0",
+      "component": "x265",
+      "description": "Signatures for x265 - x265 Project",
+      "signature_count": 77,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-ads.json",
+      "version": "1.0.0",
+      "component": "Google Ads Library",
+      "description": "Signatures for Google Ads Library - Google",
+      "signature_count": 16,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google_exoplayer.json",
+      "version": "1.0.0",
+      "component": "ExoPlayer",
+      "description": "Signatures for ExoPlayer - Google",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-jodaorg-joda.json",
+      "version": "1.0.0",
+      "component": "Joda Convert",
+      "description": "Signatures for Joda Convert - JodaORG",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-android.json",
+      "version": "1.0.0",
+      "component": "Google Android",
+      "description": "Signatures for Google Android - Google",
+      "signature_count": 9,
+      "platforms": [
+        "android"
+      ],
+      "languages": [
+        "java",
+        "kotlin"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-subosito-gotenv.json",
+      "version": "1.0.0",
+      "component": "gotenv",
+      "description": "Signatures for gotenv - Alif Rachmawadi",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "go"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-google-volley.json",
+      "version": "1.0.0",
+      "component": "Volley HTTP Lib",
+      "description": "Signatures for Volley HTTP Lib - Google",
+      "signature_count": 6,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-facebook-infer.json",
+      "version": "1.0.0",
+      "component": "Facebook Infer",
+      "description": "Signatures for Facebook Infer - Facebook",
+      "signature_count": 13,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-gnu_libiconv.json",
+      "version": "1.0.0",
+      "component": "GNU libiconv",
+      "description": "Signatures for GNU libiconv - Free Software Foundation",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-spf13-afero.json",
+      "version": "1.0.0",
+      "component": "Afero",
+      "description": "Signatures for Afero - Steve Francia",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-apache-httpcore.json",
+      "version": "1.0.0",
+      "component": "Apache HTTP Core",
+      "description": "Signatures for Apache HTTP Core - The Apache Software Foundation",
+      "signature_count": 65,
+      "platforms": [
+        "java"
+      ],
+      "languages": [
+        "java"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-jakewharton-butterknife.json",
+      "version": "1.0.0",
+      "component": "ButterKnife Project",
+      "description": "Signatures for ButterKnife Project - JakeWharton",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-gnu_gcc.json",
+      "version": "1.0.0",
+      "component": "GNU C Compiler and C Libraries",
+      "description": "Signatures for GNU C Compiler and C Libraries - Free Software Foundation",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-x264.json",
+      "version": "1.0.0",
+      "component": "x264",
+      "description": "Signatures for x264 - x264 Project",
+      "signature_count": 582,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-boostorg_boost.json",
+      "version": "1.0.0",
+      "component": "Boost and Boost-Options",
+      "description": "Signatures for Boost and Boost-Options - Boost",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-libfontconfig.json",
+      "version": "1.0.0",
+      "component": "Fontconfig",
+      "description": "Signatures for Fontconfig - freedesktop",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-tune-androidsdk.json",
+      "version": "1.0.0",
+      "component": "Tune MobileAppTracking Library",
+      "description": "Signatures for Tune MobileAppTracking Library - BranchMetrics",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-sirupsen-logrus.json",
+      "version": "1.0.0",
+      "component": "logrus",
+      "description": "Signatures for logrus - Simon Eskildsen",
+      "signature_count": 3,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    },
+    {
+      "filename": "bsa-qos-slf4j.json",
+      "version": "1.0.0",
+      "component": "SLF4J",
+      "description": "Signatures for SLF4J - QOS.ch",
+      "signature_count": 2,
+      "platforms": [
+        "all"
+      ],
+      "languages": [
+        "unknown"
+      ],
+      "source": "BSA_conversion"
+    }
+  ],
+  "categories": [
+    "networking",
+    "data-processing",
+    "imported",
+    "pkg",
+    "other",
+    "Fast C++ logging ",
+    "media-processing",
+    "mobile-sdk",
+    "enterprise-library"
+  ],
+  "source": "Exported from legacy SQLite database"
+}

@@ -1,0 +1,247 @@
+{
+  "component": {
+    "name": "AssertJ - Fluent assertions for java",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for AssertJ - Fluent assertions for java - Joel Costigliola",
+    "license": "Apache-2.0",
+    "publisher": "Joel Costigliola"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.401817Z",
+    "updated": "2022-06-12T00:00:00Z",
+    "signature_count": 22,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "costigliola-assertj.json"
+  },
+  "signatures": [
+    {
+      "id": "costigliola_assertj_0",
+      "type": "string_pattern",
+      "pattern": "AssertJMultipleFailuresError",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_1",
+      "type": "string_pattern",
+      "pattern": "assertj",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_2",
+      "type": "string_pattern",
+      "pattern": "convert-junit-assertions-to-assertj",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_3",
+      "type": "string_pattern",
+      "pattern": "ASSERTJ_CLASS_LOADER",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_4",
+      "type": "string_pattern",
+      "pattern": "hasStackTraceElementRelatedToAssertJ",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_5",
+      "type": "string_pattern",
+      "pattern": "Convert_Junit_Assertions_To_Assertj_Test",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_6",
+      "type": "string_pattern",
+      "pattern": "assertj-javadoc",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_7",
+      "type": "string_pattern",
+      "pattern": "AssertJThrowable",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_8",
+      "type": "string_pattern",
+      "pattern": "orgassertj",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_9",
+      "type": "string_pattern",
+      "pattern": "convert-testng-assertions-to-assertj",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_10",
+      "type": "string_pattern",
+      "pattern": "toAssertJ",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_11",
+      "type": "string_pattern",
+      "pattern": "removeAssertJRelatedElementsFromStackTrace",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_12",
+      "type": "string_pattern",
+      "pattern": "ShouldBeEqual_assertj_elements_stack_trace_filtering_Test",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_13",
+      "type": "string_pattern",
+      "pattern": "ORG_ASSERTJ",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_14",
+      "type": "string_pattern",
+      "pattern": "testAssertJMultipleFailuresError_getMessage_Test",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_15",
+      "type": "string_pattern",
+      "pattern": "Strings_assertJavaBlank_Test",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_16",
+      "type": "string_pattern",
+      "pattern": "assertj",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_17",
+      "type": "string_pattern",
+      "pattern": "assertJavaBlank",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_18",
+      "type": "string_pattern",
+      "pattern": "AssertJProxySetup",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_19",
+      "type": "string_pattern",
+      "pattern": "Convert_Junit_Assertions_To_Assertj_Test",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_20",
+      "type": "string_pattern",
+      "pattern": "docassertj-migration",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "costigliola_assertj_21",
+      "type": "string_pattern",
+      "pattern": "AssertJMultipleFailuresError",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

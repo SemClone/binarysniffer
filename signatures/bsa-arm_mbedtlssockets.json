@@ -1,0 +1,48 @@
+{
+  "component": {
+    "name": "ARMmbed TLS C++ Socket API",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ],
+    "description": "Signatures for ARMmbed TLS C++ Socket API - ARMmbed",
+    "license": "Apache-2.0",
+    "publisher": "ARMmbed"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.402052Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "arm_mbedtlssockets.json"
+  },
+  "signatures": [
+    {
+      "id": "arm_mbedtlssockets_0",
+      "type": "string_pattern",
+      "pattern": "mbedTLSSocket",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "arm_mbedtlssockets_1",
+      "type": "string_pattern",
+      "pattern": "mbedTLSStrError",
+      "confidence": 0.8,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

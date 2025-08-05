@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "magiconair/properties",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for magiconair/properties - Frank Schroder",
+    "license": "BSD-2-Clause",
+    "publisher": "Frank Schroder"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.401632Z",
+    "updated": "2022-07-01T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "magiconair-properties.json"
+  },
+  "signatures": [
+    {
+      "id": "magiconair_properties_0",
+      "type": "string_pattern",
+      "pattern": "expiredproperties",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "magiconair_properties_1",
+      "type": "string_pattern",
+      "pattern": "properties",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "magiconair_properties_2",
+      "type": "string_pattern",
+      "pattern": "PropertiesString",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

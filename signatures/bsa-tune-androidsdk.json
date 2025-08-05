@@ -1,0 +1,47 @@
+{
+  "component": {
+    "name": "Tune MobileAppTracking Library",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Tune MobileAppTracking Library - BranchMetrics",
+    "license": "LGPL-3.0|Propietary",
+    "publisher": "BranchMetrics"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.454765Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "tune-androidsdk.json"
+  },
+  "signatures": [
+    {
+      "id": "tune_androidsdk_0",
+      "type": "string_pattern",
+      "pattern": "tune",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "tune_androidsdk_1",
+      "type": "string_pattern",
+      "pattern": "tune.",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "component": {
+    "name": "Xiph Vorbis",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Xiph Vorbis - Xiph.Org Foundation",
+    "license": "BSD-3-Clause",
+    "publisher": "Xiph.Org Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.389837Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "xiph_vorbis.json"
+  },
+  "signatures": [
+    {
+      "id": "xiph_vorbis_0",
+      "type": "string_pattern",
+      "pattern": "OggOpusEncoder",
+      "confidence": 0.8,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "xiph_vorbis_1",
+      "type": "string_pattern",
+      "pattern": "liboggencoder",
+      "confidence": 0.85,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

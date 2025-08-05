@@ -1,0 +1,92 @@
+{
+  "component": {
+    "name": "Bugsnag",
+    "version": "unknown",
+    "category": "error-tracking",
+    "platforms": ["android", "ios"],
+    "languages": ["c", "cpp"],
+    "description": "Bugsnag crash reporting library",
+    "license": "MIT",
+    "publisher": "Bugsnag Inc."
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T19:00:00Z",
+    "updated": "2025-08-04T19:00:00Z",
+    "signature_count": 10,
+    "confidence_threshold": 0.7,
+    "source": "manual"
+  },
+  "signatures": [
+    {
+      "id": "bugsnag_1",
+      "type": "string_pattern",
+      "pattern": "bugsnag_event",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_2",
+      "type": "string_pattern",
+      "pattern": "bugsnag_leave_breadcrumb",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_3",
+      "type": "string_pattern",
+      "pattern": "bugsnag_notify",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_4",
+      "type": "string_pattern",
+      "pattern": "bugsnag_start",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_5",
+      "type": "string_pattern",
+      "pattern": "bugsnag_set_user",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_6",
+      "type": "string_pattern",
+      "pattern": "bugsnag_add_metadata",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "bugsnag_7",
+      "type": "string_pattern",
+      "pattern": "bsg_environment",
+      "confidence": 0.8,
+      "context": "variable"
+    },
+    {
+      "id": "bugsnag_8",
+      "type": "string_pattern",
+      "pattern": "Bugsnag-Api-Key",
+      "confidence": 0.9,
+      "context": "header"
+    },
+    {
+      "id": "bugsnag_9",
+      "type": "string_pattern",
+      "pattern": "libbugsnag",
+      "confidence": 0.95,
+      "context": "filename"
+    },
+    {
+      "id": "bugsnag_10",
+      "type": "string_pattern",
+      "pattern": "bugsnag_handler",
+      "confidence": 0.85,
+      "context": "function"
+    }
+  ]
+}

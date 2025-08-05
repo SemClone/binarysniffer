@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "PhotoView",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - PhotoView",
+    "license": "Apache-2.0"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531297Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "photoview_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "0ff0e7bf80afc0e446954df05a38ec7cffc2d7be0f02739b8a27225796975296"
+    },
+    {
+      "id": "photoview_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "05b892d06781f3c6bd432134b94255a298d4793f9e3e7d15a2118f8cbd182f41"
+    },
+    {
+      "id": "photoview_2",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "ea934798960de6c859bc8661c7dbfc33ed9bfab7c43f16ce94245278a9eb5842"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "component": {
+    "name": "Kakadu framework",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Kakadu framework - David Taubman",
+    "license": "NON-COMMERCIAL, https://bit.ly/2GlEjbs",
+    "publisher": "David Taubman"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.400741Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 4,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "kakadu_kdu_image.json"
+  },
+  "signatures": [
+    {
+      "id": "kakadu_kdu_image_0",
+      "type": "string_pattern",
+      "pattern": "jp2_",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "kakadu_kdu_image_1",
+      "type": "string_pattern",
+      "pattern": "kdu_",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "kakadu_kdu_image_2",
+      "type": "string_pattern",
+      "pattern": "kdu",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "kakadu_kdu_image_3",
+      "type": "string_pattern",
+      "pattern": "kd_",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

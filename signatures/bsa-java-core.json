@@ -1,0 +1,627 @@
+{
+  "component": {
+    "name": "Open Source Java Core",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Open Source Java Core - SUN/Oracle/OpenJDK",
+    "license": "GPL-2.0-with-classpath-exception",
+    "publisher": "SUN/Oracle/OpenJDK"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.446067Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 60,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "java-core.json"
+  },
+  "signatures": [
+    {
+      "id": "java_core_0",
+      "type": "string_pattern",
+      "pattern": "sun.",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_1",
+      "type": "string_pattern",
+      "pattern": "inject",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_2",
+      "type": "string_pattern",
+      "pattern": "awt",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_3",
+      "type": "string_pattern",
+      "pattern": "crypto",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_4",
+      "type": "string_pattern",
+      "pattern": "naming",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_5",
+      "type": "string_pattern",
+      "pattern": "beans",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_6",
+      "type": "string_pattern",
+      "pattern": "annotation",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_7",
+      "type": "string_pattern",
+      "pattern": "annotation",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_8",
+      "type": "string_pattern",
+      "pattern": "microedition",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_9",
+      "type": "string_pattern",
+      "pattern": "lang",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_10",
+      "type": "string_pattern",
+      "pattern": "tools",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_11",
+      "type": "string_pattern",
+      "pattern": "accessibility",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_12",
+      "type": "string_pattern",
+      "pattern": "jms",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_13",
+      "type": "string_pattern",
+      "pattern": "mail",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_14",
+      "type": "string_pattern",
+      "pattern": "swing",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_15",
+      "type": "string_pattern",
+      "pattern": "measure",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_16",
+      "type": "string_pattern",
+      "pattern": "portlet",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_17",
+      "type": "string_pattern",
+      "pattern": "servlet",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_18",
+      "type": "string_pattern",
+      "pattern": "sun.misc.",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_19",
+      "type": "string_pattern",
+      "pattern": "org.json",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_20",
+      "type": "string_pattern",
+      "pattern": "javax.inject",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_21",
+      "type": "string_pattern",
+      "pattern": "java.io",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_22",
+      "type": "string_pattern",
+      "pattern": "java.lang",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_23",
+      "type": "string_pattern",
+      "pattern": "java.math",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_24",
+      "type": "string_pattern",
+      "pattern": "java.net",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_25",
+      "type": "string_pattern",
+      "pattern": "java.nio",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_26",
+      "type": "string_pattern",
+      "pattern": "java.security",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_27",
+      "type": "string_pattern",
+      "pattern": "java.sql",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_28",
+      "type": "string_pattern",
+      "pattern": "java.text",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_29",
+      "type": "string_pattern",
+      "pattern": "java.util",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_30",
+      "type": "string_pattern",
+      "pattern": "java.applet",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_31",
+      "type": "string_pattern",
+      "pattern": "java.awt",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_32",
+      "type": "string_pattern",
+      "pattern": "java.awt.event",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_33",
+      "type": "string_pattern",
+      "pattern": "java.awt.font",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_34",
+      "type": "string_pattern",
+      "pattern": "java.rmi",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_35",
+      "type": "string_pattern",
+      "pattern": "javax.crypto",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_36",
+      "type": "string_pattern",
+      "pattern": "javax.naming",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_37",
+      "type": "string_pattern",
+      "pattern": "javax.net",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_38",
+      "type": "string_pattern",
+      "pattern": "javax.security",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_39",
+      "type": "string_pattern",
+      "pattern": "javax.xml",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_40",
+      "type": "string_pattern",
+      "pattern": "java.beans",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_41",
+      "type": "string_pattern",
+      "pattern": "javax.annotation",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_42",
+      "type": "string_pattern",
+      "pattern": "javax.annotation",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_43",
+      "type": "string_pattern",
+      "pattern": "javax.microedition",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_44",
+      "type": "string_pattern",
+      "pattern": "javax.lang",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_45",
+      "type": "string_pattern",
+      "pattern": "javax.tools",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_46",
+      "type": "string_pattern",
+      "pattern": "javax.accessibility",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_47",
+      "type": "string_pattern",
+      "pattern": "javax.jms",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_48",
+      "type": "string_pattern",
+      "pattern": "javax.mail",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_49",
+      "type": "string_pattern",
+      "pattern": "javax.mail.internet",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_50",
+      "type": "string_pattern",
+      "pattern": "javax.management",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_51",
+      "type": "string_pattern",
+      "pattern": "javax.swing",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_52",
+      "type": "string_pattern",
+      "pattern": "javax.swing.border",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_53",
+      "type": "string_pattern",
+      "pattern": "javax.swing.event",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_54",
+      "type": "string_pattern",
+      "pattern": "javax.swing.table",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_55",
+      "type": "string_pattern",
+      "pattern": "javax.swing.text",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_56",
+      "type": "string_pattern",
+      "pattern": "javax.swing.tree",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_57",
+      "type": "string_pattern",
+      "pattern": "javax.measure",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_58",
+      "type": "string_pattern",
+      "pattern": "javax.portlet",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "java_core_59",
+      "type": "string_pattern",
+      "pattern": "javax.servlet",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

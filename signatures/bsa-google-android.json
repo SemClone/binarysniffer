@@ -1,0 +1,118 @@
+{
+  "component": {
+    "name": "Google Android",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "android"
+    ],
+    "languages": [
+      "java",
+      "kotlin"
+    ],
+    "description": "Signatures for Google Android - Google",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.449426Z",
+    "updated": "2022-06-14T00:00:00Z",
+    "signature_count": 9,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-android.json"
+  },
+  "signatures": [
+    {
+      "id": "google_android_0",
+      "type": "string_pattern",
+      "pattern": "cxgradle",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_1",
+      "type": "string_pattern",
+      "pattern": "android",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_2",
+      "type": "string_pattern",
+      "pattern": "webkit",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_3",
+      "type": "string_pattern",
+      "pattern": "accessibilityservice",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_4",
+      "type": "string_pattern",
+      "pattern": "opengl",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_5",
+      "type": "string_pattern",
+      "pattern": "dalvik",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_6",
+      "type": "string_pattern",
+      "pattern": "libcore",
+      "confidence": 0.85,
+      "context": "library_function",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_7",
+      "type": "string_pattern",
+      "pattern": "xmlpull",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "google_android_8",
+      "type": "string_pattern",
+      "pattern": "OASP",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    }
+  ]
+}

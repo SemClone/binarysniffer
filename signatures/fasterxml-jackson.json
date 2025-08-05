@@ -1,0 +1,299 @@
+{
+  "component": {
+    "name": "FasterXML Jackson",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - FasterXML Jackson",
+    "license": "Apache-2.0"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531019Z",
+    "signature_count": 25,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "fasterxml_jackson_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "44051d62879ae0444c156820da7c4112e825d5dc9a3bfec82f88fc0f6de92a72"
+    },
+    {
+      "id": "fasterxml_jackson_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "dc355ec75a2dc4a1d29582933b52f9f2ed71061432d72e1991d8b15445b2ff03"
+    },
+    {
+      "id": "fasterxml_jackson_2",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "279686e8c28264e4177d50a3fcee69a3215b37c5cf8864f281c3e7a17fb66651"
+    },
+    {
+      "id": "fasterxml_jackson_3",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "5996f05f5908434faea75c71059c31c405c4ac1dc4c7bff8b7a0d935e62c00ed"
+    },
+    {
+      "id": "fasterxml_jackson_4",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "13608a41f14e4189ced6a98df8161b6123c11dfaa809f8b731276fdee70d42e5"
+    },
+    {
+      "id": "fasterxml_jackson_5",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "280e17fa238aaf1dadd3457d8b7f062c2f8b15f126890f1a7f0cd2b37c5f382a"
+    },
+    {
+      "id": "fasterxml_jackson_6",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "e4ede13bb12909b7d987d9ee83b7b3d5fdd7f7f3028ffd4bb602c54e44b79b86"
+    },
+    {
+      "id": "fasterxml_jackson_7",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "c5e080c68e323b687b447c3fddc924902e7c0ba14391fcef2423fa09d322e137"
+    },
+    {
+      "id": "fasterxml_jackson_8",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "65e5fd36d77ba502af6834f1e0198352dffc69531cdda1160c95daa92a46d168"
+    },
+    {
+      "id": "fasterxml_jackson_9",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "bc5ab4490b450d5a531fc42e360955ddd31a017924bf5a4083bfdfedb2e4bf93"
+    },
+    {
+      "id": "fasterxml_jackson_10",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "73ebd7a0d32afdc31fc042b108999bae9ff6ebc19d9d593cf0f9ce6df3b72f5e"
+    },
+    {
+      "id": "fasterxml_jackson_11",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "0d5f22fb22c1c4033183fe79f91536fdb6ad9c1a7e5ccf95886c57a9a9578e7d"
+    },
+    {
+      "id": "fasterxml_jackson_12",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "f520c834ae011c36b3c5eb89bb675f27df743a13c160a3dd74ac4f43fefcbecf"
+    },
+    {
+      "id": "fasterxml_jackson_13",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "fbd99fafaac634f44f7b1e1614a71fb8322288057a662a45581578fa1e7a893f"
+    },
+    {
+      "id": "fasterxml_jackson_14",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "789243cd430d7ced16080b46bf11f85fafcb874162162a894471204c6fbb34d2"
+    },
+    {
+      "id": "fasterxml_jackson_15",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "2988f509b9e423ad57ec35dcc6f61ebeee0bafa1174b548013aa5cd69126862d"
+    },
+    {
+      "id": "fasterxml_jackson_16",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "da20edb988a41f3a4c1f4367debc6bb5484678a9cff9ddfb0ddad9d2b0f4c304"
+    },
+    {
+      "id": "fasterxml_jackson_17",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "d5276bab8281c608d44a97ddbacf045ae5dcabfea6953bd3cef8a4535500c616"
+    },
+    {
+      "id": "fasterxml_jackson_18",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "1839b01c0867370b0b4651505fca54f5385decb3de3005dbbf4f24956ea6f7ff"
+    },
+    {
+      "id": "fasterxml_jackson_19",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "9b4936441547d6946736a27b9cb3986db1d18608bdd8287d066b6933bc6f464d"
+    },
+    {
+      "id": "fasterxml_jackson_20",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "075c09012ddee7c86a4a31206f4ef9b6fb5cc605d0016e75db0ec6c0df8bba06"
+    },
+    {
+      "id": "fasterxml_jackson_21",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "6ffabf35883a66ae24eff85e83e80152f00a09fde0b59716867633a576ea2a14"
+    },
+    {
+      "id": "fasterxml_jackson_22",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "57bbd1a905fa58d44037d8e0c201817bc8d496521d4ca02e23ccb2ab67609c62"
+    },
+    {
+      "id": "fasterxml_jackson_23",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "8185c284a5940a130ddd0ae0dd2f4813798f60865403a6e3c7d59600d425af2d"
+    },
+    {
+      "id": "fasterxml_jackson_24",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "40dcde08491e738cb26e4e2cdb705f9ca72bd5ff786c73d1928f6d2dfbc2a8c3"
+    }
+  ]
+}

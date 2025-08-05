@@ -1,0 +1,138 @@
+{
+  "component": {
+    "name": "AirBNB Lottie Android",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "android"
+    ],
+    "languages": [
+      "java",
+      "kotlin"
+    ],
+    "description": "Signatures for AirBNB Lottie Android - AirBNB",
+    "license": "Apache-2.0",
+    "publisher": "AirBNB"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.446596Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 11,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "airbnb-lottie-android.json"
+  },
+  "signatures": [
+    {
+      "id": "airbnb_lottie_android_0",
+      "type": "string_pattern",
+      "pattern": "lottie",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_1",
+      "type": "string_pattern",
+      "pattern": "lottie-compose",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_2",
+      "type": "string_pattern",
+      "pattern": "LottieComposition",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_3",
+      "type": "string_pattern",
+      "pattern": "LottieInterpolated",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_4",
+      "type": "string_pattern",
+      "pattern": "LottieLogo",
+      "confidence": 0.7,
+      "context": "logging",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_5",
+      "type": "string_pattern",
+      "pattern": "LottieNetwork",
+      "confidence": 0.8,
+      "context": "networking",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_6",
+      "type": "string_pattern",
+      "pattern": "LottieResult",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_7",
+      "type": "string_pattern",
+      "pattern": "LottieSample",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_8",
+      "type": "string_pattern",
+      "pattern": "LottieTask",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_9",
+      "type": "string_pattern",
+      "pattern": "lottie-upload-key",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "airbnb_lottie_android_10",
+      "type": "string_pattern",
+      "pattern": "LottieValue",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    }
+  ]
+}

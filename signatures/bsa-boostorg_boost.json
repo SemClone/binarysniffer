@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "Boost and Boost-Options",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Boost and Boost-Options - Boost",
+    "license": "BSL-1.0",
+    "publisher": "Boost"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.454548Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "boostorg_boost.json"
+  },
+  "signatures": [
+    {
+      "id": "boostorg_boost_0",
+      "type": "string_pattern",
+      "pattern": "boost:",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "boostorg_boost_1",
+      "type": "string_pattern",
+      "pattern": "asio:",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "boostorg_boost_2",
+      "type": "string_pattern",
+      "pattern": "asio",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "publisher": "Example Publisher",
+  "updated": "2025-08-04",
+  "package": "Example Library",
+  "version": "1.0.0",
+  "license": "MIT",
+  "ecosystem": "native",
+  "description": "Template for creating signature files",
+  "symbols": [
+    "ExampleLibraryInit",
+    "ExampleLibraryProcess",
+    "ExampleLibraryCleanup",
+    "ExampleFunction",
+    "EXAMPLE_CONSTANT",
+    "ExampleClass",
+    "example_namespace"
+  ],
+  "metadata": {
+    "signature_type": "manual",
+    "confidence_default": 0.7,
+    "language": "C++",
+    "categories": ["utility", "framework"],
+    "notes": "This is a template file showing the expected JSON format for signature files"
+  }
+}

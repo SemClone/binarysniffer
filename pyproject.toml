@@ -1,0 +1,113 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-copycat-binarysniffer"
+version = "1.4.0"
+description = "A high-performance CLI and library for detecting open source components in binaries through semantic signature matching"
+readme = "README.md"
+authors = [
+    {name = "Oscar Valenzuela B.", email = "oscar.valenzuela.b@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Software Distribution",
+]
+keywords = ["binary-analysis", "license-compliance", "signature-matching", "oss-detection", "semantic-analysis"]
+requires-python = ">=3.8"
+dependencies = [
+    "click>=8.0.0",
+    "tqdm>=4.60.0",
+    "xxhash>=3.0.0",
+    "zstandard>=0.18.0",
+    "pybloom-live>=4.0.0",
+    "python-magic>=0.4.0",
+    "pygments>=2.10.0",
+    "rich>=12.0.0",
+    "tabulate>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "mypy>=0.990",
+    "ruff>=0.0.250",
+    "pre-commit>=2.20.0",
+]
+fast = [
+    "lz4>=4.0.0",
+    "numpy>=1.20.0",
+    "scikit-learn>=1.0.0",
+]
+
+[project.scripts]
+binarysniffer = "binarysniffer.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer"
+"Bug Tracker" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/issues"
+"Documentation" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/tree/main/docs"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["binarysniffer*"]
+exclude = ["tests*", "docs*", "examples*"]
+
+[tool.setuptools.package-data]
+binarysniffer = ["signatures/data/*.json"]
+
+# Include the main signatures directory in the package
+[tool.setuptools.data-files]
+"signatures" = ["signatures/*.json"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "C90", "I", "N", "UP", "B", "A", "C4", "PIE", "PT", "RET", "SIM"]
+ignore = ["E501", "B008", "C901", "PT011"]
+target-version = "py38"
+
+[tool.coverage.run]
+source = ["binarysniffer"]
+omit = ["*/tests/*", "*/examples/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]

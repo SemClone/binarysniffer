@@ -1,0 +1,157 @@
+{
+  "component": {
+    "name": "GreenRobot EventBus",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for GreenRobot EventBus - GreenRobot",
+    "license": "Apache-2.0",
+    "publisher": "GreenRobot"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.402876Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 13,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "greenrobot-eventbus.json"
+  },
+  "signatures": [
+    {
+      "id": "greenrobot_eventbus_0",
+      "type": "string_pattern",
+      "pattern": "EventBusTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_1",
+      "type": "string_pattern",
+      "pattern": "EventBusInheritanceDisabledSubclassTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_2",
+      "type": "string_pattern",
+      "pattern": "EventBusNoSubscriberEventTestWithIndex",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_3",
+      "type": "string_pattern",
+      "pattern": "EventBusCancelEventDeliveryTestWithIndex",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_4",
+      "type": "string_pattern",
+      "pattern": "kEventBusTestSubscriberInJar",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_5",
+      "type": "string_pattern",
+      "pattern": "EventBus",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_6",
+      "type": "string_pattern",
+      "pattern": "greenrobot",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_7",
+      "type": "string_pattern",
+      "pattern": "UOEventBusTestJava",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_8",
+      "type": "string_pattern",
+      "pattern": "EventBusGenericsTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_9",
+      "type": "string_pattern",
+      "pattern": "EventBusAnnotationProcessor",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_10",
+      "type": "string_pattern",
+      "pattern": "fJOgTEventBusTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_11",
+      "type": "string_pattern",
+      "pattern": "EventBusInheritanceTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "greenrobot_eventbus_12",
+      "type": "string_pattern",
+      "pattern": "EventBusTestJava",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

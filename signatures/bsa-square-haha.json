@@ -1,0 +1,68 @@
+{
+  "component": {
+    "name": "HAHA - Headless Android Heap Analyzer",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "android"
+    ],
+    "languages": [
+      "java",
+      "kotlin"
+    ],
+    "description": "Signatures for HAHA - Headless Android Heap Analyzer - Square",
+    "license": "Apache-2.0",
+    "publisher": "Square"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.392763Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 4,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "square-haha.json"
+  },
+  "signatures": [
+    {
+      "id": "square_haha_0",
+      "type": "string_pattern",
+      "pattern": "squareup",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "square_haha_1",
+      "type": "string_pattern",
+      "pattern": "hah",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "square_haha_2",
+      "type": "string_pattern",
+      "pattern": "squareup.hah",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "square_haha_3",
+      "type": "string_pattern",
+      "pattern": "squareuphah",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    }
+  ]
+}

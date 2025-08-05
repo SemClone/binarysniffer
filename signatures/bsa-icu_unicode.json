@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "International Components for Unicode",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for International Components for Unicode - Unicode",
+    "license": "Unicode-TOU",
+    "publisher": "Unicode"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.395892Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "icu_unicode.json"
+  },
+  "signatures": [
+    {
+      "id": "icu_unicode_0",
+      "type": "string_pattern",
+      "pattern": "icu_",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "icu_unicode_1",
+      "type": "string_pattern",
+      "pattern": "UCollationElements",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "icu_unicode_2",
+      "type": "string_pattern",
+      "pattern": "icudta",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

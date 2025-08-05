@@ -1,0 +1,57 @@
+{
+  "component": {
+    "name": "ZXing barcode scanner",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for ZXing barcode scanner - Google",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.401230Z",
+    "updated": "2022-06-16T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-zxing.json"
+  },
+  "signatures": [
+    {
+      "id": "google_zxing_0",
+      "type": "string_pattern",
+      "pattern": "zxing",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_zxing_1",
+      "type": "string_pattern",
+      "pattern": "zxingiconsmall",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_zxing_2",
+      "type": "string_pattern",
+      "pattern": "zxing-icon",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

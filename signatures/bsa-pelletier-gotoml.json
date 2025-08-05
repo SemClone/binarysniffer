@@ -1,0 +1,97 @@
+{
+  "component": {
+    "name": "go-toml",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "go"
+    ],
+    "description": "Signatures for go-toml - Thomas Pelletier",
+    "license": "MIT",
+    "publisher": "Thomas Pelletier"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.403135Z",
+    "updated": "2022-07-01T00:00:00Z",
+    "signature_count": 7,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "pelletier-gotoml.json"
+  },
+  "signatures": [
+    {
+      "id": "pelletier_gotoml_0",
+      "type": "string_pattern",
+      "pattern": "Pelletier-GoToml",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_1",
+      "type": "string_pattern",
+      "pattern": "GoToml",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_2",
+      "type": "string_pattern",
+      "pattern": "tomlValue",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_3",
+      "type": "string_pattern",
+      "pattern": "MarshalTOML",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_4",
+      "type": "string_pattern",
+      "pattern": "fromTOMLsync",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_5",
+      "type": "string_pattern",
+      "pattern": "tomlvunquote",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "pelletier_gotoml_6",
+      "type": "string_pattern",
+      "pattern": "tomltree",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "component": {
+    "name": "Xiph Vorbis",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - Xiph Vorbis",
+    "license": "BSD-3-Clause"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531719Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "xiph_vorbis_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "2d7ce650b2437a33d4ac86e6c3086d47d461d24b57951cd3d96d062871f5ba55"
+    },
+    {
+      "id": "xiph_vorbis_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "a94b23b436edf17de74e335f8a6b0c5663cb3e645b81f3a652a7255542a0eaf8"
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "component": {
+    "name": "x265",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for x265 - x265 Project",
+    "license": "GPL-2.0-or-later",
+    "publisher": "x265 Project"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.448578Z",
+    "updated": "2022-06-05T00:00:00Z",
+    "signature_count": 77,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "x265.json"
+  },
+  "signatures": [
+    {
+      "id": "x265_0",
+      "type": "string_pattern",
+      "pattern": "x265_alloc_analysis_data",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_1",
+      "type": "string_pattern",
+      "pattern": "x265_analysis_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_2",
+      "type": "string_pattern",
+      "pattern": "x265_api_get",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_3",
+      "type": "string_pattern",
+      "pattern": "x265_api_query",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_4",
+      "type": "string_pattern",
+      "pattern": "x265_api_query_errnames",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_5",
+      "type": "string_pattern",
+      "pattern": "x265_atof",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_6",
+      "type": "string_pattern",
+      "pattern": "x265_atoi",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_7",
+      "type": "string_pattern",
+      "pattern": "x265_calculate_vmaf_framelevelscore",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_8",
+      "type": "string_pattern",
+      "pattern": "x265_calculate_vmafscore",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_9",
+      "type": "string_pattern",
+      "pattern": "x265_check_params",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_10",
+      "type": "string_pattern",
+      "pattern": "x265_cleanup",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_11",
+      "type": "string_pattern",
+      "pattern": "x265_cli_csps",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_12",
+      "type": "string_pattern",
+      "pattern": "x265_clip",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_13",
+      "type": "string_pattern",
+      "pattern": "x265_clip3",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_14",
+      "type": "string_pattern",
+      "pattern": "x265_colmatrix_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_15",
+      "type": "string_pattern",
+      "pattern": "x265_colorprim_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_16",
+      "type": "string_pattern",
+      "pattern": "x265_copy_params",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_17",
+      "type": "string_pattern",
+      "pattern": "x265_csvlog_encode",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_18",
+      "type": "string_pattern",
+      "pattern": "x265_csvlog_frame",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_19",
+      "type": "string_pattern",
+      "pattern": "x265_csvlog_open",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_20",
+      "type": "string_pattern",
+      "pattern": "x265_dither_image",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_21",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_close",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_22",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_ctu_info",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_23",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_encode",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_24",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_get_stats",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_25",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_headers",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_26",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_intra_refresh",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_27",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_log",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_28",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_open",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_29",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_parameters",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_30",
+      "type": "string_pattern",
+      "pattern": "x265_encoder_reconfig",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_31",
+      "type": "string_pattern",
+      "pattern": "x265_exp2fix8",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_32",
+      "type": "string_pattern",
+      "pattern": "x265_fopen",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_33",
+      "type": "string_pattern",
+      "pattern": "x265_free",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_34",
+      "type": "string_pattern",
+      "pattern": "x265_free_analysis_data",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_35",
+      "type": "string_pattern",
+      "pattern": "x265_fullrange_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_36",
+      "type": "string_pattern",
+      "pattern": "x265_get_ref_frame_list",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_37",
+      "type": "string_pattern",
+      "pattern": "x265_get_slicetype_poc_and_scenecut",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_38",
+      "type": "string_pattern",
+      "pattern": "x265_interlace_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_39",
+      "type": "string_pattern",
+      "pattern": "x265_malloc",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_40",
+      "type": "string_pattern",
+      "pattern": "x265_max",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_41",
+      "type": "string_pattern",
+      "pattern": "x265_mdate",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_42",
+      "type": "string_pattern",
+      "pattern": "x265_min",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_43",
+      "type": "string_pattern",
+      "pattern": "x265_motion_est_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_44",
+      "type": "string_pattern",
+      "pattern": "x265_param2string",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_45",
+      "type": "string_pattern",
+      "pattern": "x265_param_alloc",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_46",
+      "type": "string_pattern",
+      "pattern": "x265_param_apply_fastfirstpass",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_47",
+      "type": "string_pattern",
+      "pattern": "x265_param_apply_profile",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_48",
+      "type": "string_pattern",
+      "pattern": "x265_param_default",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_49",
+      "type": "string_pattern",
+      "pattern": "x265_param_default_preset",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_50",
+      "type": "string_pattern",
+      "pattern": "x265_param_free",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_51",
+      "type": "string_pattern",
+      "pattern": "x265_param_parse",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_52",
+      "type": "string_pattern",
+      "pattern": "x265_picturePlaneSize",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_53",
+      "type": "string_pattern",
+      "pattern": "x265_picture_alloc",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_54",
+      "type": "string_pattern",
+      "pattern": "x265_picture_free",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_55",
+      "type": "string_pattern",
+      "pattern": "x265_picture_init",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_56",
+      "type": "string_pattern",
+      "pattern": "x265_preset_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_57",
+      "type": "string_pattern",
+      "pattern": "x265_print_params",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_58",
+      "type": "string_pattern",
+      "pattern": "x265_profile_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_59",
+      "type": "string_pattern",
+      "pattern": "x265_qScale2qp",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_60",
+      "type": "string_pattern",
+      "pattern": "x265_qp2qScale",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_61",
+      "type": "string_pattern",
+      "pattern": "x265_rename",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_62",
+      "type": "string_pattern",
+      "pattern": "x265_report_simd",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_63",
+      "type": "string_pattern",
+      "pattern": "x265_sar_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_64",
+      "type": "string_pattern",
+      "pattern": "x265_set_analysis_data",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_65",
+      "type": "string_pattern",
+      "pattern": "x265_setup_primitives",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_66",
+      "type": "string_pattern",
+      "pattern": "x265_slurp_file",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_67",
+      "type": "string_pattern",
+      "pattern": "x265_source_csp_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_68",
+      "type": "string_pattern",
+      "pattern": "x265_ssim2dB",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_69",
+      "type": "string_pattern",
+      "pattern": "x265_transfer_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_70",
+      "type": "string_pattern",
+      "pattern": "x265_tune_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_71",
+      "type": "string_pattern",
+      "pattern": "x265_unlink",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_72",
+      "type": "string_pattern",
+      "pattern": "x265_video_format_names",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_73",
+      "type": "string_pattern",
+      "pattern": "x265_vmaf_encoder_log",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_74",
+      "type": "string_pattern",
+      "pattern": "x265_zone_alloc",
+      "confidence": 0.9,
+      "context": "initialization",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_75",
+      "type": "string_pattern",
+      "pattern": "x265_zone_free",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "x265_76",
+      "type": "string_pattern",
+      "pattern": "x265_zone_param_parse",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

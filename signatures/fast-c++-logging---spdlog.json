@@ -1,0 +1,46 @@
+{
+  "component": {
+    "name": "Fast C++ logging - spdlog",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - Fast C++ logging - spdlog",
+    "license": "MIT"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.530889Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db"
+  },
+  "signatures": [
+    {
+      "id": "fast_c++_logging___spdlog_0",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "2ab2b623989700b438871324f78f943b5c1554b55307a2815d7aa5202952f655"
+    },
+    {
+      "id": "fast_c++_logging___spdlog_1",
+      "type": 1,
+      "pattern": "",
+      "confidence": 0.7,
+      "context": "imported",
+      "platforms": [
+        "all"
+      ],
+      "signature_hash": "3d6456d27c7300132f0f31ee161901b381080e5b0972bd0b21f0321e8d80e19c"
+    }
+  ]
+}

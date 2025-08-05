@@ -1,0 +1,92 @@
+{
+  "component": {
+    "name": "libxml2",
+    "version": "unknown",
+    "category": "xml",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "XML C parser and toolkit",
+    "license": "MIT",
+    "publisher": "GNOME Project"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T19:00:00Z",
+    "updated": "2025-08-04T19:00:00Z",
+    "signature_count": 10,
+    "confidence_threshold": 0.7,
+    "source": "manual"
+  },
+  "signatures": [
+    {
+      "id": "libxml2_1",
+      "type": "string_pattern",
+      "pattern": "xmlParseDocument",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_2",
+      "type": "string_pattern",
+      "pattern": "xmlNewDoc",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_3",
+      "type": "string_pattern",
+      "pattern": "xmlFreeDoc",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_4",
+      "type": "string_pattern",
+      "pattern": "xmlCreatePushParserCtxt",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_5",
+      "type": "string_pattern",
+      "pattern": "xmlXPathEvalExpression",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_6",
+      "type": "string_pattern",
+      "pattern": "xmlDocGetRootElement",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_7",
+      "type": "string_pattern",
+      "pattern": "xmlNodeListGetString",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_8",
+      "type": "string_pattern",
+      "pattern": "xmlParseMemory",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_9",
+      "type": "string_pattern",
+      "pattern": "xmlSaveFormatFileEnc",
+      "confidence": 0.85,
+      "context": "function"
+    },
+    {
+      "id": "libxml2_10",
+      "type": "string_pattern",
+      "pattern": "LIBXML_VERSION",
+      "confidence": 0.95,
+      "context": "constant"
+    }
+  ]
+}

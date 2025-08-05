@@ -1,0 +1,237 @@
+{
+  "component": {
+    "name": "JSON Simple",
+    "version": "unknown",
+    "category": "data-processing",
+    "platforms": [
+      "web",
+      "node"
+    ],
+    "languages": [
+      "javascript"
+    ],
+    "description": "Signatures for JSON Simple - Fangyidong",
+    "license": "Apache-2.0",
+    "publisher": "Fangyidong"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.392932Z",
+    "updated": "2022-06-14T00:00:00Z",
+    "signature_count": 19,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "fangyidong-json-simple.json"
+  },
+  "signatures": [
+    {
+      "id": "fangyidong_json_simple_0",
+      "type": "string_pattern",
+      "pattern": "testWriteJSONStringCollectionWriter",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_1",
+      "type": "string_pattern",
+      "pattern": "JSONAware",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_2",
+      "type": "string_pattern",
+      "pattern": "testToJSONStringCollection",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_3",
+      "type": "string_pattern",
+      "pattern": "JSONValue",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_4",
+      "type": "string_pattern",
+      "pattern": "docjson",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_5",
+      "type": "string_pattern",
+      "pattern": "JSONStreamAware",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_6",
+      "type": "string_pattern",
+      "pattern": "json4",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_7",
+      "type": "string_pattern",
+      "pattern": "testJSONArrayCollection",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_8",
+      "type": "string_pattern",
+      "pattern": "orgjson",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_9",
+      "type": "string_pattern",
+      "pattern": "JSONValueTest",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_10",
+      "type": "string_pattern",
+      "pattern": "JSONArrayTest",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_11",
+      "type": "string_pattern",
+      "pattern": "JSON",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_12",
+      "type": "string_pattern",
+      "pattern": "testJSONArray",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_13",
+      "type": "string_pattern",
+      "pattern": "jsonsimple",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_14",
+      "type": "string_pattern",
+      "pattern": "JSONObject",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_15",
+      "type": "string_pattern",
+      "pattern": "JSONParser",
+      "confidence": 0.9,
+      "context": "processing",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_16",
+      "type": "string_pattern",
+      "pattern": "JSONValueTest",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_17",
+      "type": "string_pattern",
+      "pattern": "JSONArray",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    },
+    {
+      "id": "fangyidong_json_simple_18",
+      "type": "string_pattern",
+      "pattern": "org.json.simple",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "web",
+        "node"
+      ]
+    }
+  ]
+}

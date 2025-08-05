@@ -1,0 +1,277 @@
+{
+  "component": {
+    "name": "FasterXML Jackson",
+    "version": "unknown",
+    "category": "data-processing",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for FasterXML Jackson - FasterXML",
+    "license": "Apache-2.0",
+    "publisher": "FasterXML"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.390615Z",
+    "updated": "2022-06-14T00:00:00Z",
+    "signature_count": 25,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "fasterxml-jackson.json"
+  },
+  "signatures": [
+    {
+      "id": "fasterxml_jackson_0",
+      "type": "string_pattern",
+      "pattern": "codehaus",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_1",
+      "type": "string_pattern",
+      "pattern": "jackson",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_2",
+      "type": "string_pattern",
+      "pattern": "FasterXML",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_3",
+      "type": "string_pattern",
+      "pattern": "JsonAnyGetter",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_4",
+      "type": "string_pattern",
+      "pattern": "ObjectBuffer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_5",
+      "type": "string_pattern",
+      "pattern": "convertSurrogate",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_6",
+      "type": "string_pattern",
+      "pattern": "ThrowableDeserializer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_7",
+      "type": "string_pattern",
+      "pattern": "NVvXEdocs",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_8",
+      "type": "string_pattern",
+      "pattern": "WriterBasedJsonGenerator",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_9",
+      "type": "string_pattern",
+      "pattern": "InputDecorator",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_10",
+      "type": "string_pattern",
+      "pattern": "GeneratorBase",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_11",
+      "type": "string_pattern",
+      "pattern": "testCCommentsBytes",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_12",
+      "type": "string_pattern",
+      "pattern": "generateRandom",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_13",
+      "type": "string_pattern",
+      "pattern": "testLongErrorMessage",
+      "confidence": 0.8,
+      "context": "logging",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_14",
+      "type": "string_pattern",
+      "pattern": "AsyncStringArrayTest",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_15",
+      "type": "string_pattern",
+      "pattern": "MappingJsonFactory",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_16",
+      "type": "string_pattern",
+      "pattern": "JsonAutoDetect",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_17",
+      "type": "string_pattern",
+      "pattern": "asciiEscapes",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_18",
+      "type": "string_pattern",
+      "pattern": "testMangledIntsBytes",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_19",
+      "type": "string_pattern",
+      "pattern": "LocationTestCase",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_20",
+      "type": "string_pattern",
+      "pattern": "coreTreeNode",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_21",
+      "type": "string_pattern",
+      "pattern": "beenpublished",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_22",
+      "type": "string_pattern",
+      "pattern": "assertEnd",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_23",
+      "type": "string_pattern",
+      "pattern": "DeserializationContext",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_24",
+      "type": "string_pattern",
+      "pattern": "testGetDataStream",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}
