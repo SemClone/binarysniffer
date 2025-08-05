@@ -12,6 +12,7 @@ from ..core.config import Config
 from ..core.results import ComponentMatch
 from ..extractors.base import ExtractedFeatures
 from ..storage.database import SignatureDatabase
+from ..signatures.validator import SignatureValidator
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +40,8 @@ class DirectMatcher:
         try:
             # Get all signatures from database
             all_sigs = self.db.get_all_signatures()
+            total_sigs = 0
+            valid_sigs = 0
             
             for sig_id, component_id, sig_compressed, sig_type, confidence, minhash in all_sigs:
                 if sig_compressed:
@@ -46,15 +49,19 @@ class DirectMatcher:
                     import zstandard as zstd
                     dctx = zstd.ZstdDecompressor()
                     signature = dctx.decompress(sig_compressed).decode('utf-8')
+                    total_sigs += 1
                     
-                    # Store signature info
-                    self.signatures.append({
-                        'id': sig_id,
-                        'component_id': component_id,
-                        'pattern': signature.lower(),  # Case-insensitive matching
-                        'sig_type': sig_type,
-                        'confidence': confidence
-                    })
+                    # Validate signature quality before storing
+                    if SignatureValidator.is_valid_signature(signature, confidence):
+                        valid_sigs += 1
+                        # Store signature info
+                        self.signatures.append({
+                            'id': sig_id,
+                            'component_id': component_id,
+                            'pattern': signature.lower(),  # Case-insensitive matching
+                            'sig_type': sig_type,
+                            'confidence': confidence
+                        })
                     
                     # Map component IDs for later lookup
                     if component_id not in self.component_map:
@@ -75,7 +82,7 @@ class DirectMatcher:
                                     'metadata': metadata
                                 }
             
-            logger.info(f"Loaded {len(self.signatures)} signatures for direct matching")
+            logger.info(f"Loaded {valid_sigs} valid signatures out of {total_sigs} total (filtered {total_sigs - valid_sigs} generic patterns)")
             
         except Exception as e:
             logger.error(f"Error loading signatures: {e}")

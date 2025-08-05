@@ -17,11 +17,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.416388Z",
-    "updated": "2022-06-19T00:00:00Z",
-    "signature_count": 6660,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 6645,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "ffmpeg.json"
+    "original_file": "ffmpeg.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -55,16 +56,6 @@
       ]
     },
     {
-      "id": "ffmpeg_3",
-      "type": "string_pattern",
-      "pattern": "ffmpeg",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_4",
       "type": "string_pattern",
       "pattern": "av_codec_",
@@ -89,16 +80,6 @@
       "type": "string_pattern",
       "pattern": "avresample_available",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_7",
-      "type": "string_pattern",
-      "pattern": "avresample",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -1168,16 +1149,6 @@
       "id": "ffmpeg_114",
       "type": "string_pattern",
       "pattern": "av_buffersrc_close",
-      "confidence": 0.85,
-      "context": "library_function",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_115",
-      "type": "string_pattern",
-      "pattern": "libavutil",
       "confidence": 0.85,
       "context": "library_function",
       "platforms": [
@@ -19175,16 +19146,6 @@
       ]
     },
     {
-      "id": "ffmpeg_1915",
-      "type": "string_pattern",
-      "pattern": "ff_cbrt",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_1916",
       "type": "string_pattern",
       "pattern": "ff_cbrt_tableinit",
@@ -24638,16 +24599,6 @@
       "id": "ffmpeg_2461",
       "type": "string_pattern",
       "pattern": "ff_exp10f",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_2462",
-      "type": "string_pattern",
-      "pattern": "ff_exp2",
       "confidence": 0.7,
       "context": "unknown",
       "platforms": [
@@ -35705,16 +35656,6 @@
       ]
     },
     {
-      "id": "ffmpeg_3568",
-      "type": "string_pattern",
-      "pattern": "ff_irms",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_3569",
       "type": "string_pattern",
       "pattern": "ff_is_http_proto",
@@ -44955,16 +44896,6 @@
       ]
     },
     {
-      "id": "ffmpeg_4493",
-      "type": "string_pattern",
-      "pattern": "ff_pca",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_4494",
       "type": "string_pattern",
       "pattern": "ff_pca_add",
@@ -45489,16 +45420,6 @@
       "type": "string_pattern",
       "pattern": "ff_pns_bits",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_4547",
-      "type": "string_pattern",
-      "pattern": "ff_poll",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -48805,16 +48726,6 @@
       ]
     },
     {
-      "id": "ffmpeg_4878",
-      "type": "string_pattern",
-      "pattern": "ff_qexp",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_4879",
       "type": "string_pattern",
       "pattern": "ff_qpeg_decoder",
@@ -49845,16 +49756,6 @@
       ]
     },
     {
-      "id": "ffmpeg_4982",
-      "type": "string_pattern",
-      "pattern": "ff_rint",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_4983",
       "type": "string_pattern",
       "pattern": "ff_rint64_clip",
@@ -50069,16 +49970,6 @@
       "type": "string_pattern",
       "pattern": "ff_rm_retrieve_cache",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_5005",
-      "type": "string_pattern",
-      "pattern": "ff_rms",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -53585,26 +53476,6 @@
       ]
     },
     {
-      "id": "ffmpeg_5356",
-      "type": "string_pattern",
-      "pattern": "ff_sqrf",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_5357",
-      "type": "string_pattern",
-      "pattern": "ff_sqrt",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "ffmpeg_5358",
       "type": "string_pattern",
       "pattern": "ff_sqrt_tab",
@@ -54970,16 +54841,6 @@
       "pattern": "ff_texturedspenc_init",
       "confidence": 0.8,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_5495",
-      "type": "string_pattern",
-      "pattern": "ff_tget",
-      "confidence": 0.7,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -66049,16 +65910,6 @@
       "type": "string_pattern",
       "pattern": "pp_get_mode_by_name_and_quality",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "ffmpeg_6603",
-      "type": "string_pattern",
-      "pattern": "pp_help",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"

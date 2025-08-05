@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semantic-copycat-binarysniffer"
-version = "1.4.6"
+version = "1.5.0"
 description = "A high-performance CLI and library for detecting open source components in binaries through semantic signature matching"
 readme = "README.md"
 authors = [

@@ -74,8 +74,8 @@ class EnhancedBinarySniffer:
         extractor = self.extractor_factory.get_extractor(file_path)
         features = extractor.extract(file_path)
         
-        # Use lower default threshold for better detection
-        threshold = confidence_threshold or 0.3
+        # Use balanced threshold to reduce false positives
+        threshold = confidence_threshold or 0.7
         
         # Try progressive matching first
         progressive_matches = self.progressive_matcher.match(
@@ -94,6 +94,10 @@ class EnhancedBinarySniffer:
         # Merge matches, keeping highest confidence for each component
         merged_matches = self._merge_matches(progressive_matches, direct_matches)
         
+        # Apply technology filtering to reduce false positives
+        file_type = features.file_type
+        filtered_matches = self._filter_by_technology(merged_matches, file_type)
+        
         # Build result
         total_time = self.progressive_matcher.last_analysis_time + self.direct_matcher.last_analysis_time
         
@@ -101,7 +105,7 @@ class EnhancedBinarySniffer:
             file_path=str(file_path),
             file_size=file_path.stat().st_size,
             file_type=features.file_type,
-            matches=merged_matches,
+            matches=filtered_matches,
             analysis_time=total_time,
             features_extracted=len(features.strings) + len(features.symbols),
             confidence_threshold=threshold
@@ -142,6 +146,67 @@ class EnhancedBinarySniffer:
         matches.sort(key=lambda m: m.confidence, reverse=True)
         
         return matches
+    
+    def _filter_by_technology(self, matches: List[ComponentMatch], file_type: str) -> List[ComponentMatch]:
+        """
+        Filter matches based on technology compatibility.
+        Remove false positives like Android/iOS components in native binaries.
+        """
+        # Define incompatible technology combinations
+        incompatible_platforms = {
+            'binary': {  # Native ELF/PE/Mach-O binaries
+                'android', 'ios', 'react-native', 'flutter',
+                'java', 'kotlin', 'javascript', 'typescript'
+            },
+            'zip': {  # ZIP files (often containing binaries)
+                'android', 'ios', 'react-native', 'flutter',
+                'java', 'kotlin', 'javascript', 'typescript'
+            },
+            'apk': {  # Android APK
+                'ios', 'swift', 'objective-c', 'cocoa'
+            },
+            'ipa': {  # iOS IPA
+                'android', 'java', 'kotlin'
+            }
+        }
+        
+        # Get incompatible platforms for this file type
+        incompatible = incompatible_platforms.get(file_type, set())
+        
+        if not incompatible:
+            return matches  # No filtering needed
+        
+        filtered_matches = []
+        for match in matches:
+            # Check if component has platform/technology metadata
+            component_name_lower = match.component.lower()
+            
+            # Skip obvious technology mismatches
+            skip = False
+            for tech in incompatible:
+                if tech in component_name_lower:
+                    logger.debug(f"Filtering out {match.component} - incompatible technology '{tech}' for {file_type}")
+                    skip = True
+                    break
+            
+            # Additional checks for specific components
+            if not skip and file_type in ('binary', 'zip'):
+                # Filter out mobile-specific components from native binaries
+                mobile_keywords = ['firebase', 'crashlytics', 'android sdk', 'google ads', 
+                                 'facebook sdk', 'react native', 'flutter', 'xamarin']
+                for keyword in mobile_keywords:
+                    if keyword in component_name_lower:
+                        logger.debug(f"Filtering out {match.component} - mobile component in {file_type}")
+                        skip = True
+                        break
+            
+            if not skip:
+                filtered_matches.append(match)
+        
+        if len(filtered_matches) < len(matches):
+            logger.info(f"Filtered {len(matches) - len(filtered_matches)} incompatible components")
+        
+        return filtered_matches
     
     def analyze_directory(
         self,

@@ -3,8 +3,12 @@
     "name": "libjpeg",
     "version": "unknown",
     "category": "graphics",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "Enhanced signatures for libjpeg - Independent JPEG Group",
     "license": "IJG",
     "publisher": "Independent JPEG Group (IJG)"
@@ -12,10 +16,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
-    "updated": "2025-08-04T19:00:00Z",
-    "signature_count": 25,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 24,
     "confidence_threshold": 0.5,
-    "source": "manual_enhanced"
+    "source": "manual_enhanced",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -185,13 +190,6 @@
       "pattern": "jpeg_calc_output_dimensions",
       "confidence": 0.8,
       "context": "function"
-    },
-    {
-      "id": "libjpeg_25",
-      "type": "string_pattern",
-      "pattern": "JMESSAGE",
-      "confidence": 0.7,
-      "context": "macro"
     }
   ]
 }

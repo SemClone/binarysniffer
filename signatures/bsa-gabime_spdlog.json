@@ -17,32 +17,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.390841Z",
-    "updated": "2022-06-05T00:00:00Z",
-    "signature_count": 2,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "gabime_spdlog.json"
+    "original_file": "gabime_spdlog.json",
+    "cleaned": true
   },
-  "signatures": [
-    {
-      "id": "gabime_spdlog_0",
-      "type": "string_pattern",
-      "pattern": "spdlog:",
-      "confidence": 0.7,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gabime_spdlog_1",
-      "type": "string_pattern",
-      "pattern": "spdlog",
-      "confidence": 0.7,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

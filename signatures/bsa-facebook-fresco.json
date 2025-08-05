@@ -16,43 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.444644Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 7,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "facebook-fresco.json"
+    "original_file": "facebook-fresco.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "facebook_fresco_0",
-      "type": "string_pattern",
-      "pattern": "facebook",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_fresco_1",
-      "type": "string_pattern",
-      "pattern": "jfacebook",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_fresco_2",
-      "type": "string_pattern",
-      "pattern": "fresco",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "facebook_fresco_3",
       "type": "string_pattern",

@@ -15,54 +15,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:30:48.531405Z",
-    "signature_count": 4,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
-    "source": "migrated_from_sqlite_db"
+    "source": "migrated_from_sqlite_db",
+    "updated": "2025-08-05T00:00:00Z",
+    "cleaned": true
   },
-  "signatures": [
-    {
-      "id": "picasso_0",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "572699c38eddc0f066b7d57dbcc3fa79461f581b719529e28fb024202450cd3a"
-    },
-    {
-      "id": "picasso_1",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "88669879cd6ae5e264a9fc42557664248ab45f267dc9906240e6f732ce7366fe"
-    },
-    {
-      "id": "picasso_2",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "7422d7c6163b66356baa5362bf88eaeb302b27583c60693bb860ec25a9ce287d"
-    },
-    {
-      "id": "picasso_3",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "1b16a1b6933eb24193410535d06f946931f614366f68f294c2314ba1a1e5fcae"
-    }
-  ]
+  "signatures": []
 }

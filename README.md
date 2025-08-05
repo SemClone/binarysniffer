@@ -107,6 +107,26 @@ for file_path, result in results.items():
         print(f"{file_path}: {len(result.matches)} components detected")
 ```
 
+### Creating Signatures
+
+Create custom signatures for your components:
+
+```bash
+# From binary files (recommended)
+binarysniffer signatures create /usr/bin/ffmpeg --name FFmpeg --version 4.4.1
+
+# From source code
+binarysniffer signatures create /path/to/source --name MyLibrary --license MIT
+
+# With full metadata
+binarysniffer signatures create binary.so \
+  --name "My Component" \
+  --version 2.0.0 \
+  --license Apache-2.0 \
+  --publisher "My Company" \
+  --output signatures/my-component.json
+```
+
 ## Architecture
 
 The tool uses a multi-tiered approach for efficient matching:

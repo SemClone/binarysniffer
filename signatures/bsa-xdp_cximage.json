@@ -16,72 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.390251Z",
-    "updated": "2022-06-05T00:00:00Z",
-    "signature_count": 6,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "xdp_cximage.json"
+    "original_file": "xdp_cximage.json",
+    "cleaned": true
   },
-  "signatures": [
-    {
-      "id": "xdp_cximage_0",
-      "type": "string_pattern",
-      "pattern": "CxImage",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xdp_cximage_1",
-      "type": "string_pattern",
-      "pattern": "CxFile",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xdp_cximage_2",
-      "type": "string_pattern",
-      "pattern": "CxRect",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xdp_cximage_3",
-      "type": "string_pattern",
-      "pattern": "CxIOFile",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xdp_cximage_4",
-      "type": "string_pattern",
-      "pattern": "CxPoint",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xdp_cximage_5",
-      "type": "string_pattern",
-      "pattern": "CxMemFile",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

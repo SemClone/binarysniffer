@@ -16,39 +16,20 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.449958Z",
-    "updated": "2022-06-05T00:00:00Z",
-    "signature_count": 3,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "gnu_libiconv.json"
+    "original_file": "gnu_libiconv.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "gnu_libiconv_0",
-      "type": "string_pattern",
-      "pattern": "g_iconv",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "gnu_libiconv_1",
       "type": "string_pattern",
       "pattern": "libiconv_",
       "confidence": 0.85,
       "context": "library_function",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gnu_libiconv_2",
-      "type": "string_pattern",
-      "pattern": "iconv_",
-      "confidence": 0.7,
-      "context": "unknown",
       "platforms": [
         "all"
       ]

@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.401482Z",
-    "updated": "2022-06-16T00:00:00Z",
-    "signature_count": 10,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 8,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "google-gson.json"
+    "original_file": "google-gson.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -64,31 +65,11 @@
       ]
     },
     {
-      "id": "google_gson_4",
-      "type": "string_pattern",
-      "pattern": "GsonTest",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_gson_5",
       "type": "string_pattern",
       "pattern": "GsonSkipParser",
       "confidence": 0.9,
       "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_6",
-      "type": "string_pattern",
-      "pattern": "Ggson",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]

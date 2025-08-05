@@ -16,23 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.445395Z",
-    "updated": "2022-07-01T00:00:00Z",
-    "signature_count": 2,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "fsnotify-fsnotify.json"
+    "original_file": "fsnotify-fsnotify.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "fsnotify_fsnotify_0",
-      "type": "string_pattern",
-      "pattern": "Fsnotify",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "fsnotify_fsnotify_1",
       "type": "string_pattern",

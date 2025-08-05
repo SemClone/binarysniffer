@@ -3,8 +3,14 @@
     "name": "Bugsnag",
     "version": "unknown",
     "category": "error-tracking",
-    "platforms": ["android", "ios"],
-    "languages": ["c", "cpp"],
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "languages": [
+      "c",
+      "cpp"
+    ],
     "description": "Bugsnag crash reporting library",
     "license": "MIT",
     "publisher": "Bugsnag Inc."
@@ -12,10 +18,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
-    "updated": "2025-08-04T19:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
     "signature_count": 10,
     "confidence_threshold": 0.7,
-    "source": "manual"
+    "source": "manual",
+    "cleaned": true
   },
   "signatures": [
     {

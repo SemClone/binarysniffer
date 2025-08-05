@@ -3,8 +3,12 @@
     "name": "zlib",
     "version": "unknown",
     "category": "compression",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "zlib compression library",
     "license": "zlib",
     "publisher": "Jean-loup Gailly and Mark Adler"
@@ -12,10 +16,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
-    "updated": "2025-08-04T19:00:00Z",
-    "signature_count": 10,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 5,
     "confidence_threshold": 0.7,
-    "source": "manual"
+    "source": "manual",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -33,20 +38,6 @@
       "context": "function"
     },
     {
-      "id": "zlib_3",
-      "type": "string_pattern",
-      "pattern": "deflate",
-      "confidence": 0.7,
-      "context": "function"
-    },
-    {
-      "id": "zlib_4",
-      "type": "string_pattern",
-      "pattern": "inflate",
-      "confidence": 0.7,
-      "context": "function"
-    },
-    {
       "id": "zlib_5",
       "type": "string_pattern",
       "pattern": "compress2",
@@ -58,27 +49,6 @@
       "type": "string_pattern",
       "pattern": "uncompress",
       "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "zlib_7",
-      "type": "string_pattern",
-      "pattern": "gzopen",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "zlib_8",
-      "type": "string_pattern",
-      "pattern": "gzread",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "zlib_9",
-      "type": "string_pattern",
-      "pattern": "gzwrite",
-      "confidence": 0.8,
       "context": "function"
     },
     {

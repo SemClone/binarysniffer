@@ -16,27 +16,18 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.399829Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 21,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 15,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "danlew-joda.json"
+    "original_file": "danlew-joda.json",
+    "cleaned": true
   },
   "signatures": [
     {
       "id": "danlew_joda_0",
       "type": "string_pattern",
       "pattern": "OldDefaultJoda",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_1",
-      "type": "string_pattern",
-      "pattern": "JodaSampleActivity",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -84,30 +75,10 @@
       ]
     },
     {
-      "id": "danlew_joda_6",
-      "type": "string_pattern",
-      "pattern": "JodaSampleActivity",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "danlew_joda_7",
       "type": "string_pattern",
       "pattern": "JodaTimeAndroid",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_8",
-      "type": "string_pattern",
-      "pattern": "jodasample",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -154,16 +125,6 @@
       ]
     },
     {
-      "id": "danlew_joda_13",
-      "type": "string_pattern",
-      "pattern": "qjoda",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "danlew_joda_14",
       "type": "string_pattern",
       "pattern": "mDefaultJodaTz",
@@ -204,31 +165,11 @@
       ]
     },
     {
-      "id": "danlew_joda_18",
-      "type": "string_pattern",
-      "pattern": "jodatest",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "danlew_joda_19",
       "type": "string_pattern",
       "pattern": "jodaJodaTimeInitializer",
       "confidence": 0.8,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_20",
-      "type": "string_pattern",
-      "pattern": "joda",
-      "confidence": 0.7,
-      "context": "unknown",
       "platforms": [
         "all"
       ]

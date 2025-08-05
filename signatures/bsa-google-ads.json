@@ -16,48 +16,19 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.449056Z",
-    "updated": "2022-06-14T00:00:00Z",
-    "signature_count": 16,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 11,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "google-ads.json"
+    "original_file": "google-ads.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "google_ads_0",
-      "type": "string_pattern",
-      "pattern": "apiservice",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_1",
-      "type": "string_pattern",
-      "pattern": "X509",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "google_ads_2",
       "type": "string_pattern",
       "pattern": "POLICY_MAPPING",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_3",
-      "type": "string_pattern",
-      "pattern": "KindCase",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -104,16 +75,6 @@
       ]
     },
     {
-      "id": "google_ads_8",
-      "type": "string_pattern",
-      "pattern": "jobjectl",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_ads_9",
       "type": "string_pattern",
       "pattern": "getClientId",
@@ -147,16 +108,6 @@
       "id": "google_ads_12",
       "type": "string_pattern",
       "pattern": "google-ads-stubs",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_13",
-      "type": "string_pattern",
-      "pattern": "google",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

@@ -377,6 +377,187 @@ def signatures_update(ctx, force):
         console.print("[yellow]No updates available or download failed[/yellow]")
 
 
+@signatures.command(name='create')
+@click.argument('path', type=click.Path(exists=True))
+@click.option('--name', required=True, help='Component name (e.g., "FFmpeg", "OpenSSL")')
+@click.option('--output', '-o', type=click.Path(), help='Output signature file path')
+@click.option('--version', default='unknown', help='Component version')
+@click.option('--license', default='', help='License (e.g., MIT, Apache-2.0, GPL-3.0)')
+@click.option('--publisher', default='', help='Publisher/Author name')
+@click.option('--description', default='', help='Component description')
+@click.option('--type', 'input_type', type=click.Choice(['auto', 'binary', 'source']), default='auto',
+              help='Input type: auto-detect, binary, or source code')
+@click.option('--recursive/--no-recursive', default=True, help='Recursively analyze directories')
+@click.option('--min-signatures', default=5, help='Minimum number of signatures required')
+@click.pass_context
+def signatures_create(ctx, path, name, output, version, license, publisher, description, 
+                     input_type, recursive, min_signatures):
+    """Create signatures from a binary or source code.
+    
+    Examples:
+    
+        # Create signatures from a binary
+        binarysniffer signatures create /usr/bin/ffmpeg --name FFmpeg
+        
+        # Create from source with full metadata
+        binarysniffer signatures create /path/to/source --name MyLib \\
+            --version 1.0.0 --license MIT --publisher "My Company"
+    """
+    from .signatures.symbol_extractor import SymbolExtractor
+    from .signatures.validator import SignatureValidator
+    from datetime import datetime
+    
+    path = Path(path)
+    
+    # Auto-detect input type if needed
+    if input_type == 'auto':
+        if path.is_file():
+            # Check if it's a binary
+            try:
+                with open(path, 'rb') as f:
+                    header = f.read(4)
+                    if header[:4] == b'\x7fELF' or header[:2] == b'MZ':
+                        input_type = 'binary'
+                    else:
+                        input_type = 'source'
+            except:
+                input_type = 'source'
+        else:
+            input_type = 'source'
+    
+    console.print(f"Creating signatures for [bold]{name}[/bold] from {input_type}...")
+    
+    signatures = []
+    
+    if input_type == 'binary':
+        # Extract symbols from binary
+        with console.status("Extracting symbols from binary..."):
+            symbols_data = SymbolExtractor.extract_symbols_from_binary(path)
+            all_symbols = symbols_data.get('all', set())
+            
+        console.print(f"Found {len(all_symbols)} total symbols")
+        
+        # Generate signatures
+        with console.status("Generating signatures..."):
+            sig_patterns = SymbolExtractor.generate_signatures_from_binary(path, name)
+            
+            # Convert to signature format
+            for comp_name, patterns in sig_patterns.items():
+                for pattern in patterns[:50]:  # Limit to 50
+                    confidence = 0.9
+                    if 'version' in pattern.lower():
+                        confidence = 0.95
+                    elif pattern.endswith('_'):
+                        confidence = 0.85
+                    
+                    if SignatureValidator.is_valid_signature(pattern, confidence):
+                        sig_type = "prefix_pattern" if pattern.endswith('_') else "string_pattern"
+                        signatures.append({
+                            "id": f"{name.lower().replace(' ', '_')}_{len(signatures)}",
+                            "type": sig_type,
+                            "pattern": pattern,
+                            "confidence": confidence,
+                            "context": "binary_symbol",
+                            "platforms": ["all"]
+                        })
+    else:
+        # Use existing signature generator for source code
+        generator = SignatureGenerator()
+        with console.status("Analyzing source code..."):
+            raw_sig = generator.generate_from_path(
+                path=path,
+                package_name=name,
+                publisher=publisher,
+                license_name=license,
+                version=version,
+                description=description,
+                recursive=recursive,
+                min_symbols=min_signatures
+            )
+        
+        # Convert symbols to signatures
+        for symbol in raw_sig.get("symbols", []):
+            if SignatureValidator.is_valid_signature(symbol, 0.8):
+                sig_type = "string_pattern"
+                if symbol.endswith('_'):
+                    sig_type = "prefix_pattern"
+                elif '::' in symbol or '.' in symbol:
+                    sig_type = "namespace_pattern"
+                
+                signatures.append({
+                    "id": f"{name.lower().replace(' ', '_')}_{len(signatures)}",
+                    "type": sig_type,
+                    "pattern": symbol,
+                    "confidence": 0.8,
+                    "context": "source_code",
+                    "platforms": ["all"]
+                })
+    
+    # Check minimum signatures
+    if len(signatures) < min_signatures:
+        console.print(f"[red]Error: Only {len(signatures)} signatures generated, " +
+                     f"minimum {min_signatures} required[/red]")
+        console.print("Try analyzing more files or lowering --min-signatures")
+        sys.exit(1)
+    
+    # Build signature file
+    signature_file = {
+        "component": {
+            "name": name,
+            "version": version,
+            "category": "imported",
+            "platforms": ["all"],
+            "languages": ["native"] if input_type == 'binary' else ["unknown"],
+            "description": description or f"Signatures for {name}",
+            "license": license,
+            "publisher": publisher
+        },
+        "signature_metadata": {
+            "version": "1.0.0",
+            "created": datetime.now().isoformat() + "Z",
+            "updated": datetime.now().isoformat() + "Z",
+            "signature_count": len(signatures),
+            "confidence_threshold": 0.7,
+            "source": f"{input_type}_analysis",
+            "extraction_method": "symbol_extraction" if input_type == 'binary' else "ast_parsing"
+        },
+        "signatures": signatures
+    }
+    
+    # Determine output path
+    if not output:
+        output = Path("signatures") / f"{name.lower().replace(' ', '-')}.json"
+    else:
+        output = Path(output)
+    
+    # Save signature file
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with open(output, 'w', encoding='utf-8') as f:
+        json.dump(signature_file, f, indent=2, ensure_ascii=False)
+    
+    console.print(f"\n[green]✓ Created {len(signatures)} signatures[/green]")
+    console.print(f"Signature file saved to: [cyan]{output}[/cyan]")
+    
+    # Show summary
+    console.print("\n[bold]Summary:[/bold]")
+    table = Table(show_header=False)
+    table.add_column("Property", style="cyan")
+    table.add_column("Value", style="green")
+    
+    table.add_row("Component", f"{name} v{version}")
+    table.add_row("Signatures", str(len(signatures)))
+    table.add_row("Input Type", input_type)
+    table.add_row("License", license or "Not specified")
+    table.add_row("Publisher", publisher or "Not specified")
+    
+    console.print(table)
+    
+    # Show example signatures
+    console.print("\n[bold]Example signatures:[/bold]")
+    for sig in signatures[:5]:
+        console.print(f"  [{sig['type']}] {sig['pattern']} (confidence: {sig['confidence']})")
+
+
 def output_table(batch_result: BatchAnalysisResult):
     """Output results as a table"""
     for file_path, result in batch_result.results.items():

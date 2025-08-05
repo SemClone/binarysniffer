@@ -15,32 +15,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:30:48.531817Z",
-    "signature_count": 2,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
-    "source": "migrated_from_sqlite_db"
+    "source": "migrated_from_sqlite_db",
+    "updated": "2025-08-05T00:00:00Z",
+    "cleaned": true
   },
-  "signatures": [
-    {
-      "id": "pkg_errors_0",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "93870ec4326cefeb3bc864b1bded48de09c7a53f92b853b44d4deb7e3954f903"
-    },
-    {
-      "id": "pkg_errors_1",
-      "type": 1,
-      "pattern": "",
-      "confidence": 0.7,
-      "context": "imported",
-      "platforms": [
-        "all"
-      ],
-      "signature_hash": "626a0c639d8d2753e9e7b253e70e0d22eb9698f300b502ed8e549d4e9b691398"
-    }
-  ]
+  "signatures": []
 }

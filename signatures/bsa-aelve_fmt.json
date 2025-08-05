@@ -16,32 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.396482Z",
-    "updated": "2022-06-05T00:00:00Z",
-    "signature_count": 2,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "aelve_fmt.json"
+    "original_file": "aelve_fmt.json",
+    "cleaned": true
   },
-  "signatures": [
-    {
-      "id": "aelve_fmt_0",
-      "type": "string_pattern",
-      "pattern": "fmt:",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "aelve_fmt_1",
-      "type": "string_pattern",
-      "pattern": "fmt",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

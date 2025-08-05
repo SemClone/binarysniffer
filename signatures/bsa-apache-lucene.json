@@ -16,23 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.395754Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 6,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "apache-lucene.json"
+    "original_file": "apache-lucene.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "apache_lucene_0",
-      "type": "string_pattern",
-      "pattern": "lucene",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "apache_lucene_1",
       "type": "string_pattern",
@@ -68,16 +59,6 @@
       "type": "string_pattern",
       "pattern": "PostingsWriterDoc",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_lucene_5",
-      "type": "string_pattern",
-      "pattern": "NormsData",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"

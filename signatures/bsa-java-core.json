@@ -16,93 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.446067Z",
-    "updated": "2022-06-16T00:00:00Z",
-    "signature_count": 60,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 43,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "java-core.json"
+    "original_file": "java-core.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "java_core_0",
-      "type": "string_pattern",
-      "pattern": "sun.",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_1",
-      "type": "string_pattern",
-      "pattern": "inject",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_2",
-      "type": "string_pattern",
-      "pattern": "awt",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_3",
-      "type": "string_pattern",
-      "pattern": "crypto",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_4",
-      "type": "string_pattern",
-      "pattern": "naming",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_5",
-      "type": "string_pattern",
-      "pattern": "beans",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_6",
-      "type": "string_pattern",
-      "pattern": "annotation",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_7",
-      "type": "string_pattern",
-      "pattern": "annotation",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "java_core_8",
       "type": "string_pattern",
@@ -114,100 +35,10 @@
       ]
     },
     {
-      "id": "java_core_9",
-      "type": "string_pattern",
-      "pattern": "lang",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_10",
-      "type": "string_pattern",
-      "pattern": "tools",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "java_core_11",
       "type": "string_pattern",
       "pattern": "accessibility",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_12",
-      "type": "string_pattern",
-      "pattern": "jms",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_13",
-      "type": "string_pattern",
-      "pattern": "mail",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_14",
-      "type": "string_pattern",
-      "pattern": "swing",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_15",
-      "type": "string_pattern",
-      "pattern": "measure",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_16",
-      "type": "string_pattern",
-      "pattern": "portlet",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_17",
-      "type": "string_pattern",
-      "pattern": "servlet",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_18",
-      "type": "string_pattern",
-      "pattern": "sun.misc.",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"

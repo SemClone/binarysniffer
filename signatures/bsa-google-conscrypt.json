@@ -16,27 +16,18 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.400221Z",
-    "updated": "2022-06-14T00:00:00Z",
-    "signature_count": 88,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 77,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "google-conscrypt.json"
+    "original_file": "google-conscrypt.json",
+    "cleaned": true
   },
   "signatures": [
     {
       "id": "google_conscrypt_0",
       "type": "string_pattern",
       "pattern": "ConscryptHostnameVerifier",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_1",
-      "type": "string_pattern",
-      "pattern": "ConscryptTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -74,16 +65,6 @@
       ]
     },
     {
-      "id": "google_conscrypt_5",
-      "type": "string_pattern",
-      "pattern": "Oconscrypt",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_6",
       "type": "string_pattern",
       "pattern": "we3econscrypt",
@@ -114,16 +95,6 @@
       ]
     },
     {
-      "id": "google_conscrypt_9",
-      "type": "string_pattern",
-      "pattern": "openjdk",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_10",
       "type": "string_pattern",
       "pattern": "ConscryptFileDescriptorSocket",
@@ -138,16 +109,6 @@
       "type": "string_pattern",
       "pattern": "CONSCRYPT_JNIUTIL_H_",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_12",
-      "type": "string_pattern",
-      "pattern": "conscrypt",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -247,16 +208,6 @@
       "id": "google_conscrypt_22",
       "type": "string_pattern",
       "pattern": "conscryptClass",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_23",
-      "type": "string_pattern",
-      "pattern": "ConscryptEngineTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -404,16 +355,6 @@
       ]
     },
     {
-      "id": "google_conscrypt_38",
-      "type": "string_pattern",
-      "pattern": "ConscryptSocketTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_39",
       "type": "string_pattern",
       "pattern": "AbstractConscryptSocket",
@@ -528,16 +469,6 @@
       "type": "string_pattern",
       "pattern": "getConscryptProvider",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_51",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -704,26 +635,6 @@
       ]
     },
     {
-      "id": "google_conscrypt_68",
-      "type": "string_pattern",
-      "pattern": "ConscryptEngineTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_69",
-      "type": "string_pattern",
-      "pattern": "Conscrypt",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_70",
       "type": "string_pattern",
       "pattern": "ConscryptStatsLog",
@@ -737,16 +648,6 @@
       "id": "google_conscrypt_71",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_PACKAGE",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_72",
-      "type": "string_pattern",
-      "pattern": "ConscryptTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -877,16 +778,6 @@
       "id": "google_conscrypt_85",
       "type": "string_pattern",
       "pattern": "newConscryptClientContext",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_86",
-      "type": "string_pattern",
-      "pattern": "ConscryptSocketTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

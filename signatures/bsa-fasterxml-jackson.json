@@ -16,43 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.390615Z",
-    "updated": "2022-06-14T00:00:00Z",
-    "signature_count": 25,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 14,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "fasterxml-jackson.json"
+    "original_file": "fasterxml-jackson.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "fasterxml_jackson_0",
-      "type": "string_pattern",
-      "pattern": "codehaus",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_1",
-      "type": "string_pattern",
-      "pattern": "jackson",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_2",
-      "type": "string_pattern",
-      "pattern": "FasterXML",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "fasterxml_jackson_3",
       "type": "string_pattern",
@@ -94,16 +65,6 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_7",
-      "type": "string_pattern",
-      "pattern": "NVvXEdocs",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_8",
       "type": "string_pattern",
       "pattern": "WriterBasedJsonGenerator",
@@ -134,39 +95,9 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_11",
-      "type": "string_pattern",
-      "pattern": "testCCommentsBytes",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_12",
       "type": "string_pattern",
       "pattern": "generateRandom",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_13",
-      "type": "string_pattern",
-      "pattern": "testLongErrorMessage",
-      "confidence": 0.8,
-      "context": "logging",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_14",
-      "type": "string_pattern",
-      "pattern": "AsyncStringArrayTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -204,26 +135,6 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_18",
-      "type": "string_pattern",
-      "pattern": "testMangledIntsBytes",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_19",
-      "type": "string_pattern",
-      "pattern": "LocationTestCase",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_20",
       "type": "string_pattern",
       "pattern": "coreTreeNode",
@@ -244,29 +155,9 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_22",
-      "type": "string_pattern",
-      "pattern": "assertEnd",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_23",
       "type": "string_pattern",
       "pattern": "DeserializationContext",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_24",
-      "type": "string_pattern",
-      "pattern": "testGetDataStream",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

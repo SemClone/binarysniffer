@@ -84,28 +84,49 @@ class ArchiveExtractor(BaseExtractor):
                 factory.extractors = [e for e in factory.extractors 
                                     if not isinstance(e, ArchiveExtractor)]
                 
-                for extracted_file in extracted_files[:100]:  # Limit files
+                # For single file archives, use all features; for multi-file, apply limits
+                is_single_file = len(extracted_files) == 1
+                file_limit = 500 if not is_single_file else 1
+                
+                for extracted_file in extracted_files[:file_limit]:  # Limit files for large archives
                     if extracted_file.is_file():
                         try:
                             # Extract features from each file
                             file_features = factory.extract(extracted_file)
                             
-                            # Merge features
-                            features.strings.extend(file_features.strings[:100])
-                            features.functions.extend(file_features.functions[:50])
-                            features.constants.extend(file_features.constants[:50])
-                            features.imports.extend(file_features.imports[:20])
-                            features.symbols.extend(file_features.symbols[:50])
+                            # Merge features - use all features for single file archives
+                            if is_single_file:
+                                features.strings.extend(file_features.strings)
+                                features.functions.extend(file_features.functions)
+                                features.constants.extend(file_features.constants)
+                                features.imports.extend(file_features.imports)
+                                features.symbols.extend(file_features.symbols)
+                            else:
+                                # Apply limits only for multi-file archives
+                                features.strings.extend(file_features.strings[:500])
+                                features.functions.extend(file_features.functions[:100])
+                                features.constants.extend(file_features.constants[:100])
+                                features.imports.extend(file_features.imports[:50])
+                                features.symbols.extend(file_features.symbols[:100])
                             
                         except Exception as e:
                             logger.debug(f"Error processing {extracted_file}: {e}")
                 
-                # Deduplicate and limit
-                features.strings = list(set(features.strings))[:self.max_strings]
-                features.functions = list(set(features.functions))[:1000]
-                features.constants = list(set(features.constants))[:500]
-                features.imports = list(set(features.imports))[:200]
-                features.symbols = list(set(features.symbols))[:1000]
+                # Deduplicate and limit (be generous for single-file archives)
+                if is_single_file:
+                    # For single file archives, use the same limits as the original extractor
+                    features.strings = list(set(features.strings))[:self.max_strings]
+                    features.functions = list(set(features.functions))
+                    features.constants = list(set(features.constants))
+                    features.imports = list(set(features.imports))
+                    features.symbols = list(set(features.symbols))
+                else:
+                    # For multi-file archives, apply reasonable limits
+                    features.strings = list(set(features.strings))[:self.max_strings]
+                    features.functions = list(set(features.functions))[:5000]
+                    features.constants = list(set(features.constants))[:2000]
+                    features.imports = list(set(features.imports))[:1000]
+                    features.symbols = list(set(features.symbols))[:5000]
                 
                 # Add base metadata
                 if not hasattr(features, 'metadata') or features.metadata is None:

@@ -3,8 +3,12 @@
     "name": "libxml2",
     "version": "unknown",
     "category": "xml",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "XML C parser and toolkit",
     "license": "MIT",
     "publisher": "GNOME Project"
@@ -12,10 +16,11 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
-    "updated": "2025-08-04T19:00:00Z",
-    "signature_count": 10,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 9,
     "confidence_threshold": 0.7,
-    "source": "manual"
+    "source": "manual",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -23,13 +28,6 @@
       "type": "string_pattern",
       "pattern": "xmlParseDocument",
       "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libxml2_2",
-      "type": "string_pattern",
-      "pattern": "xmlNewDoc",
-      "confidence": 0.85,
       "context": "function"
     },
     {

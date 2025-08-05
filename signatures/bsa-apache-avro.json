@@ -16,23 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.391410Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 6,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 2,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "apache-avro.json"
+    "original_file": "apache-avro.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "apache_avro_0",
-      "type": "string_pattern",
-      "pattern": "avro",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "apache_avro_1",
       "type": "string_pattern",
@@ -44,40 +35,10 @@
       ]
     },
     {
-      "id": "apache_avro_2",
-      "type": "string_pattern",
-      "pattern": "avroshare",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_avro_3",
-      "type": "string_pattern",
-      "pattern": "AvroIgnore",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_avro_4",
       "type": "string_pattern",
       "pattern": "AvroNamedSchema",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_avro_5",
-      "type": "string_pattern",
-      "pattern": "AvroValue",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"

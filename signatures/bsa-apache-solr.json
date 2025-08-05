@@ -16,23 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.446800Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 30,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 18,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "apache-solr.json"
+    "original_file": "apache-solr.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "apache_solr_0",
-      "type": "string_pattern",
-      "pattern": "solr",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "apache_solr_1",
       "type": "string_pattern",
@@ -54,16 +45,6 @@
       ]
     },
     {
-      "id": "apache_solr_3",
-      "type": "string_pattern",
-      "pattern": "jdbc",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_4",
       "type": "string_pattern",
       "pattern": "solrcollection",
@@ -74,40 +55,10 @@
       ]
     },
     {
-      "id": "apache_solr_5",
-      "type": "string_pattern",
-      "pattern": "sqlSolrRel",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_6",
       "type": "string_pattern",
       "pattern": "SolrCoreState",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_7",
-      "type": "string_pattern",
-      "pattern": "solrj",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_8",
-      "type": "string_pattern",
-      "pattern": "solrclient",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -144,16 +95,6 @@
       ]
     },
     {
-      "id": "apache_solr_12",
-      "type": "string_pattern",
-      "pattern": "solrcommon",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_13",
       "type": "string_pattern",
       "pattern": "SolrQueryResponse",
@@ -174,26 +115,6 @@
       ]
     },
     {
-      "id": "apache_solr_15",
-      "type": "string_pattern",
-      "pattern": "solrDoc",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_16",
-      "type": "string_pattern",
-      "pattern": "solrupdate",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_17",
       "type": "string_pattern",
       "pattern": "SolrQueryRequest",
@@ -204,30 +125,10 @@
       ]
     },
     {
-      "id": "apache_solr_18",
-      "type": "string_pattern",
-      "pattern": "SolrCore",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_19",
       "type": "string_pattern",
       "pattern": "solrhandler",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_20",
-      "type": "string_pattern",
-      "pattern": "SolrParams",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -248,16 +149,6 @@
       "type": "string_pattern",
       "pattern": "ModifiableSolrParams",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_23",
-      "type": "string_pattern",
-      "pattern": "solrcommon",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"
@@ -308,16 +199,6 @@
       "type": "string_pattern",
       "pattern": "solrrequest",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_29",
-      "type": "string_pattern",
-      "pattern": "solrcore",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "java"

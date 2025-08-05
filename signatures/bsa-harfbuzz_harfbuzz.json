@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.445500Z",
-    "updated": "2022-06-05T00:00:00Z",
-    "signature_count": 3,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 2,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "harfbuzz_harfbuzz.json"
+    "original_file": "harfbuzz_harfbuzz.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -38,16 +39,6 @@
       "type": "string_pattern",
       "pattern": "hb_buffer_t",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "harfbuzz_harfbuzz_2",
-      "type": "string_pattern",
-      "pattern": "OT:",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"

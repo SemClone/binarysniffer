@@ -16,23 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.398534Z",
-    "updated": "2022-06-14T00:00:00Z",
-    "signature_count": 42,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 36,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "facebook-react-native.json"
+    "original_file": "facebook-react-native.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "facebook_react_native_0",
-      "type": "string_pattern",
-      "pattern": "LogcatSink",
-      "confidence": 0.7,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "facebook_react_native_1",
       "type": "string_pattern",
@@ -194,16 +185,6 @@
       ]
     },
     {
-      "id": "facebook_react_native_17",
-      "type": "string_pattern",
-      "pattern": "React",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "facebook_react_native_18",
       "type": "string_pattern",
       "pattern": "rootViewForReactTag:withCompletion:",
@@ -237,16 +218,6 @@
       "id": "facebook_react_native_21",
       "type": "string_pattern",
       "pattern": "ReactBackgroundColorSpan",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_22",
-      "type": "string_pattern",
-      "pattern": "NOTEReact",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -289,26 +260,6 @@
       "pattern": "reactAndroidLoggingHook",
       "confidence": 0.9,
       "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_27",
-      "type": "string_pattern",
-      "pattern": "ReactProp",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_28",
-      "type": "string_pattern",
-      "pattern": "react",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -387,16 +338,6 @@
       "id": "facebook_react_native_36",
       "type": "string_pattern",
       "pattern": "test_setClangCxxLanguageStandardIfNeeded_whenReactCoreIsPresent",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_37",
-      "type": "string_pattern",
-      "pattern": "react-test",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

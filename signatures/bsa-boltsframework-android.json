@@ -17,37 +17,18 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.447161Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 8,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "boltsframework-android.json"
+    "original_file": "boltsframework-android.json",
+    "cleaned": true
   },
   "signatures": [
     {
       "id": "boltsframework_android_0",
       "type": "string_pattern",
       "pattern": "bolts-applinks",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "boltsframework_android_1",
-      "type": "string_pattern",
-      "pattern": "javabolts",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "boltsframework_android_2",
-      "type": "string_pattern",
-      "pattern": "bolts",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -79,26 +60,6 @@
       "type": "string_pattern",
       "pattern": "bolts-applinks",
       "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "boltsframework_android_6",
-      "type": "string_pattern",
-      "pattern": "bolts",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "boltsframework_android_7",
-      "type": "string_pattern",
-      "pattern": "applinks",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "android"

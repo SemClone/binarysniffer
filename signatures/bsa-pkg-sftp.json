@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.390953Z",
-    "updated": "2022-07-01T00:00:00Z",
-    "signature_count": 2,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "pkg-sftp.json"
+    "original_file": "pkg-sftp.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -28,16 +29,6 @@
       "type": "string_pattern",
       "pattern": "Github-Pkg-Sftp",
       "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pkg_sftp_1",
-      "type": "string_pattern",
-      "pattern": "pkgsftp",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"

@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.399169Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 38,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 20,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "bumptech-glide.json"
+    "original_file": "bumptech-glide.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -37,16 +38,6 @@
       "id": "bumptech_glide_1",
       "type": "string_pattern",
       "pattern": "GlideBenchmarkRule",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_2",
-      "type": "string_pattern",
-      "pattern": "GlideFuturesTest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -74,16 +65,6 @@
       ]
     },
     {
-      "id": "bumptech_glide_5",
-      "type": "string_pattern",
-      "pattern": "InvalidAppGlideModuleWithExcludesTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_6",
       "type": "string_pattern",
       "pattern": "GlideFutures",
@@ -104,49 +85,9 @@
       ]
     },
     {
-      "id": "bumptech_glide_8",
-      "type": "string_pattern",
-      "pattern": "GlideUrl",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_9",
       "type": "string_pattern",
       "pattern": "validateGlideOptionOverride",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_10",
-      "type": "string_pattern",
-      "pattern": "GlideFuturesTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_11",
-      "type": "string_pattern",
-      "pattern": "CronetGlideModule",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_12",
-      "type": "string_pattern",
-      "pattern": "InstrumentationAppGlideModule",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -158,16 +99,6 @@
       "type": "string_pattern",
       "pattern": "glideContext",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_14",
-      "type": "string_pattern",
-      "pattern": "GlideApp",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -204,51 +135,11 @@
       ]
     },
     {
-      "id": "bumptech_glide_18",
-      "type": "string_pattern",
-      "pattern": "glideType",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_19",
       "type": "string_pattern",
       "pattern": "utilGlideSuppliers",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_20",
-      "type": "string_pattern",
-      "pattern": "ImgurGlideModule",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_21",
-      "type": "string_pattern",
-      "pattern": "AppGlideModuleWithExcludesTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_22",
-      "type": "string_pattern",
-      "pattern": "OkHttpLibraryGlideModule",
-      "confidence": 0.8,
-      "context": "networking",
       "platforms": [
         "all"
       ]
@@ -264,69 +155,9 @@
       ]
     },
     {
-      "id": "bumptech_glide_24",
-      "type": "string_pattern",
-      "pattern": "GlideContextTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_25",
       "type": "string_pattern",
       "pattern": "GlideLoadingListener",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_26",
-      "type": "string_pattern",
-      "pattern": "glideName",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_27",
-      "type": "string_pattern",
-      "pattern": "MultipleAppGlideModuleTest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_28",
-      "type": "string_pattern",
-      "pattern": "FlickrGlideModule",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_29",
-      "type": "string_pattern",
-      "pattern": "getExcludedGlideModuleClassNames",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_30",
-      "type": "string_pattern",
-      "pattern": "appGlideModule",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -348,16 +179,6 @@
       "type": "string_pattern",
       "pattern": "FlickrGlideExtension",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_33",
-      "type": "string_pattern",
-      "pattern": "Glide",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"

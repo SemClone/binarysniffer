@@ -16,53 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.450282Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 65,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 34,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "apache-httpcore.json"
+    "original_file": "apache-httpcore.json",
+    "cleaned": true
   },
   "signatures": [
-    {
-      "id": "apache_httpcore_0",
-      "type": "string_pattern",
-      "pattern": "testHttpHost",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_1",
-      "type": "string_pattern",
-      "pattern": "TestHttpExceptions",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_2",
-      "type": "string_pattern",
-      "pattern": "testRequestHttp",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_3",
-      "type": "string_pattern",
-      "pattern": "TestHttpMessage",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "apache_httpcore_4",
       "type": "string_pattern",
@@ -124,56 +85,6 @@
       ]
     },
     {
-      "id": "apache_httpcore_10",
-      "type": "string_pattern",
-      "pattern": "HTTP_0_9",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_11",
-      "type": "string_pattern",
-      "pattern": "HTTP_1_0",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_12",
-      "type": "string_pattern",
-      "pattern": "HTTP_1_1",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_13",
-      "type": "string_pattern",
-      "pattern": "HTTP_2",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_14",
-      "type": "string_pattern",
-      "pattern": "HttpVersion",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_httpcore_15",
       "type": "string_pattern",
       "pattern": "HttpRequestMapper",
@@ -184,59 +95,9 @@
       ]
     },
     {
-      "id": "apache_httpcore_16",
-      "type": "string_pattern",
-      "pattern": "HttpHost",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_17",
-      "type": "string_pattern",
-      "pattern": "HttpRequest",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_18",
-      "type": "string_pattern",
-      "pattern": "HttpResponse",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_19",
-      "type": "string_pattern",
-      "pattern": "HTTPS",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_httpcore_20",
       "type": "string_pattern",
       "pattern": "setHttpHost",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_21",
-      "type": "string_pattern",
-      "pattern": "HttpDateGenerator",
       "confidence": 0.8,
       "context": "networking",
       "platforms": [
@@ -257,46 +118,6 @@
       "id": "apache_httpcore_23",
       "type": "string_pattern",
       "pattern": "BasicHttpContext",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_24",
-      "type": "string_pattern",
-      "pattern": "HttpContext",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_25",
-      "type": "string_pattern",
-      "pattern": "HttpProcessor",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_26",
-      "type": "string_pattern",
-      "pattern": "HTTP_REQUEST",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_27",
-      "type": "string_pattern",
-      "pattern": "HTTP_RESPONSE",
       "confidence": 0.8,
       "context": "networking",
       "platforms": [
@@ -494,116 +315,6 @@
       ]
     },
     {
-      "id": "apache_httpcore_47",
-      "type": "string_pattern",
-      "pattern": "HttpServer",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_48",
-      "type": "string_pattern",
-      "pattern": "testForceHttp",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_49",
-      "type": "string_pattern",
-      "pattern": "InternalHttp1ServerTestBase",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_50",
-      "type": "string_pattern",
-      "pattern": "Http1AuthenticationTest",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_51",
-      "type": "string_pattern",
-      "pattern": "Http1SocksProxyIntegrationTest",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_52",
-      "type": "string_pattern",
-      "pattern": "Http1ServerAndRequesterTest",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_53",
-      "type": "string_pattern",
-      "pattern": "testHttpContent",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_54",
-      "type": "string_pattern",
-      "pattern": "testHttpPostIdentity",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_55",
-      "type": "string_pattern",
-      "pattern": "testHttpPostNoContentLength",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_56",
-      "type": "string_pattern",
-      "pattern": "testHttpPostNoEntity",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_57",
-      "type": "string_pattern",
-      "pattern": "forceHttp",
-      "confidence": 0.7,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_httpcore_58",
       "type": "string_pattern",
       "pattern": "HttpBenchmark",
@@ -634,16 +345,6 @@
       ]
     },
     {
-      "id": "apache_httpcore_61",
-      "type": "string_pattern",
-      "pattern": "Http1TestServer",
-      "confidence": 0.8,
-      "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_httpcore_62",
       "type": "string_pattern",
       "pattern": "LoggingBHttpClientConnection",
@@ -659,16 +360,6 @@
       "pattern": "LoggingHttp1StreamListener",
       "confidence": 0.8,
       "context": "networking",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_httpcore_64",
-      "type": "string_pattern",
-      "pattern": "apache",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "java"
       ]

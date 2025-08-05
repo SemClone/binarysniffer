@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.401817Z",
-    "updated": "2022-06-12T00:00:00Z",
-    "signature_count": 22,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 19,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "costigliola-assertj.json"
+    "original_file": "costigliola-assertj.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -29,16 +30,6 @@
       "pattern": "AssertJMultipleFailuresError",
       "confidence": 0.9,
       "context": "logging",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "costigliola_assertj_1",
-      "type": "string_pattern",
-      "pattern": "assertj",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "java"
       ]
@@ -124,16 +115,6 @@
       ]
     },
     {
-      "id": "costigliola_assertj_10",
-      "type": "string_pattern",
-      "pattern": "toAssertJ",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "costigliola_assertj_11",
       "type": "string_pattern",
       "pattern": "removeAssertJRelatedElementsFromStackTrace",
@@ -177,16 +158,6 @@
       "id": "costigliola_assertj_15",
       "type": "string_pattern",
       "pattern": "Strings_assertJavaBlank_Test",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "costigliola_assertj_16",
-      "type": "string_pattern",
-      "pattern": "assertj",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

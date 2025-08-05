@@ -16,11 +16,12 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.403135Z",
-    "updated": "2022-07-01T00:00:00Z",
-    "signature_count": 7,
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
-    "original_file": "pelletier-gotoml.json"
+    "original_file": "pelletier-gotoml.json",
+    "cleaned": true
   },
   "signatures": [
     {
@@ -28,26 +29,6 @@
       "type": "string_pattern",
       "pattern": "Pelletier-GoToml",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pelletier_gotoml_1",
-      "type": "string_pattern",
-      "pattern": "GoToml",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pelletier_gotoml_2",
-      "type": "string_pattern",
-      "pattern": "tomlValue",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -78,16 +59,6 @@
       "type": "string_pattern",
       "pattern": "tomlvunquote",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pelletier_gotoml_6",
-      "type": "string_pattern",
-      "pattern": "tomltree",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"

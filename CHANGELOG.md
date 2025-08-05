@@ -5,6 +5,72 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2025-08-05
+
+### Added
+- **Integrated signature creation** - New `binarysniffer signatures create` command
+- **Binary symbol extraction** - Extract symbols using readelf, nm, and strings
+- **Smart signature generation** - Automatically identifies library prefixes and functions
+- **Source code analysis** - Create signatures from source code repositories
+- **Auto-detection** - Automatically detects binary vs source code input
+
+### Improved
+- **CLI integration** - Signature creation is now part of the main tool
+- **Symbol-based signatures** - Uses actual binary symbols instead of arbitrary strings
+- **Better validation** - Accepts library prefixes like `av_`, `x264_`, `png_`
+
+### Usage
+```bash
+# Create signatures from binary
+binarysniffer signatures create /path/to/ffmpeg --name FFmpeg --version 4.4.1
+
+# Create from source code
+binarysniffer signatures create /path/to/source --name MyLib --license MIT
+
+# With full metadata
+binarysniffer signatures create binary --name Component \\
+  --version 1.0 --license GPL-3.0 --publisher "Company" \\
+  --description "Component description" --output custom.json
+```
+
+## [1.4.9] - 2025-08-05
+
+### Added
+- **Signature quality validation** - New SignatureValidator class filters out generic patterns
+- **Automatic filtering** - DirectMatcher now rejects overly generic signatures like "react", "log", "test"
+- **Quality metrics** - 1,153 problematic patterns identified and filtered from signature database
+
+### Improved
+- **Drastically reduced false positives** - No more React Native detection in C++ projects
+- **Better precision** - Filters short patterns (<6 chars) and common programming terms
+- **Smarter matching** - Accepts specific patterns with special characters, mixed case, or namespaces
+
+### Fixed
+- **Generic signature problem** - Signatures like "React", "apache", "get", "set" no longer cause false matches
+- **Cross-technology false positives** - C++ projects no longer show JavaScript/mobile components
+
+## [1.4.8] - 2025-08-05
+
+### Improved
+- **Higher default threshold** - Increased from 0.5 to 0.7 for better precision
+- **ZIP file filtering** - Added technology filtering for ZIP files containing binaries
+- **Mobile component filtering** - React Native, Firebase, and other mobile components now filtered from ZIP files
+
+### Fixed
+- **False positives in ZIP files** - ZIP files with native binaries no longer show mobile-specific components
+
+## [1.4.7] - 2025-08-05
+
+### Improved
+- **Reduced false positives** - Increased default threshold from 0.3 to 0.5 for better accuracy
+- **Technology filtering** - Automatically filters incompatible components (e.g., no Android/iOS components in native binaries)
+- **Archive extraction** - Fixed single-file archive extraction to use all features instead of limiting to 100 strings
+- **Context validation** - Binary type now influences component detection to prevent impossible matches
+
+### Fixed
+- **ZIP file analysis** - Single-file archives like ffmpeg-4.4.1-linux-64.zip now properly analyzed with full feature extraction
+- **False positive filtering** - Removed mobile-specific components (Firebase, React Native, etc.) from native binary results
+
 ## [1.4.6] - 2025-08-05
 
 ### Improved
