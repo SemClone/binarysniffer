@@ -86,7 +86,22 @@ class ArchiveExtractor(BaseExtractor):
                 
                 # For single file archives, use all features; for multi-file, apply limits
                 is_single_file = len(extracted_files) == 1
-                file_limit = 500 if not is_single_file else 1
+                
+                # CRITICAL: For APKs, prioritize native libraries and DEX files
+                if features.file_type == 'android':
+                    # Sort files to prioritize .so and .dex files
+                    prioritized_files = []
+                    other_files = []
+                    for f in extracted_files:
+                        if f.suffix in ['.so', '.dex']:
+                            prioritized_files.append(f)
+                        else:
+                            other_files.append(f)
+                    # Process native libraries and DEX files first, then others
+                    extracted_files = prioritized_files + other_files[:100]  # Limit other files
+                    file_limit = len(extracted_files)
+                else:
+                    file_limit = 10000 if not is_single_file else 1
                 
                 for extracted_file in extracted_files[:file_limit]:  # Limit files for large archives
                     if extracted_file.is_file():
@@ -102,12 +117,12 @@ class ArchiveExtractor(BaseExtractor):
                                 features.imports.extend(file_features.imports)
                                 features.symbols.extend(file_features.symbols)
                             else:
-                                # Apply limits only for multi-file archives
-                                features.strings.extend(file_features.strings[:500])
-                                features.functions.extend(file_features.functions[:100])
-                                features.constants.extend(file_features.constants[:100])
-                                features.imports.extend(file_features.imports[:50])
-                                features.symbols.extend(file_features.symbols[:100])
+                                # Apply limits only for multi-file archives - ULTRA MASSIVE
+                                features.strings.extend(file_features.strings[:50000])  # Was 5000
+                                features.functions.extend(file_features.functions[:10000])  # Was 1000  
+                                features.constants.extend(file_features.constants[:10000])  # Was 1000
+                                features.imports.extend(file_features.imports[:5000])  # Was 500
+                                features.symbols.extend(file_features.symbols[:10000])  # Was 1000
                             
                         except Exception as e:
                             logger.debug(f"Error processing {extracted_file}: {e}")
@@ -121,12 +136,21 @@ class ArchiveExtractor(BaseExtractor):
                     features.imports = list(set(features.imports))
                     features.symbols = list(set(features.symbols))
                 else:
-                    # For multi-file archives, apply reasonable limits
-                    features.strings = list(set(features.strings))[:self.max_strings]
-                    features.functions = list(set(features.functions))[:5000]
-                    features.constants = list(set(features.constants))[:2000]
-                    features.imports = list(set(features.imports))[:1000]
-                    features.symbols = list(set(features.symbols))[:5000]
+                    # For multi-file archives, apply limits based on type
+                    if features.file_type == 'android':
+                        # For APKs, be very generous with limits
+                        features.strings = list(set(features.strings))[:100000]  # 100k strings for APKs
+                        features.functions = list(set(features.functions))[:20000]
+                        features.constants = list(set(features.constants))[:10000]
+                        features.imports = list(set(features.imports))[:5000]
+                        features.symbols = list(set(features.symbols))[:20000]
+                    else:
+                        # Standard limits for other archives
+                        features.strings = list(set(features.strings))[:self.max_strings]
+                        features.functions = list(set(features.functions))[:5000]
+                        features.constants = list(set(features.constants))[:2000]
+                        features.imports = list(set(features.imports))[:1000]
+                        features.symbols = list(set(features.symbols))[:5000]
                 
                 # Add base metadata
                 if not hasattr(features, 'metadata') or features.metadata is None:
@@ -218,6 +242,24 @@ class ArchiveExtractor(BaseExtractor):
         dex_files = list(extract_path.glob("classes*.dex"))
         if dex_files:
             features.metadata['dex_files'] = len(dex_files)
+            # Extract strings from DEX files using simple strings command
+            for dex_file in dex_files[:3]:  # Process first 3 DEX files
+                try:
+                    import subprocess
+                    result = subprocess.run(
+                        ['strings', str(dex_file)],
+                        capture_output=True,
+                        text=True,
+                        timeout=5
+                    )
+                    if result.returncode == 0:
+                        dex_strings = result.stdout.split('\n')
+                        # Add meaningful strings from DEX
+                        for s in dex_strings[:5000]:  # Limit per DEX file
+                            if len(s) >= 5 and not s.startswith('/'):
+                                features.strings.append(s)
+                except Exception:
+                    pass  # Strings command might not be available
         
         # Look for lib directory with native libraries
         lib_dir = extract_path / "lib"
@@ -227,7 +269,8 @@ class ArchiveExtractor(BaseExtractor):
                 if arch_dir.is_dir():
                     for lib in arch_dir.glob("*.so"):
                         native_libs.append(lib.name)
-                        features.imports.append(lib.name)
+                        # CRITICAL FIX: Don't just add the name, let the main loop process the .so file!
+                        # The main extraction loop will handle these files properly
             features.metadata['native_libs'] = native_libs[:20]
         
         # Package name from directory structure

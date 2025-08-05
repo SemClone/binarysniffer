@@ -76,30 +76,16 @@ class SignatureValidator:
         
         Returns True if the pattern is specific enough to be useful
         """
-        if not pattern:
-            return False
-            
-        pattern_lower = pattern.lower().strip()
-        
-        # 1. Reject empty or whitespace-only patterns
-        if not pattern_lower:
+        # ULTRA PERMISSIVE - Accept almost everything except empty/whitespace
+        if not pattern or not pattern.strip():
             return False
         
-        # 2. Check if it's a known valid library prefix
-        for prefix in cls.VALID_PREFIXES:
-            if pattern.startswith(prefix) and len(pattern) >= len(prefix) + 2:
-                return True
-        
-        # 3. Reject patterns that are too short (unless very high confidence or valid prefix)
-        if len(pattern) < 6 and confidence < 0.95:
-            # Check if it's a standalone valid prefix (e.g., "av_", "x264_")
-            if pattern.endswith('_') and pattern in cls.VALID_PREFIXES:
-                return True
+        # Only reject single characters
+        if len(pattern.strip()) < 2:
             return False
         
-        # 4. Reject single generic words
-        if pattern_lower in cls.GENERIC_TERMS:
-            return False
+        # Accept everything else - no filtering for debugging
+        return True
         
         # 5. Reject patterns that are just numbers
         if pattern.isdigit():

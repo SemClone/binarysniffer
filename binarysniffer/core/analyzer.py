@@ -95,7 +95,7 @@ class BinarySniffer:
             file_type=features.file_type,
             matches=matches,
             analysis_time=self.matcher.last_analysis_time,
-            features_extracted=len(features.strings) + len(features.symbols),
+            features_extracted=len(features.all_features),
             confidence_threshold=threshold
         )
     

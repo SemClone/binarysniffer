@@ -10,6 +10,8 @@ from .base import BaseExtractor, ExtractedFeatures
 from .binary_improved import ImprovedBinaryExtractor
 from .source import SourceCodeExtractor
 from .archive import ArchiveExtractor
+from .dex import DexExtractor
+from .binary_lief import LiefBinaryExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -26,7 +28,17 @@ class ExtractorFactory:
         """
         self.extractors = [
             ArchiveExtractor(),     # Check archives first (contains other files)
+            DexExtractor(),        # DEX files (Android bytecode)
         ]
+        
+        # Add LIEF-based binary extractor if available
+        try:
+            lief_extractor = LiefBinaryExtractor()
+            if lief_extractor.has_lief:
+                self.extractors.append(lief_extractor)
+                logger.info("LIEF binary extractor enabled")
+        except Exception as e:
+            logger.debug(f"LIEF binary extractor not available: {e}")
         
         # Try to add CTags extractor if enabled
         if enable_ctags:

@@ -100,7 +100,7 @@ class ProgressiveMatcher:
         candidates = set()
         
         # Check each feature
-        for feature in features[:1000]:  # Limit for performance
+        for feature in features[:100000]:  # Increased limit for better detection
             tier = self.bloom_filter.check_string(feature)
             if tier:
                 # Add feature hash as candidate
