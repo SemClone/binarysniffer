@@ -56,24 +56,24 @@ pip install semantic-copycat-binarysniffer[fast]
 
 ```bash
 # Analyze a single file
-binarysniffer /path/to/binary
+binarysniffer analyze /path/to/binary
 
 # Analyze mobile applications (NEW in v1.1.0)
-binarysniffer app.apk                    # Android APK
-binarysniffer app.ipa                    # iOS IPA
-binarysniffer library.jar                # Java JAR
+binarysniffer analyze app.apk                    # Android APK
+binarysniffer analyze app.ipa                    # iOS IPA
+binarysniffer analyze library.jar                # Java JAR
 
 # Analyze directories recursively
-binarysniffer /path/to/project --recursive
+binarysniffer analyze /path/to/project --recursive
 
 # Show detailed matches with confidence scores
-binarysniffer file.exe --detailed --threshold 0.7
+binarysniffer analyze file.exe --detailed --threshold 0.7
 
 # Export results as JSON
-binarysniffer project/ --format json -o results.json
+binarysniffer analyze project/ --format json -o results.json
 
 # CTags-enhanced source analysis (if universal-ctags installed)
-binarysniffer source_project/ --detailed
+binarysniffer analyze source_project/ --detailed
 ```
 
 ### Python Library Usage

@@ -129,8 +129,8 @@ binarysniffer signatures rebuild [--github/--no-github]
 
 ### Example 1: Analyzing an Android APK
 ```bash
-# Enhanced analysis of a Kindle APK
-binarysniffer analyze kindle.apk --enhanced
+# Enhanced analysis of an APK
+binarysniffer analyze my_android_app.apk --enhanced
 
 # Output:
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┓
@@ -176,7 +176,7 @@ binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
 {
   "results": {
     "file_path": {
-      "file_path": "downloads/kindle.apk",
+      "file_path": "downloads/my_android_app.apk",
       "file_size": 172796734,
       "file_type": "android",
       "matches": [
@@ -206,8 +206,8 @@ binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
 ### CSV Format
 ```csv
 File,Component,Confidence,License,Type,Ecosystem
-kindle.apk,FFMPEG@unknown,0.880,-,string,unknown
-kindle.apk,libpng@unknown,0.740,-,string,unknown
+my_android_app.apk,FFMPEG@unknown,0.880,-,string,unknown
+my_android_app.apk,libpng@unknown,0.740,-,string,unknown
 ```
 
 ## Enhanced Detection Mode
