@@ -1,0 +1,183 @@
+{
+  "component": {
+    "name": "LAME",
+    "version": "unknown",
+    "category": "multimedia",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "LAME MP3 Encoder",
+    "license": "LGPL-2.0",
+    "publisher": "LAME Project"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-05T00:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.7,
+    "source": "manual_analysis",
+    "extraction_method": "api_analysis"
+  },
+  "signatures": [
+    {
+      "id": "lame_001",
+      "type": "string_pattern",
+      "pattern": "lame_init",
+      "confidence": 0.95,
+      "context": "init_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_002",
+      "type": "string_pattern",
+      "pattern": "lame_encode_buffer",
+      "confidence": 0.9,
+      "context": "encode_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_003",
+      "type": "string_pattern",
+      "pattern": "lame_encode_buffer_interleaved",
+      "confidence": 0.9,
+      "context": "encode_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_004",
+      "type": "string_pattern",
+      "pattern": "lame_encode_flush",
+      "confidence": 0.85,
+      "context": "encode_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_005",
+      "type": "string_pattern",
+      "pattern": "lame_close",
+      "confidence": 0.85,
+      "context": "cleanup_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_006",
+      "type": "string_pattern",
+      "pattern": "lame_set_VBR",
+      "confidence": 0.85,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_007",
+      "type": "string_pattern",
+      "pattern": "lame_set_quality",
+      "confidence": 0.85,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_008",
+      "type": "string_pattern",
+      "pattern": "lame_set_brate",
+      "confidence": 0.85,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_009",
+      "type": "string_pattern",
+      "pattern": "lame_set_mode",
+      "confidence": 0.85,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_010",
+      "type": "string_pattern",
+      "pattern": "lame_get_VBR",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_011",
+      "type": "string_pattern",
+      "pattern": "lame_get_quality",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_012",
+      "type": "string_pattern",
+      "pattern": "lame_get_brate",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_013",
+      "type": "string_pattern",
+      "pattern": "lame_get_mode",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_014",
+      "type": "string_pattern",
+      "pattern": "lame_mp3_tags_fid",
+      "confidence": 0.85,
+      "context": "tag_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_015",
+      "type": "string_pattern",
+      "pattern": "lame_get_lametag_frame",
+      "confidence": 0.85,
+      "context": "tag_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_016",
+      "type": "string_pattern",
+      "pattern": "lame_set_num_samples",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_017",
+      "type": "string_pattern",
+      "pattern": "lame_get_num_samples",
+      "confidence": 0.8,
+      "context": "config_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_018",
+      "type": "string_pattern",
+      "pattern": "lame_init_params",
+      "confidence": 0.9,
+      "context": "init_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_019",
+      "type": "string_pattern",
+      "pattern": "lame_print_config",
+      "confidence": 0.75,
+      "context": "debug_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "lame_020",
+      "type": "string_pattern",
+      "pattern": "lame_version",
+      "confidence": 0.9,
+      "context": "version_api",
+      "platforms": ["all"]
+    }
+  ]
+}
