@@ -130,18 +130,40 @@ class DirectMatcher:
                 component_scores[sig['component_id']].append({
                     'sig_id': sig['id'],
                     'confidence': sig['confidence'],
-                    'sig_type': sig['sig_type']
+                    'sig_type': sig['sig_type'],
+                    'pattern': pattern,
+                    'matched_string': pattern  # exact match
                 })
                 continue
             
-            # Check for substring match (for longer patterns)
-            if len(pattern) > 10:
+            # Smart substring matching - avoid generic terms and require meaningful prefixes
+            # Only check substring matching for patterns that are sufficiently specific
+            if len(pattern) >= 10 and not self._contains_only_generic_terms(pattern):
                 for string in string_set:
-                    if pattern in string or string in pattern:
+                    # Skip if the string is too generic or too short
+                    if len(string) < 6 or string in self._get_generic_terms():
+                        continue
+                    
+                    # For substring matching, require that:
+                    # 1. The string is contained in the pattern
+                    # 2. The string is at least 70% of the pattern length
+                    # 3. If the pattern has a prefix (like "av_"), the string should include it
+                    if string in pattern and len(string) >= len(pattern) * 0.7:
+                        # Check for prefix matching - if pattern has a prefix, string should too
+                        pattern_parts = pattern.split('_', 1)
+                        string_parts = string.split('_', 1)
+                        
+                        # If pattern has a library-specific prefix, string must have the same prefix
+                        if len(pattern_parts) > 1 and len(pattern_parts[0]) <= 4:  # Common prefixes are short
+                            if len(string_parts) == 1 or pattern_parts[0] != string_parts[0]:
+                                continue  # Skip if prefix doesn't match
+                        
                         component_scores[sig['component_id']].append({
                             'sig_id': sig['id'],
-                            'confidence': sig['confidence'] * 0.8,  # Lower confidence for partial match
-                            'sig_type': sig['sig_type']
+                            'confidence': sig['confidence'] * 0.6,  # Lower confidence for partial match
+                            'sig_type': sig['sig_type'],
+                            'pattern': pattern,
+                            'matched_string': string
                         })
                         break
         
@@ -179,6 +201,15 @@ class DirectMatcher:
                 else:
                     component_name = comp_info['name']
                 
+                # Collect matched patterns for evidence
+                matched_patterns = []
+                for m in sig_matches[:20]:  # Limit to top 20 for readability
+                    matched_patterns.append({
+                        'pattern': m.get('pattern', ''),
+                        'matched_string': m.get('matched_string', ''),
+                        'confidence': m['confidence']
+                    })
+                
                 match = ComponentMatch(
                     component=component_name,
                     ecosystem=comp_info.get('ecosystem', 'unknown'),
@@ -188,7 +219,8 @@ class DirectMatcher:
                     evidence={
                         'signatures_matched': len(sig_matches),
                         'match_method': 'direct string matching',
-                        'confidence_score': f"{final_confidence:.1%}"
+                        'confidence_score': f"{final_confidence:.1%}",
+                        'matched_patterns': matched_patterns
                     }
                 )
                 matches.append(match)
@@ -216,3 +248,59 @@ class DirectMatcher:
             return type_map.get(most_common, "unknown")
         
         return "unknown"
+    
+    def _get_generic_terms(self) -> Set[str]:
+        """Get set of generic programming terms to avoid in matching"""
+        return {
+            'create', 'destroy', 'init', 'exit', 'open', 'close', 'read', 'write',
+            'get', 'set', 'add', 'remove', 'delete', 'update', 'insert', 'find',
+            'search', 'sort', 'copy', 'move', 'compare', 'equals', 'hash', 'string',
+            'buffer', 'array', 'list', 'map', 'vector', 'queue', 'stack', 'tree',
+            'error', 'debug', 'info', 'warn', 'fatal', 'trace', 'log', 'print',
+            'alloc', 'free', 'malloc', 'calloc', 'realloc', 'new', 'delete',
+            'lock', 'unlock', 'mutex', 'thread', 'process', 'signal', 'handle',
+            'start', 'stop', 'begin', 'end', 'first', 'last', 'next', 'prev',
+            'size', 'count', 'length', 'empty', 'clear', 'reset', 'check', 'valid',
+            'load', 'save', 'parse', 'format', 'encode', 'decode', 'convert',
+            'connect', 'disconnect', 'send', 'receive', 'request', 'response',
+            'client', 'server', 'host', 'port', 'address', 'socket', 'stream',
+            'file', 'path', 'name', 'type', 'mode', 'flag', 'option', 'config',
+            'value', 'key', 'data', 'info', 'meta', 'param', 'arg', 'result',
+            'input', 'output', 'return', 'yield', 'throw', 'catch', 'finally',
+            'class', 'object', 'instance', 'method', 'function', 'property',
+            'public', 'private', 'protected', 'static', 'const', 'virtual',
+            'abstract', 'interface', 'impl', 'base', 'derived', 'parent', 'child',
+            'module', 'package', 'library', 'framework', 'component', 'service',
+            'manager', 'handler', 'controller', 'view', 'model', 'factory',
+            'builder', 'singleton', 'proxy', 'adapter', 'decorator', 'observer',
+            'iterator', 'visitor', 'command', 'strategy', 'state', 'template',
+            'context', 'store', 'cache', 'pool', 'buffer', 'queue', 'channel',
+            'event', 'listener', 'callback', 'delegate', 'action', 'task', 'job',
+            'work', 'item', 'element', 'node', 'edge', 'vertex', 'link', 'chain',
+            'group', 'cluster', 'set', 'collection', 'container', 'wrapper',
+            'helper', 'util', 'common', 'shared', 'global', 'local', 'temp',
+            'filter', 'transform', 'reduce', 'aggregate', 'merge', 'split', 'join'
+        }
+    
+    def _contains_only_generic_terms(self, pattern: str) -> bool:
+        """Check if a pattern contains only generic terms"""
+        # Split pattern by common separators
+        parts = []
+        current = ""
+        for char in pattern.lower():
+            if char in '_-.:':
+                if current:
+                    parts.append(current)
+                    current = ""
+            else:
+                current += char
+        if current:
+            parts.append(current)
+        
+        if not parts:
+            return True
+        
+        generic_terms = self._get_generic_terms()
+        
+        # If all parts are generic terms, the pattern is too generic
+        return all(part in generic_terms for part in parts if part)

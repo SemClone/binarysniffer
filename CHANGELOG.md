@@ -5,6 +5,49 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2025-08-05
+
+### Added
+- **Comprehensive codec detection** - Added signatures for major multimedia codecs
+- **libvpx signatures** - VP8/VP9 video codec detection (20 patterns)
+- **libaom signatures** - AV1 video codec detection (15 patterns) 
+- **LAME signatures** - MP3 encoder detection (20 patterns)
+- **FLAC signatures** - Lossless audio codec detection (20 patterns)
+- **FDK-AAC signatures** - AAC audio codec detection (20 patterns)
+- **Opus signatures** - Modern audio codec detection (20 patterns)
+
+### Improved
+- **Smart substring matching** - Balanced approach avoiding false positives
+- **Prefix validation** - Requires matching library prefixes (e.g., `av_`, `opus_`)
+- **Pattern length thresholds** - Minimum lengths for reliable matching
+- **Generic term filtering** - Comprehensive list of 270+ generic programming terms
+- **Evidence tracking** - Enhanced verbose output showing exact pattern matches
+
+### Fixed
+- **False positive elimination** - Fixed generic terms matching codec patterns
+- **Substring contamination** - Prevented `_strdup` matching `av_strdup`
+- **Cross-library contamination** - Library-specific pattern validation
+
+## [1.5.1] - 2025-08-05
+
+### Fixed
+- **Major signature cleanup** - Removed 479 generic patterns causing false positives
+- **Apache HTTP Core false positives** - Removed generic HTTP patterns that matched FFmpeg
+- **Signature quality improvement** - Filtered patterns shorter than 6 characters
+- **Cross-component contamination** - Removed patterns appearing in 5+ components
+
+### Improved
+- **Signature validation** - More strict criteria for keeping patterns
+- **Library-specific prefixes** - Preserved valid prefixes like `av_`, `x264_`, `png_`
+- **Reduced false positive rate** - 5.4% reduction in total signatures
+
+### Statistics
+- Total signatures before: 8,916
+- Total signatures after: 8,437
+- Apache HTTP Core: 31/65 patterns removed (47.7%)
+- FFmpeg: Only 15/6,660 patterns removed (0.2%)
+- SKIA: 77/268 patterns removed (28.7%)
+
 ## [1.5.0] - 2025-08-05
 
 ### Added

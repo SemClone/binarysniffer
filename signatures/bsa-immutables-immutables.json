@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.393332Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 6,
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "immutables-immutables.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -35,29 +36,9 @@
       ]
     },
     {
-      "id": "immutables_immutables_1",
-      "type": "string_pattern",
-      "pattern": "IMMUTABLES_SUBTYPE",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "immutables_immutables_2",
       "type": "string_pattern",
       "pattern": "deepImmutablesDetection",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "immutables_immutables_3",
-      "type": "string_pattern",
-      "pattern": "DeepImmutablesDetectionTest",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

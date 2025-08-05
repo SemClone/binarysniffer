@@ -17,54 +17,13 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 24,
+    "signature_count": 12,
     "confidence_threshold": 0.5,
     "source": "manual_enhanced",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "libjpeg_1",
-      "type": "string_pattern",
-      "pattern": "jpeg_CreateCompress",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_2",
-      "type": "string_pattern",
-      "pattern": "jpeg_CreateDecompress",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_3",
-      "type": "string_pattern",
-      "pattern": "jpeg_start_compress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_4",
-      "type": "string_pattern",
-      "pattern": "jpeg_start_decompress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_5",
-      "type": "string_pattern",
-      "pattern": "jpeg_finish_compress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_6",
-      "type": "string_pattern",
-      "pattern": "jpeg_finish_decompress",
-      "confidence": 0.85,
-      "context": "function"
-    },
     {
       "id": "libjpeg_7",
       "type": "string_pattern",
@@ -108,53 +67,11 @@
       "context": "function"
     },
     {
-      "id": "libjpeg_13",
-      "type": "string_pattern",
-      "pattern": "jpeg_read_header",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_14",
-      "type": "string_pattern",
-      "pattern": "jpeg_destroy_compress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_15",
-      "type": "string_pattern",
-      "pattern": "jpeg_destroy_decompress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libjpeg_16",
-      "type": "string_pattern",
-      "pattern": "jpeg_abort",
-      "confidence": 0.75,
-      "context": "function"
-    },
-    {
       "id": "libjpeg_17",
       "type": "string_pattern",
       "pattern": "jpeg_error_mgr",
       "confidence": 0.75,
       "context": "struct"
-    },
-    {
-      "id": "libjpeg_18",
-      "type": "string_pattern",
-      "pattern": "JPEG_LIB_VERSION",
-      "confidence": 0.9,
-      "context": "constant"
-    },
-    {
-      "id": "libjpeg_19",
-      "type": "string_pattern",
-      "pattern": "jpeg_natural_order",
-      "confidence": 0.75,
-      "context": "variable"
     },
     {
       "id": "libjpeg_20",

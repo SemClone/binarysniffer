@@ -17,46 +17,19 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 5,
+    "signature_count": 1,
     "confidence_threshold": 0.7,
     "source": "manual",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "zlib_1",
-      "type": "string_pattern",
-      "pattern": "deflateInit",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "zlib_2",
-      "type": "string_pattern",
-      "pattern": "inflateInit",
-      "confidence": 0.9,
-      "context": "function"
-    },
     {
       "id": "zlib_5",
       "type": "string_pattern",
       "pattern": "compress2",
       "confidence": 0.85,
       "context": "function"
-    },
-    {
-      "id": "zlib_6",
-      "type": "string_pattern",
-      "pattern": "uncompress",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "zlib_10",
-      "type": "string_pattern",
-      "pattern": "zlib version",
-      "confidence": 0.9,
-      "context": "string"
     }
   ]
 }

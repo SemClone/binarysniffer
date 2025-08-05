@@ -273,20 +273,30 @@ binarysniffer analyze project/ -r -f json -o results.json
 binarysniffer analyze file --enhanced --threshold 0.2
 ```
 
-#### 2. "Analysis taking too long"
+#### 2. False Positives (v1.5.1+)
+As of version 1.5.1, the signature database has been cleaned to reduce false positives:
+- Removed 479 generic patterns that caused cross-component matches
+- Fixed Apache HTTP Core appearing in unrelated binaries (e.g., FFmpeg)
+- Improved signature quality by filtering patterns shorter than 6 characters
+
+If you still experience false positives:
+- Increase the confidence threshold: `--threshold 0.7`
+- Report specific false positives for further signature refinement
+
+#### 3. "Analysis taking too long"
 **Solution**: Use file patterns to limit scope
 ```bash
 binarysniffer analyze dir/ -r -p "*.so" --no-parallel
 ```
 
-#### 3. "Memory usage too high"
+#### 4. "Memory usage too high"
 **Solution**: Process files in smaller batches
 ```bash
 # Analyze subdirectories separately
 find . -type d -maxdepth 1 -exec binarysniffer analyze {} \;
 ```
 
-#### 4. "Permission denied" errors
+#### 5. "Permission denied" errors
 **Solution**: Run with appropriate permissions or skip protected files
 ```bash
 # Skip files that can't be read

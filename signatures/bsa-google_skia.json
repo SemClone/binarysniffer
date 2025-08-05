@@ -17,33 +17,14 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.397249Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 191,
+    "signature_count": 87,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google_skia.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "google_skia_0",
-      "type": "string_pattern",
-      "pattern": "Sk1DPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_1",
-      "type": "string_pattern",
-      "pattern": "Sk2DPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "google_skia_2",
       "type": "string_pattern",
@@ -195,16 +176,6 @@
       ]
     },
     {
-      "id": "google_skia_21",
-      "type": "string_pattern",
-      "pattern": "SkArithmeticMode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_22",
       "type": "string_pattern",
       "pattern": "SkArithmeticMode_scalar",
@@ -245,61 +216,11 @@
       ]
     },
     {
-      "id": "google_skia_27",
-      "type": "string_pattern",
-      "pattern": "SkAvoidXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_28",
-      "type": "string_pattern",
-      "pattern": "SkBMPImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_31",
-      "type": "string_pattern",
-      "pattern": "SkBitmapCache",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_32",
       "type": "string_pattern",
       "pattern": "SkBitmapProcShader",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_33",
-      "type": "string_pattern",
-      "pattern": "SkBitmapProcState",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_34",
-      "type": "string_pattern",
-      "pattern": "SkBitmapRegionDecoder",
-      "confidence": 0.8,
-      "context": "processing",
       "platforms": [
         "all"
       ]
@@ -325,119 +246,9 @@
       ]
     },
     {
-      "id": "google_skia_41",
-      "type": "string_pattern",
-      "pattern": "SkBlurImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_43",
-      "type": "string_pattern",
-      "pattern": "SkBlurMaskFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_44",
-      "type": "string_pattern",
-      "pattern": "SkBlurMaskFilterImpl",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_45",
-      "type": "string_pattern",
-      "pattern": "SkBmpDecoderCallback",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_47",
-      "type": "string_pattern",
-      "pattern": "SkBoundaryPatch",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_49",
-      "type": "string_pattern",
-      "pattern": "SkBufferStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_52",
-      "type": "string_pattern",
-      "pattern": "SkChunkAlloc",
-      "confidence": 0.8,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_53",
       "type": "string_pattern",
       "pattern": "SkClampRange",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_54",
-      "type": "string_pattern",
-      "pattern": "SkClearXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_55",
-      "type": "string_pattern",
-      "pattern": "SkClipStack",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_56",
-      "type": "string_pattern",
-      "pattern": "SkColorFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_57",
-      "type": "string_pattern",
-      "pattern": "SkColorFilterImageFilter",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -455,16 +266,6 @@
       ]
     },
     {
-      "id": "google_skia_59",
-      "type": "string_pattern",
-      "pattern": "SkColorMatrixFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_60",
       "type": "string_pattern",
       "pattern": "SkColorShader",
@@ -475,49 +276,9 @@
       ]
     },
     {
-      "id": "google_skia_61",
-      "type": "string_pattern",
-      "pattern": "SkColorTable",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_62",
-      "type": "string_pattern",
-      "pattern": "SkComposeImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_63",
-      "type": "string_pattern",
-      "pattern": "SkComposePathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_64",
       "type": "string_pattern",
       "pattern": "SkComposeShader",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_65",
-      "type": "string_pattern",
-      "pattern": "SkCornerPathEffect",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -555,51 +316,11 @@
       ]
     },
     {
-      "id": "google_skia_69",
-      "type": "string_pattern",
-      "pattern": "SkCubicEdge",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_70",
       "type": "string_pattern",
       "pattern": "SkCullPoints",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_71",
-      "type": "string_pattern",
-      "pattern": "SkCullPointsPath",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_72",
-      "type": "string_pattern",
-      "pattern": "SkDashPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_74",
-      "type": "string_pattern",
-      "pattern": "SkDebugWStream",
-      "confidence": 0.8,
-      "context": "logging",
       "platforms": [
         "all"
       ]
@@ -625,39 +346,9 @@
       ]
     },
     {
-      "id": "google_skia_79",
-      "type": "string_pattern",
-      "pattern": "SkDeviceProfile",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_80",
-      "type": "string_pattern",
-      "pattern": "SkDilateImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_81",
       "type": "string_pattern",
       "pattern": "SkDiscreteMapper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_82",
-      "type": "string_pattern",
-      "pattern": "SkDiscretePathEffect",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -675,39 +366,9 @@
       ]
     },
     {
-      "id": "google_skia_86",
-      "type": "string_pattern",
-      "pattern": "SkDrawFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_87",
       "type": "string_pattern",
       "pattern": "SkDrawLooper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_88",
-      "type": "string_pattern",
-      "pattern": "SkDstInXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_89",
-      "type": "string_pattern",
-      "pattern": "SkDstOutXfermode",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -725,49 +386,9 @@
       ]
     },
     {
-      "id": "google_skia_91",
-      "type": "string_pattern",
-      "pattern": "SkDynamicMemoryWStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_93",
-      "type": "string_pattern",
-      "pattern": "SkEdgeBuilder",
-      "confidence": 0.8,
-      "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_94",
       "type": "string_pattern",
       "pattern": "SkEdgeClipper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_95",
-      "type": "string_pattern",
-      "pattern": "SkEmbossMask",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_96",
-      "type": "string_pattern",
-      "pattern": "SkEmbossMaskFilter",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -785,46 +406,6 @@
       ]
     },
     {
-      "id": "google_skia_98",
-      "type": "string_pattern",
-      "pattern": "SkErodeImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_100",
-      "type": "string_pattern",
-      "pattern": "SkFILEStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_101",
-      "type": "string_pattern",
-      "pattern": "SkFILEWStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_103",
-      "type": "string_pattern",
-      "pattern": "SkFactorySet",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_104",
       "type": "string_pattern",
       "pattern": "SkFilterShader",
@@ -835,69 +416,9 @@
       ]
     },
     {
-      "id": "google_skia_105",
-      "type": "string_pattern",
-      "pattern": "SkFlatBitmap",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_107",
       "type": "string_pattern",
       "pattern": "SkFlatMatrix",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_108",
-      "type": "string_pattern",
-      "pattern": "SkFlatPaint",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_109",
-      "type": "string_pattern",
-      "pattern": "SkFlatRegion",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_111",
-      "type": "string_pattern",
-      "pattern": "SkFlattenable",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_112",
-      "type": "string_pattern",
-      "pattern": "SkFlattenableReadBuffer",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_113",
-      "type": "string_pattern",
-      "pattern": "SkFlattenableWriteBuffer",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -925,16 +446,6 @@
       ]
     },
     {
-      "id": "google_skia_119",
-      "type": "string_pattern",
-      "pattern": "SkGlyphCache",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_120",
       "type": "string_pattern",
       "pattern": "SkGradientShader",
@@ -945,129 +456,9 @@
       ]
     },
     {
-      "id": "google_skia_122",
-      "type": "string_pattern",
-      "pattern": "SkGroupShape",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_123",
-      "type": "string_pattern",
-      "pattern": "SkICOImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_126",
-      "type": "string_pattern",
-      "pattern": "SkImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_127",
-      "type": "string_pattern",
-      "pattern": "SkImageEncoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_128",
-      "type": "string_pattern",
-      "pattern": "SkImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_130",
-      "type": "string_pattern",
-      "pattern": "SkImageRefPool",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_131",
-      "type": "string_pattern",
-      "pattern": "SkImageRef_GlobalPool",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_132",
       "type": "string_pattern",
       "pattern": "SkInterpolator",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_133",
-      "type": "string_pattern",
-      "pattern": "SkInterpolatorBase",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_134",
-      "type": "string_pattern",
-      "pattern": "SkJPEGImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_135",
-      "type": "string_pattern",
-      "pattern": "SkJPEGImageEncoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_136",
-      "type": "string_pattern",
-      "pattern": "SkKernel33MaskFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_137",
-      "type": "string_pattern",
-      "pattern": "SkKernel33ProcMaskFilter",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1088,26 +479,6 @@
       "id": "google_skia_141",
       "type": "string_pattern",
       "pattern": "SkLayerRasterizer",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_142",
-      "type": "string_pattern",
-      "pattern": "SkLightingColorFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_143",
-      "type": "string_pattern",
-      "pattern": "SkLightingColorFilter_JustAdd",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1165,61 +536,11 @@
       ]
     },
     {
-      "id": "google_skia_149",
-      "type": "string_pattern",
-      "pattern": "SkMMAPStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_150",
       "type": "string_pattern",
       "pattern": "SkMallocPixelRef",
       "confidence": 0.8,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_152",
-      "type": "string_pattern",
-      "pattern": "SkMaskFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_156",
-      "type": "string_pattern",
-      "pattern": "SkMemoryStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_157",
-      "type": "string_pattern",
-      "pattern": "SkMemoryWStream",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_158",
-      "type": "string_pattern",
-      "pattern": "SkMergeImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -1245,39 +566,9 @@
       ]
     },
     {
-      "id": "google_skia_162",
-      "type": "string_pattern",
-      "pattern": "SkModeColorFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_163",
-      "type": "string_pattern",
-      "pattern": "SkMorphologyImageFilter",
-      "confidence": 0.8,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_166",
       "type": "string_pattern",
       "pattern": "SkNWayCanvas",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_167",
-      "type": "string_pattern",
-      "pattern": "SkNinePatch",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1290,36 +581,6 @@
       "pattern": "SkNullBlitter",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_171",
-      "type": "string_pattern",
-      "pattern": "SkOffsetImageFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_172",
-      "type": "string_pattern",
-      "pattern": "SkPNGImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_173",
-      "type": "string_pattern",
-      "pattern": "SkPNGImageEncoder",
-      "confidence": 0.8,
-      "context": "processing",
       "platforms": [
         "all"
       ]
@@ -1338,86 +599,6 @@
       "id": "google_skia_176",
       "type": "string_pattern",
       "pattern": "SkPageFlipper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_178",
-      "type": "string_pattern",
-      "pattern": "SkPaintFlagsDrawFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_179",
-      "type": "string_pattern",
-      "pattern": "SkPaintShape",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_180",
-      "type": "string_pattern",
-      "pattern": "SkPairPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_182",
-      "type": "string_pattern",
-      "pattern": "SkParsePath",
-      "confidence": 0.8,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_185",
-      "type": "string_pattern",
-      "pattern": "SkPath1DPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_186",
-      "type": "string_pattern",
-      "pattern": "SkPath2DPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_187",
-      "type": "string_pattern",
-      "pattern": "SkPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_189",
-      "type": "string_pattern",
-      "pattern": "SkPathMeasure",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1455,49 +636,9 @@
       ]
     },
     {
-      "id": "google_skia_194",
-      "type": "string_pattern",
-      "pattern": "SkPictureRecord",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_196",
-      "type": "string_pattern",
-      "pattern": "SkPixelXorXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_199",
       "type": "string_pattern",
       "pattern": "SkPorterDuff",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_200",
-      "type": "string_pattern",
-      "pattern": "SkProcCoeffXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_201",
-      "type": "string_pattern",
-      "pattern": "SkProcXfermode",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1518,16 +659,6 @@
       "id": "google_skia_204",
       "type": "string_pattern",
       "pattern": "SkQuadClipper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_205",
-      "type": "string_pattern",
-      "pattern": "SkQuadraticEdge",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1605,16 +736,6 @@
       ]
     },
     {
-      "id": "google_skia_214",
-      "type": "string_pattern",
-      "pattern": "SkRasterClip",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_215",
       "type": "string_pattern",
       "pattern": "SkRasterizer",
@@ -1635,16 +756,6 @@
       ]
     },
     {
-      "id": "google_skia_219",
-      "type": "string_pattern",
-      "pattern": "SkRectShape",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_221",
       "type": "string_pattern",
       "pattern": "SkRefCntPlayback",
@@ -1655,59 +766,9 @@
       ]
     },
     {
-      "id": "google_skia_222",
-      "type": "string_pattern",
-      "pattern": "SkRefCntSet",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_225",
-      "type": "string_pattern",
-      "pattern": "SkRgnBuilder",
-      "confidence": 0.8,
-      "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_226",
       "type": "string_pattern",
       "pattern": "SkRgnClipBlitter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_228",
-      "type": "string_pattern",
-      "pattern": "SkScalerContext",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_229",
-      "type": "string_pattern",
-      "pattern": "SkScalerContext_Empty",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_230",
-      "type": "string_pattern",
-      "pattern": "SkScalerContext_FreeType",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1745,16 +806,6 @@
       ]
     },
     {
-      "id": "google_skia_237",
-      "type": "string_pattern",
-      "pattern": "SkSimpleColorFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_238",
       "type": "string_pattern",
       "pattern": "SkSpriteBlitter",
@@ -1765,79 +816,9 @@
       ]
     },
     {
-      "id": "google_skia_239",
-      "type": "string_pattern",
-      "pattern": "SkSrcXfermode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_243",
-      "type": "string_pattern",
-      "pattern": "SkStrokePathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_244",
-      "type": "string_pattern",
-      "pattern": "SkStrokerPriv",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_245",
-      "type": "string_pattern",
-      "pattern": "SkSumPathEffect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_skia_248",
       "type": "string_pattern",
       "pattern": "SkTScopedPtr",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_249",
-      "type": "string_pattern",
-      "pattern": "SkTableColorFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_250",
-      "type": "string_pattern",
-      "pattern": "SkTableMaskFilter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_251",
-      "type": "string_pattern",
-      "pattern": "SkTable_ColorFilter",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1868,16 +849,6 @@
       "id": "google_skia_255",
       "type": "string_pattern",
       "pattern": "SkTriColorShader",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_257",
-      "type": "string_pattern",
-      "pattern": "SkTypefaceCache",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -1920,16 +891,6 @@
       "pattern": "SkVMMemoryReporter",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_skia_263",
-      "type": "string_pattern",
-      "pattern": "SkWBMPImageDecoder",
-      "confidence": 0.8,
-      "context": "processing",
       "platforms": [
         "all"
       ]

@@ -17,27 +17,18 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.402381Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 32,
+    "signature_count": 17,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-dagger.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
       "id": "google_dagger_1",
       "type": "string_pattern",
       "pattern": "deploy-dagger",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_2",
-      "type": "string_pattern",
-      "pattern": "0validate-dagger-version",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -65,16 +56,6 @@
       ]
     },
     {
-      "id": "google_dagger_6",
-      "type": "string_pattern",
-      "pattern": "DaggerAnnotation",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_7",
       "type": "string_pattern",
       "pattern": "DaggerAppCompatActivity",
@@ -85,39 +66,9 @@
       ]
     },
     {
-      "id": "google_dagger_8",
-      "type": "string_pattern",
-      "pattern": "DaggerAppCompatDialogFragment",
-      "confidence": 0.8,
-      "context": "user_interface",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_9",
       "type": "string_pattern",
       "pattern": "DaggerApplication",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_10",
-      "type": "string_pattern",
-      "pattern": "DaggerBroadcastReceiver",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_11",
-      "type": "string_pattern",
-      "pattern": "daggerCanConstruct",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -145,41 +96,11 @@
       ]
     },
     {
-      "id": "google_dagger_14",
-      "type": "string_pattern",
-      "pattern": "daggerCompiler",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_15",
       "type": "string_pattern",
       "pattern": "daggerCompilerWithoutGuava",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_16",
-      "type": "string_pattern",
-      "pattern": "DaggerContentProvider",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_17",
-      "type": "string_pattern",
-      "pattern": "DaggerDialogFragment",
-      "confidence": 0.8,
-      "context": "user_interface",
       "platforms": [
         "java"
       ]
@@ -205,29 +126,9 @@
       ]
     },
     {
-      "id": "google_dagger_20",
-      "type": "string_pattern",
-      "pattern": "DaggerFragment",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_21",
       "type": "string_pattern",
       "pattern": "DaggerGenerated",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_22",
-      "type": "string_pattern",
-      "pattern": "DAGGER_GENERATED_ANNOTATION",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -245,29 +146,9 @@
       ]
     },
     {
-      "id": "google_dagger_24",
-      "type": "string_pattern",
-      "pattern": "DaggerIntentService",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_25",
       "type": "string_pattern",
       "pattern": "DaggerKythePlugin",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_27",
-      "type": "string_pattern",
-      "pattern": "daggerModuleMethod",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -305,39 +186,9 @@
       ]
     },
     {
-      "id": "google_dagger_32",
-      "type": "string_pattern",
-      "pattern": "hasDaggerAbstractMethodAnnotation",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_33",
-      "type": "string_pattern",
-      "pattern": "hasNonDaggerAbstractMethod",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_dagger_35",
       "type": "string_pattern",
       "pattern": "IMPORT_DAGGER_GENERATED",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_dagger_36",
-      "type": "string_pattern",
-      "pattern": "isDaggerGeneratedModule",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

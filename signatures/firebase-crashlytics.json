@@ -19,33 +19,13 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 10,
+    "signature_count": 7,
     "confidence_threshold": 0.7,
     "source": "manual",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "crashlytics_1",
-      "type": "string_pattern",
-      "pattern": "crashlytics_handler",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "crashlytics_2",
-      "type": "string_pattern",
-      "pattern": "crashlytics_context",
-      "confidence": 0.85,
-      "context": "struct"
-    },
-    {
-      "id": "crashlytics_3",
-      "type": "string_pattern",
-      "pattern": "crashlytics_log",
-      "confidence": 0.85,
-      "context": "function"
-    },
     {
       "id": "crashlytics_4",
       "type": "string_pattern",

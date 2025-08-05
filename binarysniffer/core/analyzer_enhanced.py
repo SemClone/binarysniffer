@@ -74,8 +74,8 @@ class EnhancedBinarySniffer:
         extractor = self.extractor_factory.get_extractor(file_path)
         features = extractor.extract(file_path)
         
-        # Use balanced threshold to reduce false positives
-        threshold = confidence_threshold or 0.7
+        # Use high threshold to reduce false positives
+        threshold = confidence_threshold or 0.8
         
         # Try progressive matching first
         progressive_matches = self.progressive_matcher.match(

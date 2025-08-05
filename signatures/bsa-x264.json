@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.452066Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 582,
+    "signature_count": 398,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "x264.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -205,16 +206,6 @@
       ]
     },
     {
-      "id": "x264_18",
-      "type": "string_pattern",
-      "pattern": "x264_ansi_filename",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_19",
       "type": "string_pattern",
       "pattern": "x264_avcintra_class_names",
@@ -245,16 +236,6 @@
       ]
     },
     {
-      "id": "x264_22",
-      "type": "string_pattern",
-      "pattern": "x264_bitstream_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_23",
       "type": "string_pattern",
       "pattern": "x264_cabac_block_residual_8x8_rd_c",
@@ -280,16 +261,6 @@
       "pattern": "x264_cabac_block_residual_rd_c",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_26",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_context_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -335,26 +306,6 @@
       ]
     },
     {
-      "id": "x264_31",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_encode_flush",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_32",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_encode_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_33",
       "type": "string_pattern",
       "pattern": "x264_cabac_encode_init_core",
@@ -375,49 +326,9 @@
       ]
     },
     {
-      "id": "x264_35",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_encode_ue_bypass",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_36",
       "type": "string_pattern",
       "pattern": "x264_cabac_entropy",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_37",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_38",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_mb_skip",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_39",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_mvd_sum",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -448,16 +359,6 @@
       "id": "x264_42",
       "type": "string_pattern",
       "pattern": "x264_cabac_range_lps",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_43",
-      "type": "string_pattern",
-      "pattern": "x264_cabac_renorm_shift",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -535,59 +436,9 @@
       ]
     },
     {
-      "id": "x264_51",
-      "type": "string_pattern",
-      "pattern": "x264_cavlc_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_52",
-      "type": "string_pattern",
-      "pattern": "x264_checkasm_call",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_53",
-      "type": "string_pattern",
-      "pattern": "x264_chroma_format",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_54",
       "type": "string_pattern",
       "pattern": "x264_chroma_lambda2_offset_tab",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_55",
-      "type": "string_pattern",
-      "pattern": "x264_cli_autocomplete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_56",
-      "type": "string_pattern",
-      "pattern": "x264_cli_csp_depth_factor",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -625,131 +476,11 @@
       ]
     },
     {
-      "id": "x264_60",
-      "type": "string_pattern",
-      "pattern": "x264_cli_log",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_61",
-      "type": "string_pattern",
-      "pattern": "x264_cli_mmap",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_62",
-      "type": "string_pattern",
-      "pattern": "x264_cli_mmap_close",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_63",
-      "type": "string_pattern",
-      "pattern": "x264_cli_mmap_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_64",
-      "type": "string_pattern",
-      "pattern": "x264_cli_munmap",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_65",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_alloc",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_66",
       "type": "string_pattern",
       "pattern": "x264_cli_pic_alloc_aligned",
       "confidence": 0.9,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_67",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_clean",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_68",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_copy",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_69",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_init_noalloc",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_70",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_plane_size",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_71",
-      "type": "string_pattern",
-      "pattern": "x264_cli_pic_size",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_72",
-      "type": "string_pattern",
-      "pattern": "x264_cli_plane_copy",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -815,26 +546,6 @@
       ]
     },
     {
-      "id": "x264_79",
-      "type": "string_pattern",
-      "pattern": "x264_coeff0_token",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_80",
-      "type": "string_pattern",
-      "pattern": "x264_coeff_abs_level_m1_offset",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_81",
       "type": "string_pattern",
       "pattern": "x264_coeff_flag_offset_chroma_422_dc",
@@ -858,16 +569,6 @@
       "id": "x264_83",
       "type": "string_pattern",
       "pattern": "x264_coeff_last64_msa",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_84",
-      "type": "string_pattern",
-      "pattern": "x264_coeff_token",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -908,16 +609,6 @@
       "id": "x264_88",
       "type": "string_pattern",
       "pattern": "x264_count_cat_m1",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_89",
-      "type": "string_pattern",
-      "pattern": "x264_cpu_detect",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -1025,31 +716,11 @@
       ]
     },
     {
-      "id": "x264_100",
-      "type": "string_pattern",
-      "pattern": "x264_cqm_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_101",
       "type": "string_pattern",
       "pattern": "x264_cqm_flat16",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_102",
-      "type": "string_pattern",
-      "pattern": "x264_cqm_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -1115,29 +786,9 @@
       ]
     },
     {
-      "id": "x264_109",
-      "type": "string_pattern",
-      "pattern": "x264_cqm_parse_file",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_110",
       "type": "string_pattern",
       "pattern": "x264_ctz",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_111",
-      "type": "string_pattern",
-      "pattern": "x264_ctz_4bit",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -1195,16 +846,6 @@
       ]
     },
     {
-      "id": "x264_117",
-      "type": "string_pattern",
-      "pattern": "x264_dct_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_118",
       "type": "string_pattern",
       "pattern": "x264_deblock_h_chroma_intra_msa",
@@ -1250,16 +891,6 @@
       "pattern": "x264_deblock_h_luma_msa",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_123",
-      "type": "string_pattern",
-      "pattern": "x264_deblock_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -1435,29 +1066,9 @@
       ]
     },
     {
-      "id": "x264_141",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_close",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_142",
       "type": "string_pattern",
       "pattern": "x264_encoder_delayed_frames",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_143",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_encode",
       "confidence": 0.9,
       "context": "processing",
       "platforms": [
@@ -1475,26 +1086,6 @@
       ]
     },
     {
-      "id": "x264_145",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_intra_refresh",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_146",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_invalidate_reference",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_147",
       "type": "string_pattern",
       "pattern": "x264_encoder_maximum_delayed_frames",
@@ -1505,39 +1096,9 @@
       ]
     },
     {
-      "id": "x264_148",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_open",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_149",
       "type": "string_pattern",
       "pattern": "x264_encoder_parameters",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_150",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_reconfig",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_151",
-      "type": "string_pattern",
-      "pattern": "x264_encoder_reconfig_apply",
       "confidence": 0.9,
       "context": "processing",
       "platforms": [
@@ -1585,46 +1146,6 @@
       ]
     },
     {
-      "id": "x264_156",
-      "type": "string_pattern",
-      "pattern": "x264_filler_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_157",
-      "type": "string_pattern",
-      "pattern": "x264_fopen",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_158",
-      "type": "string_pattern",
-      "pattern": "x264_frame_cond_broadcast",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_159",
-      "type": "string_pattern",
-      "pattern": "x264_frame_cond_wait",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_160",
       "type": "string_pattern",
       "pattern": "x264_frame_copy_picture",
@@ -1638,36 +1159,6 @@
       "id": "x264_161",
       "type": "string_pattern",
       "pattern": "x264_frame_deblock_row",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_162",
-      "type": "string_pattern",
-      "pattern": "x264_frame_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_163",
-      "type": "string_pattern",
-      "pattern": "x264_frame_delete_list",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_164",
-      "type": "string_pattern",
-      "pattern": "x264_frame_expand_border",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -1715,41 +1206,11 @@
       ]
     },
     {
-      "id": "x264_169",
-      "type": "string_pattern",
-      "pattern": "x264_frame_filter",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_170",
       "type": "string_pattern",
       "pattern": "x264_frame_init_lowres",
       "confidence": 0.9,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_171",
-      "type": "string_pattern",
-      "pattern": "x264_frame_new_slice",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_172",
-      "type": "string_pattern",
-      "pattern": "x264_frame_pop",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -1768,16 +1229,6 @@
       "id": "x264_174",
       "type": "string_pattern",
       "pattern": "x264_frame_pop_unused",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_175",
-      "type": "string_pattern",
-      "pattern": "x264_frame_push",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -1805,49 +1256,9 @@
       ]
     },
     {
-      "id": "x264_178",
-      "type": "string_pattern",
-      "pattern": "x264_frame_shift",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_179",
-      "type": "string_pattern",
-      "pattern": "x264_frame_unshift",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_180",
-      "type": "string_pattern",
-      "pattern": "x264_free",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_181",
       "type": "string_pattern",
       "pattern": "x264_fullrange_names",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_182",
-      "type": "string_pattern",
-      "pattern": "x264_get_option",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -1898,26 +1309,6 @@
       "id": "x264_187",
       "type": "string_pattern",
       "pattern": "x264_idct4x4dc_msa",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_188",
-      "type": "string_pattern",
-      "pattern": "x264_init_vid_filter",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_189",
-      "type": "string_pattern",
-      "pattern": "x264_intel_dispatcher_override",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2185,36 +1576,6 @@
       ]
     },
     {
-      "id": "x264_216",
-      "type": "string_pattern",
-      "pattern": "x264_is_pipe",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_217",
-      "type": "string_pattern",
-      "pattern": "x264_is_regular_file",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_218",
-      "type": "string_pattern",
-      "pattern": "x264_is_regular_file_path",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_219",
       "type": "string_pattern",
       "pattern": "x264_iter_kludge",
@@ -2245,29 +1606,9 @@
       ]
     },
     {
-      "id": "x264_222",
-      "type": "string_pattern",
-      "pattern": "x264_last_coeff_flag_offset",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_223",
       "type": "string_pattern",
       "pattern": "x264_last_coeff_flag_offset_8x8",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_224",
-      "type": "string_pattern",
-      "pattern": "x264_level_token",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2280,16 +1621,6 @@
       "pattern": "x264_levels",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_226",
-      "type": "string_pattern",
-      "pattern": "x264_log",
-      "confidence": 0.9,
-      "context": "logging",
       "platforms": [
         "all"
       ]
@@ -2325,16 +1656,6 @@
       ]
     },
     {
-      "id": "x264_230",
-      "type": "string_pattern",
-      "pattern": "x264_log_internal",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_231",
       "type": "string_pattern",
       "pattern": "x264_log_level_names",
@@ -2345,39 +1666,9 @@
       ]
     },
     {
-      "id": "x264_232",
-      "type": "string_pattern",
-      "pattern": "x264_lookahead_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_233",
       "type": "string_pattern",
       "pattern": "x264_lookahead_get_frames",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_234",
-      "type": "string_pattern",
-      "pattern": "x264_lookahead_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_235",
-      "type": "string_pattern",
-      "pattern": "x264_lookahead_is_empty",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2408,36 +1699,6 @@
       "id": "x264_238",
       "type": "string_pattern",
       "pattern": "x264_macroblock_analyse",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_239",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_bipred_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_240",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_cache_allocate",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_241",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_cache_free",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2515,51 +1776,11 @@
       ]
     },
     {
-      "id": "x264_249",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_cache_save",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_250",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_cache_skip",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_251",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_deblock",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_252",
       "type": "string_pattern",
       "pattern": "x264_macroblock_deblock_strength",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_253",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_encode",
-      "confidence": 0.9,
-      "context": "processing",
       "platforms": [
         "all"
       ]
@@ -2585,66 +1806,6 @@
       ]
     },
     {
-      "id": "x264_256",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_probe_skip",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_257",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_slice_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_258",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_thread_allocate",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_259",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_thread_free",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_260",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_thread_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_261",
-      "type": "string_pattern",
-      "pattern": "x264_macroblock_tree_read",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_262",
       "type": "string_pattern",
       "pattern": "x264_macroblock_write_cabac",
@@ -2658,26 +1819,6 @@
       "id": "x264_263",
       "type": "string_pattern",
       "pattern": "x264_macroblock_write_cavlc",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_264",
-      "type": "string_pattern",
-      "pattern": "x264_malloc",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_265",
-      "type": "string_pattern",
-      "pattern": "x264_mb_chroma_pred_mode_fix",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2735,66 +1876,6 @@
       ]
     },
     {
-      "id": "x264_271",
-      "type": "string_pattern",
-      "pattern": "x264_mb_partition_count_table",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_272",
-      "type": "string_pattern",
-      "pattern": "x264_mb_partition_listX_table",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_273",
-      "type": "string_pattern",
-      "pattern": "x264_mb_partition_pixel_table",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_274",
-      "type": "string_pattern",
-      "pattern": "x264_mb_pred_mode16x16_fix",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_275",
-      "type": "string_pattern",
-      "pattern": "x264_mb_pred_mode4x4_fix",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_276",
-      "type": "string_pattern",
-      "pattern": "x264_mb_predict_intra4x4_mode",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_277",
       "type": "string_pattern",
       "pattern": "x264_mb_predict_mv",
@@ -2818,16 +1899,6 @@
       "id": "x264_279",
       "type": "string_pattern",
       "pattern": "x264_mb_predict_mv_direct16x16",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_280",
-      "type": "string_pattern",
-      "pattern": "x264_mb_predict_mv_pskip",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -2865,41 +1936,11 @@
       ]
     },
     {
-      "id": "x264_284",
-      "type": "string_pattern",
-      "pattern": "x264_mb_type_fix",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_285",
-      "type": "string_pattern",
-      "pattern": "x264_mb_type_list_table",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_286",
       "type": "string_pattern",
       "pattern": "x264_mc_copy_w8_neon",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_287",
-      "type": "string_pattern",
-      "pattern": "x264_mc_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -2930,16 +1971,6 @@
       "pattern": "x264_mc_init_mmx",
       "confidence": 0.9,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_291",
-      "type": "string_pattern",
-      "pattern": "x264_mdate",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -3055,39 +2086,9 @@
       ]
     },
     {
-      "id": "x264_303",
-      "type": "string_pattern",
-      "pattern": "x264_nal_encode",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_304",
       "type": "string_pattern",
       "pattern": "x264_nal_hrd_names",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_305",
-      "type": "string_pattern",
-      "pattern": "x264_noise_reduction_update",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_306",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_close_library",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -3105,89 +2106,9 @@
       ]
     },
     {
-      "id": "x264_308",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_flush",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_309",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_frame_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_310",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_load_library",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_311",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_lookahead_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_312",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_lookahead_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_313",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_lowres_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_314",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_motionsearch",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_315",
       "type": "string_pattern",
       "pattern": "x264_opencl_precalculate_frame_cost",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_316",
-      "type": "string_pattern",
-      "pattern": "x264_opencl_slicetype_end",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -3265,101 +2186,11 @@
       ]
     },
     {
-      "id": "x264_324",
-      "type": "string_pattern",
-      "pattern": "x264_param2string",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_325",
-      "type": "string_pattern",
-      "pattern": "x264_param_apply_fastfirstpass",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_326",
-      "type": "string_pattern",
-      "pattern": "x264_param_apply_profile",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_327",
-      "type": "string_pattern",
-      "pattern": "x264_param_default",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_328",
-      "type": "string_pattern",
-      "pattern": "x264_param_default_preset",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_329",
-      "type": "string_pattern",
-      "pattern": "x264_param_parse",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_330",
       "type": "string_pattern",
       "pattern": "x264_partition_names",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_331",
-      "type": "string_pattern",
-      "pattern": "x264_picture_alloc",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_332",
-      "type": "string_pattern",
-      "pattern": "x264_picture_clean",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_333",
-      "type": "string_pattern",
-      "pattern": "x264_picture_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -3400,16 +2231,6 @@
       "pattern": "x264_pixel_hadamard_ac_8x8_msa",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_338",
-      "type": "string_pattern",
-      "pattern": "x264_pixel_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -3735,16 +2556,6 @@
       ]
     },
     {
-      "id": "x264_371",
-      "type": "string_pattern",
-      "pattern": "x264_pixel_size",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_372",
       "type": "string_pattern",
       "pattern": "x264_pixel_ssd_16x16_msa",
@@ -3985,26 +2796,6 @@
       ]
     },
     {
-      "id": "x264_396",
-      "type": "string_pattern",
-      "pattern": "x264_pps_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_397",
-      "type": "string_pattern",
-      "pattern": "x264_pps_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_398",
       "type": "string_pattern",
       "pattern": "x264_pred_i4x4_neighbors",
@@ -4030,16 +2821,6 @@
       "pattern": "x264_predict_16x16_h_c",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_401",
-      "type": "string_pattern",
-      "pattern": "x264_predict_16x16_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -4125,16 +2906,6 @@
       ]
     },
     {
-      "id": "x264_410",
-      "type": "string_pattern",
-      "pattern": "x264_predict_4x4_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_411",
       "type": "string_pattern",
       "pattern": "x264_predict_4x4_init_aarch64",
@@ -4190,16 +2961,6 @@
       "pattern": "x264_predict_8x16c_h_c",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_417",
-      "type": "string_pattern",
-      "pattern": "x264_predict_8x16c_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -4275,16 +3036,6 @@
       ]
     },
     {
-      "id": "x264_425",
-      "type": "string_pattern",
-      "pattern": "x264_predict_8x8_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_426",
       "type": "string_pattern",
       "pattern": "x264_predict_8x8_init_aarch64",
@@ -4340,16 +3091,6 @@
       "pattern": "x264_predict_8x8c_h_c",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_432",
-      "type": "string_pattern",
-      "pattern": "x264_predict_8x8c_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -4455,16 +3196,6 @@
       ]
     },
     {
-      "id": "x264_443",
-      "type": "string_pattern",
-      "pattern": "x264_predictor_clip",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_444",
       "type": "string_pattern",
       "pattern": "x264_predictor_clip_mmx2",
@@ -4495,29 +3226,9 @@
       ]
     },
     {
-      "id": "x264_447",
-      "type": "string_pattern",
-      "pattern": "x264_predictor_roundclip",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_448",
       "type": "string_pattern",
       "pattern": "x264_predictor_roundclip_mmx2",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_449",
-      "type": "string_pattern",
-      "pattern": "x264_prefetch",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -4548,126 +3259,6 @@
       "id": "x264_452",
       "type": "string_pattern",
       "pattern": "x264_profile_names",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_453",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_cond_broadcast",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_454",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_cond_destroy",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_455",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_cond_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_456",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_cond_signal",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_457",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_cond_wait",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_458",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_create",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_459",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_fetch_and_add",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_460",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_join",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_461",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_mutex_destroy",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_462",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_mutex_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_463",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_mutex_lock",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_464",
-      "type": "string_pattern",
-      "pattern": "x264_pthread_mutex_unlock",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -4835,16 +3426,6 @@
       ]
     },
     {
-      "id": "x264_481",
-      "type": "string_pattern",
-      "pattern": "x264_quant_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_482",
       "type": "string_pattern",
       "pattern": "x264_quant_luma_dc_trellis",
@@ -4858,26 +3439,6 @@
       "id": "x264_483",
       "type": "string_pattern",
       "pattern": "x264_range_names",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_484",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_485",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_end",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -4915,16 +3476,6 @@
       ]
     },
     {
-      "id": "x264_489",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_new",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_490",
       "type": "string_pattern",
       "pattern": "x264_ratecontrol_qp",
@@ -4945,49 +3496,9 @@
       ]
     },
     {
-      "id": "x264_492",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_slice_type",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_493",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_start",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_494",
       "type": "string_pattern",
       "pattern": "x264_ratecontrol_summary",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_495",
-      "type": "string_pattern",
-      "pattern": "x264_ratecontrol_zone_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_496",
-      "type": "string_pattern",
-      "pattern": "x264_rc_analyse_slice",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -5000,16 +3511,6 @@
       "pattern": "x264_rd_cost_part",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_498",
-      "type": "string_pattern",
-      "pattern": "x264_rdo_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -5035,16 +3536,6 @@
       ]
     },
     {
-      "id": "x264_501",
-      "type": "string_pattern",
-      "pattern": "x264_rename",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_502",
       "type": "string_pattern",
       "pattern": "x264_run_before",
@@ -5055,129 +3546,9 @@
       ]
     },
     {
-      "id": "x264_503",
-      "type": "string_pattern",
-      "pattern": "x264_run_before_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_504",
       "type": "string_pattern",
       "pattern": "x264_scan8",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_505",
-      "type": "string_pattern",
-      "pattern": "x264_sei_alternative_transfer_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_506",
-      "type": "string_pattern",
-      "pattern": "x264_sei_avcintra_umid_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_507",
-      "type": "string_pattern",
-      "pattern": "x264_sei_avcintra_vanc_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_508",
-      "type": "string_pattern",
-      "pattern": "x264_sei_buffering_period_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_509",
-      "type": "string_pattern",
-      "pattern": "x264_sei_dec_ref_pic_marking_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_510",
-      "type": "string_pattern",
-      "pattern": "x264_sei_frame_packing_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_511",
-      "type": "string_pattern",
-      "pattern": "x264_sei_pic_timing_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_512",
-      "type": "string_pattern",
-      "pattern": "x264_sei_recovery_point_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_513",
-      "type": "string_pattern",
-      "pattern": "x264_sei_version_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_514",
-      "type": "string_pattern",
-      "pattern": "x264_sei_write",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_515",
-      "type": "string_pattern",
-      "pattern": "x264_significant_coeff_flag_offset",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -5225,16 +3596,6 @@
       ]
     },
     {
-      "id": "x264_520",
-      "type": "string_pattern",
-      "pattern": "x264_slurp_file",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_521",
       "type": "string_pattern",
       "pattern": "x264_snprintf",
@@ -5255,41 +3616,11 @@
       ]
     },
     {
-      "id": "x264_523",
-      "type": "string_pattern",
-      "pattern": "x264_sps_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_524",
       "type": "string_pattern",
       "pattern": "x264_sps_init_reconfigurable",
       "confidence": 0.9,
       "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_525",
-      "type": "string_pattern",
-      "pattern": "x264_sps_init_scaling_list",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_526",
-      "type": "string_pattern",
-      "pattern": "x264_sps_write",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]
@@ -5428,146 +3759,6 @@
       "id": "x264_540",
       "type": "string_pattern",
       "pattern": "x264_sub8x8_dct_msa",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_541",
-      "type": "string_pattern",
-      "pattern": "x264_sync_frame_list_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_542",
-      "type": "string_pattern",
-      "pattern": "x264_sync_frame_list_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_543",
-      "type": "string_pattern",
-      "pattern": "x264_sync_frame_list_pop",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_544",
-      "type": "string_pattern",
-      "pattern": "x264_sync_frame_list_push",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_545",
-      "type": "string_pattern",
-      "pattern": "x264_thread_sync_ratecontrol",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_546",
-      "type": "string_pattern",
-      "pattern": "x264_threading_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_547",
-      "type": "string_pattern",
-      "pattern": "x264_threadpool_delete",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_548",
-      "type": "string_pattern",
-      "pattern": "x264_threadpool_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_549",
-      "type": "string_pattern",
-      "pattern": "x264_threadpool_run",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_550",
-      "type": "string_pattern",
-      "pattern": "x264_threadpool_wait",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_551",
-      "type": "string_pattern",
-      "pattern": "x264_threads_distribute_ratecontrol",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_552",
-      "type": "string_pattern",
-      "pattern": "x264_threads_merge_ratecontrol",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_553",
-      "type": "string_pattern",
-      "pattern": "x264_threadslice_cond_broadcast",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_554",
-      "type": "string_pattern",
-      "pattern": "x264_threadslice_cond_wait",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -5735,41 +3926,11 @@
       ]
     },
     {
-      "id": "x264_571",
-      "type": "string_pattern",
-      "pattern": "x264_win32_threading_destroy",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_572",
-      "type": "string_pattern",
-      "pattern": "x264_win32_threading_init",
-      "confidence": 0.9,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "x264_573",
       "type": "string_pattern",
       "pattern": "x264_zero",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "x264_574",
-      "type": "string_pattern",
-      "pattern": "x264_zigzag_init",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]

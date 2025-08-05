@@ -17,27 +17,18 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.390615Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 14,
+    "signature_count": 6,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "fasterxml-jackson.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
       "id": "fasterxml_jackson_3",
       "type": "string_pattern",
       "pattern": "JsonAnyGetter",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_4",
-      "type": "string_pattern",
-      "pattern": "ObjectBuffer",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -75,56 +66,6 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_9",
-      "type": "string_pattern",
-      "pattern": "InputDecorator",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_10",
-      "type": "string_pattern",
-      "pattern": "GeneratorBase",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_12",
-      "type": "string_pattern",
-      "pattern": "generateRandom",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_15",
-      "type": "string_pattern",
-      "pattern": "MappingJsonFactory",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_16",
-      "type": "string_pattern",
-      "pattern": "JsonAutoDetect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_17",
       "type": "string_pattern",
       "pattern": "asciiEscapes",
@@ -135,29 +76,9 @@
       ]
     },
     {
-      "id": "fasterxml_jackson_20",
-      "type": "string_pattern",
-      "pattern": "coreTreeNode",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "fasterxml_jackson_21",
       "type": "string_pattern",
       "pattern": "beenpublished",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "fasterxml_jackson_23",
-      "type": "string_pattern",
-      "pattern": "DeserializationContext",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

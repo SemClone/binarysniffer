@@ -21,7 +21,8 @@
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "gnu_gcc.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {

@@ -17,43 +17,14 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.398534Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 36,
+    "signature_count": 15,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-react-native.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "facebook_react_native_1",
-      "type": "string_pattern",
-      "pattern": "OpaqueJSClass",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_2",
-      "type": "string_pattern",
-      "pattern": "OpaqueJSString",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_3",
-      "type": "string_pattern",
-      "pattern": "TaggedLogcatSink",
-      "confidence": 0.8,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
     {
       "id": "facebook_react_native_4",
       "type": "string_pattern",
@@ -70,96 +41,6 @@
       "pattern": "toreact-native",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_6",
-      "type": "string_pattern",
-      "pattern": "clearReactRoot",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_7",
-      "type": "string_pattern",
-      "pattern": "ReactAccessibilityServiceChangeListener",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_8",
-      "type": "string_pattern",
-      "pattern": "getReactApplicationKeyUnderTest",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_9",
-      "type": "string_pattern",
-      "pattern": "ReactTextInputShadowNode",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_10",
-      "type": "string_pattern",
-      "pattern": "ReactHitSlopView",
-      "confidence": 0.9,
-      "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_11",
-      "type": "string_pattern",
-      "pattern": "ReactApplicationContext",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_12",
-      "type": "string_pattern",
-      "pattern": "ReactChoreographerMock",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_13",
-      "type": "string_pattern",
-      "pattern": "ReactSwitch",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_14",
-      "type": "string_pattern",
-      "pattern": "ReactNativeLogLevelInfo",
-      "confidence": 0.9,
-      "context": "logging",
       "platforms": [
         "all"
       ]
@@ -195,16 +76,6 @@
       ]
     },
     {
-      "id": "facebook_react_native_19",
-      "type": "string_pattern",
-      "pattern": "ReactInterceptingViewGroup",
-      "confidence": 0.9,
-      "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "facebook_react_native_20",
       "type": "string_pattern",
       "pattern": "grepreact-native",
@@ -225,26 +96,6 @@
       ]
     },
     {
-      "id": "facebook_react_native_23",
-      "type": "string_pattern",
-      "pattern": "ReactPropForShadowNodeSetterTest",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_24",
-      "type": "string_pattern",
-      "pattern": "getReactTag",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "facebook_react_native_25",
       "type": "string_pattern",
       "pattern": "ReactFabric",
@@ -255,49 +106,9 @@
       ]
     },
     {
-      "id": "facebook_react_native_26",
-      "type": "string_pattern",
-      "pattern": "reactAndroidLoggingHook",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_29",
-      "type": "string_pattern",
-      "pattern": "ReactSlidingCompleteEvent",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "facebook_react_native_30",
       "type": "string_pattern",
       "pattern": "react-native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_31",
-      "type": "string_pattern",
-      "pattern": "ReactImageManager",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_32",
-      "type": "string_pattern",
-      "pattern": "ReactContentSizeWatcher",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -318,26 +129,6 @@
       "id": "facebook_react_native_34",
       "type": "string_pattern",
       "pattern": "reactFocus",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_35",
-      "type": "string_pattern",
-      "pattern": "ReactProgressBarViewManager",
-      "confidence": 0.9,
-      "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_36",
-      "type": "string_pattern",
-      "pattern": "test_setClangCxxLanguageStandardIfNeeded_whenReactCoreIsPresent",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

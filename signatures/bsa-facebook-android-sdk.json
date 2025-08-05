@@ -18,37 +18,18 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.389505Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 14,
+    "signature_count": 3,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-android-sdk.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "facebook_android_sdk_0",
-      "type": "string_pattern",
-      "pattern": "facebook-common",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
     {
       "id": "facebook_android_sdk_3",
       "type": "string_pattern",
       "pattern": "facebook-core",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_4",
-      "type": "string_pattern",
-      "pattern": "FacebookBroadcastReceiver",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [
@@ -66,101 +47,11 @@
       ]
     },
     {
-      "id": "facebook_android_sdk_6",
-      "type": "string_pattern",
-      "pattern": "FacebookWebFallbackDialogTest",
-      "confidence": 0.9,
-      "context": "user_interface",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_7",
-      "type": "string_pattern",
-      "pattern": "com_facebook_send_button_text_color",
-      "confidence": 0.85,
-      "context": "user_interface",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_8",
-      "type": "string_pattern",
-      "pattern": "facebook-share",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_9",
-      "type": "string_pattern",
-      "pattern": "hellofacebook",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_10",
-      "type": "string_pattern",
-      "pattern": "facebook-login",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_11",
-      "type": "string_pattern",
-      "pattern": "com_facebook_button_background",
-      "confidence": 0.85,
-      "context": "user_interface",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_12",
-      "type": "string_pattern",
-      "pattern": "com_facebook_button_send_background",
-      "confidence": 0.85,
-      "context": "user_interface",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
       "id": "facebook_android_sdk_13",
       "type": "string_pattern",
       "pattern": "facebook-gamingservices",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_14",
-      "type": "string_pattern",
-      "pattern": "HelloFacebookSample",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "facebook_android_sdk_15",
-      "type": "string_pattern",
-      "pattern": "FacebookDialogBase",
-      "confidence": 0.9,
-      "context": "user_interface",
       "platforms": [
         "android"
       ]

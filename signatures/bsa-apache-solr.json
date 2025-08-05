@@ -17,27 +17,18 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.446800Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 18,
+    "signature_count": 3,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "apache-solr.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
       "id": "apache_solr_1",
       "type": "string_pattern",
       "pattern": "dbvisualizer_solr",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_2",
-      "type": "string_pattern",
-      "pattern": "SolrQueryResponse",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -55,149 +46,9 @@
       ]
     },
     {
-      "id": "apache_solr_6",
-      "type": "string_pattern",
-      "pattern": "SolrCoreState",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_9",
-      "type": "string_pattern",
-      "pattern": "solrresponse",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_10",
-      "type": "string_pattern",
-      "pattern": "solrrequest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_11",
-      "type": "string_pattern",
-      "pattern": "SolrQueryRequest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_13",
-      "type": "string_pattern",
-      "pattern": "SolrQueryResponse",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_14",
-      "type": "string_pattern",
-      "pattern": "SolrInputDocument",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_17",
-      "type": "string_pattern",
-      "pattern": "SolrQueryRequest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_19",
-      "type": "string_pattern",
-      "pattern": "solrhandler",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_21",
-      "type": "string_pattern",
-      "pattern": "SolrRequestInfo",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "apache_solr_22",
       "type": "string_pattern",
       "pattern": "ModifiableSolrParams",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_24",
-      "type": "string_pattern",
-      "pattern": "SolrQueryResponse",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_25",
-      "type": "string_pattern",
-      "pattern": "LocalSolrQueryRequest",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_26",
-      "type": "string_pattern",
-      "pattern": "SolrRequestHandler",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_27",
-      "type": "string_pattern",
-      "pattern": "solrresponse",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "apache_solr_28",
-      "type": "string_pattern",
-      "pattern": "solrrequest",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

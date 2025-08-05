@@ -17,10 +17,11 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 20,
+    "signature_count": 11,
     "confidence_threshold": 0.7,
     "source": "manual",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -52,20 +53,6 @@
       "context": "function"
     },
     {
-      "id": "libpng_5",
-      "type": "string_pattern",
-      "pattern": "PNG_LIBPNG_VER_STRING",
-      "confidence": 0.95,
-      "context": "constant"
-    },
-    {
-      "id": "libpng_6",
-      "type": "string_pattern",
-      "pattern": "png_error",
-      "confidence": 0.7,
-      "context": "function"
-    },
-    {
       "id": "libpng_7",
       "type": "string_pattern",
       "pattern": "png_read_image",
@@ -87,44 +74,9 @@
       "context": "function"
     },
     {
-      "id": "libpng_10",
-      "type": "string_pattern",
-      "pattern": "libpng version",
-      "confidence": 0.9,
-      "context": "string"
-    },
-    {
       "id": "libpng_11",
       "type": "string_pattern",
       "pattern": "png_set_expand",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "libpng_12",
-      "type": "string_pattern",
-      "pattern": "png_read_info",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_13",
-      "type": "string_pattern",
-      "pattern": "png_write_info",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_14",
-      "type": "string_pattern",
-      "pattern": "png_set_filter",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "libpng_15",
-      "type": "string_pattern",
-      "pattern": "png_set_compression_level",
       "confidence": 0.8,
       "context": "function"
     },
@@ -147,20 +99,6 @@
       "type": "string_pattern",
       "pattern": "png_destroy_write_struct",
       "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_19",
-      "type": "string_pattern",
-      "pattern": "PNG_COLOR_TYPE",
-      "confidence": 0.75,
-      "context": "constant"
-    },
-    {
-      "id": "libpng_20",
-      "type": "string_pattern",
-      "pattern": "png_malloc",
-      "confidence": 0.75,
       "context": "function"
     }
   ]

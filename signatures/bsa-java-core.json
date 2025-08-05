@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.446067Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 43,
+    "signature_count": 31,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "java-core.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -135,16 +136,6 @@
       ]
     },
     {
-      "id": "java_core_28",
-      "type": "string_pattern",
-      "pattern": "java.text",
-      "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "java_core_29",
       "type": "string_pattern",
       "pattern": "java.util",
@@ -169,26 +160,6 @@
       "type": "string_pattern",
       "pattern": "java.awt",
       "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_32",
-      "type": "string_pattern",
-      "pattern": "java.awt.event",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_33",
-      "type": "string_pattern",
-      "pattern": "java.awt.font",
-      "confidence": 0.8,
       "context": "unknown",
       "platforms": [
         "java"
@@ -259,26 +230,6 @@
       "type": "string_pattern",
       "pattern": "java.beans",
       "confidence": 0.7,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_41",
-      "type": "string_pattern",
-      "pattern": "javax.annotation",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_42",
-      "type": "string_pattern",
-      "pattern": "javax.annotation",
-      "confidence": 0.8,
       "context": "unknown",
       "platforms": [
         "java"
@@ -358,76 +309,6 @@
       "id": "java_core_50",
       "type": "string_pattern",
       "pattern": "javax.management",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_51",
-      "type": "string_pattern",
-      "pattern": "javax.swing",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_52",
-      "type": "string_pattern",
-      "pattern": "javax.swing.border",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_53",
-      "type": "string_pattern",
-      "pattern": "javax.swing.event",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_54",
-      "type": "string_pattern",
-      "pattern": "javax.swing.table",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_55",
-      "type": "string_pattern",
-      "pattern": "javax.swing.text",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_56",
-      "type": "string_pattern",
-      "pattern": "javax.swing.tree",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "java_core_57",
-      "type": "string_pattern",
-      "pattern": "javax.measure",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

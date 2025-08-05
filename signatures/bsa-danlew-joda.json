@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.399829Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 15,
+    "signature_count": 10,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "danlew-joda.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -49,16 +50,6 @@
       "type": "string_pattern",
       "pattern": "jodaJodaTimeAndroid",
       "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_4",
-      "type": "string_pattern",
-      "pattern": "joda_keep",
-      "confidence": 0.7,
       "context": "unknown",
       "platforms": [
         "all"
@@ -105,49 +96,9 @@
       ]
     },
     {
-      "id": "danlew_joda_11",
-      "type": "string_pattern",
-      "pattern": "jodaTimeZoneChangedReceiver",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_12",
-      "type": "string_pattern",
-      "pattern": "jodaResourceZoneInfoProvider",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "danlew_joda_14",
       "type": "string_pattern",
       "pattern": "mDefaultJodaTz",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_15",
-      "type": "string_pattern",
-      "pattern": "jodaCompileTzDataTask",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "danlew_joda_16",
-      "type": "string_pattern",
-      "pattern": "activity_joda_sample",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

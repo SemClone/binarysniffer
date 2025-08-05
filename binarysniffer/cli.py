@@ -67,7 +67,7 @@ def cli(ctx, config, data_dir, verbose):
 @cli.command()
 @click.argument('path', type=click.Path(exists=True))
 @click.option('--recursive', '-r', is_flag=True, help='Analyze directories recursively')
-@click.option('--threshold', '-t', type=float, help='Confidence threshold (0.0-1.0)')
+@click.option('--threshold', '-t', type=float, help='Confidence threshold (0.0-1.0, default: 0.8)')
 @click.option('--deep', is_flag=True, help='Enable deep analysis mode')
 @click.option('--format', '-f', 
               type=click.Choice(['table', 'json', 'csv'], case_sensitive=False),
@@ -76,8 +76,10 @@ def cli(ctx, config, data_dir, verbose):
 @click.option('--output', '-o', type=click.Path(), help='Save results to file')
 @click.option('--patterns', '-p', multiple=True, help='File patterns to match (e.g., *.exe, *.so)')
 @click.option('--parallel/--no-parallel', default=True, help='Enable parallel processing')
+@click.option('--min-patterns', '-m', type=int, default=0, help='Minimum number of patterns to show component (filters results)')
+@click.option('--verbose-evidence', '-v', is_flag=True, help='Show detailed evidence including matched patterns')
 @click.pass_context
-def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel):
+def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence):
     """
     Analyze files for OSS components.
     
@@ -145,11 +147,11 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         
         # Output results
         if format == 'json':
-            output_json(batch_result, output)
+            output_json(batch_result, output, min_patterns, verbose_evidence)
         elif format == 'csv':
-            output_csv(batch_result, output)
+            output_csv(batch_result, output, min_patterns)
         else:
-            output_table(batch_result)
+            output_table(batch_result, min_patterns, verbose_evidence)
         
         # Summary
         console.print(f"\n[green]Analysis complete![/green]")
@@ -171,48 +173,60 @@ def update(ctx, force):
     Update signature database.
     
     Downloads the latest signature updates from configured sources.
+    
+    This is a convenience alias for 'binarysniffer signatures update'.
     """
-    # Initialize sniffer
-    if ctx.obj['sniffer'] is None:
-        ctx.obj['sniffer'] = BinarySniffer(ctx.obj['config'])
+    from .signatures.manager import SignatureManager
+    from .storage.database import SignatureDatabase
     
-    sniffer = ctx.obj['sniffer']
+    config = ctx.obj['config']
+    db = SignatureDatabase(config.db_path)
+    manager = SignatureManager(config, db)
     
-    console.print("Checking for updates...")
+    console.print("Updating signatures from GitHub...")
     
-    if not sniffer.check_updates() and not force:
-        console.print("[green]Signatures are up to date![/green]")
-        return
+    with console.status("Downloading from GitHub..."):
+        downloaded = manager.download_from_github()
     
-    console.print("Downloading updates...")
-    
-    with console.status("Updating signatures..."):
-        success = sniffer.update_signatures(force=force)
-    
-    if success:
-        console.print("[green]Signatures updated successfully![/green]")
+    if downloaded > 0:
+        console.print(f"[green]Downloaded {downloaded} signature files[/green]")
         
-        # Show statistics
-        stats = sniffer.get_signature_stats()
-        console.print(f"\nSignature Statistics:")
-        console.print(f"  Components: {stats['component_count']:,}")
-        console.print(f"  Signatures: {stats['signature_count']:,}")
-        console.print(f"  Database size: {stats['database_size'] / 1024 / 1024:.1f} MB")
+        with console.status("Importing downloaded signatures..."):
+            imported = manager.import_directory(
+                config.data_dir / "downloaded_signatures", 
+                force=force
+            )
+        
+        console.print(f"[green]Imported {imported} signatures from GitHub[/green]")
     else:
-        console.print("[red]Failed to update signatures[/red]")
-        sys.exit(1)
+        console.print("[yellow]No updates available or download failed[/yellow]")
 
 
 @cli.command()
 @click.pass_context
 def stats(ctx):
     """Show signature database statistics."""
-    # Initialize sniffer
-    if ctx.obj['sniffer'] is None:
-        ctx.obj['sniffer'] = BinarySniffer(ctx.obj['config'])
+    from .signatures.manager import SignatureManager
+    from .storage.database import SignatureDatabase
     
-    sniffer = ctx.obj['sniffer']
-    stats = sniffer.get_signature_stats()
+    config = ctx.obj['config']
+    db = SignatureDatabase(config.db_path)
+    
+    # Get statistics directly from database
+    with db._get_connection() as conn:
+        cursor = conn.execute("SELECT COUNT(DISTINCT id) FROM components")
+        component_count = cursor.fetchone()[0]
+        
+        cursor = conn.execute("SELECT COUNT(*) FROM signatures")
+        signature_count = cursor.fetchone()[0]
+        
+        # Get database file size
+        import os
+        db_size = os.path.getsize(config.db_path) if config.db_path.exists() else 0
+        
+        # Count by signature type
+        cursor = conn.execute("SELECT sig_type, COUNT(*) FROM signatures GROUP BY sig_type")
+        sig_types = dict(cursor.fetchall())
     
     console.print("\n[bold]Signature Database Statistics[/bold]\n")
     
@@ -221,19 +235,15 @@ def stats(ctx):
     table.add_column("Metric", style="cyan")
     table.add_column("Value", style="green")
     
-    table.add_row("Components", f"{stats['component_count']:,}")
-    table.add_row("Signatures", f"{stats['signature_count']:,}")
-    table.add_row("Database Size", f"{stats['database_size'] / 1024 / 1024:.1f} MB")
+    table.add_row("Components", f"{component_count:,}")
+    table.add_row("Signatures", f"{signature_count:,}")
+    table.add_row("Database Size", f"{db_size / 1024 / 1024:.1f} MB")
     
     # Signature types
-    if 'signature_types' in stats:
+    if sig_types:
         type_names = {1: "String", 2: "Function", 3: "Constant", 4: "Pattern"}
-        for sig_type, count in stats['signature_types'].items():
+        for sig_type, count in sig_types.items():
             table.add_row(f"  {type_names.get(sig_type, 'Unknown')}", f"{count:,}")
-    
-    # Metadata
-    if 'metadata' in stats:
-        table.add_row("Database Version", stats['metadata'].get('version', 'Unknown'))
     
     console.print(table)
 
@@ -558,7 +568,7 @@ def signatures_create(ctx, path, name, output, version, license, publisher, desc
         console.print(f"  [{sig['type']}] {sig['pattern']} (confidence: {sig['confidence']})")
 
 
-def output_table(batch_result: BatchAnalysisResult):
+def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False):
     """Output results as a table"""
     for file_path, result in batch_result.results.items():
         console.print(f"\n[bold]{file_path}[/bold]")
@@ -576,6 +586,25 @@ def output_table(batch_result: BatchAnalysisResult):
             console.print(f"  Confidence threshold: {result.confidence_threshold}")
             continue
         
+        # Filter matches based on min_patterns if specified
+        filtered_matches = []
+        for match in result.matches:
+            pattern_count = 0
+            if match.evidence:
+                if 'signatures_matched' in match.evidence:
+                    pattern_count = match.evidence['signatures_matched']
+                elif 'signature_count' in match.evidence:
+                    pattern_count = match.evidence['signature_count']
+            
+            if pattern_count >= min_patterns:
+                filtered_matches.append(match)
+        
+        if not filtered_matches and min_patterns > 0:
+            console.print(f"[yellow]No components with {min_patterns}+ patterns detected[/yellow]")
+            console.print(f"  Confidence threshold: {result.confidence_threshold}")
+            console.print(f"  Filtered out: {len(result.matches)} components")
+            continue
+        
         # Create matches table
         table = Table()
         table.add_column("Component", style="cyan")
@@ -584,7 +613,13 @@ def output_table(batch_result: BatchAnalysisResult):
         table.add_column("Type", style="blue")
         table.add_column("Evidence", style="magenta")
         
-        for match in sorted(result.matches, key=lambda m: m.confidence, reverse=True):
+        # Add column explanations
+        if filtered_matches:
+            console.print("\n[dim]Column explanations:[/dim]")
+            console.print("[dim]  Type: Match type (string=exact match, library=known component)[/dim]")
+            console.print("[dim]  Evidence: Number of signature patterns matched (higher=more certain)[/dim]\n")
+        
+        for match in sorted(filtered_matches, key=lambda m: m.confidence, reverse=True):
             evidence_str = ""
             if match.evidence:
                 # Format evidence more clearly
@@ -609,16 +644,50 @@ def output_table(batch_result: BatchAnalysisResult):
         
         console.print(table)
         
+        # Show verbose evidence if requested
+        if verbose_evidence and filtered_matches:
+            console.print("\n[dim]Detailed Evidence:[/dim]")
+            for match in filtered_matches:
+                if match.evidence and 'matched_patterns' in match.evidence:
+                    console.print(f"\n  [cyan]{match.component}[/cyan]:")
+                    patterns = match.evidence['matched_patterns']
+                    # Show first 10 patterns
+                    for i, p in enumerate(patterns[:10]):
+                        if p['pattern'] == p['matched_string']:
+                            console.print(f"    • Pattern: '{p['pattern']}' (exact match, conf: {p['confidence']:.2f})")
+                        else:
+                            console.print(f"    • Pattern: '{p['pattern']}' matched '{p['matched_string']}' (conf: {p['confidence']:.2f})")
+                    if len(patterns) > 10:
+                        console.print(f"    ... and {len(patterns) - 10} more patterns")
+        
         # Show summary
-        console.print(f"\n  Total matches: {len(result.matches)}")
-        console.print(f"  High confidence matches: {len(result.high_confidence_matches)}")
-        console.print(f"  Unique components: {len(result.unique_components)}")
+        console.print(f"\n  Total matches: {len(filtered_matches)}")
+        if min_patterns > 0 and len(filtered_matches) < len(result.matches):
+            console.print(f"  Filtered out: {len(result.matches) - len(filtered_matches)} components with <{min_patterns} patterns")
+        console.print(f"  High confidence matches: {len([m for m in filtered_matches if m.confidence >= 0.8])}")
+        console.print(f"  Unique components: {len(set(m.component for m in filtered_matches))}")
         if result.licenses:
             console.print(f"  Licenses detected: {', '.join(result.licenses)}")
 
 
-def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str]):
+def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0, verbose_evidence: bool = False):
     """Output results as JSON"""
+    # Filter results if min_patterns specified
+    if min_patterns > 0:
+        for file_path, result in batch_result.results.items():
+            filtered_matches = []
+            for match in result.matches:
+                pattern_count = 0
+                if match.evidence:
+                    if 'signatures_matched' in match.evidence:
+                        pattern_count = match.evidence['signatures_matched']
+                    elif 'signature_count' in match.evidence:
+                        pattern_count = match.evidence['signature_count']
+                if pattern_count >= min_patterns:
+                    filtered_matches.append(match)
+            result.matches = filtered_matches
+    
+    # JSON always includes full evidence data
     json_str = batch_result.to_json()
     
     if output_path:
@@ -629,26 +698,36 @@ def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str]):
         console.print(json_str)
 
 
-def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str]):
+def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0):
     """Output results as CSV"""
     rows = []
-    headers = ["File", "Component", "Confidence", "License", "Type", "Ecosystem"]
+    headers = ["File", "Component", "Confidence", "License", "Type", "Ecosystem", "Patterns"]
     
     for file_path, result in batch_result.results.items():
         if result.error:
-            rows.append([file_path, "ERROR", "", "", "", result.error])
+            rows.append([file_path, "ERROR", "", "", "", "", result.error])
         elif not result.matches:
-            rows.append([file_path, "NO_MATCHES", "", "", "", ""])
+            rows.append([file_path, "NO_MATCHES", "", "", "", "", ""])
         else:
             for match in result.matches:
-                rows.append([
-                    file_path,
-                    match.component,
-                    f"{match.confidence:.3f}",
-                    match.license or "",
-                    match.match_type,
-                    match.ecosystem
-                ])
+                pattern_count = 0
+                if match.evidence:
+                    if 'signatures_matched' in match.evidence:
+                        pattern_count = match.evidence['signatures_matched']
+                    elif 'signature_count' in match.evidence:
+                        pattern_count = match.evidence['signature_count']
+                
+                # Filter by min_patterns
+                if pattern_count >= min_patterns:
+                    rows.append([
+                        file_path,
+                        match.component,
+                        f"{match.confidence:.3f}",
+                        match.license or "",
+                        match.match_type,
+                        match.ecosystem,
+                        pattern_count
+                    ])
     
     csv_content = tabulate(rows, headers=headers, tablefmt="csv")
     

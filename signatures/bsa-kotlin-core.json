@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.391920Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 21,
+    "signature_count": 11,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "kotlin-core.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -38,26 +39,6 @@
       "id": "kotlin_core_1",
       "type": "string_pattern",
       "pattern": "kotlin.ExceptionsKt__ExceptionsKt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_2",
-      "type": "string_pattern",
-      "pattern": "kotlin.InitializedLazyImpl",
-      "confidence": 0.8,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_3",
-      "type": "string_pattern",
-      "pattern": "kotlin.KotlinNullPointerException",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -85,51 +66,11 @@
       ]
     },
     {
-      "id": "kotlin_core_6",
-      "type": "string_pattern",
-      "pattern": "kotlin.SynchronizedLazyImpl",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "kotlin_core_7",
       "type": "string_pattern",
       "pattern": "kotlin.TuplesKt",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_8",
-      "type": "string_pattern",
-      "pattern": "kotlin.TypeCastException",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_9",
-      "type": "string_pattern",
-      "pattern": "kotlin.UNINITIALIZED_VALUE",
-      "confidence": 0.8,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_10",
-      "type": "string_pattern",
-      "pattern": "kotlin.UninitializedPropertyAccessException",
-      "confidence": 0.8,
-      "context": "initialization",
       "platforms": [
         "all"
       ]
@@ -148,16 +89,6 @@
       "id": "kotlin_core_12",
       "type": "string_pattern",
       "pattern": "kotlin.comparisons",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_13",
-      "type": "string_pattern",
-      "pattern": "kotlin.internal",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -185,39 +116,9 @@
       ]
     },
     {
-      "id": "kotlin_core_16",
-      "type": "string_pattern",
-      "pattern": "kotlin.reflect",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "kotlin_core_17",
       "type": "string_pattern",
       "pattern": "kotlin.sequences",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_18",
-      "type": "string_pattern",
-      "pattern": "kotlin.text",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "kotlin_core_19",
-      "type": "string_pattern",
-      "pattern": "kotlin.Metadata",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

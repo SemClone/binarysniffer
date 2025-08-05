@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.401482Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 8,
+    "signature_count": 3,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-gson.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -40,56 +41,6 @@
       "pattern": "com.google.gson",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_2",
-      "type": "string_pattern",
-      "pattern": "gsonPrimitiveTypeAdapter",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_3",
-      "type": "string_pattern",
-      "pattern": "gsonJsonParseException",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_5",
-      "type": "string_pattern",
-      "pattern": "GsonSkipParser",
-      "confidence": 0.9,
-      "context": "processing",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_7",
-      "type": "string_pattern",
-      "pattern": "gsonJavaSerializationTest",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_gson_8",
-      "type": "string_pattern",
-      "pattern": "gsonJsonParser",
-      "confidence": 0.9,
-      "context": "processing",
       "platforms": [
         "all"
       ]

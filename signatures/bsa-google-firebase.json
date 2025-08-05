@@ -17,11 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.396290Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 14,
+    "signature_count": 10,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-firebase.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
@@ -70,46 +71,6 @@
       "pattern": "FirebaseTestLabPlugin",
       "confidence": 0.9,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_firebase_8",
-      "type": "string_pattern",
-      "pattern": "firebase-firestore",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_firebase_9",
-      "type": "string_pattern",
-      "pattern": "lCRfirebase-database",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_firebase_10",
-      "type": "string_pattern",
-      "pattern": "HASHED_FIREBASE_APP_NAME",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_firebase_11",
-      "type": "string_pattern",
-      "pattern": "FirebaseInitProviderNoIdsInResourcesTest",
-      "confidence": 0.9,
-      "context": "initialization",
       "platforms": [
         "all"
       ]

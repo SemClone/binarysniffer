@@ -17,47 +17,18 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.399169Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 20,
+    "signature_count": 7,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "bumptech-glide.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
     {
       "id": "bumptech_glide_0",
       "type": "string_pattern",
       "pattern": "GlideRequests",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_1",
-      "type": "string_pattern",
-      "pattern": "GlideBenchmarkRule",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_3",
-      "type": "string_pattern",
-      "pattern": "51W4V3glide",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_4",
-      "type": "string_pattern",
-      "pattern": "GLIDE_PACKAGE_NAME",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -85,56 +56,6 @@
       ]
     },
     {
-      "id": "bumptech_glide_9",
-      "type": "string_pattern",
-      "pattern": "validateGlideOptionOverride",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_13",
-      "type": "string_pattern",
-      "pattern": "glideContext",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_15",
-      "type": "string_pattern",
-      "pattern": "glideOptionsName",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_16",
-      "type": "string_pattern",
-      "pattern": "EnableLazyGlideRegistry",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_17",
-      "type": "string_pattern",
-      "pattern": "getGlideName",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_19",
       "type": "string_pattern",
       "pattern": "utilGlideSuppliers",
@@ -155,26 +76,6 @@
       ]
     },
     {
-      "id": "bumptech_glide_25",
-      "type": "string_pattern",
-      "pattern": "GlideLoadingListener",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_31",
-      "type": "string_pattern",
-      "pattern": "tearDownGlide",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_32",
       "type": "string_pattern",
       "pattern": "FlickrGlideExtension",
@@ -185,41 +86,11 @@
       ]
     },
     {
-      "id": "bumptech_glide_34",
-      "type": "string_pattern",
-      "pattern": "APP_GLIDE_MODULE_QUALIFIED_NAME",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_35",
-      "type": "string_pattern",
-      "pattern": "GLIDE_LOG_TAG",
-      "confidence": 0.8,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "bumptech_glide_36",
       "type": "string_pattern",
       "pattern": "GlideGenerator",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "bumptech_glide_37",
-      "type": "string_pattern",
-      "pattern": "glide_logo",
-      "confidence": 0.7,
-      "context": "logging",
       "platforms": [
         "all"
       ]

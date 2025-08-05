@@ -17,53 +17,14 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.449056Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 11,
+    "signature_count": 5,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-ads.json",
-    "cleaned": true
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "google_ads_2",
-      "type": "string_pattern",
-      "pattern": "POLICY_MAPPING",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_4",
-      "type": "string_pattern",
-      "pattern": "LocalizedText",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_5",
-      "type": "string_pattern",
-      "pattern": "getThisUpdate",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_6",
-      "type": "string_pattern",
-      "pattern": "GzipInflatingBuffer",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "google_ads_7",
       "type": "string_pattern",
@@ -78,16 +39,6 @@
       "id": "google_ads_9",
       "type": "string_pattern",
       "pattern": "getClientId",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_10",
-      "type": "string_pattern",
-      "pattern": "ByteBufferInputStream",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -119,16 +70,6 @@
       "type": "string_pattern",
       "pattern": "GOOGLE_ADS_CLIENT_SECRET",
       "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_ads_15",
-      "type": "string_pattern",
-      "pattern": "SHARED_SECRETS_CLASSNAME",
-      "confidence": 0.8,
       "context": "unknown",
       "platforms": [
         "java"
