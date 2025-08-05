@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.6] - 2025-08-05
+
+### Improved
+- **Multi-language regex patterns** - Enhanced SourceCodeExtractor with comprehensive language support
+- **Pattern coverage** - Achieved 100% test coverage across all 9 supported programming languages
+- **Language-specific parsing** - Added support for Ruby methods without parentheses, C/C++ macros, Rust const syntax, Go imports and structs, C# using statements, C++ method declarations, and Kotlin functions
+- **Detection accuracy** - Improved success rate from 85.4% to 100% for source code symbol extraction
+
+### Added
+- **Enhanced function patterns** - 6 regex patterns covering Python, JavaScript, Go, Rust, Kotlin, Java/C#/C++
+- **Comprehensive class patterns** - 5 patterns for class, struct, interface, Go types, and enums
+- **Extended import patterns** - 8 patterns supporting Python, JS, Rust, C/C++, Go, C#, Kotlin imports
+- **Robust constant patterns** - 5 patterns for general constants, assignments, C macros, Rust, and Kotlin
+
 ## [1.4.5] - 2025-08-05
 
 ### Fixed
