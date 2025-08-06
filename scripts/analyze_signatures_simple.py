@@ -28,7 +28,7 @@ class SimpleSignatureAnalyzer:
         'under', 'until', 'up', 'very',
         'was', 'we', 'were', 'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would',
         'you', 'your', 'yours', 'yourself', 'yourselves',
-        'apache', 'google', 'facebook', 'microsoft', 'amazon', 'oracle', 'apple',
+        'apache', 'google', 'facebook', 'microsoft', 'oracle', 'apple',
         'android', 'ios', 'linux', 'windows', 'macos', 'ubuntu',
         'java', 'python', 'javascript', 'cpp', 'golang', 'rust', 'kotlin', 'swift',
         'react', 'angular', 'vue', 'spring', 'django', 'flask', 'rails',
