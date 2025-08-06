@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.4] - 2025-08-06
+
+### Changed
+- **Signature metadata optimization** - Removed proprietary references from signature source descriptions
+- **Cleaner attribution** - Updated signature metadata to use generic "APK analysis" instead of specific app references
+
+### Improved
+- **Professional metadata** - All signature files now have cleaner, more professional source attributions
+- **Signature consistency** - Standardized metadata format across all signature files
+
 ## [1.6.3] - 2025-08-06
 
 ### Added

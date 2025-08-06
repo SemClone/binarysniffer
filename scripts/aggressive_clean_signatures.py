@@ -159,7 +159,7 @@ class AggressiveSignatureCleaner:
             'dilute', 'thin', 'weaken', 'soften', 'loosen', 'relax', 'ease', 'calm',
             'soothe', 'comfort', 'console', 'reassure', 'encourage', 'inspire', 'motivate',
             'stimulate', 'excite', 'arouse', 'provoke', 'incite', 'inflame', 'ignite',
-            'spark', 'kindle', 'fuel', 'feed', 'nourish', 'sustain', 'maintain', 'preserve',
+            'spark', 'fuel', 'feed', 'nourish', 'sustain', 'maintain', 'preserve',
             'conserve', 'save', 'store', 'keep', 'retain', 'hold', 'possess', 'own',
             'have', 'get', 'obtain', 'acquire', 'gain', 'earn', 'win', 'achieve', 'attain',
             'reach', 'arrive', 'come', 'go', 'leave', 'depart', 'exit', 'enter', 'access',
