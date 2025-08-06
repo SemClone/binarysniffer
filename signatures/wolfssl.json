@@ -16,13 +16,14 @@
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-06T01:03:20.165022Z",
-    "updated": "2025-08-06T01:03:20.165024Z",
-    "signature_count": 191,
+    "updated": "2025-01-06T00:00:00Z",
+    "signature_count": 159,
     "confidence_threshold": 0.7,
     "source": "source_analysis",
     "extraction_method": "ast_parsing",
     "cleaned": true,
-    "cleaning_version": "2.0"
+    "cleaning_version": "3.0-ultra",
+    "notes": " Ultra-aggressive cleaning applied."
   },
   "signatures": [
     {
@@ -249,16 +250,6 @@
       "id": "wolfssl_134",
       "type": "string_pattern",
       "pattern": "SECP521R1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_136",
-      "type": "string_pattern",
-      "pattern": "SHA1",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -586,46 +577,6 @@
       ]
     },
     {
-      "id": "wolfssl_198",
-      "type": "string_pattern",
-      "pattern": "U33f",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_213",
-      "type": "string_pattern",
-      "pattern": "Y77n",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_292",
-      "type": "string_pattern",
-      "pattern": "___udivti3",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_363",
-      "type": "string_pattern",
-      "pattern": "_mp_div_2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_569",
       "type": "string_pattern",
       "pattern": "_wc_EccKeyToPKCS8",
@@ -639,86 +590,6 @@
       "id": "wolfssl_572",
       "type": "string_pattern",
       "pattern": "_wc_EccPrivateKeyToPKCS8",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_667",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha224",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_670",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha256",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_673",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha384",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_676",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha3_224",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_678",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha3_256",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_680",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha3_384",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_682",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha3_512",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_684",
-      "type": "string_pattern",
-      "pattern": "_wc_InitSha512",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -919,116 +790,6 @@
       "id": "wolfssl_1806",
       "type": "string_pattern",
       "pattern": "_wolfSSL_EVP_PKEY2PKCS8",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1905",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_mdc2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1907",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_ripemd160",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1909",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1910",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha224",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1911",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha256",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1912",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha384",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1913",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha3_224",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1914",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha3_256",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1915",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha3_384",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1916",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha3_512",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1917",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_EVP_sha512",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1446,16 +1207,6 @@
       ]
     },
     {
-      "id": "wolfssl_3129",
-      "type": "string_pattern",
-      "pattern": "c63w",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_3170",
       "type": "string_pattern",
       "pattern": "ed8d916c171f0688d7e7cca547ab3ab2",
@@ -1479,56 +1230,6 @@
       "id": "wolfssl_3176",
       "type": "string_pattern",
       "pattern": "exponent2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3179",
-      "type": "string_pattern",
-      "pattern": "fNt7",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3208",
-      "type": "string_pattern",
-      "pattern": "kB8a",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3227",
-      "type": "string_pattern",
-      "pattern": "nY77",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3239",
-      "type": "string_pattern",
-      "pattern": "p09Y",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3240",
-      "type": "string_pattern",
-      "pattern": "pH88",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1629,16 +1330,6 @@
       "id": "wolfssl_3253",
       "type": "string_pattern",
       "pattern": "prime256v1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3260",
-      "type": "string_pattern",
-      "pattern": "rK99",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1779,16 +1470,6 @@
       "id": "wolfssl_3283",
       "type": "string_pattern",
       "pattern": "secp521r1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3287",
-      "type": "string_pattern",
-      "pattern": "sha1",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [

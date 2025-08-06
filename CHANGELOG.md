@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.4] - 2025-08-06
+
+### Fixed
+- **Eliminated .NET Core false positives** - Removed 59 overly generic patterns (90.8% reduction)
+- **Reduced wolfSSL false detections** - Removed 32 generic crypto patterns that appear in many libraries
+- **No more type name collisions** - Removed generic patterns like int32, float64, libc that match everywhere
+
+### Added
+- **Ultra-aggressive signature cleaning** - New script `scripts/ultra_aggressive_clean.py` for deep pattern cleaning
+- **Better pattern validation** - Filters out basic types, generic prefixes, and common C library functions
+
+### Improved
+- **.NET Core signatures** - Reduced from 65 to 6 highly specific patterns
+- **wolfSSL signatures** - Kept only wolfSSL-specific patterns (159 remaining from 191)
+- **Detection accuracy** - FFmpeg and other binaries no longer show incorrect .NET or wolfSSL detections
+
+### Technical
+- **Pattern filtering** - Removes int/float types, generic prefixes (prefix1-7), macOS standard symbols
+- **Signature quality** - Only truly component-specific patterns remain in signatures
+- **Testing verified** - No false positives in FFmpeg, libcap, and other test binaries
+
 ## [1.8.3] - 2025-08-06
 
 ### Added
