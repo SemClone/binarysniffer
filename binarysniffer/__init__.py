@@ -5,7 +5,7 @@ A CLI tool and Python library for detecting open source components in binaries
 through semantic signature matching.
 """
 
-__version__ = "1.6.4"
+__version__ = "1.6.5"
 __author__ = "Oscar Valenzuela B."
 __email__ = "oscar.valenzuela.b@gmail.com"
 __license__ = "Apache-2.0"
