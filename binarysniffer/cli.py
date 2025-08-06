@@ -95,9 +95,11 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.option('--show-features', is_flag=True, help='Display all extracted features for debugging')
 @click.option('--feature-limit', type=int, default=20, help='Number of features to display per category (with --show-features)')
 @click.option('--save-features', type=click.Path(), help='Save all extracted features to JSON file')
+@click.option('--use-tlsh/--no-tlsh', default=True, help='Enable TLSH fuzzy matching')
+@click.option('--tlsh-threshold', type=int, default=70, help='TLSH distance threshold (0-300, lower=more similar)')
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence, 
-            show_features, feature_limit, save_features):
+            show_features, feature_limit, save_features, use_tlsh, tlsh_threshold):
     """
     Analyze files for OSS components.
     
@@ -133,7 +135,10 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         if path.is_file():
             # Single file analysis
             with console.status(f"Analyzing {path.name}..."):
-                result = sniffer.analyze_file(path, threshold, deep, show_features)
+                result = sniffer.analyze_file(
+                    path, threshold, deep, show_features,
+                    use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold
+                )
             results = {str(path): result}
         else:
             # Directory analysis

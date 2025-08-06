@@ -14,6 +14,7 @@ from ..extractors.factory import ExtractorFactory
 from ..matchers.direct import DirectMatcher
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
+from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
 
 
 logger = logging.getLogger(__name__)
@@ -46,13 +47,19 @@ class EnhancedBinarySniffer:
         
         # Create direct matcher only (bloom filters disabled for deterministic results)
         self.direct_matcher = DirectMatcher(self.config)
+        
+        # Initialize TLSH components
+        self.tlsh_hasher = TLSHHasher()
+        self.tlsh_store = TLSHSignatureStore()
     
     def analyze_file(
         self, 
         file_path: Union[str, Path],
         confidence_threshold: Optional[float] = None,
         deep_analysis: bool = False,
-        show_features: bool = False
+        show_features: bool = False,
+        use_tlsh: bool = True,
+        tlsh_threshold: int = 70
     ) -> AnalysisResult:
         """
         Analyze a single file for OSS components using enhanced detection.
@@ -61,6 +68,9 @@ class EnhancedBinarySniffer:
             file_path: Path to the file to analyze
             confidence_threshold: Minimum confidence score (0.0-1.0)
             deep_analysis: Enable deep analysis mode
+            show_features: Show extracted features in result
+            use_tlsh: Enable TLSH fuzzy matching
+            tlsh_threshold: TLSH distance threshold for matches (lower = more similar)
             
         Returns:
             AnalysisResult object containing matches and metadata
@@ -88,6 +98,14 @@ class EnhancedBinarySniffer:
         
         # No merging needed - just use direct matches
         merged_matches = direct_matches
+        
+        # Apply TLSH fuzzy matching if enabled
+        if use_tlsh and self.tlsh_hasher.enabled:
+            tlsh_matches = self._apply_tlsh_matching(
+                file_path, features, tlsh_threshold
+            )
+            # Merge TLSH matches with direct matches
+            merged_matches = self._merge_tlsh_matches(merged_matches, tlsh_matches)
         
         # Apply technology filtering to reduce false positives
         file_type = features.file_type
@@ -229,6 +247,114 @@ class EnhancedBinarySniffer:
             logger.debug(f"Filtered {len(matches) - len(filtered_matches)} incompatible components")
         
         return filtered_matches
+    
+    def _apply_tlsh_matching(
+        self,
+        file_path: Path,
+        features,
+        threshold: int = 70
+    ) -> List[ComponentMatch]:
+        """
+        Apply TLSH fuzzy matching to find similar components.
+        
+        Args:
+            file_path: Path to the file being analyzed
+            features: Extracted features from the file
+            threshold: TLSH distance threshold
+            
+        Returns:
+            List of component matches based on TLSH similarity
+        """
+        matches = []
+        
+        # Generate TLSH hash for the file
+        file_hash = self.tlsh_hasher.hash_file(file_path)
+        if not file_hash:
+            # Try hashing from features if file hash fails
+            all_features = list(features.strings) + list(features.symbols)
+            if all_features:
+                file_hash = self.tlsh_hasher.hash_features(all_features[:1000])  # Limit features
+        
+        if not file_hash:
+            logger.debug("Could not generate TLSH hash for file")
+            return matches
+        
+        logger.debug(f"Generated TLSH hash: {file_hash[:16]}...")
+        
+        # Find matches in TLSH signature store
+        tlsh_matches = self.tlsh_store.find_matches(file_hash, threshold)
+        
+        # Convert TLSH matches to ComponentMatch objects
+        for match_info in tlsh_matches:
+            # Confidence based on similarity score
+            confidence = match_info['similarity_score']
+            
+            # Create component match (version included in component name)
+            component_name = match_info['component']
+            version = match_info.get('version', 'unknown')
+            if version and version != 'unknown':
+                component_name = f"{component_name}@{version}"
+            
+            match = ComponentMatch(
+                component=component_name,
+                ecosystem='native',  # Default to native for TLSH matches
+                confidence=confidence,
+                license=match_info.get('metadata', {}).get('license', 'unknown'),
+                match_type='tlsh_fuzzy',
+                evidence={
+                    'tlsh_distance': match_info['distance'],
+                    'similarity_level': match_info['similarity_level'],
+                    'similarity_score': confidence
+                }
+            )
+            matches.append(match)
+            
+            logger.info(f"TLSH match: {match.component} (distance: {match_info['distance']}, "
+                       f"similarity: {match_info['similarity_level']})")
+        
+        return matches
+    
+    def _merge_tlsh_matches(
+        self,
+        direct_matches: List[ComponentMatch],
+        tlsh_matches: List[ComponentMatch]
+    ) -> List[ComponentMatch]:
+        """
+        Merge TLSH fuzzy matches with direct matches.
+        
+        Args:
+            direct_matches: Matches from direct pattern matching
+            tlsh_matches: Matches from TLSH fuzzy matching
+            
+        Returns:
+            Merged list of matches, keeping highest confidence for duplicates
+        """
+        # Create a map of component -> best match
+        component_map = {}
+        
+        # Add direct matches first (usually higher confidence)
+        for match in direct_matches:
+            key = f"{match.component}_{match.version}"
+            component_map[key] = match
+        
+        # Add TLSH matches if not already present or if higher confidence
+        for match in tlsh_matches:
+            key = f"{match.component}_{match.version}"
+            if key not in component_map:
+                component_map[key] = match
+                logger.debug(f"Added TLSH-only match: {match.component}")
+            elif match.confidence > component_map[key].confidence:
+                # TLSH match has higher confidence, update
+                old_confidence = component_map[key].confidence
+                component_map[key] = match
+                logger.debug(f"TLSH match for {match.component} has higher confidence "
+                           f"({match.confidence:.2f} vs {old_confidence:.2f})")
+        
+        # Return sorted list
+        merged = list(component_map.values())
+        merged.sort(key=lambda x: x.confidence, reverse=True)
+        
+        return merged
     
     def analyze_directory(
         self,

@@ -10,6 +10,7 @@ from datetime import datetime
 
 from ..extractors.factory import ExtractorFactory
 from ..core.config import Config
+from ..hashing.tlsh_hasher import TLSHHasher
 
 logger = logging.getLogger(__name__)
 
@@ -26,6 +27,7 @@ class SignatureGenerator:
         """
         self.config = config or Config()
         self.extractor_factory = ExtractorFactory()
+        self.tlsh_hasher = TLSHHasher()
     
     def generate_from_path(
         self,
@@ -145,6 +147,13 @@ class SignatureGenerator:
             )
         
         # Build signature
+        # Generate TLSH hash from the filtered symbols
+        tlsh_hash = None
+        if self.tlsh_hasher.enabled and filtered_symbols:
+            tlsh_hash = self.tlsh_hasher.hash_features(list(filtered_symbols))
+            if tlsh_hash:
+                logger.info(f"Generated TLSH hash for signature: {tlsh_hash[:16]}...")
+        
         signature = {
             "publisher": publisher,
             "updated": datetime.now().strftime("%Y-%m-%d"),
@@ -178,6 +187,10 @@ class SignatureGenerator:
                 }
             }
         }
+        
+        # Add TLSH hash if available
+        if tlsh_hash:
+            signature["tlsh_hash"] = tlsh_hash
         
         logger.info(
             f"Generated signature with {len(filtered_symbols)} symbols "
