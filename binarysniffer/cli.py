@@ -27,7 +27,16 @@ console = Console()
 logger = logging.getLogger(__name__)
 
 
-@click.group()
+class CustomGroup(click.Group):
+    """Custom group to show version in help"""
+    def format_help(self, ctx, formatter):
+        formatter.write_text(f"BinarySniffer v{__version__} - Detect OSS components in binaries\n")
+        formatter.write_text("A high-performance CLI tool for detecting open source components")
+        formatter.write_text("through semantic signature matching.\n")
+        super().format_help(ctx, formatter)
+
+
+@click.group(cls=CustomGroup, context_settings=dict(help_option_names=['-h', '--help']))
 @click.version_option(version=__version__, prog_name="binarysniffer")
 @click.option('--config', type=click.Path(exists=True), help='Path to configuration file')
 @click.option('--data-dir', type=click.Path(), help='Override data directory')
@@ -39,12 +48,6 @@ logger = logging.getLogger(__name__)
 def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
     """
     Semantic Copycat BinarySniffer - Detect OSS components in binaries
-    
-    A high-performance CLI tool for detecting open source components
-    through semantic signature matching.
-    
-    By default, runs in deterministic mode (PYTHONHASHSEED=0) for consistent results.
-    Use --non-deterministic to disable this behavior.
     """
     # Determine logging level
     if log_level:
