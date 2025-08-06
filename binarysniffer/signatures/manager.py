@@ -412,23 +412,36 @@ class SignatureManager:
     def _find_signatures_directory(self) -> Path:
         """Find signatures directory in various possible install locations"""
         import sys
+        import site
         
         # Possible locations to check (in order of preference)
         candidates = [
             # 1. Development location (relative to this file)
             Path(__file__).parent.parent.parent / "signatures",
             
-            # 2. Installed data files location (pip install)
+            # 2. User site-packages parallel directory (common for pip user installs)
+            Path(site.USER_BASE) / "signatures",
+            
+            # 3. Next to the package in site-packages
+            Path(__file__).parent.parent.parent / "signatures",
+            
+            # 4. Installed data files location (pip install)
             Path(sys.prefix) / "signatures",
             
-            # 3. User site location  
+            # 5. User site location  
             Path(sys.prefix) / "local" / "signatures",
             
-            # 4. Alternative pip locations
+            # 6. Alternative pip locations
             Path(__file__).parent / "data",
             
-            # 5. Virtual environment location
-            Path(sys.executable).parent.parent / "signatures" if hasattr(sys, 'real_prefix') or hasattr(sys, 'base_prefix') else None
+            # 7. Virtual environment location
+            Path(sys.executable).parent.parent / "signatures" if hasattr(sys, 'real_prefix') or hasattr(sys, 'base_prefix') else None,
+            
+            # 8. macOS user install location (Python 3.9)
+            Path.home() / "Library" / "Python" / "3.9" / "signatures",
+            
+            # 9. Generic user library location
+            Path.home() / ".local" / "lib" / "python3.9" / "signatures"
         ]
         
         # Filter out None values and check each location
