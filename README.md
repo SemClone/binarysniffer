@@ -64,7 +64,7 @@ pip install semantic-copycat-binarysniffer[fast]
 BinarySniffer can leverage external tools when available to provide enhanced analysis capabilities. These tools are **optional** - the core functionality works without them, but installing them unlocks additional features:
 
 ### 7-Zip (Recommended)
-**Enables**: Extraction and analysis of NSIS installers, self-extracting archives, and additional compressed formats
+**Enables**: Extraction and analysis of Windows installers, macOS packages, and additional compressed formats
 
 ```bash
 # macOS
@@ -78,7 +78,8 @@ sudo apt-get install p7zip-full
 ```
 
 **Benefits**:
-- Analyze Windows installers (.exe) by extracting embedded components
+- Analyze Windows installers (.exe, .msi) by extracting embedded components
+- Analyze macOS installers (.pkg, .dmg) to detect bundled frameworks
 - Support for NSIS, InnoSetup, and other installer formats
 - Extract and analyze self-extracting archives
 - Support for additional archive formats (RAR, CAB, ISO, etc.)
@@ -103,7 +104,7 @@ sudo apt-get install universal-ctags
 - More accurate symbol extraction
 - Improved signature matching for source code components
 
-### Example: Analyzing Windows Installers
+### Example: Analyzing Installers
 
 Without 7-Zip:
 ```bash
@@ -113,9 +114,17 @@ $ binarysniffer analyze installer.exe
 
 With 7-Zip installed:
 ```bash
+# Windows installers
 $ binarysniffer analyze installer.exe
+$ binarysniffer analyze setup.msi
 # Automatically extracts and analyzes contents
 # Detects: Qt5, OpenSSL, SQLite, ICU, libpng, etc.
+
+# macOS installers
+$ binarysniffer analyze app.pkg
+$ binarysniffer analyze app.dmg
+# Automatically extracts and analyzes contents
+# Detects: Qt5, WebKit, OpenCV, React Native, etc.
 ```
 
 ## Quick Start

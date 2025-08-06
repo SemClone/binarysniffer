@@ -34,6 +34,10 @@ class ArchiveExtractor(BaseExtractor):
         '.egg', '.whl', '.nupkg', '.vsix', '.crx',
         # TAR-based
         '.tar', '.tar.gz', '.tgz', '.tar.bz2', '.tbz2', '.tar.xz',
+        # Windows installers (require 7-Zip)
+        '.msi',
+        # macOS installers (require 7-Zip)
+        '.pkg', '.dmg',
         # Other
         '.gz', '.bz2', '.xz'
     }
@@ -56,6 +60,9 @@ class ArchiveExtractor(BaseExtractor):
         
         # Check standard archive extensions
         if suffix in self.ARCHIVE_EXTENSIONS:
+            # MSI, PKG, and DMG files require 7-Zip
+            if suffix in ['.msi', '.pkg', '.dmg']:
+                return self._seven_zip_path is not None
             return True
         
         # Check for NSIS installers (Windows .exe files)
@@ -204,8 +211,8 @@ class ArchiveExtractor(BaseExtractor):
                     tar_file.extractall(extract_to)
                     extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
-            elif self._seven_zip_path and archive_path.suffix.lower() == '.exe':
-                # Try to extract NSIS installer with 7-Zip
+            elif self._seven_zip_path and archive_path.suffix.lower() in ['.exe', '.msi', '.pkg', '.dmg']:
+                # Try to extract NSIS installer, MSI, PKG, or DMG with 7-Zip
                 extracted_files = self._extract_with_seven_zip(archive_path, extract_to)
                 if not extracted_files:
                     logger.warning(f"7-Zip extraction failed for: {archive_path}")
@@ -220,6 +227,14 @@ class ArchiveExtractor(BaseExtractor):
     def _get_archive_type(self, file_path: Path) -> str:
         """Determine archive type"""
         suffix = file_path.suffix.lower()
+        
+        # Check for installer types
+        if suffix == '.msi':
+            return 'msi_installer'
+        elif suffix == '.pkg':
+            return 'pkg_installer'
+        elif suffix == '.dmg':
+            return 'dmg_image'
         
         # Check for NSIS installer
         if suffix == '.exe' and self._is_nsis_installer(file_path):
