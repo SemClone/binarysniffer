@@ -90,6 +90,13 @@ if [ "$1" = "files" ]; then
             continue
         fi
         
+        # Skip the .githooks directory itself (it contains the patterns we're checking for!)
+        case "$file" in
+            .githooks/*)
+                continue
+                ;;
+        esac
+        
         # Skip certain file types
         case "$file" in
             *.jpg|*.png|*.gif|*.pdf|*.zip|*.tar|*.gz|*.pyc|*.so|*.dll)
