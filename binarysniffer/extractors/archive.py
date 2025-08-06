@@ -113,6 +113,9 @@ class ArchiveExtractor(BaseExtractor):
                 # For single file archives, use all features; for multi-file, apply limits
                 is_single_file = len(extracted_files) == 1
                 
+                # Track which files we process for verbose output
+                processed_files = []
+                
                 # CRITICAL: For APKs, prioritize native libraries and DEX files
                 if features.file_type == 'android':
                     # Sort files to prioritize .so and .dex files
@@ -134,6 +137,10 @@ class ArchiveExtractor(BaseExtractor):
                     try:
                         # Extract features from each file
                         file_features = factory.extract(extracted_file)
+                        
+                        # Track relative path within archive
+                        relative_path = str(extracted_file.relative_to(temp_path))
+                        processed_files.append(relative_path)
                         
                         # Merge features - use all features for single file archives
                         if is_single_file:
@@ -186,6 +193,8 @@ class ArchiveExtractor(BaseExtractor):
                 features.metadata.update({
                     'archive_type': archive_type or 'generic',
                     'file_count': len(extracted_files),
+                    'processed_files': processed_files,
+                    'processed_count': len(processed_files),
                     'size': file_path.stat().st_size
                 })
                 

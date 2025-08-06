@@ -134,9 +134,11 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
     try:
         if path.is_file():
             # Single file analysis
+            # Enable show_features if verbose_evidence is set (to get archive contents)
+            effective_show_features = show_features or verbose_evidence
             with console.status(f"Analyzing {path.name}..."):
                 result = sniffer.analyze_file(
-                    path, threshold, deep, show_features,
+                    path, threshold, deep, effective_show_features,
                     use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold
                 )
             results = {str(path): result}
@@ -703,6 +705,30 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
             )
         
         console.print(table)
+        
+        # Show archive contents if this was an archive and verbose mode is on
+        # Note: For archives, we need extracted_features which requires --show-features or we enable it for -ve
+        archive_types = ['android', 'ios', 'java', 'java_web', 'python', 'python_wheel', 
+                        'nuget', 'chrome_extension', 'generic', 'zip', 'tar', 'archive']
+        if verbose_evidence and (result.file_type in archive_types or 'archive' in result.file_type.lower()):
+            # Check if we have processed files information
+            # If show_features wasn't enabled, we don't have this info
+            if hasattr(result, 'extracted_features') and result.extracted_features:
+                for extractor_name, extractor_info in result.extracted_features.by_extractor.items():
+                    if extractor_name == 'ArchiveExtractor' and 'metadata' in extractor_info:
+                        metadata = extractor_info['metadata']
+                        if 'processed_files' in metadata:
+                            console.print("\n[dim]Archive Contents Analyzed:[/dim]")
+                            processed = metadata['processed_files']
+                            if len(processed) > 20:
+                                # Show first 20 files if there are many
+                                console.print(f"  [dim]Showing first 20 of {len(processed)} files:[/dim]")
+                                for f in processed[:20]:
+                                    console.print(f"    • {f}")
+                                console.print(f"  [dim]... and {len(processed) - 20} more files[/dim]")
+                            else:
+                                for f in processed:
+                                    console.print(f"    • {f}")
         
         # Show verbose evidence if requested
         if verbose_evidence and filtered_matches:

@@ -130,13 +130,19 @@ class EnhancedBinarySniffer:
             if hasattr(features, 'classes') and features.classes:
                 features_by_type["classes"] = features.classes[:50]
             
+            extractor_info = {
+                "count": len(features.strings) + len(features.symbols),
+                "features_by_type": features_by_type
+            }
+            
+            # Include metadata if available (e.g., for archives)
+            if hasattr(features, 'metadata') and features.metadata:
+                extractor_info["metadata"] = features.metadata
+            
             extracted_features_summary = ExtractedFeaturesSummary(
                 total_count=len(features.strings) + len(features.symbols),
                 by_extractor={
-                    extractor.__class__.__name__: {
-                        "count": len(features.strings) + len(features.symbols),
-                        "features_by_type": features_by_type
-                    }
+                    extractor.__class__.__name__: extractor_info
                 }
             )
         
