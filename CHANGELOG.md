@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.3] - 2025-08-06
+
+### Added
+- **Git hooks for problematic word detection** - Prevent commits with AI references and other problematic content
+- **Comprehensive pattern checking** - Detect AI/assistant references, hardcoded secrets, TODOs, inappropriate language
+- **Pre-commit and commit-msg hooks** - Check both staged files and commit messages before allowing commits
+- **Customizable word patterns** - Easy to add/remove patterns in `.githooks/check-problematic-words.sh`
+
+### Security
+- **Automated secret detection** - Hooks now check for hardcoded passwords, API keys, and tokens
+- **Confidential content blocking** - Prevent accidental commit of internal/confidential markers
+
+### Technical
+- **Git hooks directory** - `.githooks/` directory with reusable hook scripts
+- **Automatic hook configuration** - Repository configured to use `.githooks/` via `core.hooksPath`
+- **Documentation** - Added `.githooks/README.md` with installation and usage instructions
+
 ## [1.8.2] - 2025-08-06
 
 ### Added
