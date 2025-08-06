@@ -145,11 +145,18 @@ class Config:
     
     def _setup_logging(self):
         """Setup logging configuration"""
-        log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        # Use simple format for WARNING and below, detailed for INFO and above
+        level = getattr(logging, self.log_level.upper())
+        if level <= logging.WARNING:
+            # Clean output for normal usage
+            log_format = "%(message)s"
+        else:
+            # Detailed format for debugging
+            log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         
         # Get all binarysniffer loggers
         bs_logger = logging.getLogger("binarysniffer")
-        bs_logger.setLevel(getattr(logging, self.log_level.upper()))
+        bs_logger.setLevel(level)
         
         # Clear any existing handlers first
         bs_logger.handlers.clear()

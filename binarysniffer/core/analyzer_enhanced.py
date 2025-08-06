@@ -51,7 +51,8 @@ class EnhancedBinarySniffer:
         self, 
         file_path: Union[str, Path],
         confidence_threshold: Optional[float] = None,
-        deep_analysis: bool = False
+        deep_analysis: bool = False,
+        show_features: bool = False
     ) -> AnalysisResult:
         """
         Analyze a single file for OSS components using enhanced detection.
@@ -68,7 +69,7 @@ class EnhancedBinarySniffer:
         if not file_path.exists():
             raise FileNotFoundError(f"File not found: {file_path}")
         
-        logger.info(f"Analyzing file: {file_path}")
+        logger.debug(f"Analyzing file: {file_path}")
         
         # Extract features from file
         extractor = self.extractor_factory.get_extractor(file_path)
@@ -95,6 +96,32 @@ class EnhancedBinarySniffer:
         # Build result
         total_time = self.direct_matcher.last_analysis_time
         
+        # Prepare extracted features summary if requested
+        extracted_features_summary = None
+        if show_features:
+            from .results import ExtractedFeaturesSummary
+            
+            # Categorize features by type
+            features_by_type = {}
+            if features.strings:
+                features_by_type["strings"] = features.strings[:100]  # Limit for display
+            if features.symbols:
+                features_by_type["symbols"] = features.symbols[:100]
+            if hasattr(features, 'functions') and features.functions:
+                features_by_type["functions"] = features.functions[:50]
+            if hasattr(features, 'classes') and features.classes:
+                features_by_type["classes"] = features.classes[:50]
+            
+            extracted_features_summary = ExtractedFeaturesSummary(
+                total_count=len(features.strings) + len(features.symbols),
+                by_extractor={
+                    extractor.__class__.__name__: {
+                        "count": len(features.strings) + len(features.symbols),
+                        "features_by_type": features_by_type
+                    }
+                }
+            )
+        
         return AnalysisResult(
             file_path=str(file_path),
             file_size=file_path.stat().st_size,
@@ -102,7 +129,8 @@ class EnhancedBinarySniffer:
             matches=filtered_matches,
             analysis_time=total_time,
             features_extracted=len(features.strings) + len(features.symbols),
-            confidence_threshold=threshold
+            confidence_threshold=threshold,
+            extracted_features=extracted_features_summary
         )
     
     def _merge_matches(
@@ -198,7 +226,7 @@ class EnhancedBinarySniffer:
                 filtered_matches.append(match)
         
         if len(filtered_matches) < len(matches):
-            logger.info(f"Filtered {len(matches) - len(filtered_matches)} incompatible components")
+            logger.debug(f"Filtered {len(matches) - len(filtered_matches)} incompatible components")
         
         return filtered_matches
     
@@ -229,7 +257,7 @@ class EnhancedBinarySniffer:
         
         # Collect files
         files = self._collect_files(directory_path, recursive, file_patterns)
-        logger.info(f"Found {len(files)} files to analyze")
+        logger.debug(f"Found {len(files)} files to analyze")
         
         results = {}
         

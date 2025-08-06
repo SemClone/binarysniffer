@@ -91,7 +91,7 @@ class DirectMatcher:
                                     'metadata': metadata
                                 }
             
-            logger.info(f"Loaded {valid_sigs} valid signatures out of {total_sigs} total (filtered {total_sigs - valid_sigs} generic patterns)")
+            logger.debug(f"Loaded {valid_sigs} valid signatures out of {total_sigs} total (filtered {total_sigs - valid_sigs} generic patterns)")
             
         except Exception as e:
             logger.error(f"Error loading signatures: {e}")
@@ -239,7 +239,7 @@ class DirectMatcher:
         matches.sort(key=lambda m: (-m.confidence, m.component))
         
         self.last_analysis_time = time.time() - start_time
-        logger.info(f"Direct matching found {len(matches)} components in {self.last_analysis_time:.3f}s")
+        logger.debug(f"Direct matching found {len(matches)} components in {self.last_analysis_time:.3f}s")
         
         return matches
     

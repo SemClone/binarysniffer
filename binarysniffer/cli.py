@@ -31,10 +31,12 @@ logger = logging.getLogger(__name__)
 @click.version_option(version=__version__, prog_name="binarysniffer")
 @click.option('--config', type=click.Path(exists=True), help='Path to configuration file')
 @click.option('--data-dir', type=click.Path(), help='Override data directory')
-@click.option('-v', '--verbose', count=True, help='Increase verbosity (-v, -vv, -vvv)')
+@click.option('-v', '--verbose', count=True, help='Increase verbosity (-v for INFO, -vv for DEBUG)')
+@click.option('--log-level', type=click.Choice(['ERROR', 'WARNING', 'INFO', 'DEBUG'], case_sensitive=False), 
+              help='Set logging level explicitly')
 @click.option('--non-deterministic', is_flag=True, help='Disable deterministic mode (allows Python hash randomization)')
 @click.pass_context
-def cli(ctx, config, data_dir, verbose, non_deterministic):
+def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
     """
     Semantic Copycat BinarySniffer - Detect OSS components in binaries
     
@@ -44,9 +46,14 @@ def cli(ctx, config, data_dir, verbose, non_deterministic):
     By default, runs in deterministic mode (PYTHONHASHSEED=0) for consistent results.
     Use --non-deterministic to disable this behavior.
     """
-    # Setup logging level only (handler will be set up by Config)
-    log_levels = {0: "WARNING", 1: "INFO", 2: "DEBUG"}
-    log_level = log_levels.get(verbose, "DEBUG")
+    # Determine logging level
+    if log_level:
+        # Explicit log level takes precedence
+        final_log_level = log_level.upper()
+    else:
+        # Use verbosity flags (-v, -vv)
+        log_levels = {0: "WARNING", 1: "INFO", 2: "DEBUG"}
+        final_log_level = log_levels.get(min(verbose, 2), "WARNING")
     
     # Load configuration
     if config:
@@ -55,7 +62,7 @@ def cli(ctx, config, data_dir, verbose, non_deterministic):
         cfg = Config()
     
     # Override log level from CLI
-    cfg.log_level = log_level
+    cfg.log_level = final_log_level
     
     # Override data directory if specified
     if data_dir:
@@ -81,9 +88,13 @@ def cli(ctx, config, data_dir, verbose, non_deterministic):
 @click.option('--patterns', '-p', multiple=True, help='File patterns to match (e.g., *.exe, *.so)')
 @click.option('--parallel/--no-parallel', default=True, help='Enable parallel processing')
 @click.option('--min-patterns', '-m', type=int, default=0, help='Minimum number of patterns to show component (filters results)')
-@click.option('--verbose-evidence', '-v', is_flag=True, help='Show detailed evidence including matched patterns')
+@click.option('--verbose-evidence', '-ve', is_flag=True, help='Show detailed evidence including matched patterns')
+@click.option('--show-features', is_flag=True, help='Display all extracted features for debugging')
+@click.option('--feature-limit', type=int, default=20, help='Number of features to display per category (with --show-features)')
+@click.option('--save-features', type=click.Path(), help='Save all extracted features to JSON file')
 @click.pass_context
-def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence):
+def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence, 
+            show_features, feature_limit, save_features):
     """
     Analyze files for OSS components.
     
@@ -119,7 +130,7 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         if path.is_file():
             # Single file analysis
             with console.status(f"Analyzing {path.name}..."):
-                result = sniffer.analyze_file(path, threshold, deep)
+                result = sniffer.analyze_file(path, threshold, deep, show_features)
             results = {str(path): result}
         else:
             # Directory analysis
@@ -149,13 +160,17 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
             time.time() - start_time
         )
         
+        # Save features to file if requested
+        if save_features:
+            save_extracted_features(batch_result, save_features)
+        
         # Output results
         if format == 'json':
             output_json(batch_result, output, min_patterns, verbose_evidence)
         elif format == 'csv':
             output_csv(batch_result, output, min_patterns)
         else:
-            output_table(batch_result, min_patterns, verbose_evidence)
+            output_table(batch_result, min_patterns, verbose_evidence, show_features, feature_limit)
         
         # Summary
         console.print(f"\n[green]Analysis complete![/green]")
@@ -572,7 +587,23 @@ def signatures_create(ctx, path, name, output, version, license, publisher, desc
         console.print(f"  [{sig['type']}] {sig['pattern']} (confidence: {sig['confidence']})")
 
 
-def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False):
+def save_extracted_features(batch_result: BatchAnalysisResult, output_path: str):
+    """Save extracted features to a JSON file"""
+    features_data = {}
+    
+    for file_path, result in batch_result.results.items():
+        if result.extracted_features:
+            features_data[file_path] = result.extracted_features.to_dict()
+    
+    if features_data:
+        with open(output_path, 'w') as f:
+            json.dump(features_data, f, indent=2)
+        console.print(f"[green]Saved extracted features to {output_path}[/green]")
+    else:
+        console.print("[yellow]No features to save (use --show-features to enable feature collection)[/yellow]")
+
+
+def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False, show_features: bool = False, feature_limit: int = 20):
     """Output results as a table"""
     for file_path, result in batch_result.results.items():
         console.print(f"\n[bold]{file_path}[/bold]")
@@ -580,6 +611,23 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         console.print(f"  File type: {result.file_type}")
         console.print(f"  Features extracted: {result.features_extracted}")
         console.print(f"  Analysis time: {result.analysis_time:.3f}s")
+        
+        # Display extracted features if requested
+        if show_features and result.extracted_features:
+            console.print("\n[bold]Feature Extraction Summary:[/bold]")
+            console.print(f"  Total features: {result.extracted_features.total_count}")
+            
+            for extractor_name, extractor_info in result.extracted_features.by_extractor.items():
+                console.print(f"\n  [cyan]{extractor_name}:[/cyan]")
+                console.print(f"    Features extracted: {extractor_info['count']}")
+                
+                if 'features_by_type' in extractor_info:
+                    for feature_type, features in extractor_info['features_by_type'].items():
+                        console.print(f"\n    [yellow]{feature_type.capitalize()}[/yellow] (showing first {min(len(features), feature_limit)}):")
+                        for i, feature in enumerate(features[:feature_limit]):
+                            # Truncate long features for display
+                            display_feature = feature if len(feature) <= 80 else feature[:77] + "..."
+                            console.print(f"      - {display_feature}")
         
         if result.error:
             console.print(f"[red]Error: {result.error}[/red]")
