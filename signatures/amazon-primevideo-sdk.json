@@ -1,0 +1,183 @@
+{
+  "component": {
+    "name": "Amazon Prime Video SDK",
+    "version": "unknown",
+    "ecosystem": "android",
+    "description": "Amazon Prime Video SDK - Video streaming and playback components",
+    "publisher": "Amazon",
+    "license": "Proprietary",
+    "platforms": ["android"],
+    "languages": ["java", "kotlin", "c++"]
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:00:00Z",
+    "updated": "2025-08-06T00:00:00Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "description": "Amazon Prime Video SDK signatures based on APK analysis"
+  },
+  "signatures": [
+    {
+      "id": "amazon_video_1",
+      "type": "string_pattern",
+      "pattern": "com.amazon.avod",
+      "confidence": 0.95,
+      "context": "package",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_2",
+      "type": "string_pattern",
+      "pattern": "AIVPlaybackNativeUtils",
+      "confidence": 0.9,
+      "context": "native_utils",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_3",
+      "type": "string_pattern",
+      "pattern": "AIVRendererBase",
+      "confidence": 0.9,
+      "context": "renderer",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_4",
+      "type": "string_pattern",
+      "pattern": "AIVDash",
+      "confidence": 0.85,
+      "context": "dash_streaming",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_5",
+      "type": "string_pattern",
+      "pattern": "AIVHeuristics",
+      "confidence": 0.85,
+      "context": "quality_heuristics",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_6",
+      "type": "string_pattern",
+      "pattern": "AIVSecureRenderer",
+      "confidence": 0.9,
+      "context": "drm_renderer",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_7",
+      "type": "string_pattern",
+      "pattern": "AIVPlayReadyLicensing",
+      "confidence": 0.9,
+      "context": "drm_playready",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_8",
+      "type": "string_pattern",
+      "pattern": "ATVPlaybackSmoothStream",
+      "confidence": 0.85,
+      "context": "smooth_streaming",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_9",
+      "type": "string_pattern",
+      "pattern": "com.amazon.sye",
+      "confidence": 0.9,
+      "context": "sye_package",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_10",
+      "type": "string_pattern",
+      "pattern": "DashManifestJni",
+      "confidence": 0.85,
+      "context": "dash_manifest",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_11",
+      "type": "string_pattern",
+      "pattern": "amazon/avod/content/dash/quality/heuristic",
+      "confidence": 0.9,
+      "context": "quality_control",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_12",
+      "type": "string_pattern",
+      "pattern": "BolaConfigInterface",
+      "confidence": 0.8,
+      "context": "bola_algorithm",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_13",
+      "type": "string_pattern",
+      "pattern": "CVBRSupportConfig",
+      "confidence": 0.8,
+      "context": "bitrate_config",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_14",
+      "type": "string_pattern",
+      "pattern": "AutobahnTraceroute",
+      "confidence": 0.8,
+      "context": "network_diagnostic",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_15",
+      "type": "string_pattern",
+      "pattern": "fovea_keys",
+      "confidence": 0.85,
+      "context": "fovea_ml",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_16",
+      "type": "string_pattern",
+      "pattern": "fovea_qcom",
+      "confidence": 0.85,
+      "context": "fovea_qualcomm",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_17",
+      "type": "string_pattern",
+      "pattern": "PRIME_MODAL_HOME",
+      "confidence": 0.8,
+      "context": "ui_feature",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_18",
+      "type": "string_pattern",
+      "pattern": "downloadmanagement.viewmodel",
+      "confidence": 0.85,
+      "context": "download_feature",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_19",
+      "type": "string_pattern",
+      "pattern": "LinearLandingPageViewModel",
+      "confidence": 0.8,
+      "context": "live_tv",
+      "platforms": ["android"]
+    },
+    {
+      "id": "amazon_video_20",
+      "type": "string_pattern",
+      "pattern": "MediaSampleMetaDataListInfo",
+      "confidence": 0.85,
+      "context": "media_metadata",
+      "platforms": ["android"]
+    }
+  ]
+}

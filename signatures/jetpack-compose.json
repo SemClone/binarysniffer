@@ -1,0 +1,143 @@
+{
+  "component": {
+    "name": "Jetpack Compose",
+    "version": "unknown",
+    "ecosystem": "android",
+    "description": "Jetpack Compose - Android's modern toolkit for building native UI",
+    "publisher": "Google",
+    "license": "Apache-2.0",
+    "platforms": ["android"],
+    "languages": ["kotlin", "java"]
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:00:00Z",
+    "updated": "2025-08-06T00:00:00Z",
+    "signature_count": 15,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "description": "Jetpack Compose signatures based on Prime Video APK analysis"
+  },
+  "signatures": [
+    {
+      "id": "compose_1",
+      "type": "string_pattern",
+      "pattern": "androidx/compose/runtime",
+      "confidence": 0.95,
+      "context": "package",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_2",
+      "type": "string_pattern",
+      "pattern": "RememberObserver",
+      "confidence": 0.9,
+      "context": "api",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_3",
+      "type": "string_pattern",
+      "pattern": "Compose:onRemembered",
+      "confidence": 0.9,
+      "context": "lifecycle",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_4",
+      "type": "string_pattern",
+      "pattern": "ContentDrawScope",
+      "confidence": 0.85,
+      "context": "drawing",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_5",
+      "type": "string_pattern",
+      "pattern": "rememberSaveable",
+      "confidence": 0.85,
+      "context": "state",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_6",
+      "type": "string_pattern",
+      "pattern": "SaveableStateRegistry",
+      "confidence": 0.85,
+      "context": "state",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_7",
+      "type": "string_pattern",
+      "pattern": "FocusRequester",
+      "confidence": 0.8,
+      "context": "focus",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_8",
+      "type": "string_pattern",
+      "pattern": "androidx/compose/ui",
+      "confidence": 0.9,
+      "context": "package",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_9",
+      "type": "string_pattern",
+      "pattern": "graphicsLayer",
+      "confidence": 0.8,
+      "context": "graphics",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_10",
+      "type": "string_pattern",
+      "pattern": "ConstraintLayout_ReactiveGuide",
+      "confidence": 0.85,
+      "context": "layout",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_11",
+      "type": "string_pattern",
+      "pattern": "SlotWriter",
+      "confidence": 0.85,
+      "context": "runtime",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_12",
+      "type": "string_pattern",
+      "pattern": "RememberManager",
+      "confidence": 0.85,
+      "context": "runtime",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_13",
+      "type": "string_pattern",
+      "pattern": "androidx.compose",
+      "confidence": 0.9,
+      "context": "package",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_14",
+      "type": "string_pattern",
+      "pattern": "drawContent",
+      "confidence": 0.75,
+      "context": "drawing",
+      "platforms": ["android"]
+    },
+    {
+      "id": "compose_15",
+      "type": "string_pattern",
+      "pattern": "Applier",
+      "confidence": 0.8,
+      "context": "runtime",
+      "platforms": ["android"]
+    }
+  ]
+}
