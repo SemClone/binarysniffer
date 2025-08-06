@@ -7,6 +7,7 @@ import tarfile
 import tempfile
 import shutil
 import logging
+import subprocess
 from pathlib import Path
 from typing import List, Set, Optional
 
@@ -18,6 +19,13 @@ logger = logging.getLogger(__name__)
 
 class ArchiveExtractor(BaseExtractor):
     """Extract features from archive files"""
+    
+    def __init__(self):
+        """Initialize archive extractor"""
+        super().__init__()
+        self._seven_zip_path = self._find_seven_zip()
+        if self._seven_zip_path:
+            logger.debug(f"7-Zip found at: {self._seven_zip_path}")
     
     # Archive extensions
     ARCHIVE_EXTENSIONS = {
@@ -43,8 +51,19 @@ class ArchiveExtractor(BaseExtractor):
     }
     
     def can_handle(self, file_path: Path) -> bool:
-        """Check if file is an archive"""
-        return file_path.suffix.lower() in self.ARCHIVE_EXTENSIONS
+        """Check if file is an archive or NSIS installer"""
+        suffix = file_path.suffix.lower()
+        
+        # Check standard archive extensions
+        if suffix in self.ARCHIVE_EXTENSIONS:
+            return True
+        
+        # Check for NSIS installers (Windows .exe files)
+        if suffix == '.exe' and self._seven_zip_path:
+            # Try to detect if it's an NSIS installer
+            return self._is_nsis_installer(file_path)
+        
+        return False
     
     def extract(self, file_path: Path) -> ExtractedFeatures:
         """Extract features from archive"""
@@ -185,6 +204,11 @@ class ArchiveExtractor(BaseExtractor):
                     tar_file.extractall(extract_to)
                     extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
+            elif self._seven_zip_path and archive_path.suffix.lower() == '.exe':
+                # Try to extract NSIS installer with 7-Zip
+                extracted_files = self._extract_with_seven_zip(archive_path, extract_to)
+                if not extracted_files:
+                    logger.warning(f"7-Zip extraction failed for: {archive_path}")
             else:
                 logger.warning(f"Unsupported archive format: {archive_path}")
                 
@@ -196,6 +220,11 @@ class ArchiveExtractor(BaseExtractor):
     def _get_archive_type(self, file_path: Path) -> str:
         """Determine archive type"""
         suffix = file_path.suffix.lower()
+        
+        # Check for NSIS installer
+        if suffix == '.exe' and self._is_nsis_installer(file_path):
+            return 'nsis_installer'
+        
         # Check for compound extensions like .tar.gz
         full_suffix = ''.join(file_path.suffixes).lower()
         
@@ -375,3 +404,74 @@ class ArchiveExtractor(BaseExtractor):
         
         if packages:
             features.metadata['python_packages'] = list(packages)
+    
+    def _find_seven_zip(self) -> Optional[str]:
+        """Find 7-Zip executable if available"""
+        import shutil
+        
+        # Common 7-Zip command names
+        for cmd in ['7z', '7za', '7zr']:
+            path = shutil.which(cmd)
+            if path:
+                return path
+        
+        return None
+    
+    def _is_nsis_installer(self, file_path: Path) -> bool:
+        """Check if file is an NSIS installer using 7-Zip"""
+        if not self._seven_zip_path:
+            return False
+        
+        try:
+            # Use 7z to check if it's an NSIS installer
+            result = subprocess.run(
+                [self._seven_zip_path, 'l', str(file_path)],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            
+            # Check for NSIS indicators in output
+            if result.returncode == 0:
+                output = result.stdout.lower()
+                # NSIS installers often have these characteristics
+                if 'nsis' in output or 'nullsoft' in output:
+                    return True
+                # Also check if it's a PE file that 7z can extract
+                if 'type = pe' in output or 'type = nsis' in output:
+                    # Try to list contents - if successful, it's likely extractable
+                    return '$pluginsdir' in output.lower() or '.exe' in output
+            
+        except Exception as e:
+            logger.debug(f"Error checking NSIS installer: {e}")
+        
+        return False
+    
+    def _extract_with_seven_zip(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract archive using 7-Zip"""
+        if not self._seven_zip_path:
+            return []
+        
+        try:
+            # Extract with 7-Zip
+            result = subprocess.run(
+                [self._seven_zip_path, 'x', str(archive_path), f'-o{extract_to}', '-y'],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
+            if result.returncode == 0:
+                # Get list of extracted files
+                extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+                logger.info(f"7-Zip extracted {len(extracted_files)} files from {archive_path.name}")
+                return extracted_files
+            else:
+                logger.warning(f"7-Zip extraction failed: {result.stderr}")
+                
+        except subprocess.TimeoutExpired:
+            logger.error(f"7-Zip extraction timed out for {archive_path}")
+        except Exception as e:
+            logger.error(f"7-Zip extraction error: {e}")
+        
+        return []
