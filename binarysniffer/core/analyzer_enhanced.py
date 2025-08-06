@@ -289,10 +289,15 @@ class EnhancedBinarySniffer:
             # Confidence based on similarity score
             confidence = match_info['similarity_score']
             
-            # Create component match
+            # Create component match (version included in component name)
+            component_name = match_info['component']
+            version = match_info.get('version', 'unknown')
+            if version and version != 'unknown':
+                component_name = f"{component_name}@{version}"
+            
             match = ComponentMatch(
-                component=match_info['component'],
-                version=match_info.get('version', 'unknown'),
+                component=component_name,
+                ecosystem='native',  # Default to native for TLSH matches
                 confidence=confidence,
                 license=match_info.get('metadata', {}).get('license', 'unknown'),
                 match_type='tlsh_fuzzy',
