@@ -36,7 +36,7 @@ class ExtractorFactory:
             lief_extractor = LiefBinaryExtractor()
             if lief_extractor.has_lief:
                 self.extractors.append(lief_extractor)
-                logger.info("LIEF binary extractor enabled")
+                logger.debug("LIEF binary extractor enabled")
         except Exception as e:
             logger.debug(f"LIEF binary extractor not available: {e}")
         
@@ -47,7 +47,7 @@ class ExtractorFactory:
                 ctags_extractor = CTagsExtractor()
                 if ctags_extractor.ctags_available:
                     self.extractors.append(ctags_extractor)
-                    logger.info("CTags extractor enabled")
+                    logger.debug("CTags extractor enabled")
             except ImportError:
                 logger.debug("CTags extractor not available")
         

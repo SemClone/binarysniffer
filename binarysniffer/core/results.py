@@ -46,6 +46,20 @@ class ComponentMatch:
 
 
 @dataclass
+class ExtractedFeaturesSummary:
+    """Summary of extracted features for debugging"""
+    total_count: int
+    by_extractor: Dict[str, Dict[str, Any]]  # extractor_name -> {count, features_by_type}
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary"""
+        return {
+            "total_count": self.total_count,
+            "by_extractor": self.by_extractor
+        }
+
+
+@dataclass
 class AnalysisResult:
     """Results from analyzing a single file"""
     
@@ -58,6 +72,7 @@ class AnalysisResult:
     confidence_threshold: float
     error: Optional[str] = None
     timestamp: datetime = field(default_factory=datetime.now)
+    extracted_features: Optional[ExtractedFeaturesSummary] = None  # For --show-features flag
     
     @property
     def has_matches(self) -> bool:
@@ -82,7 +97,7 @@ class AnalysisResult:
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for JSON serialization"""
-        return {
+        result = {
             "file_path": self.file_path,
             "file_size": self.file_size,
             "file_type": self.file_type,
@@ -99,6 +114,12 @@ class AnalysisResult:
                 "licenses": self.licenses
             }
         }
+        
+        # Add extracted features if present
+        if self.extracted_features:
+            result["extracted_features"] = self.extracted_features.to_dict()
+        
+        return result
     
     def to_json(self, indent: int = 2) -> str:
         """Convert to JSON string"""
