@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.1] - 2025-08-06
+
+### Fixed
+- **Database initialization on clean install** - Fixed critical issue preventing tool from working on new systems
+- **Directory creation** - Database parent directory is now created automatically before initialization
+- **Signature import method** - Fixed enhanced analyzer calling non-existent `auto_import()` method
+
+### Improved
+- **Installation reliability** - Tool now works correctly on first install without manual intervention
+- **Error handling** - Better error messages when database cannot be created
+- **Documentation** - Added comprehensive TLSH fuzzy matching examples to README
+
 ## [1.8.0] - 2025-08-06
 
 ### Added
