@@ -30,6 +30,8 @@ class SignatureDatabase:
             db_path: Path to SQLite database file
         """
         self.db_path = db_path
+        # Ensure parent directory exists
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_database()
     
     def _init_database(self):

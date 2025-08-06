@@ -453,7 +453,14 @@ class EnhancedBinarySniffer:
     def _initialize_database(self):
         """Initialize signature database with packaged signatures"""
         try:
-            self.signature_manager.auto_import()
+            synced = self.signature_manager.ensure_database_synced()
+            if synced:
+                logger.info("Imported packaged signatures on first run")
+            else:
+                # If no sync occurred but database is still empty, try import
+                if not self.db.is_initialized():
+                    count = self.signature_manager.import_packaged_signatures()
+                    logger.info(f"Imported {count} packaged signatures")
         except Exception as e:
             logger.error(f"Failed to initialize signature database: {e}")
     
