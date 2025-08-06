@@ -4,6 +4,7 @@ Aggressive signature cleanup to remove patterns causing false positives
 """
 
 import json
+import re
 import shutil
 from pathlib import Path
 from collections import defaultdict
@@ -15,6 +16,36 @@ class AggressiveSignatureCleaner:
         
         # Expanded list of generic terms that cause false positives
         self.GENERIC_TERMS = {
+            # Math functions from .NET Core false positives
+            'acos', 'atan', 'copy', 'exit', 'enum', 'fmod', 'none', 'path', 'sqrt',
+            
+            # Single letters and very short patterns
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            
+            # FFmpeg generic patterns
+            'aaaa', 'aead', 'arsa', 'b2bk', 'bool', 'copy', 'form', 'g722', 
+            'dpv2a', 'final',
+            
+            # PCoIP generic patterns  
+            'b2bk', 'bind', 'copy', 'date', 'host', 'ipv4', 'ipv6', 'mgmt',
+            'mgii', 'move',
+            
+            # wolfSSL generic patterns
+            'aead', 'clnt', 'ecdh', 'high', 'hmac', 'kwzi', 'none', 'nrzl', 'ocsp',
+            
+            # Foxit generic patterns
+            'object', 't_get', 'annot', 'bject', '_form', 'avail', 'tchar', 'index',
+            
+            # Qt5 generic patterns
+            'key_d', 'key_f', 'key_m', 'key_c', 'key_a', 'key_l', 'key_s', 'frame',
+            'chang', ' an e', 'eimpl', 'andle', 'compress', 'flate', 'inflate', 
+            'deflate', '_user',
+            
+            # Windows generic
+            'window', 'zorder', 'frame', 'chang', 'imn_set', 'candidat', 'andidate',
+            'statuswi', 'tatuswin', 'atuswind', 'tuswindo', 'topmost',
+            
             # Single common words
             'trace', 'context', 'class', 'store', 'error', 'factor', 'process',
             'filter', 'handler', 'builder', 'factory', 'manager', 'service',
@@ -225,10 +256,51 @@ class AggressiveSignatureCleaner:
     
     def is_problematic_pattern(self, pattern: str) -> bool:
         """Check if a pattern is likely to cause false positives"""
-        pattern_lower = pattern.lower()
+        pattern_lower = pattern.lower().strip()
+        
+        # Remove if pattern is too short (less than 4 chars)
+        if len(pattern) < 4:
+            return True
+        
+        # Remove if pattern is just numbers or single letters repeated
+        if re.match(r'^[0-9]+$', pattern) or re.match(r'^([a-z])\1*$', pattern_lower):
+            return True
         
         # Check if pattern is just a generic term
         if pattern_lower in self.GENERIC_TERMS:
+            return True
+        
+        # Check for patterns with spaces that are generic phrases
+        generic_phrases = {
+            'an e', 'has ca', 'has cau', 'has caug', 'as caugh', 's caught', 
+            't has ca', ' has cau', ' caught ', 'onnect'
+        }
+        if pattern_lower in generic_phrases:
+            return True
+        
+        # Remove patterns that are just underscores with short text
+        if re.match(r'^_+\w{1,3}$', pattern_lower) or re.match(r'^\w{1,3}_+$', pattern_lower):
+            return True
+        
+        # Remove single key patterns (Qt patterns)
+        if re.match(r'^key_[a-z0-9]$', pattern_lower):
+            return True
+        
+        # Remove patterns that look like partial words (unless they're known prefixes)
+        safe_prefixes = {'snd_', 'alsa', 'lib', 'qt', 'wx', 'gtk', 'gl_', 'ev_', 
+                        'av_', 'ff_', 'png_', 'jpeg_', 'opus_', 'ssl_', 'crypto_'}
+        if len(pattern) <= 6:
+            has_safe_prefix = any(pattern_lower.startswith(p) for p in safe_prefixes)
+            if not has_safe_prefix and re.match(r'^[a-z]{2,6}$', pattern_lower):
+                return True
+        
+        # Remove common Windows patterns
+        if pattern_lower.startswith(('hwnd_', 'hkey_', 'swp_', 'imn_', 'size_', 'cose_')) and len(pattern) <= 10:
+            return True
+        
+        # Remove generic patterns that are just prefixes
+        generic_prefixes = {'key_', 'source_', 'old_', 'new_', 'get_', 'set_', 'is_', 'has_'}
+        if pattern_lower in generic_prefixes:
             return True
         
         # Check if pattern ends with a generic term (indicating substring matching)

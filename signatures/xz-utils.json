@@ -3,8 +3,12 @@
     "name": "XZ Utils",
     "version": "unknown",
     "category": "compression",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "Free general-purpose data compression software with LZMA/LZMA2 algorithms",
     "license": "Public Domain OR LGPL-2.1+",
     "publisher": "Tukaani Project"
@@ -13,44 +17,10 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:00:00Z",
     "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 35,
-    "source": "Extracted from liblzma.so binary analysis"
+    "signature_count": 0,
+    "source": "Extracted from liblzma.so binary analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {"pattern": "lzma_version_number", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_version_string", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_code", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_end", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_get_progress", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_get_check", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_memusage", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_memlimit_get", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_memlimit_set", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_block_unpadded_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_check_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_block_compressed_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_block_total_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_lzma_preset", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_filters_copy", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_physmem", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_vli_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_init", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_end", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_memusage", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_memused", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_block_count", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_stream_count", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_index_total_size", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_stream_encoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_stream_decoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_auto_decoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_alone_encoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_alone_decoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_easy_encoder", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_easy_decoder_memusage", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_easy_buffer_encode", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_stream_buffer_encode", "type": "string", "confidence": 0.9},
-    {"pattern": "lzma_stream_buffer_decode", "type": "string", "confidence": 0.9}
-  ]
+  "signatures": []
 }

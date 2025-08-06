@@ -3,8 +3,12 @@
     "name": "WebP",
     "version": "unknown",
     "category": "multimedia",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "Modern image format providing superior lossless and lossy compression for images on the web",
     "license": "BSD-3-Clause",
     "publisher": "Google"
@@ -13,44 +17,10 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:00:00Z",
     "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 35,
-    "source": "Extracted from libwebp.so binary analysis"
+    "signature_count": 0,
+    "source": "Extracted from libwebp.so binary analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {"pattern": "WebPSafeFree", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPSafeCalloc", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPSafeMalloc", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPInitDecBufferInternal", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPFreeDecBuffer", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPCopyPlane", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPGetWorkerInterface", "type": "string", "confidence": 0.9},
-    {"pattern": "VP8GetInfo", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPINewDecoder", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIDecode", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPGetFeaturesInternal", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIDelete", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPINewRGB", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPINewYUVA", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPINewYUV", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIAppend", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIUpdate", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIDecodedArea", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIDecGetRGB", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPIDecGetYUVA", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPGetDecoderVersion", "type": "string", "confidence": 0.9},
-    {"pattern": "VP8GetCPUInfo", "type": "string", "confidence": 0.9},
-    {"pattern": "VP8CheckSignature", "type": "string", "confidence": 0.9},
-    {"pattern": "VP8LCheckSignature", "type": "string", "confidence": 0.9},
-    {"pattern": "VP8LGetInfo", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecode", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecodeRGB", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecodeRGBA", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecodeBGR", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecodeBGRA", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPDecodeYUV", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPGetEncoderVersion", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPEncode", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPEncodeRGB", "type": "string", "confidence": 0.9},
-    {"pattern": "WebPEncodeRGBA", "type": "string", "confidence": 0.9}
-  ]
+  "signatures": []
 }

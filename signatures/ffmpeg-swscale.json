@@ -9,12 +9,5 @@
     "homepage": "https://ffmpeg.org/",
     "description": "Video scaling and colorspace/pixel format conversion"
   },
-  "signatures": [
-    {"pattern": "libswscale", "type": "string", "confidence": 0.9},
-    {"pattern": "sws_scale", "type": "string", "confidence": 0.8},
-    {"pattern": "SwsContext", "type": "string", "confidence": 0.8},
-    {"pattern": "sws_getContext", "type": "string", "confidence": 0.7},
-    {"pattern": "src/libswscale/utils.c", "type": "string", "confidence": 0.9},
-    {"pattern": "Flags to pass to libswscale", "type": "string", "confidence": 0.8}
-  ]
+  "signatures": []
 }

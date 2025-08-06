@@ -7,55 +7,26 @@
     "license": "FreeType License",
     "category": "graphics",
     "ecosystem": "native",
-    "platforms": ["linux", "windows", "macos", "android", "ios"],
-    "languages": ["c"]
+    "platforms": [
+      "linux",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "languages": [
+      "c"
+    ]
   },
   "signature_metadata": {
     "creation_date": "2025-08-05",
     "confidence_threshold": 0.7,
-    "source": "extracted from APK analysis"
+    "source": "extracted from APK analysis",
+    "signature_count": 4,
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "pattern": "FT_Init_FreeType",
-      "type": "string",
-      "confidence": 0.9
-    },
-    {
-      "pattern": "FT_New_Face",
-      "type": "string",
-      "confidence": 0.9
-    },
-    {
-      "pattern": "FT_Load_Glyph",
-      "type": "string",
-      "confidence": 0.85
-    },
-    {
-      "pattern": "FT_Render_Glyph",
-      "type": "string",
-      "confidence": 0.85
-    },
-    {
-      "pattern": "FT_Done_Face",
-      "type": "string",
-      "confidence": 0.85
-    },
-    {
-      "pattern": "FT_Done_FreeType",
-      "type": "string",
-      "confidence": 0.85
-    },
-    {
-      "pattern": "FT_Set_Char_Size",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "FT_Get_Char_Index",
-      "type": "string",
-      "confidence": 0.8
-    },
     {
       "pattern": "FT_Outline_",
       "type": "string",
@@ -67,19 +38,9 @@
       "confidence": 0.8
     },
     {
-      "pattern": "libfreetype",
-      "type": "string",
-      "confidence": 0.9
-    },
-    {
       "pattern": "libft2",
       "type": "string",
       "confidence": 0.9
-    },
-    {
-      "pattern": "ft2build.h",
-      "type": "string",
-      "confidence": 0.85
     },
     {
       "pattern": "FT_FACE_",

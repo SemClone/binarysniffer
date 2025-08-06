@@ -18,33 +18,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.392763Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 2,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "square-haha.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "square_haha_2",
-      "type": "string_pattern",
-      "pattern": "squareup.hah",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    },
-    {
-      "id": "square_haha_3",
-      "type": "string_pattern",
-      "pattern": "squareuphah",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "android"
-      ]
-    }
-  ]
+  "signatures": []
 }

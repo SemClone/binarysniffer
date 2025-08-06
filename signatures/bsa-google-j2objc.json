@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.447848Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 12,
+    "signature_count": 3,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-j2objc.json",
@@ -36,99 +36,9 @@
       ]
     },
     {
-      "id": "google_j2objc_2",
-      "type": "string_pattern",
-      "pattern": "J2ObjC_types",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "google_j2objc_3",
       "type": "string_pattern",
       "pattern": "GOOGLE_PROTOBUF_COMPILER_J2OBJC_GENERATOR_H__",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_4",
-      "type": "string_pattern",
-      "pattern": "J2ObjCTestExplicitProcessor",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_5",
-      "type": "string_pattern",
-      "pattern": "u_errorName_j2objc",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_6",
-      "type": "string_pattern",
-      "pattern": "j2objcNotImplemented_test_SSLSocketFactory_defaultConfiguration",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_7",
-      "type": "string_pattern",
-      "pattern": "uregex_groupNumberFromCName_j2objc",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_8",
-      "type": "string_pattern",
-      "pattern": "J2ObjC_icu",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_9",
-      "type": "string_pattern",
-      "pattern": "J2ObjC_types",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_10",
-      "type": "string_pattern",
-      "pattern": "j2objc_enum",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "google_j2objc_11",
-      "type": "string_pattern",
-      "pattern": "J2ObjCIncompatible",
       "confidence": 0.9,
       "context": "unknown",
       "platforms": [

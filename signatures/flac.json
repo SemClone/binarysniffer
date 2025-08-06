@@ -3,8 +3,12 @@
     "name": "FLAC",
     "version": "unknown",
     "category": "multimedia",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "Free Lossless Audio Codec",
     "license": "BSD-3-Clause",
     "publisher": "Xiph.Org Foundation"
@@ -13,171 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-05T00:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 20,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "manual_analysis",
-    "extraction_method": "api_analysis"
+    "extraction_method": "api_analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "flac_001",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_new",
-      "confidence": 0.95,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_002",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_init",
-      "confidence": 0.9,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_003",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_init_file",
-      "confidence": 0.9,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_004",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_process",
-      "confidence": 0.85,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_005",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_finish",
-      "confidence": 0.85,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_006",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_decoder_new",
-      "confidence": 0.95,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_007",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_decoder_init",
-      "confidence": 0.9,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_008",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_decoder_process_single",
-      "confidence": 0.85,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_009",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_decoder_finish",
-      "confidence": 0.85,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_010",
-      "type": "string_pattern",
-      "pattern": "FLAC__metadata_simple_iterator_new",
-      "confidence": 0.85,
-      "context": "metadata_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_011",
-      "type": "string_pattern",
-      "pattern": "FLAC__metadata_get_streaminfo",
-      "confidence": 0.85,
-      "context": "metadata_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_012",
-      "type": "string_pattern",
-      "pattern": "FLAC__format_sample_rate_is_valid",
-      "confidence": 0.8,
-      "context": "format_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_013",
-      "type": "string_pattern",
-      "pattern": "FLAC__VERSION_STRING",
-      "confidence": 0.9,
-      "context": "version_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_014",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_set_compression_level",
-      "confidence": 0.85,
-      "context": "encoder_config",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_015",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_set_channels",
-      "confidence": 0.85,
-      "context": "encoder_config",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_016",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_set_bits_per_sample",
-      "confidence": 0.85,
-      "context": "encoder_config",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_017",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_set_sample_rate",
-      "confidence": 0.85,
-      "context": "encoder_config",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_018",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_decoder_get_state",
-      "confidence": 0.8,
-      "context": "decoder_state",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_019",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_get_state",
-      "confidence": 0.8,
-      "context": "encoder_state",
-      "platforms": ["all"]
-    },
-    {
-      "id": "flac_020",
-      "type": "string_pattern",
-      "pattern": "FLAC__stream_encoder_delete",
-      "confidence": 0.85,
-      "context": "cleanup_api",
-      "platforms": ["all"]
-    }
-  ]
+  "signatures": []
 }

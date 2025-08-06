@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.398534Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 15,
+    "signature_count": 2,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-react-native.json",
@@ -36,141 +36,11 @@
       ]
     },
     {
-      "id": "facebook_react_native_5",
-      "type": "string_pattern",
-      "pattern": "toreact-native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_15",
-      "type": "string_pattern",
-      "pattern": "ReactAndroidHWInputDeviceHelper",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_16",
-      "type": "string_pattern",
-      "pattern": "ReactAndroid",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "facebook_react_native_18",
       "type": "string_pattern",
       "pattern": "rootViewForReactTag:withCompletion:",
       "confidence": 0.9,
       "context": "user_interface",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_20",
-      "type": "string_pattern",
-      "pattern": "grepreact-native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_21",
-      "type": "string_pattern",
-      "pattern": "ReactBackgroundColorSpan",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_25",
-      "type": "string_pattern",
-      "pattern": "ReactFabric",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_30",
-      "type": "string_pattern",
-      "pattern": "react-native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_33",
-      "type": "string_pattern",
-      "pattern": "ReactStrikethroughSpan",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_34",
-      "type": "string_pattern",
-      "pattern": "reactFocus",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_38",
-      "type": "string_pattern",
-      "pattern": "setReactQueueConfigurationSpec",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_39",
-      "type": "string_pattern",
-      "pattern": "npxreact-native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_40",
-      "type": "string_pattern",
-      "pattern": "use_react_native",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_react_native_41",
-      "type": "string_pattern",
-      "pattern": "ReactDrawerLayout",
-      "confidence": 0.9,
-      "context": "unknown",
       "platforms": [
         "all"
       ]

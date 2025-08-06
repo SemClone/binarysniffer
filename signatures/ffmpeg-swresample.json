@@ -9,12 +9,5 @@
     "homepage": "https://ffmpeg.org/",
     "description": "Audio resampling, format conversion and mixing"
   },
-  "signatures": [
-    {"pattern": "libswresample", "type": "string", "confidence": 0.9},
-    {"pattern": "swr_init", "type": "string", "confidence": 0.8},
-    {"pattern": "swr_convert", "type": "string", "confidence": 0.8},
-    {"pattern": "SwrContext", "type": "string", "confidence": 0.7},
-    {"pattern": "swr_alloc", "type": "string", "confidence": 0.7},
-    {"pattern": "src/libswresample/resample.c", "type": "string", "confidence": 0.9}
-  ]
+  "signatures": []
 }

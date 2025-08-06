@@ -9,12 +9,5 @@
     "homepage": "https://www.theora.org/",
     "repository": "https://gitlab.xiph.org/xiph/theora"
   },
-  "signatures": [
-    {"pattern": "libtheora", "type": "string", "confidence": 0.9},
-    {"pattern": "Xiph.Org libtheora", "type": "string", "confidence": 0.95},
-    {"pattern": "theora_encode_init", "type": "string", "confidence": 0.8},
-    {"pattern": "theora_decode_init", "type": "string", "confidence": 0.8},
-    {"pattern": "th_encode", "type": "string", "confidence": 0.7},
-    {"pattern": "theora_encode_YUVin", "type": "string", "confidence": 0.8}
-  ]
+  "signatures": []
 }

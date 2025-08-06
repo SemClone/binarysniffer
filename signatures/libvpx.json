@@ -3,8 +3,13 @@
     "name": "libvpx",
     "version": "unknown",
     "category": "multimedia",
-    "platforms": ["all"],
-    "languages": ["c", "c++"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ],
     "description": "VP8/VP9 video codec library",
     "license": "BSD-3-Clause",
     "publisher": "WebM Project"
@@ -13,171 +18,12 @@
     "version": "1.0.0",
     "created": "2025-08-05T00:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 20,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "manual_analysis",
-    "extraction_method": "api_analysis"
+    "extraction_method": "api_analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "libvpx_001",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_enc_init",
-      "confidence": 0.9,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_002",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_encode",
-      "confidence": 0.9,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_003",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_dec_init",
-      "confidence": 0.9,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_004",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_decode",
-      "confidence": 0.9,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_005",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_destroy",
-      "confidence": 0.85,
-      "context": "codec_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_006",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_get_caps",
-      "confidence": 0.85,
-      "context": "codec_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_007",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_err_to_string",
-      "confidence": 0.8,
-      "context": "error_handling",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_008",
-      "type": "string_pattern",
-      "pattern": "vpx_img_alloc",
-      "confidence": 0.85,
-      "context": "image_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_009",
-      "type": "string_pattern",
-      "pattern": "vpx_img_free",
-      "confidence": 0.8,
-      "context": "image_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_010",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_vp8_cx",
-      "confidence": 0.95,
-      "context": "vp8_encoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_011",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_vp8_dx",
-      "confidence": 0.95,
-      "context": "vp8_decoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_012",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_vp9_cx",
-      "confidence": 0.95,
-      "context": "vp9_encoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_013",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_vp9_dx",
-      "confidence": 0.95,
-      "context": "vp9_decoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_014",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_control",
-      "confidence": 0.85,
-      "context": "codec_control",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_015",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_get_preview_frame",
-      "confidence": 0.8,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_016",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_set_cx_data_buf",
-      "confidence": 0.8,
-      "context": "encoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_017",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_get_stream_info",
-      "confidence": 0.8,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_018",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_peek_stream_info",
-      "confidence": 0.8,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_019",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_get_frame",
-      "confidence": 0.85,
-      "context": "decoder_api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "libvpx_020",
-      "type": "string_pattern",
-      "pattern": "vpx_codec_register_put_frame_cb",
-      "confidence": 0.8,
-      "context": "decoder_callback",
-      "platforms": ["all"]
-    }
-  ]
+  "signatures": []
 }

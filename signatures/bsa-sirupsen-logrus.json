@@ -17,33 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.454865Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 2,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "sirupsen-logrus.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "sirupsen_logrus_0",
-      "type": "string_pattern",
-      "pattern": "Sirupsen-Logrus",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "sirupsen_logrus_1",
-      "type": "string_pattern",
-      "pattern": "funclogrus",
-      "confidence": 0.9,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

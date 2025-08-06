@@ -3,8 +3,12 @@
     "name": "cURL",
     "version": "unknown",
     "category": "networking",
-    "platforms": ["all"],
-    "languages": ["c"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "Command line tool and library for transferring data with URLs",
     "license": "curl",
     "publisher": "curl project"
@@ -13,44 +17,10 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:00:00Z",
     "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 35,
-    "source": "Extracted from libcurl.so binary analysis"
+    "signature_count": 0,
+    "source": "Extracted from libcurl.so binary analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {"pattern": "curl_strnequal", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_strequal", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_mfprintf", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_msnprintf", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_free", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_init", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_strerror", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_maprintf", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_slist_free_all", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_mvsnprintf", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_mvaprintf", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_setopt", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_add_handle", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_slist_append", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_remove_handle", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_global_init", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_global_init_mem", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_global_cleanup", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_global_sslset", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_perform", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_setopt", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_cleanup", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_poll", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_perform", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_multi_info_read", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_cleanup", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_getinfo", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_duphandle", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_reset", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_recv", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_easy_send", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_version", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_version_info", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_share_init", "type": "string", "confidence": 0.9},
-    {"pattern": "curl_share_cleanup", "type": "string", "confidence": 0.9}
-  ]
+  "signatures": []
 }

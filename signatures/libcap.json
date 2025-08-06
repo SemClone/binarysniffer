@@ -3,8 +3,12 @@
     "name": "libcap",
     "version": "unknown",
     "category": "system",
-    "platforms": ["linux"],
-    "languages": ["c"],
+    "platforms": [
+      "linux"
+    ],
+    "languages": [
+      "c"
+    ],
     "description": "POSIX 1003.1e capabilities library",
     "license": "BSD-3-Clause OR GPL-2.0",
     "publisher": "libcap developers"
@@ -13,39 +17,10 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:00:00Z",
     "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 30,
-    "source": "Extracted from libcap.so binary analysis"
+    "signature_count": 0,
+    "source": "Extracted from libcap.so binary analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {"pattern": "_libcap_initialize", "type": "string", "confidence": 0.9},
-    {"pattern": "_libcap_strdup", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_set_syscall", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_bound", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_max_bits", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_iab_init", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_iab_dup", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_new_launcher", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_func_launcher", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_free", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_init", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_dup", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_proc", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_set_flag", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_clear_flag", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_set_proc", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_pid", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_from_text", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_to_text", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_from_name", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_to_name", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_compare", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_copy_ext", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_copy_int", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_size", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_fd", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_set_fd", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_file", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_set_file", "type": "string", "confidence": 0.9},
-    {"pattern": "cap_get_nsowner", "type": "string", "confidence": 0.9}
-  ]
+  "signatures": []
 }

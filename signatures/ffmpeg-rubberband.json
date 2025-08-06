@@ -10,10 +10,10 @@
     "repository": "https://github.com/breakfastquay/rubberband"
   },
   "signatures": [
-    {"pattern": "RubberBandStretcher", "type": "string", "confidence": 0.9},
-    {"pattern": "librubberband", "type": "string", "confidence": 0.9},
-    {"pattern": "RubberBand::calculateIncrements", "type": "string", "confidence": 0.8},
-    {"pattern": "N10RubberBand", "type": "string", "confidence": 0.7},
-    {"pattern": "rubberband_", "type": "string", "confidence": 0.7}
+    {
+      "pattern": "rubberband_",
+      "type": "string",
+      "confidence": 0.7
+    }
   ]
 }

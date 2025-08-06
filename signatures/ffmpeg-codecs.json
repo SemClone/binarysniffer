@@ -3,8 +3,13 @@
     "name": "FFmpeg-Codecs",
     "version": "unknown",
     "category": "multimedia",
-    "platforms": ["all"],
-    "languages": ["c", "c++"],
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ],
     "description": "FFmpeg embedded codec signatures",
     "license": "LGPL-2.1/GPL-2.0",
     "publisher": "FFmpeg Project"
@@ -13,91 +18,12 @@
     "version": "1.0.0",
     "created": "2025-08-05T01:00:00Z",
     "updated": "2025-08-05T01:00:00Z",
-    "signature_count": 25,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "ffmpeg_analysis",
-    "extraction_method": "string_analysis"
+    "extraction_method": "string_analysis",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "ffmpeg_x264_001",
-      "type": "string_pattern",
-      "pattern": "libx264_encoder",
-      "confidence": 0.95,
-      "context": "x264_encoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_x264_002", 
-      "type": "string_pattern",
-      "pattern": "x264_build",
-      "confidence": 0.9,
-      "context": "x264_version",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_x264_003",
-      "type": "string_pattern",
-      "pattern": "x264 - core",
-      "confidence": 0.9,
-      "context": "x264_version_string",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_x265_001",
-      "type": "string_pattern",
-      "pattern": "libx265_encoder",
-      "confidence": 0.95,
-      "context": "x265_encoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_aac_001",
-      "type": "string_pattern",
-      "pattern": "ff_aac_ac3_parse",
-      "confidence": 0.9,
-      "context": "aac_decoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_aac_002",
-      "type": "string_pattern",
-      "pattern": "ff_aac_parse_header",
-      "confidence": 0.9,
-      "context": "aac_parser",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_aac_003",
-      "type": "string_pattern",
-      "pattern": "aac_adtstoasc_bsf",
-      "confidence": 0.9,
-      "context": "aac_bitstream_filter",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_flac_001",
-      "type": "string_pattern",
-      "pattern": "flac_encoder",
-      "confidence": 0.95,
-      "context": "flac_encoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_flac_002",
-      "type": "string_pattern",
-      "pattern": "flac_decoder",
-      "confidence": 0.95,
-      "context": "flac_decoder",
-      "platforms": ["all"]
-    },
-    {
-      "id": "ffmpeg_flac_003",
-      "type": "string_pattern",
-      "pattern": "flac_decode_frame",
-      "confidence": 0.9,
-      "context": "flac_decoder_function",
-      "platforms": ["all"]
-    }
-  ]
+  "signatures": []
 }

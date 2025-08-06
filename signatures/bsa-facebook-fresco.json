@@ -17,43 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.444644Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 3,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-fresco.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "facebook_fresco_3",
-      "type": "string_pattern",
-      "pattern": "print_fresco_perf",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_fresco_5",
-      "type": "string_pattern",
-      "pattern": "proguard-fresco",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_fresco_6",
-      "type": "string_pattern",
-      "pattern": "fresco_logo_anim_full_frames_l",
-      "confidence": 0.8,
-      "context": "logging",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

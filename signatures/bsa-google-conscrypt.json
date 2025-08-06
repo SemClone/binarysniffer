@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.400221Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 36,
+    "signature_count": 12,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "google-conscrypt.json",
@@ -25,16 +25,6 @@
     "cleaning_version": "2.0"
   },
   "signatures": [
-    {
-      "id": "google_conscrypt_0",
-      "type": "string_pattern",
-      "pattern": "ConscryptHostnameVerifier",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
     {
       "id": "google_conscrypt_2",
       "type": "string_pattern",
@@ -49,16 +39,6 @@
       "id": "google_conscrypt_3",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_BIO_STREAM_H_",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_6",
-      "type": "string_pattern",
-      "pattern": "we3econscrypt",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -86,36 +66,6 @@
       ]
     },
     {
-      "id": "google_conscrypt_16",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_UNUSED",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_17",
-      "type": "string_pattern",
-      "pattern": "test_KeyManagerFactory_Conscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_21",
-      "type": "string_pattern",
-      "pattern": "ConscryptEngine",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_25",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_NATIVE_CRYPTO_H_",
@@ -136,49 +86,9 @@
       ]
     },
     {
-      "id": "google_conscrypt_30",
-      "type": "string_pattern",
-      "pattern": "ConscryptHostnameVerifier",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_31",
-      "type": "string_pattern",
-      "pattern": "AbstractConscryptEngine",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_37",
-      "type": "string_pattern",
-      "pattern": "ficdconscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_40",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_SCOPED_SSL_BIO_H_",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_41",
-      "type": "string_pattern",
-      "pattern": "Imconscrypt",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -196,129 +106,9 @@
       ]
     },
     {
-      "id": "google_conscrypt_44",
-      "type": "string_pattern",
-      "pattern": "orgconscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_47",
-      "type": "string_pattern",
-      "pattern": "151Ceconscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_48",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_UNBUNDLED",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_52",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_WARN_UNUSED",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_54",
-      "type": "string_pattern",
-      "pattern": "newConscryptFactories",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_55",
-      "type": "string_pattern",
-      "pattern": "toConscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_58",
-      "type": "string_pattern",
-      "pattern": "conscryptThrowable",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_61",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_ENGINE",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_63",
-      "type": "string_pattern",
-      "pattern": "1Ap4conscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_65",
-      "type": "string_pattern",
-      "pattern": "JNI_OnLoad_conscrypt",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_66",
-      "type": "string_pattern",
-      "pattern": "ConscryptEngine",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
       "id": "google_conscrypt_67",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_APP_DATA_H_",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_73",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_UNPOOLED",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [
@@ -331,16 +121,6 @@
       "pattern": "CONSCRYPT_BIO_OUTPUT_STREAM_H_",
       "confidence": 0.8,
       "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_76",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_LOG_VERBOSE",
-      "confidence": 0.8,
-      "context": "logging",
       "platforms": [
         "java"
       ]
@@ -359,26 +139,6 @@
       "id": "google_conscrypt_82",
       "type": "string_pattern",
       "pattern": "CONSCRYPT_MACROS_H_",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_83",
-      "type": "string_pattern",
-      "pattern": "AbstractConscryptEngine",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "java"
-      ]
-    },
-    {
-      "id": "google_conscrypt_87",
-      "type": "string_pattern",
-      "pattern": "CONSCRYPT_POOLED",
       "confidence": 0.8,
       "context": "unknown",
       "platforms": [

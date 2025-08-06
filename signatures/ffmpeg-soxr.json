@@ -10,10 +10,10 @@
     "description": "High quality audio sample rate converter"
   },
   "signatures": [
-    {"pattern": "libsoxr", "type": "string", "confidence": 0.9},
-    {"pattern": "soxr_create", "type": "string", "confidence": 0.8},
-    {"pattern": "soxr_process", "type": "string", "confidence": 0.8},
-    {"pattern": "soxr_resample", "type": "string", "confidence": 0.7},
-    {"pattern": "libsoxr-0.1", "type": "string", "confidence": 0.9}
+    {
+      "pattern": "libsoxr-0.1",
+      "type": "string",
+      "confidence": 0.9
+    }
   ]
 }

@@ -6,98 +6,23 @@
     "description": "jQuery JavaScript Library",
     "publisher": "jQuery Foundation",
     "license": "MIT",
-    "platforms": ["all"],
-    "languages": ["javascript"]
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "javascript"
+    ]
   },
   "signature_metadata": {
     "version": "1.0.0",
     "created": "2025-08-06T00:00:00Z",
     "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 10,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "manual",
-    "description": "jQuery signatures based on 1.7.1 found in APK"
+    "description": "jQuery signatures based on 1.7.1 found in APK",
+    "cleaned": true,
+    "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "jquery_1",
-      "type": "string_pattern",
-      "pattern": "jQuery JavaScript Library",
-      "confidence": 0.95,
-      "context": "library_header",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_2",
-      "type": "string_pattern",
-      "pattern": "jQuery v",
-      "confidence": 0.9,
-      "context": "version_string",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_3",
-      "type": "string_pattern",
-      "pattern": "jquery.com",
-      "confidence": 0.85,
-      "context": "url",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_4",
-      "type": "string_pattern",
-      "pattern": "jQuery.fn",
-      "confidence": 0.85,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_5",
-      "type": "string_pattern",
-      "pattern": "jQuery.extend",
-      "confidence": 0.8,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_6",
-      "type": "string_pattern",
-      "pattern": "jQuery.ajax",
-      "confidence": 0.8,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_7",
-      "type": "string_pattern",
-      "pattern": "jQuery.each",
-      "confidence": 0.75,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_8",
-      "type": "string_pattern",
-      "pattern": "jQuery.event",
-      "confidence": 0.75,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_9",
-      "type": "string_pattern",
-      "pattern": "$().jquery",
-      "confidence": 0.7,
-      "context": "api",
-      "platforms": ["all"]
-    },
-    {
-      "id": "jquery_10",
-      "type": "string_pattern",
-      "pattern": "jQuery.support",
-      "confidence": 0.7,
-      "context": "api",
-      "platforms": ["all"]
-    }
-  ]
+  "signatures": []
 }

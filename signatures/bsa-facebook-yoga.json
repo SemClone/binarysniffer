@@ -17,43 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.393174Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 3,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-yoga.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "facebook_yoga_5",
-      "type": "string_pattern",
-      "pattern": "YogaKitTests",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_yoga_10",
-      "type": "string_pattern",
-      "pattern": "yogaYogaDirection",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_yoga_11",
-      "type": "string_pattern",
-      "pattern": "YogaPrintOptions",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

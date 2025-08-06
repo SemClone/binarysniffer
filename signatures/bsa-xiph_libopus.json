@@ -17,33 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.448281Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 2,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "xiph_libopus.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "xiph_libopus_1",
-      "type": "string_pattern",
-      "pattern": "libopusenc",
-      "confidence": 0.85,
-      "context": "library_function",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "xiph_libopus_4",
-      "type": "string_pattern",
-      "pattern": "OggCallback",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

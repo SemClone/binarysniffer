@@ -17,47 +17,11 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 5,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "manual",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "libxml2_3",
-      "type": "string_pattern",
-      "pattern": "xmlFreeDoc",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libxml2_4",
-      "type": "string_pattern",
-      "pattern": "xmlCreatePushParserCtxt",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libxml2_6",
-      "type": "string_pattern",
-      "pattern": "xmlDocGetRootElement",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libxml2_8",
-      "type": "string_pattern",
-      "pattern": "xmlParseMemory",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libxml2_9",
-      "type": "string_pattern",
-      "pattern": "xmlSaveFormatFileEnc",
-      "confidence": 0.85,
-      "context": "function"
-    }
-  ]
+  "signatures": []
 }

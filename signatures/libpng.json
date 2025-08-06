@@ -17,89 +17,11 @@
     "version": "1.0.0",
     "created": "2025-08-04T19:00:00Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 11,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "manual",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "libpng_1",
-      "type": "string_pattern",
-      "pattern": "png_create_read_struct",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libpng_2",
-      "type": "string_pattern",
-      "pattern": "png_create_write_struct",
-      "confidence": 0.9,
-      "context": "function"
-    },
-    {
-      "id": "libpng_3",
-      "type": "string_pattern",
-      "pattern": "png_set_IHDR",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_4",
-      "type": "string_pattern",
-      "pattern": "png_get_io_ptr",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "libpng_7",
-      "type": "string_pattern",
-      "pattern": "png_read_image",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_8",
-      "type": "string_pattern",
-      "pattern": "png_write_image",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_9",
-      "type": "string_pattern",
-      "pattern": "png_sig_cmp",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "libpng_11",
-      "type": "string_pattern",
-      "pattern": "png_set_expand",
-      "confidence": 0.8,
-      "context": "function"
-    },
-    {
-      "id": "libpng_16",
-      "type": "string_pattern",
-      "pattern": "png_get_IHDR",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_17",
-      "type": "string_pattern",
-      "pattern": "png_destroy_read_struct",
-      "confidence": 0.85,
-      "context": "function"
-    },
-    {
-      "id": "libpng_18",
-      "type": "string_pattern",
-      "pattern": "png_destroy_write_struct",
-      "confidence": 0.85,
-      "context": "function"
-    }
-  ]
+  "signatures": []
 }

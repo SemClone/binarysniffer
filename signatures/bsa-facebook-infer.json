@@ -17,63 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.449802Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 5,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "facebook-infer.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "facebook_infer_0",
-      "type": "string_pattern",
-      "pattern": "facebook-clang-plugins",
-      "confidence": 0.9,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_infer_2",
-      "type": "string_pattern",
-      "pattern": "InferAnalyzer",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_infer_5",
-      "type": "string_pattern",
-      "pattern": "INFERBO_ALLOC_MAY_BE_BIG",
-      "confidence": 0.8,
-      "context": "initialization",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_infer_10",
-      "type": "string_pattern",
-      "pattern": "about-infer",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "facebook_infer_12",
-      "type": "string_pattern",
-      "pattern": "skipPointerDerefPreventsSpecInferenceRetZero",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }

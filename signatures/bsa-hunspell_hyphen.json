@@ -17,23 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-04T15:40:01.391186Z",
     "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 1,
+    "signature_count": 0,
     "confidence_threshold": 0.7,
     "source": "converted_from_bsa_format",
     "original_file": "hunspell_hyphen.json",
     "cleaned": true,
     "cleaning_version": "2.0"
   },
-  "signatures": [
-    {
-      "id": "hunspell_hyphen_1",
-      "type": "string_pattern",
-      "pattern": "HyphenNativeWrapper",
-      "confidence": 0.8,
-      "context": "unknown",
-      "platforms": [
-        "all"
-      ]
-    }
-  ]
+  "signatures": []
 }
