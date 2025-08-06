@@ -1,0 +1,79 @@
+{
+  "component": {
+    "name": "Google Ads Library",
+    "version": "unknown",
+    "category": "enterprise-library",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Google Ads Library - Google",
+    "license": "Apache-2.0+CommercialToS",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.449056Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 5,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-ads.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "google_ads_7",
+      "type": "string_pattern",
+      "pattern": "MetricDescriptor",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_9",
+      "type": "string_pattern",
+      "pattern": "getClientId",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_11",
+      "type": "string_pattern",
+      "pattern": "google-ads-stubs",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_12",
+      "type": "string_pattern",
+      "pattern": "google-ads-stubs",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "google_ads_14",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_ADS_CLIENT_SECRET",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

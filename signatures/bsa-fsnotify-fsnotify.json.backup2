@@ -1,0 +1,28 @@
+{
+  "component": {
+    "name": "fsnotify",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for fsnotify - The Go Authors",
+    "license": "BSD-2-Clause",
+    "publisher": "The Go Authors"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.445395Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "fsnotify-fsnotify.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": []
+}

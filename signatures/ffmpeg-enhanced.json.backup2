@@ -1,0 +1,9242 @@
+{
+  "component": {
+    "name": "FFmpeg",
+    "version": "4.4-6.0",
+    "license": "LGPL-2.1",
+    "publisher": "FFmpeg Project",
+    "category": "multimedia",
+    "description": "FFmpeg multimedia framework - enhanced signature covering versions 4.4 to 6.0"
+  },
+  "signature_metadata": {
+    "version": "2.0.0",
+    "created": "2025-08-06T13:05:07.900541",
+    "updated": "2025-08-06T13:05:07.900544",
+    "signature_count": 1844,
+    "confidence_threshold": 0.3,
+    "source": "Multi-version analysis (ffmpeg binary, libffmpeg.so, source code)",
+    "enhanced": true
+  },
+  "signatures": [
+    {
+      "pattern": "A0Hc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A0M9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A2EyA2F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A2XA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A4ATA4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A4YK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A53_CC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A6PDA6",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A6S_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8GHE8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8H3y0L3A8I",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8Mi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8T4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8dRk8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A8j2A8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A93L",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9CT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Cdt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9EP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9FXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Fp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Fx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9G0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9GH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9GT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9M0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Mh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Mp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9Qh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9U0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9UD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9UP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9W4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9WHA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9WXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9_Hw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9mX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9nHsZL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9nd",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9oT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9udw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A9vt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AA40J6",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AACL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AACP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AALP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AAPsay",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AASCK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AAUI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AB7K",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ABGRz",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ABOR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ABSS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ABYyos",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ACBM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ACCEPTED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ACDV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ACLR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ACLRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AD9k",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AD9m",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ADD_STYLE_NAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ADHRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ADP4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ADPC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ADTEQU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AEXPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AEsmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AGM4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AHZzch",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AHZzlm",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AHfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AIXE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AIXP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AJ8ZNJ8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AJAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AKAfbl",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALLOW_SMALL_RECORDS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALL_CPUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALPN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALSA_CONFIG_PATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALSA_PLUGIN_DIR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALSden",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ALY4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AMVF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ANH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ANHD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ANMF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ANNO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ANNOL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AOME_SET_ARNR_STRENGTH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AOME_SET_CPUUSED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AOME_SET_ENABLEAUTOALTREF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AOM_SIMD_CAPS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AOM_SIMD_CAPS_MASK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AP41",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APAPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APAQARL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APAUP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APAVAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APCM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APETAGEX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APETAGEXH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APICL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPR1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPSV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APPj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APQ1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APQM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APQR1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APQj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APRD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APRFH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APRG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APRGAPRG0001",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APRGH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APSATA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APWD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APWVM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APWVQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "APfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQAPPUM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQAPW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQAPWE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQARARAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQASPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQPAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQQA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AQUR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAQAVAUSQL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAQE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARASA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARASE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAVD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAVR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAWA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAWQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAaat",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAacr",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAacy",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAadp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAaf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAak",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAapj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAas",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAav",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAbcc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARApga",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARAshy",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARGX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARMovie",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARPASA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARPASAS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARQH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARRD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARRM1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARRPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSAVA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARSUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUAWA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUAWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARWI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ARWL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAPM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAQI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARAQAPV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARAQL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARPAQM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASARWV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASATAUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAUAVD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAVD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAVR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAWAUA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASAWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASF_Key_ID",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASQ1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASUSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASVh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASWD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASWL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ASWM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATADMRTSI9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAPSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAQQAQQAUATAUAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATARI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATARS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATARSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATASARAQAPWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATASARR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATASD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATASH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATATAVPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATATE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATATU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAUA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAUAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAUAVL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAUI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAVAQS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAVSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWAUAQMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWAUU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWSAVD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWUAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATAWUU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATEM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATIitz",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATLi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATNnpi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATPARAPM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATPj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSASARD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSAUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATSb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATTLIST",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATTRIBUTE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUASAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUASARP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUAVPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUS9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUSM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATUUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATV2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATVAVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATVRQP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ATYT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAPLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAQL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUARV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAT1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATARS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATDi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATLcg",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATULc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUSdH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATUfH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUATfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAUM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAWI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAWQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUAWUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDIO_FLIP_LEFT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDIO_FORMAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDIO_SERVICE_TYPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUDk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUGgom",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUGgv",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUKkjb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AURrwr",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUTHOR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUTtru",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUUATD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUVI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUVR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUVWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AUWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV01",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV0F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_AQ_MODE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_DENOISE_NOISE_LEVEL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_1TO4_PARTITIONS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_AB_PARTITIONS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_ANGLE_DELTA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_CDEF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_CFL_INTRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_DIST_WTD_COMP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_FILTER_INTRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_GLOBAL_MOTION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_INTERINTER_WEDGE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_INTERINTRA_COMP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_INTERINTRA_WEDGE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_INTRABC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_INTRA_EDGE_FILTER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_MASKED_COMP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_OBMC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_PAETH_INTRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_PALETTE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_RECT_PARTITIONS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_REF_FRAME_MVS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_SMOOTH_INTERINTRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ENABLE_TX64",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_INTRA_DCT_ONLY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_INTRA_DEFAULT_TX_ONLY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_MATRIX_COEFFICIENTS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_REDUCED_TX_TYPE_SET",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_ROW_MT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_SUPERBLOCK_SIZE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1E_SET_TILE_ROWS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV1xt9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV32",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV3G",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAPE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAPQH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVARD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVARL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVARP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVASAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVASARAQD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVASAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVASD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVASL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATUSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVATUSI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUASRD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATARSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATU1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATULc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSHcG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSHi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSLcW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUATUSQH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUAWUPAVAUAWUA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAUj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAVD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAWL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVAWUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVBSFContext",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVCONV_DATADIR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVDCT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVDJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVFormatContext",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVID",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVIF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVIX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVP6t",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVPanScan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVQRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVRASYA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVRPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVReplayGain",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVSATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVSAWL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512BW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512CD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512DQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512ER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVX512F_Usable",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV_LOG_FORCE_256COLOR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV_LOG_FORCE_COLOR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AV_LOG_FORCE_NOCOLOR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVd1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVdh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVin",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVinA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVj2Y",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVrp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AVupu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AW3O",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAQA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWASD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWATAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWATD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAV1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATARSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATLcf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATSM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSHc_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSIch",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUATUSQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVAUO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVLc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAVf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWAWAWAWAWAWAWAWUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWHk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWPI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWSASWVR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWSAUAVATL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWSAUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWSL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWSaii",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWUASWV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWUSAUH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWWA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AWWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AX7j",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAY9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYE9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYI9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXAYL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AXZH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYAZ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYAZ9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYAZA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYAZE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYAZI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYUV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYXI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AYf9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AZ7e",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AZXH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AZZkj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_A9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_AAC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_ALAC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_DS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_DTS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_EAC3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_FLAC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_Hc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_LAW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_MLP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_QUICKTIME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_TRUEHD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_XA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "A_ZA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Aa1m",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Aacute",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Aacutesmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ab9_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AbQeHa",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AbQuH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Abstract",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Acid",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Acirc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AdaptationSet",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Adlam",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Advanced",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AegeanNumbers",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Agrave",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AhE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AhE9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AhPj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ai8M",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AiM4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AiU4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AinW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AkamaiGHost",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AlD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Alice",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Alignment",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AlphaLevel",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ambient",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anchor0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anchor3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anchor6",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anchor7",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anevia",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Anime",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AntiqueWhite",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AoT1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Arabic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Artist",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Asmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AspI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AsrE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Assign",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Atsq",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AuJL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Audiobook",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Auml",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Author",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AuthorityKeyIdentifier",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Avestan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AxisLabel",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AybR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AyoK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AyoS0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AyoU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ayoc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AyohP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ayohp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ayoy",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AzGp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Azo4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Azo42",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "AzoI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B08C8w",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0AYAZ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0I9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0L3Z8L1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0Mc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0PH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0Rj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0W1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B0W1u",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B1W0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B29m729",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B2Bk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B3tKD3I",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B4BY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B6u_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B8H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B8PH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "B9SHB9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BACKLOG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BADS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BADSECREH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BADSECRET",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BAND",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BANK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BASE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BASF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BBBBBBBBL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BC4U",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BC5S",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BC5U",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BCDEFG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BDLT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BDMi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BDPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BE5Q",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGGR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGR3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGR4x",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGR9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGRAABGR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BGRs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BHH9AHt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BHHHHHHHHHHHHHHHHHHHHHHHHHH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BHHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BHJZ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BHPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BISsjs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BITPIX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BITbpd",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BK8E",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BKAakb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BKBKBK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BKTb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BKTbBK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BL0E",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BL9BH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BLACKANDWHITE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BLOCK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BLZ0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BLcF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BMI2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BMKkar",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BMLlir",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BN9w",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BODA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BODAI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BODY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BOEG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BOTTOMFIRST",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BPHcRHH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BR3S",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BRCH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BRPP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BRScnt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BSCALE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BSF_NOT_FOUND",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUFFER_SIZE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUFFER_TOO_SMALL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUG2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUSG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUSGH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUSGI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BUSGt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BVEk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BVID",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BVOP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BX24",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BXL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BZAazb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BZHUDJ4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BZUuzn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BZUvap",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BackColour",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Baroque",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BasicConstraints",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BasicLatin",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BasicOCSPResponse",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bassa_Vah",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Batak",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BbquH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BeH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Beeper",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bengali",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BfEk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BhH9Eh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bhangra",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bisque",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BitsPerSample",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bk6e",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Blackman",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BlanchedAlmond",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BlueScale",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BlueValues",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BlueViolet",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BmQq",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bohman",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Book",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BorderStyle",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BpAUATU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bpth",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Brahmi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Breakbeat",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Brevesmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Bruxelles",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BucH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Buhid",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BvBvBvBvBvBvBvBvBvBvBvBvBvBvBvBv",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ByyL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C0H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C0Ic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C0Pj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C0Z1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C14N",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C2jA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C3Tt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C3cQD3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C4Ic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C4Q0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C4Uj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C58H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C58I",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C58M",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C82p",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C86L",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8AQM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8AXH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8H9E8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8IcR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8pVD8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8pd",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C8yoC8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CA4p",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CAKkfx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CAPTURE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CARD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CASI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CATALOG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CBDAI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CCCCCCCCCCCCCCCC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CCCCCCCCCCCCCCCCC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CD9Ft",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CDCT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CDPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CDV5",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CDVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CDXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CE8u",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CEHH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CFAPattern",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CFHD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CH9F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHAN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHAP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHAPTER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHARSET_COLLECTIONS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHARSET_ENCODING",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHARSET_REGISTRY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHH9SX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHNL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHNcsw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHQX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CHtPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CI3T",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CIDFontName",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CIDFontVersion",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CIDMapOffset",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CIPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJKCompatibility",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJKCompatibilityIdeographs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJKRadicalsSupplement",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJKUnifiedIdeographs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJKUnifiedIdeographsExtensionA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CJxC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CK8E",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CL9CH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLBCH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLBCL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLBCSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLBEH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLHcCDHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLIENT_EARLY_TRAFFIC_SECRET",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLIENT_RANDOM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLIENT_TRAFFIC_SECRET_0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLJRt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLOSED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLOSING",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLV1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLV1I",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CLcx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CMAP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CMDQamrfH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CNEA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CNEAt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CNTI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COL0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COLLECT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COMM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COMMH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COMPAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COMPRESSION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CONNECT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CONSTR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CONTENT_LIGHT_LEVEL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CONTH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CONTINUE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COPYRIGHT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "COTCA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CP1256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPHcChH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPI9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CPSuri",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CRC32",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CRLzyb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CSCDQ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CSPLUTV100",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT24",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CTD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CTP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CTYPE3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_CassiniSoldner",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_EquidistantConic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_LambertConfConic_Helmert",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_ObliqueMercator_Laborde",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_ObliqueMercator_Rosenmund",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_ObliqueMercator_Spherical",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_PolarStereographic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_Polyconic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_Sinusoidal",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CT_TransvMercator_SouthOriented",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CUQquc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CUSTOM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CUUU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CV8A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CX9C8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXH9C8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXI9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CXtEH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CYUV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "C_8M",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cacute",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CapHeight",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Caronsmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Catalog",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ccedil",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CdHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cedillasmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Celtic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Centu2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Certificate",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CertificateList",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChAU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChHcn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChannelLayout",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Chanson",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CharacterSet",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChfD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Chocolate",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ChqS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cl8W",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cl9E",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ClMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Classical",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ClfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ClosedCaptionHandler",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cm8I0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cmono",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cmono10",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cmono12",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cmono9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CoLL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Collisions",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ColorSpace",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CombiningHalfMarks",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CompressedBitsPerPixel",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ContentComponent",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cookie",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CornflowerBlue",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CpE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CpH9Cx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CpH9CxtV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CpfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Crossover",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Csmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CtHcsx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cu8t",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Cuatro",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CustomRendered",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CxD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CxIc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "CxMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D0DI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D10H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D3DG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D3O4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D4PM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D4YH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D5QI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D5hI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D70H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D7HH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D7Pf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D7pA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D8Q1D8A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D8T2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D8pH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D92H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D98u",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9HDu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9K9E9J",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9O8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9Op",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9P0u",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9SL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9St",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9_0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9_DD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9_DE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9eT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9eTw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9hdt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9iLu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9k4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9kp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9kt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9s8tbH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9sD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9sTw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9sx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9t3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "D9uxw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DA7s",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DAHUA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DALlma",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DASscs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DATAMAX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DATAMIN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DATA_ERROR_MAGIC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DAVAUATUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DAVC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DBFH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DCLA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DCOD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDDDDDDDDD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDDDDDDDDDDDDDDDDDDDDDD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDEEUUEDTUUUUUURUUUT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDXA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDXE9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDXF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DDXL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DE4H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEBH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEBUG_ALLOW_KEY_USAGE_VIOLATIONS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEEEEEEEUVVVVVVVHI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEEP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEFAULT_CHAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEFAULT_VOL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DELEGATE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DELH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DELR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEMUXER_NOT_FOUND",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DESC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DESCRIPTION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEVICE_FONT_NAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DEWPJJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DG0H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DG8H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DGBL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DGKb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DHAV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DHE_RSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DHPI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DISABLE_SAFE_RENEGOTIATION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DISABLE_WILDCARDS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DISCONNECTED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DISPLAYMATRIX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIV1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIV2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIV3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIV4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIV5",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DIVX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DKIF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DKMmkn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DL7i",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DLCLiShu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DLOC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DM4H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DMAX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DMIX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DN4A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DNEI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DNIC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DNIPtH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DNIid",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DNXHD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOCTYPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOCUMENT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOCUMENT_FRAG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOCUMENT_TYPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOMAIN_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOTxan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOWNGRD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DOWNMIX_INFO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DPAN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DPV2A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DRAINING",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DRIE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DROUTE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DS16",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DSD_U16_BE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DSD_U16_LE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DSIZ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DSNOOP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DT2H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTPE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTPfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTS3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTSHDHDRH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTSM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DTdt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DU4H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DUCK3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DUMBFW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DV8H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DVBS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DVDS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DW0H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DWBH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DX50",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXD3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXDI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXGM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXSB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXT2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXT3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DXTR1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DY2H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DY5GSZ5",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DY89",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DYM4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DYNAMIC_HDR_PLUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Daala",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dagger",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkGray",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkGreen",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkOliveGreen",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkRed",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkSlateBlue",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkSlateGray",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DarkViolet",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DataH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DataHandler",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DateTime",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_AiryModified1849",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Bessel1841",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_BesselModified",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Clarke1858",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Clarke1866Michigan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Clarke1880",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Clarke1880_RGS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Everest1830_1937Adjustment",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_NWL9D",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Sphere",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DatumE_Struve1860",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Amersfoort",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Arc_1960",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Australian_Geodetic_Datum_1984",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Beduaram",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Bern_1938",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Bukit_Rimpah",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Campo_Inchauspe",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Chua",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Gandajika_1970",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Garoua",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Hito_XVIII_1963",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Hu_Tzu_Shan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Indian_1954",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Indonesian_Datum_1974",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Jamaica_1875",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Jamaica_1969",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Kandawala",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Liberia_1964",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Lome",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_M_poraloko",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Malongo_1987",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Manoca",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Militar_Geographische_Institut",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Minna",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_NGO_1948",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Nahrwan_1967",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Naparima_1972",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Nord_de_Guerre",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_North_American_Datum_1927",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Nouvelle_Triangulation_Francaise",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Padang_1884",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Pointe_Noire",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_RT38",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Reseau_National_Belge_1950",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Sapper_Hill_1943",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_TM65",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_TM75",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Timbalai_1948",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_Voirol_Unifie_1960",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_WGS72_Transit_Broadcast_Ephemeris",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Datum_WGS84",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DbQLH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DbqeH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Decimation",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Devanagari",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DeviceSettingDescription",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DiAJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DimGray",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dingbats",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DisplayText",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DistinguishedName",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DistributionPointName",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DmDs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dotaccentsmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dq8a",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dthf",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Du4H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Du9H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DuBA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Duet",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Dw0H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E05T",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E09G",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E09X",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0APD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0Hcs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0Mce8M",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0ZE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E0teH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E1jjI1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E3EAEL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E49G",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E4WP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E4mEE4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E5PK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E5R9C5",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E5fM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E89G",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8AUj",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8CP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8Gp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8H9CP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8I9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8Lc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8bp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E8yp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E93L",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9FX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9Jt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9NHw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9Wt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9_L",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9ex",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9fp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9fx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9gL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9gP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9nD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9nT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9uHw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9wT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E9yt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EARLY_EXPORTER_SECRET",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EB9ClA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EBCDIC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EBDAI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ECDHE_ECDSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ECDHE_RSA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EDA9GD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EDMmeo",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEDUEUTDE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEEEEEEE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEEEEEEEEE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEEEEEEEEEE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEEIH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EEHi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EHA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EHH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EHHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EHHcEHHcUL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EH_AXH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EHtkMc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EI9q",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EIA608",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EK_ODD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ELE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ELEM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EM2V",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EM4A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EMIt",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EMItH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EMPTY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EMRF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENCD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENCODER_NOT_FOUND",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENDCHAR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENDHDR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "END_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENTITIES",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENTeo",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ENUMERATION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EOS_NUT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EPAPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EPE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EPH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EPRQdb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERCcrk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERCcrm",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ES60",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ESST",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ET9C",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ETA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ETAU1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ETLP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ETLPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ETON",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EUAQ1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EVQH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EVSsvc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXCEEDED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXIF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXPERIMENTAL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXPO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXPORTER_SECRET",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXQI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXTERNAL_GENERAL_PARSED_ENTITY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXTERNAL_GENERAL_UNPARSED_ENTITY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXTERNAL_PARAMETER_ENTITY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXTR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EXTRA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EZAazb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EZAazd",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EZAazn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "E_fA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Eacutesmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EbKDR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EdARh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EdJED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Edieresissmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Effects",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Eg1H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Egrave",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Egravesmall",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Eh9C4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EhA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EhAPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EhAPWE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EhfD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "El9C8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Electroclash",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Electronic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EllipseData",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Airy_Modified_1849",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Bessel_1841",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Clarke_1866",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Clarke_1866_Michigan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Clarke_1880_Arc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_GEM_10C",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_GRS_1980",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_International_1924",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_NWL_9D",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_OSU86F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_OSU91A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_Sphere",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ellipse_War_Office",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EmA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Encoders",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EncodingScheme",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EndAxis",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EndDirection",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EndFontMetrics",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EndKernPairs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Eo8H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ep9C8t",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EpEI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EptXH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Es9aU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EtAVAWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EtD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EtPD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EtSE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "EuAPM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Eurosport2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Events",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Ex9Et",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExHcs",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExpansionFactor",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExpertEncoding",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Export",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExposureProgram",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExtL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ExtendColumns",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Extensions",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Extr",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F07qL07",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F0AVAUATUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F0H3N8H1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F0I9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F0tb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F2H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F4H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F6kRF6h",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F8AWAVAUATUS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F8H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F8Hc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F8PH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FACE_NAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FALLBACK_SCSV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FALS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FAMILY_NAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FAPL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FASTPLAY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FAUTHGXV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FBdU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FC9R",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FCSubscribe",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FCVA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FCXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FC_DBG_MATCH_FILTER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FDBI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FEDGH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FESTIVAL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFCL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFCu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDHE2048",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDHE3072",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDHE4096",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDHE6144",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDHE8192",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFDS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFFFFFFFFFFFFFF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFFIIIIIIIIIIIIIIII",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFMP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFREPORT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFVH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FFXH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FGfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FH7R",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHAWH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHHcH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FHo4F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FICV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FIJL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FINISHED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FIRM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FIRrif",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FIXED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FIfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FKBble",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FKFV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FLACD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FLOAT64",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FLOAT64_BE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FLOAT_LE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FLV4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FMP4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FMVC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FNumber",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FONTBOUNDINGBOX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FONTCONFIG_PATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FONT_ASCENT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FONT_DESCENT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FORM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FORMH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FOXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPA8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPI9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPS1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FPfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FQUME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FR1_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRAH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRAMEBUFFER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRAME_BITS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FREI0R_PATH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRM8t",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRTE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FRWU",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FTP_PROXY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FTSJH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FUfA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FV958V9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FVER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FVERH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FWHH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FWXA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FXD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FXE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FXPH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F_WO",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "F_fE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Famicom",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fast_Copy_Backward",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fast_Rep_String",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FbFi",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FbL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FcCacheFini",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FcConfigSubstitute",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FhAT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FhATD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FhE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FhfE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FhtGA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fi2I",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FifA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FileSource",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FlAWAVA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FlIcp",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FlUSH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Flash",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FoDA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FocalPlaneResolutionUnit",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FocusTV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FofD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FontMatrix",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FontName",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Forbidden",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ForceBoldThreshold",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FpH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FpP1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Freestyle",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Friday",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Frkx",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fsuperequalizer",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FtA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fu9H",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Fuchsia",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Future",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FvwJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FxD9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FxE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "FxfD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G08g",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0APD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0AV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0AVM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0D9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0E9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0L9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0fE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G0ttL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G264",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G2M2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G2M3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G2M4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G2M5",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G2qn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G4E1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G4m7E4FcC4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G6VXG6",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G722",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G723_24",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G723_24_1B",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G723_40",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G723_40_1B",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G726",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G729",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G7e8Q7",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G86jG8K5G8K",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8ANs7A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8D9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8E1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8E9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8H9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8H9CP",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8H9G",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8H_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8SATE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8SH",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G8fA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G9PoH9y",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "G9mMG9j",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GABbg",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GABpre",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GAVC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GAWwbr",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GBPA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GBRG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GC256B",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GC256C",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GC256D",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GC512B",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCD3",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCOUNT",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Airy1830",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_BesselModified",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_BesselNamibia",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Clarke1880_RGS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Clarke1880_SGA1922",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Everest1830_1967Definition",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_GRS1980",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Helmert1906",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_International1924",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_NWL9D",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_OSU86F",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_OSU91A",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_Plessis1817",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCSE_WGS84",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_AGD66",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_AGD84",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Agadez",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Batavia_Jakarta",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Belge_1950_Brussels",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Belge_1972",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Bermuda_1957",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Bern_1898",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Camacupa",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Carthage",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Chua",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_DHDN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Deir_ez_Zor",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_ED50",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_ED87",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_GD49",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_GDA94",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_HD72",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Hu_Tzu_Shan",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_ID74",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Jamaica_1875",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Kandawala",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Kertau",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Lisbon_Lisbon",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Luzon_1911",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_MGI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_MGI_Ferro",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_M_poraloko",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Makassar_Jakarta",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Malongo_1987",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Massawa",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Monte_Mario",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_NAD83",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_NSWC_9Z_2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_NTF",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_OSGB70",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_OSGB_1936",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_OS_SN80",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_PSAD56",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Pointe_Noire",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Qatar",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Qornoq",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Sapper_Hill_1943",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_TC_1948",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_TM65",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Tokyo",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Trinidad_1903",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_WGS_72",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_WGS_72BE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_WGS_84",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Yacare",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GCS_Yoff",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GC__",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GDE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GDIcOH1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GDL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GDtYD",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GENR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GEOB",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GEOX",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GEPJ",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GETTIMEOFDAY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GET_PARAMETER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GFE1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GFH_",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GGaa",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GGoGY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GHA9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GHH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GHHc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GHL9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GHPI",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GI8Ca",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GIF8f",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLH9",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLHy",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLIBC_PRIVATE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLIBC_TUNABLES",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLMmh",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLMte",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLMxmw",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLPpck",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GLV4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GMP4",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GMTV",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNEenb",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNMkhn",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNMmnc",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNMmwk",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_AES_128_CCM_8_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_AES_128_CCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_AES_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_ACCESS_DENIED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CERTIFICATE_EXPIRED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CERTIFICATE_REQUIRED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CERTIFICATE_REVOKED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CERTIFICATE_UNKNOWN",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CERTIFICATE_UNOBTAINABLE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_CLOSE_NOTIFY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_DECODE_ERROR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_DECOMPRESSION_FAILURE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_DECRYPT_ERROR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_ILLEGAL_PARAMETER",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_INAPPROPRIATE_FALLBACK",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_INTERNAL_ERROR",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_MISSING_EXTENSION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_NO_APPLICATION_PROTOCOL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_NO_RENEGOTIATION",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_RECORD_OVERFLOW",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_UNKNOWN_CA",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_UNKNOWN_PSK_IDENTITY",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_UNRECOGNIZED_NAME",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_UNSUPPORTED_CERTIFICATE",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_A_USER_CANCELED",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_CHACHA20_POLY1305_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DEBUG_LEVEL",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_128_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_256_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_AES_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_CAMELLIA_128_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_CAMELLIA_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_DSS_CAMELLIA_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_3DES_EDE_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_128_CCM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_128_CCM_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_256_CBC_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_AES_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_ARCFOUR_128_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_CAMELLIA_128_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_CAMELLIA_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_CHACHA20_POLY1305",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_PSK_NULL_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_3DES_EDE_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_128_CCM_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_256_CCM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_AES_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_CAMELLIA_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_CAMELLIA_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DHE_RSA_CHACHA20_POLY1305",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_3DES_EDE_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_AES_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_AES_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_AES_256_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_CAMELLIA_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_CAMELLIA_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_CAMELLIA_256_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_DH_ANON_CAMELLIA_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_128_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_128_CCM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_128_CCM_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_128_GCM_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_256_CBC_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_256_CCM",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_256_CCM_8",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_AES_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_ARCFOUR_128_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_CAMELLIA_128_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_ECDSA_CAMELLIA_256_GCM_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_PSK_AES_128_CBC_SHA256",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_PSK_AES_256_CBC_SHA1",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "GNUTLS_ECDHE_PSK_AES_256_CBC_SHA384",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ],
+  "tlsh_hash": "T1F7C37F4269B4FD6F72DE6C4FABB2EFF262675422BF41E8F0DA4CC28F0A06C251156415"
+}

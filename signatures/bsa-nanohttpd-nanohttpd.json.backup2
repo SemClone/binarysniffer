@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "NanoHttpd - HTTP server",
+    "version": "unknown",
+    "category": "networking",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for NanoHttpd - HTTP server - NanoHttpd",
+    "license": "BSD-3-Clause",
+    "publisher": "NanoHttpd"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.447043Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "nanohttpd-nanohttpd.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "nanohttpd_nanohttpd_1",
+      "type": "string_pattern",
+      "pattern": "org.nanohttpd",
+      "confidence": 0.9,
+      "context": "networking",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

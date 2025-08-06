@@ -1,0 +1,49 @@
+{
+  "component": {
+    "name": "BouncyCastle",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for BouncyCastle - Legion of the Bouncy Castle Inc",
+    "license": "MIT",
+    "publisher": "Legion of the Bouncy Castle Inc"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.400863Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "bouncycastle.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "bouncycastle_1",
+      "type": "string_pattern",
+      "pattern": "bouncycastle",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "bouncycastle_2",
+      "type": "string_pattern",
+      "pattern": "BouncyCastleProviderConfiguration",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

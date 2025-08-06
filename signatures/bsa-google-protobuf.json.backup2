@@ -1,0 +1,79 @@
+{
+  "component": {
+    "name": "Protobuf Library",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Protobuf Library - Google",
+    "license": "BSD-3-Clause",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.448027Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 5,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-protobuf.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "google_protobuf_0",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_PROTOBUF_UTIL_INTERNAL_UTILITY_H__",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_protobuf_2",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_FIELD_LITE_H__",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_protobuf_3",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_PROTOBUF_EXTENSION_SET_INL_H__",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_protobuf_4",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_PROTOBUF_PLATFORM_MACROS_H_",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_protobuf_5",
+      "type": "string_pattern",
+      "pattern": "GOOGLE_PROTOBUF_STUBS_STRUTIL_H__",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

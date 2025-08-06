@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2025-08-06
+
+### Added
+- **ALSA signature** - Comprehensive Advanced Linux Sound Architecture detection with 48 specific patterns
+- **Aggressive signature cleaning** - New script to remove overly generic patterns causing false positives
+- **Verbose evidence tracking** - Enhanced `-ve` flag now shows which files within archives triggered matches
+
+### Fixed
+- **Major false positive reduction** - Removed 16,090 generic patterns from signatures that caused incorrect detections
+- **Archive content tracking** - Verbose mode now properly displays which files in archives contain matches
+- **Signature quality** - Eliminated problematic patterns like "copy", "exit", "path", "bool" that match everywhere
+
+### Improved
+- **Detection accuracy** - Dramatically reduced false positives (e.g., .NET Core no longer incorrectly detected in FFmpeg)
+- **PCoIP SDK** - Removed 4,312 generic patterns
+- **wolfSSL** - Removed 3,143 generic patterns  
+- **.NET Core** - Removed 2,064 generic patterns
+- **FFmpeg** - Removed 3,503 generic patterns from BSA signature
+- **Qt5** - Cleaned to only 13 high-quality patterns
+
+### Technical
+- **New tool** - `scripts/aggressive_clean_signatures.py` for comprehensive pattern filtering
+- **Pattern validation** - Filters patterns <4 chars, common C functions, generic programming terms
+- **Safe prefix preservation** - Keeps library-specific prefixes like `snd_`, `av_`, `ff_`, `png_`
+
 ## [1.8.1] - 2025-08-06
 
 ### Fixed

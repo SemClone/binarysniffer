@@ -1,0 +1,28 @@
+{
+  "component": {
+    "name": "Boost and Boost-Options",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Boost and Boost-Options - Boost",
+    "license": "BSL-1.0",
+    "publisher": "Boost"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.454548Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "boostorg_boost.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": []
+}

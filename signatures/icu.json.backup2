@@ -1,0 +1,90 @@
+{
+  "component": {
+    "name": "ICU (International Components for Unicode)",
+    "version": "",
+    "publisher": "Unicode Consortium",
+    "description": "Mature, widely used set of C/C++ and Java libraries providing Unicode and Globalization support",
+    "license": "ICU",
+    "category": "internationalization",
+    "ecosystem": "native",
+    "platforms": ["linux", "windows", "macos", "android", "ios"],
+    "languages": ["c", "c++"]
+  },
+  "signature_metadata": {
+    "creation_date": "2025-08-05",
+    "confidence_threshold": 0.7,
+    "source": "extracted from APK analysis"
+  },
+  "signatures": [
+    {
+      "pattern": "icu_",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "libicu",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "icudata",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "icui18n",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "icuuc",
+      "type": "string",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "u_strlen",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "u_strcpy",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ucnv_open",
+      "type": "string",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "UnicodeString",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "UChar",
+      "type": "string",
+      "confidence": 0.75
+    },
+    {
+      "pattern": "BreakIterator",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Collator",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "DateFormat",
+      "type": "string",
+      "confidence": 0.75
+    },
+    {
+      "pattern": "NumberFormat",
+      "type": "string",
+      "confidence": 0.75
+    }
+  ]
+}

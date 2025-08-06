@@ -1,0 +1,183 @@
+{
+  "component": {
+    "name": "Opus",
+    "version": "unknown",
+    "category": "multimedia",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "Opus audio codec",
+    "license": "BSD-3-Clause",
+    "publisher": "Xiph.Org Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-05T00:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.7,
+    "source": "manual_analysis",
+    "extraction_method": "api_analysis"
+  },
+  "signatures": [
+    {
+      "id": "opus_001",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_create",
+      "confidence": 0.95,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_002",
+      "type": "string_pattern",
+      "pattern": "opus_encode",
+      "confidence": 0.95,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_003",
+      "type": "string_pattern",
+      "pattern": "opus_encode_float",
+      "confidence": 0.9,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_004",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_destroy",
+      "confidence": 0.9,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_005",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_create",
+      "confidence": 0.95,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_006",
+      "type": "string_pattern",
+      "pattern": "opus_decode",
+      "confidence": 0.95,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_007",
+      "type": "string_pattern",
+      "pattern": "opus_decode_float",
+      "confidence": 0.9,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_008",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_destroy",
+      "confidence": 0.9,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_009",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_ctl",
+      "confidence": 0.85,
+      "context": "control_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_010",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_ctl",
+      "confidence": 0.85,
+      "context": "control_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_011",
+      "type": "string_pattern",
+      "pattern": "opus_get_version_string",
+      "confidence": 0.9,
+      "context": "version_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_012",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_get_size",
+      "confidence": 0.85,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_013",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_get_size",
+      "confidence": 0.85,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_014",
+      "type": "string_pattern",
+      "pattern": "opus_packet_get_bandwidth",
+      "confidence": 0.85,
+      "context": "packet_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_015",
+      "type": "string_pattern",
+      "pattern": "opus_packet_get_samples_per_frame",
+      "confidence": 0.85,
+      "context": "packet_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_016",
+      "type": "string_pattern",
+      "pattern": "opus_packet_get_nb_channels",
+      "confidence": 0.85,
+      "context": "packet_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_017",
+      "type": "string_pattern",
+      "pattern": "opus_packet_get_nb_frames",
+      "confidence": 0.85,
+      "context": "packet_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_018",
+      "type": "string_pattern",
+      "pattern": "opus_packet_parse",
+      "confidence": 0.85,
+      "context": "packet_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_019",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_encoder_create",
+      "confidence": 0.9,
+      "context": "multistream_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "opus_020",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_decoder_create",
+      "confidence": 0.9,
+      "context": "multistream_api",
+      "platforms": ["all"]
+    }
+  ]
+}

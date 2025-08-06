@@ -1,0 +1,40 @@
+{
+  "component": {
+    "name": "NOSTRA13 Android Universal Image Loader",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "android"
+    ],
+    "languages": [
+      "java",
+      "kotlin"
+    ],
+    "description": "Signatures for NOSTRA13 Android Universal Image Loader - NOSTRA13",
+    "license": "Apache-2.0",
+    "publisher": "NOSTRA13"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.391649Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "nostra13-universalimageloader.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "nostra13_universalimageloader_0",
+      "type": "string_pattern",
+      "pattern": "nostra13",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    }
+  ]
+}

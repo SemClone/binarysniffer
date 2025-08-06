@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "pkg-errors",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for pkg-errors - Dave Cheney",
+    "license": "BSD-2-Clause",
+    "publisher": "Dave Cheney"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.391062Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "pkg-errors.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "pkg_errors_0",
+      "type": "string_pattern",
+      "pattern": "Github-Pkg-Errors",
+      "confidence": 0.9,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

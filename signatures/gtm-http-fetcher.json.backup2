@@ -1,0 +1,103 @@
+{
+  "component": {
+    "name": "GTM HTTP Fetcher",
+    "version": "unknown",
+    "ecosystem": "ios",
+    "description": "Google Toolbox for Mac HTTP Fetcher - HTTP networking library for iOS/macOS",
+    "publisher": "Google",
+    "license": "Apache-2.0",
+    "platforms": ["ios", "macos"],
+    "languages": ["objective-c"]
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:00:00Z",
+    "updated": "2025-08-06T00:00:00Z",
+    "signature_count": 10,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "description": "GTM HTTP Fetcher signatures based on Google Contacts IPA"
+  },
+  "signatures": [
+    {
+      "id": "gtm_http_1",
+      "type": "string_pattern",
+      "pattern": "GTMHTTPUploadFetcher",
+      "confidence": 0.95,
+      "context": "class_name",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_2",
+      "type": "string_pattern",
+      "pattern": "com.google.GTMHTTPFetcher",
+      "confidence": 0.95,
+      "context": "bundle_id",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_3",
+      "type": "string_pattern",
+      "pattern": "kGTMHTTPFetcherStartedNotification",
+      "confidence": 0.9,
+      "context": "notification",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_4",
+      "type": "string_pattern",
+      "pattern": "kGTMHTTPFetcherStoppedNotification",
+      "confidence": 0.9,
+      "context": "notification",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_5",
+      "type": "string_pattern",
+      "pattern": "kGTMHTTPFetcherRetryDelayStartedNotification",
+      "confidence": 0.85,
+      "context": "notification",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_6",
+      "type": "string_pattern",
+      "pattern": "GTMCookieStorage",
+      "confidence": 0.85,
+      "context": "class_name",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_7",
+      "type": "string_pattern",
+      "pattern": "gtmhttpfetcher_",
+      "confidence": 0.8,
+      "context": "prefix",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_8",
+      "type": "string_pattern",
+      "pattern": "GTMHTTPFetcher",
+      "confidence": 0.9,
+      "context": "class_prefix",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_9",
+      "type": "string_pattern",
+      "pattern": "kGTMHTTPFetcher",
+      "confidence": 0.85,
+      "context": "constant_prefix",
+      "platforms": ["ios", "macos"]
+    },
+    {
+      "id": "gtm_http_10",
+      "type": "string_pattern",
+      "pattern": "GTMHTTPFetchHistory",
+      "confidence": 0.85,
+      "context": "class_name",
+      "platforms": ["ios", "macos"]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "component": {
+    "name": "TensorFlow Lite",
+    "version": "unknown",
+    "ecosystem": "native",
+    "description": "TensorFlow Lite - Machine Learning framework for mobile and embedded devices",
+    "publisher": "Google",
+    "license": "Apache-2.0",
+    "platforms": ["android", "ios", "linux"],
+    "languages": ["c++"]
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:00:00Z",
+    "updated": "2025-08-06T00:00:00Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "description": "TensorFlow Lite signatures based on Prime Video APK analysis"
+  },
+  "signatures": [
+    {
+      "id": "tflite_1",
+      "type": "string_pattern",
+      "pattern": "tensorflow/lite",
+      "confidence": 0.95,
+      "context": "path",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_2",
+      "type": "string_pattern",
+      "pattern": "kTfLite",
+      "confidence": 0.9,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_3",
+      "type": "string_pattern",
+      "pattern": "TfLiteContext",
+      "confidence": 0.9,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_4",
+      "type": "string_pattern",
+      "pattern": "TfLiteNode",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_5",
+      "type": "string_pattern",
+      "pattern": "TfLiteTensor",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_6",
+      "type": "string_pattern",
+      "pattern": "tflite::Interpreter",
+      "confidence": 0.9,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_7",
+      "type": "string_pattern",
+      "pattern": "tflite::ops::builtin",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_8",
+      "type": "string_pattern",
+      "pattern": "TfLiteFloat32",
+      "confidence": 0.8,
+      "context": "type",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_9",
+      "type": "string_pattern",
+      "pattern": "TfLiteUInt8",
+      "confidence": 0.8,
+      "context": "type",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_10",
+      "type": "string_pattern",
+      "pattern": "TfLiteInt32",
+      "confidence": 0.8,
+      "context": "type",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_11",
+      "type": "string_pattern",
+      "pattern": "TfLiteAffineQuantization",
+      "confidence": 0.85,
+      "context": "quantization",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_12",
+      "type": "string_pattern",
+      "pattern": "tflite::optimized_ops",
+      "confidence": 0.85,
+      "context": "optimization",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_13",
+      "type": "string_pattern",
+      "pattern": "DepthwiseConvWorkerTask",
+      "confidence": 0.75,
+      "context": "operation",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_14",
+      "type": "string_pattern",
+      "pattern": "TfliteKernelBase",
+      "confidence": 0.8,
+      "context": "kernel",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_15",
+      "type": "string_pattern",
+      "pattern": "decryptTflite",
+      "confidence": 0.7,
+      "context": "custom",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_16",
+      "type": "string_pattern",
+      "pattern": "libfovea_tflite",
+      "confidence": 0.75,
+      "context": "library",
+      "platforms": ["android"]
+    },
+    {
+      "id": "tflite_17",
+      "type": "string_pattern",
+      "pattern": "TfLiteRegistration",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_18",
+      "type": "string_pattern",
+      "pattern": "TfLiteDelegate",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_19",
+      "type": "string_pattern",
+      "pattern": "TfLiteStatus",
+      "confidence": 0.8,
+      "context": "api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "tflite_20",
+      "type": "string_pattern",
+      "pattern": "TfLiteModel",
+      "confidence": 0.85,
+      "context": "api",
+      "platforms": ["all"]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "component": {
+    "name": "zlib",
+    "version": "unknown",
+    "category": "compression",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c"
+    ],
+    "description": "zlib compression library",
+    "license": "zlib",
+    "publisher": "Jean-loup Gailly and Mark Adler"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T19:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "zlib_5",
+      "type": "string_pattern",
+      "pattern": "compress2",
+      "confidence": 0.85,
+      "context": "function"
+    }
+  ]
+}

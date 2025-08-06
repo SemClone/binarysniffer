@@ -1,0 +1,1189 @@
+{
+  "component": {
+    "name": "pdfium",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for pdfium - Google",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.394275Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 116,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google_pdfium.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "google_pdfium_3",
+      "type": "string_pattern",
+      "pattern": "CFX_ArchiveSaver",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_10",
+      "type": "string_pattern",
+      "pattern": "CFX_BilinearMatrix",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_11",
+      "type": "string_pattern",
+      "pattern": "CFX_BinaryBuf",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_13",
+      "type": "string_pattern",
+      "pattern": "CFX_BitmapComposer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_14",
+      "type": "string_pattern",
+      "pattern": "CFX_BitmapStorer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_16",
+      "type": "string_pattern",
+      "pattern": "CFX_ByteStringC",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_18",
+      "type": "string_pattern",
+      "pattern": "CFX_ByteTextBuf",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_19",
+      "type": "string_pattern",
+      "pattern": "CFX_CMapByteStringToPtr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_20",
+      "type": "string_pattern",
+      "pattern": "CFX_CMapDWordToDWord",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_23",
+      "type": "string_pattern",
+      "pattern": "CFX_CacheMgr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_25",
+      "type": "string_pattern",
+      "pattern": "CFX_ClipRgn",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_26",
+      "type": "string_pattern",
+      "pattern": "CFX_CountRef",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_27",
+      "type": "string_pattern",
+      "pattern": "CFX_DIBExtractor",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_28",
+      "type": "string_pattern",
+      "pattern": "CFX_DIBSource",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_33",
+      "type": "string_pattern",
+      "pattern": "CFX_FilteredDIB",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_35",
+      "type": "string_pattern",
+      "pattern": "CFX_FloatRect",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_39",
+      "type": "string_pattern",
+      "pattern": "CFX_FontMapper",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_40",
+      "type": "string_pattern",
+      "pattern": "CFX_FontMgr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_41",
+      "type": "string_pattern",
+      "pattern": "CFX_FxgeDevice",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_47",
+      "type": "string_pattern",
+      "pattern": "CFX_ImageRenderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_48",
+      "type": "string_pattern",
+      "pattern": "CFX_ImageStretcher",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_49",
+      "type": "string_pattern",
+      "pattern": "CFX_ImageTransformer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_50",
+      "type": "string_pattern",
+      "pattern": "CFX_MapByteStringToPtr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_51",
+      "type": "string_pattern",
+      "pattern": "CFX_MapPtrToPtr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_52",
+      "type": "string_pattern",
+      "pattern": "CFX_Matrix",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_53",
+      "type": "string_pattern",
+      "pattern": "CFX_MemoryMgr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_57",
+      "type": "string_pattern",
+      "pattern": "CFX_Palette",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_59",
+      "type": "string_pattern",
+      "pattern": "CFX_Plex",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_62",
+      "type": "string_pattern",
+      "pattern": "CFX_RenderDevice",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_63",
+      "type": "string_pattern",
+      "pattern": "CFX_Renderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_64",
+      "type": "string_pattern",
+      "pattern": "CFX_ScanlineCompositor",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_72",
+      "type": "string_pattern",
+      "pattern": "CFX_WideTextBuf",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_80",
+      "type": "string_pattern",
+      "pattern": "CJBig2_GRDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_81",
+      "type": "string_pattern",
+      "pattern": "CJBig2_GRRDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_82",
+      "type": "string_pattern",
+      "pattern": "CJBig2_GSIDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_83",
+      "type": "string_pattern",
+      "pattern": "CJBig2_HTRDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_86",
+      "type": "string_pattern",
+      "pattern": "CJBig2_Image",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_90",
+      "type": "string_pattern",
+      "pattern": "CJBig2_PDDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_91",
+      "type": "string_pattern",
+      "pattern": "CJBig2_PatternDict",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_92",
+      "type": "string_pattern",
+      "pattern": "CJBig2_SDDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_94",
+      "type": "string_pattern",
+      "pattern": "CJBig2_SymbolDict",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_95",
+      "type": "string_pattern",
+      "pattern": "CJBig2_TRDProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_98",
+      "type": "string_pattern",
+      "pattern": "CPDF_ActionFields",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_99",
+      "type": "string_pattern",
+      "pattern": "CPDF_AllStates",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_100",
+      "type": "string_pattern",
+      "pattern": "CPDF_Annot",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_106",
+      "type": "string_pattern",
+      "pattern": "CPDF_BookmarkEx",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_108",
+      "type": "string_pattern",
+      "pattern": "CPDF_BookmarkTreeEx",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_114",
+      "type": "string_pattern",
+      "pattern": "CPDF_CalGray",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_115",
+      "type": "string_pattern",
+      "pattern": "CPDF_CalRGB",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_120",
+      "type": "string_pattern",
+      "pattern": "CPDF_ColorSpace",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_123",
+      "type": "string_pattern",
+      "pattern": "CPDF_ContentGenerator",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_126",
+      "type": "string_pattern",
+      "pattern": "CPDF_ContentMarkItem",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_129",
+      "type": "string_pattern",
+      "pattern": "CPDF_DIBSource",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_130",
+      "type": "string_pattern",
+      "pattern": "CPDF_DIBTransferFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_131",
+      "type": "string_pattern",
+      "pattern": "CPDF_DataAvail",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_132",
+      "type": "string_pattern",
+      "pattern": "CPDF_DebugModuleDef",
+      "confidence": 0.8,
+      "context": "logging",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_134",
+      "type": "string_pattern",
+      "pattern": "CPDF_DefaultAppearance",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_135",
+      "type": "string_pattern",
+      "pattern": "CPDF_Dest",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_137",
+      "type": "string_pattern",
+      "pattern": "CPDF_DeviceCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_138",
+      "type": "string_pattern",
+      "pattern": "CPDF_DeviceNCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_139",
+      "type": "string_pattern",
+      "pattern": "CPDF_Dictionary",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_140",
+      "type": "string_pattern",
+      "pattern": "CPDF_DocJSActions",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_144",
+      "type": "string_pattern",
+      "pattern": "CPDF_EditContainer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_145",
+      "type": "string_pattern",
+      "pattern": "CPDF_ExpIntFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_146",
+      "type": "string_pattern",
+      "pattern": "CPDF_FXMP",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_149",
+      "type": "string_pattern",
+      "pattern": "CPDF_FileSpec",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_150",
+      "type": "string_pattern",
+      "pattern": "CPDF_FixedMatrix",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_155",
+      "type": "string_pattern",
+      "pattern": "CPDF_FontGlobals",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_163",
+      "type": "string_pattern",
+      "pattern": "CPDF_GraphicStates",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_164",
+      "type": "string_pattern",
+      "pattern": "CPDF_ICCBasedCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_167",
+      "type": "string_pattern",
+      "pattern": "CPDF_Image",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_171",
+      "type": "string_pattern",
+      "pattern": "CPDF_ImageRenderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_172",
+      "type": "string_pattern",
+      "pattern": "CPDF_IndexedCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_173",
+      "type": "string_pattern",
+      "pattern": "CPDF_IndirectObjects",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_177",
+      "type": "string_pattern",
+      "pattern": "CPDF_LabCS",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_178",
+      "type": "string_pattern",
+      "pattern": "CPDF_LinkExt",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_181",
+      "type": "string_pattern",
+      "pattern": "CPDF_MediaPlayer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_184",
+      "type": "string_pattern",
+      "pattern": "CPDF_ModuleMgr",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_190",
+      "type": "string_pattern",
+      "pattern": "CPDF_PSEngine",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_191",
+      "type": "string_pattern",
+      "pattern": "CPDF_PSFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_192",
+      "type": "string_pattern",
+      "pattern": "CPDF_PSProc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_193",
+      "type": "string_pattern",
+      "pattern": "CPDF_Page",
+      "confidence": 0.7,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_196",
+      "type": "string_pattern",
+      "pattern": "CPDF_PageModuleDef",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_198",
+      "type": "string_pattern",
+      "pattern": "CPDF_PageObjects",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_200",
+      "type": "string_pattern",
+      "pattern": "CPDF_ParseOptions",
+      "confidence": 0.8,
+      "context": "processing",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_202",
+      "type": "string_pattern",
+      "pattern": "CPDF_PatchDrawer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_204",
+      "type": "string_pattern",
+      "pattern": "CPDF_Pattern",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_205",
+      "type": "string_pattern",
+      "pattern": "CPDF_PatternCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_207",
+      "type": "string_pattern",
+      "pattern": "CPDF_ProgressiveRenderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_210",
+      "type": "string_pattern",
+      "pattern": "CPDF_QuickDrawer",
+      "confidence": 0.8,
+      "context": "user_interface",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_213",
+      "type": "string_pattern",
+      "pattern": "CPDF_QuickStretcher",
+      "confidence": 0.8,
+      "context": "user_interface",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_214",
+      "type": "string_pattern",
+      "pattern": "CPDF_QuickTextExtractor",
+      "confidence": 0.8,
+      "context": "user_interface",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_220",
+      "type": "string_pattern",
+      "pattern": "CPDF_RenderModuleDef",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_221",
+      "type": "string_pattern",
+      "pattern": "CPDF_RenderOptions",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_223",
+      "type": "string_pattern",
+      "pattern": "CPDF_Rendition",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_224",
+      "type": "string_pattern",
+      "pattern": "CPDF_ResourceNaming",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_226",
+      "type": "string_pattern",
+      "pattern": "CPDF_SampledFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_229",
+      "type": "string_pattern",
+      "pattern": "CPDF_SeparationCS",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_231",
+      "type": "string_pattern",
+      "pattern": "CPDF_ShadingPattern",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_237",
+      "type": "string_pattern",
+      "pattern": "CPDF_StitchFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_239",
+      "type": "string_pattern",
+      "pattern": "CPDF_StreamAcc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_246",
+      "type": "string_pattern",
+      "pattern": "CPDF_TextPage",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_248",
+      "type": "string_pattern",
+      "pattern": "CPDF_TextRenderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_251",
+      "type": "string_pattern",
+      "pattern": "CPDF_TilingPattern",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_253",
+      "type": "string_pattern",
+      "pattern": "CPDF_TransferFunc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_259",
+      "type": "string_pattern",
+      "pattern": "CPDF_Type3Glyphs",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_263",
+      "type": "string_pattern",
+      "pattern": "CPVT_GenerateAP",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_267",
+      "type": "string_pattern",
+      "pattern": "CPVT_WordPlace",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_268",
+      "type": "string_pattern",
+      "pattern": "CPVT_WordRange",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_271",
+      "type": "string_pattern",
+      "pattern": "CXML_Composer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_272",
+      "type": "string_pattern",
+      "pattern": "CXML_DataBufAcc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_273",
+      "type": "string_pattern",
+      "pattern": "CXML_DataStmAcc",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_274",
+      "type": "string_pattern",
+      "pattern": "CXML_Element",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_280",
+      "type": "string_pattern",
+      "pattern": "IFX_FontMapper",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_286",
+      "type": "string_pattern",
+      "pattern": "IPDF_ObjectRenderer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "google_pdfium_287",
+      "type": "string_pattern",
+      "pattern": "IPDF_TextPage",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "component": {
+    "name": "Apache Commons",
+    "version": "unknown",
+    "category": "enterprise-library",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Apache Commons - The Apache Software Foundation",
+    "license": "Apache-2.0",
+    "publisher": "The Apache Software Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.448158Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 2,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "apache-commons.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "apache_commons_2",
+      "type": "string_pattern",
+      "pattern": "apachecommons",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "apache_commons_3",
+      "type": "string_pattern",
+      "pattern": "apache.commons",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

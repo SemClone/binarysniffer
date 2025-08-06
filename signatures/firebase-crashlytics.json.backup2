@@ -1,0 +1,79 @@
+{
+  "component": {
+    "name": "Firebase Crashlytics",
+    "version": "unknown",
+    "category": "crash-reporting",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "languages": [
+      "c",
+      "cpp"
+    ],
+    "description": "Firebase Crashlytics crash reporting",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T19:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 7,
+    "confidence_threshold": 0.7,
+    "source": "manual",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "crashlytics_4",
+      "type": "string_pattern",
+      "pattern": "firebase_crashlytics",
+      "confidence": 0.9,
+      "context": "namespace"
+    },
+    {
+      "id": "crashlytics_5",
+      "type": "string_pattern",
+      "pattern": "libcrashlytics",
+      "confidence": 0.95,
+      "context": "filename"
+    },
+    {
+      "id": "crashlytics_6",
+      "type": "string_pattern",
+      "pattern": "FIRCrashlytics",
+      "confidence": 0.9,
+      "context": "class"
+    },
+    {
+      "id": "crashlytics_7",
+      "type": "string_pattern",
+      "pattern": "com.crashlytics",
+      "confidence": 0.85,
+      "context": "package"
+    },
+    {
+      "id": "crashlytics_8",
+      "type": "string_pattern",
+      "pattern": "Fabric/Crashlytics",
+      "confidence": 0.85,
+      "context": "header"
+    },
+    {
+      "id": "crashlytics_9",
+      "type": "string_pattern",
+      "pattern": "crashlytics_trampoline",
+      "confidence": 0.9,
+      "context": "function"
+    },
+    {
+      "id": "crashlytics_10",
+      "type": "string_pattern",
+      "pattern": "com.google.firebase.crashlytics",
+      "confidence": 0.95,
+      "context": "package"
+    }
+  ]
+}

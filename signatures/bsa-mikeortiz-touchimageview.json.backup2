@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "TouchImageView",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for TouchImageView - MikeOrtiz",
+    "license": "MIT",
+    "publisher": "MikeOrtiz"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.390117Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "mikeortiz-touchimageview.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "mikeortiz_touchimageview_0",
+      "type": "string_pattern",
+      "pattern": "ortiz.touch",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

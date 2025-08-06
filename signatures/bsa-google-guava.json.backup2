@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "Guava",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Guava - Google",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.398973Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-guava.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "google_guava_2",
+      "type": "string_pattern",
+      "pattern": "guava-testlib",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

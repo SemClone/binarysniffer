@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "Go",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "go"
+    ],
+    "description": "Signatures for Go - The Go Authors",
+    "license": "BSD-3-Clause",
+    "publisher": "The Go Authors"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.392256Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "google-go.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "google_go_2",
+      "type": "string_pattern",
+      "pattern": "goroutines",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

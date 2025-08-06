@@ -1,0 +1,60 @@
+{
+  "component": {
+    "name": "Facebook Android SDK",
+    "version": "unknown",
+    "category": "mobile-sdk",
+    "platforms": [
+      "android"
+    ],
+    "languages": [
+      "java",
+      "kotlin"
+    ],
+    "description": "Signatures for Facebook Android SDK - Facebook",
+    "license": "Apache-2.0+CommercialToS",
+    "publisher": "Facebook"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.389505Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 3,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "facebook-android-sdk.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "facebook_android_sdk_3",
+      "type": "string_pattern",
+      "pattern": "facebook-core",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "facebook_android_sdk_5",
+      "type": "string_pattern",
+      "pattern": "Yafacebook-gamingservices",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "facebook_android_sdk_13",
+      "type": "string_pattern",
+      "pattern": "facebook-gamingservices",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "android"
+      ]
+    }
+  ]
+}

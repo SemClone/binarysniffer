@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "Viper",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for Viper - Steve Francia",
+    "license": "MIT",
+    "publisher": "Steve Francia"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.391539Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "spf13-viper.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "spf13_viper_0",
+      "type": "string_pattern",
+      "pattern": "Spf13-Viper",
+      "confidence": 0.9,
+      "context": "unknown",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

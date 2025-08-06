@@ -1,0 +1,26 @@
+{
+  "component": {
+    "name": "TouchImageView",
+    "version": "",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Imported from legacy database - TouchImageView",
+    "license": "MIT"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:30:48.531515Z",
+    "signature_count": 0,
+    "confidence_threshold": 0.7,
+    "source": "migrated_from_sqlite_db",
+    "updated": "2025-08-05T00:00:00Z",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": []
+}

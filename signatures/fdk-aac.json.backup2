@@ -1,0 +1,183 @@
+{
+  "component": {
+    "name": "FDK-AAC",
+    "version": "unknown",
+    "category": "multimedia",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "Fraunhofer FDK AAC codec library",
+    "license": "FDK-AAC",
+    "publisher": "Fraunhofer IIS"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-05T00:00:00Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.7,
+    "source": "manual_analysis",
+    "extraction_method": "api_analysis"
+  },
+  "signatures": [
+    {
+      "id": "fdkaac_001",
+      "type": "string_pattern",
+      "pattern": "aacEncOpen",
+      "confidence": 0.95,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_002",
+      "type": "string_pattern",
+      "pattern": "aacEncEncode",
+      "confidence": 0.95,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_003",
+      "type": "string_pattern",
+      "pattern": "aacEncClose",
+      "confidence": 0.9,
+      "context": "encoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_004",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_Open",
+      "confidence": 0.95,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_005",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_DecodeFrame",
+      "confidence": 0.95,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_006",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_Close",
+      "confidence": 0.9,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_007",
+      "type": "string_pattern",
+      "pattern": "aacEncInfo",
+      "confidence": 0.85,
+      "context": "encoder_info",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_008",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_GetStreamInfo",
+      "confidence": 0.85,
+      "context": "decoder_info",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_009",
+      "type": "string_pattern",
+      "pattern": "aacEncoder_SetParam",
+      "confidence": 0.85,
+      "context": "encoder_config",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_010",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_SetParam",
+      "confidence": 0.85,
+      "context": "decoder_config",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_011",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_Fill",
+      "confidence": 0.85,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_012",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_ConfigRaw",
+      "confidence": 0.85,
+      "context": "decoder_config",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_013",
+      "type": "string_pattern",
+      "pattern": "aacEncGetLibInfo",
+      "confidence": 0.9,
+      "context": "version_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_014",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_GetLibInfo",
+      "confidence": 0.9,
+      "context": "version_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_015",
+      "type": "string_pattern",
+      "pattern": "AACENC_InfoStruct",
+      "confidence": 0.8,
+      "context": "data_structure",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_016",
+      "type": "string_pattern",
+      "pattern": "AACENC_BufDesc",
+      "confidence": 0.8,
+      "context": "data_structure",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_017",
+      "type": "string_pattern",
+      "pattern": "AACENC_MetaData",
+      "confidence": 0.8,
+      "context": "data_structure",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_018",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_AncDataInit",
+      "confidence": 0.8,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_019",
+      "type": "string_pattern",
+      "pattern": "aacDecoder_AncDataGet",
+      "confidence": 0.8,
+      "context": "decoder_api",
+      "platforms": ["all"]
+    },
+    {
+      "id": "fdkaac_020",
+      "type": "string_pattern",
+      "pattern": "FDKaacEnc_GetVBRBitrate",
+      "confidence": 0.85,
+      "context": "encoder_utility",
+      "platforms": ["all"]
+    }
+  ]
+}

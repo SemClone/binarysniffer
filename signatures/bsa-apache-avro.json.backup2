@@ -1,0 +1,28 @@
+{
+  "component": {
+    "name": "Apache Avro",
+    "version": "unknown",
+    "category": "enterprise-library",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for Apache Avro - The Apache Software Foundation",
+    "license": "Apache-2.0",
+    "publisher": "The Apache Software Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.391410Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "apache-avro.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": []
+}

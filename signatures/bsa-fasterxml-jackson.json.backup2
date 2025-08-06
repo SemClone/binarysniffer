@@ -1,0 +1,89 @@
+{
+  "component": {
+    "name": "FasterXML Jackson",
+    "version": "unknown",
+    "category": "data-processing",
+    "platforms": [
+      "java"
+    ],
+    "languages": [
+      "java"
+    ],
+    "description": "Signatures for FasterXML Jackson - FasterXML",
+    "license": "Apache-2.0",
+    "publisher": "FasterXML"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.390615Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 6,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "fasterxml-jackson.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "fasterxml_jackson_3",
+      "type": "string_pattern",
+      "pattern": "JsonAnyGetter",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_5",
+      "type": "string_pattern",
+      "pattern": "convertSurrogate",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_6",
+      "type": "string_pattern",
+      "pattern": "ThrowableDeserializer",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_8",
+      "type": "string_pattern",
+      "pattern": "WriterBasedJsonGenerator",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_17",
+      "type": "string_pattern",
+      "pattern": "asciiEscapes",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    },
+    {
+      "id": "fasterxml_jackson_21",
+      "type": "string_pattern",
+      "pattern": "beenpublished",
+      "confidence": 0.8,
+      "context": "unknown",
+      "platforms": [
+        "java"
+      ]
+    }
+  ]
+}

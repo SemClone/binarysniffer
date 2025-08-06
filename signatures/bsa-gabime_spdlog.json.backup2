@@ -1,0 +1,29 @@
+{
+  "component": {
+    "name": "Fast C++ logging - spdlog",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ],
+    "description": "Signatures for Fast C++ logging - spdlog - Gabi Melman",
+    "license": "MIT",
+    "publisher": "Gabi Melman"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.390841Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 0,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "gabime_spdlog.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": []
+}

@@ -1,0 +1,39 @@
+{
+  "component": {
+    "name": "GNU libiconv",
+    "version": "unknown",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "unknown"
+    ],
+    "description": "Signatures for GNU libiconv - Free Software Foundation",
+    "license": "GPL-3.0|LGPL-2.0",
+    "publisher": "Free Software Foundation"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-04T15:40:01.449958Z",
+    "updated": "2025-08-05T00:00:00Z",
+    "signature_count": 1,
+    "confidence_threshold": 0.7,
+    "source": "converted_from_bsa_format",
+    "original_file": "gnu_libiconv.json",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "gnu_libiconv_1",
+      "type": "string_pattern",
+      "pattern": "libiconv_",
+      "confidence": 0.85,
+      "context": "library_function",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

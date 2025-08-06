@@ -1,0 +1,177 @@
+{
+  "component": {
+    "name": "OpenCV",
+    "version": "3.2.0",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "native"
+    ],
+    "description": "Open Source Computer Vision Library",
+    "license": "BSD-3-Clause",
+    "publisher": "OpenCV Team"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:47:41.420987Z",
+    "updated": "2025-08-06T00:47:41.421002Z",
+    "signature_count": 15,
+    "confidence_threshold": 0.7,
+    "source": "binary_analysis",
+    "extraction_method": "symbol_extraction"
+  },
+  "signatures": [
+    {
+      "id": "opencv_0",
+      "type": "string_pattern",
+      "pattern": "OPENCV_OPENCL_BUFFERPOOL_LIMIT",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_1",
+      "type": "string_pattern",
+      "pattern": "OPENCV_OPENCL_DEVICE",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_2",
+      "type": "string_pattern",
+      "pattern": "OPENCV_OPENCL_HOST_PTR_BUFFERPOOL_LIMIT",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_3",
+      "type": "string_pattern",
+      "pattern": "OPENCV_TEMP_PATH",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_4",
+      "type": "string_pattern",
+      "pattern": "OPENCV_OPENCL_RUNTIME",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_5",
+      "type": "string_pattern",
+      "pattern": "OPENC",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_6",
+      "type": "prefix_pattern",
+      "pattern": "OPENCV_",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_7",
+      "type": "string_pattern",
+      "pattern": "OPENCV_O",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_8",
+      "type": "string_pattern",
+      "pattern": "PENCV_OP",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_9",
+      "type": "string_pattern",
+      "pattern": "ENCV_OPE",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_10",
+      "type": "string_pattern",
+      "pattern": "NCV_OPEN",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_11",
+      "type": "string_pattern",
+      "pattern": "CV_OPENC",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_12",
+      "type": "string_pattern",
+      "pattern": "V_OPENCL",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_13",
+      "type": "prefix_pattern",
+      "pattern": "_OPENCL_",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opencv_14",
+      "type": "string_pattern",
+      "pattern": "_BUFFERP",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}
