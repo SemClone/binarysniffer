@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2025-08-06
+
+### Added
+- **MSI installer support** - Extract and analyze Windows Installer packages (.msi files) with 7-Zip
+- **PKG installer support** - Extract and analyze macOS installer packages (.pkg files) with 7-Zip  
+- **DMG support** - Extract and analyze macOS disk images (.dmg files) with 7-Zip
+- **New signatures** - Added Qt5 Framework, OpenCV, Foxit PDF SDK, wolfSSL, PCoIP SDK, and .NET Core Runtime
+- **Logging improvements** - Clean logging output and debug features from GitHub issues #6 and #3
+- **Version display** - Show version in main help output for better user experience
+
+### Improved
+- **Installer analysis** - Significantly improved detection rates for Windows and macOS installers
+- **Archive extraction** - Enhanced extraction capabilities for various installer formats
+- **Documentation** - Updated README with comprehensive optional tools section
+
+### Fixed
+- **Signature cleanup** - Removed unnecessary vendor-specific signatures
+
 ## [1.6.6] - 2025-08-06
 
 ### Improved
