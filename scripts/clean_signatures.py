@@ -1,294 +1,237 @@
 #!/usr/bin/env python3
 """
-Clean up existing signatures by removing generic patterns that cause false positives.
+Clean signatures by removing overly generic patterns that cause false positives.
 """
 
 import json
-import shutil
+import sys
 from pathlib import Path
-from typing import Dict, List, Set, Tuple
-from collections import defaultdict
+from typing import Set
 
+# Common generic patterns that should be filtered
+GENERIC_PATTERNS = {
+    # C standard library functions
+    'free', 'malloc', 'calloc', 'realloc', 'memcpy', 'memset', 'memmove', 'memcmp',
+    'strcpy', 'strncpy', 'strcat', 'strncat', 'strcmp', 'strncmp', 'strlen',
+    'printf', 'sprintf', 'fprintf', 'scanf', 'fscanf', 'fopen', 'fclose', 'fread', 'fwrite',
+    'exit', 'abort', 'atexit', 'system', 'getenv', 'setenv',
+    
+    # Math functions
+    'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'atan2',
+    'exp', 'log', 'log10', 'pow', 'sqrt', 'ceil', 'floor', 'fabs', 'cbrt',
+    
+    # Common programming terms
+    'name', 'type', 'data', 'value', 'size', 'count', 'index', 'param', 'params',
+    'error', 'warning', 'info', 'debug', 'trace', 'fatal',
+    'true', 'false', 'null', 'none', 'void', 'auto',
+    'public', 'private', 'protected', 'static', 'const', 'final',
+    'class', 'struct', 'enum', 'interface', 'namespace',
+    'function', 'method', 'property', 'field', 'variable',
+    'get', 'set', 'add', 'remove', 'delete', 'create', 'destroy',
+    'init', 'setup', 'cleanup', 'start', 'stop', 'run', 'exec',
+    'open', 'close', 'read', 'write', 'seek', 'tell',
+    'push', 'pop', 'peek', 'clear', 'reset',
+    'copy', 'move', 'swap', 'compare', 'equal',
+    'load', 'save', 'store', 'fetch',
+    'lock', 'unlock', 'wait', 'signal', 'notify',
+    'send', 'recv', 'receive', 'transmit',
+    'encode', 'decode', 'encrypt', 'decrypt',
+    'parse', 'format', 'convert', 'transform',
+    'render', 'draw', 'paint', 'display', 'show', 'hide',
+    'enable', 'disable', 'toggle', 'switch',
+    'begin', 'end', 'first', 'last', 'next', 'prev', 'previous',
+    'parent', 'child', 'root', 'leaf', 'node',
+    'list', 'array', 'vector', 'map', 'set', 'queue', 'stack',
+    'key', 'value', 'pair', 'entry', 'item', 'element',
+    'source', 'target', 'dest', 'destination',
+    'input', 'output', 'result', 'return',
+    'handle', 'pointer', 'reference', 'address',
+    'buffer', 'cache', 'pool', 'heap', 'stack',
+    'thread', 'process', 'task', 'job', 'worker',
+    'event', 'message', 'signal', 'callback',
+    'config', 'settings', 'options', 'preferences',
+    'user', 'group', 'role', 'permission',
+    'file', 'path', 'directory', 'folder',
+    'string', 'text', 'char', 'byte', 'word',
+    'int', 'float', 'double', 'bool', 'boolean',
+    'date', 'time', 'timestamp', 'duration',
+    'width', 'height', 'depth', 'length',
+    'color', 'bitmap', 'image', 'texture',
+    'state', 'status', 'mode', 'flag',
+    'version', 'build', 'release', 'patch',
+    'test', 'check', 'verify', 'validate',
+    'sync', 'async', 'wait', 'done',
+    'post', 'call', 'invoke', 'apply',
+    'blob', 'break', 'table', 'sort', 'find'
+}
 
-class SignatureCleaner:
-    """Clean up problematic signatures from JSON files."""
+# Common IL/bytecode instructions
+IL_INSTRUCTIONS = {
+    'ldarg', 'ldloc', 'ldstr', 'ldc', 'stloc', 'starg', 'stfld', 'ldfld',
+    'call', 'calli', 'callvirt', 'ret', 'br', 'brtrue', 'brfalse', 'beq',
+    'cpblk', 'cpobj', 'isinst', 'castclass', 'box', 'unbox', 'throw',
+    'leave', 'endfinally', 'dup', 'pop', 'jmp', 'switch'
+}
+
+# Month names
+MONTHS = {'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec',
+          'january', 'february', 'march', 'april', 'june', 'july', 'august', 'september', 'october', 'november', 'december'}
+
+def should_filter_pattern(pattern: str) -> bool:
+    """Check if a pattern should be filtered out."""
     
-    # Patterns that are too generic and should be removed
-    PATTERNS_TO_REMOVE = {
-        # Empty or very short
-        "", "Hcl", "JSC", "OT:", "WTF", "awt", "fmt", "gwt", 
-        "hah", "jms", "kd_", "kdu", "rx.", "sax",
-        
-        # Company/language names
-        "android", "apache", "golang", "google", "kotlin", 
-        "react", "React", "facebook", "squareup",
-        
-        # Generic HTTP patterns
-        "HTTP", "HTTPS", "HTTP_REQUEST", "HTTP_RESPONSE", 
-        "HTTP_0_9", "HTTP_1_0", "HTTP_1_1", "HTTP_2",
-        "HttpHost", "HttpRequest", "HttpResponse", "HttpContext",
-        "HttpProcessor", "HttpVersion", "HttpDateGenerator",
-        
-        # Generic programming terms
-        "test", "Test", "debug", "Debug", "log", "Log",
-        "error", "Error", "warning", "Warning", "info", "Info",
-        "get", "set", "init", "create", "delete", "update",
-        "read", "write", "open", "close", "start", "stop",
-        "string", "String", "number", "Number", "array", "Array",
-        "list", "List", "map", "Map", "object", "Object",
-        
-        # Single words that are too common
-        "class", "function", "method", "interface", "struct",
-        "public", "private", "static", "final", "const",
-        "true", "false", "null", "void", "main", "app",
-        
-        # Common library terms
-        "core", "util", "utils", "common", "base", "lib",
-        "framework", "sdk", "api", "client", "server",
-        
-        # Generic patterns from analysis
-        "codehaus", "jackson", "FasterXML", "dagger", 
-        "inject", "sun.", "jdbc", "joda", "solr"
-    }
+    pattern_lower = pattern.lower()
     
-    # Minimum pattern length
-    MIN_PATTERN_LENGTH = 6
+    # Filter common generic patterns
+    if pattern_lower in GENERIC_PATTERNS:
+        return True
     
-    # Prefixes that indicate valid library-specific patterns
-    VALID_PREFIXES = {
-        # Video/Audio codecs
-        'av_', 'avcodec_', 'avformat_', 'avutil_', 'avfilter_', 
-        'avdevice_', 'swscale_', 'swresample_', 'postproc_',
-        'x264_', 'x265_', 'vpx_', 'vp8_', 'vp9_', 'theora_',
-        'opus_', 'vorbis_', 'ogg_', 'mp3_', 'lame_', 'flac_',
+    # Filter IL instructions
+    if pattern_lower in IL_INSTRUCTIONS:
+        return True
         
-        # Image libraries
-        'png_', 'jpeg_', 'jpg_', 'gif_', 'webp_', 'tiff_',
-        'PNG_', 'JPEG_', 'JPG_', 'GIF_', 'WEBP_', 'TIFF_',
-        
-        # Crypto/Security
-        'SSL_', 'TLS_', 'RSA_', 'AES_', 'EVP_', 'BIO_', 
-        'X509_', 'CRYPTO_', 'SHA_', 'MD5_',
-        
-        # Common libraries
-        'curl_', 'CURL_', 'sqlite3_', 'sqlite_', 'z_', 'gz_',
-        'xml_', 'XML_', 'json_', 'JSON_', 'yaml_', 'YAML_',
-        
-        # Programming language specific
-        'java.', 'javax.', 'com.', 'org.', 'net.', 'io.',
-        'android.', 'androidx.', 'kotlin.', 'scala.',
-        
-        # Apache specific (when properly namespaced)
-        'org.apache.', 'apache.', 'httpcore.', 'httpclient.',
-        
-        # Other valid prefixes
-        'fmt_', 'FMT_', 'spdlog_', 'boost_', 'poco_', 'qt_',
-        'gtk_', 'wx_', 'opencv_', 'cv_', 'tensorflow_', 'tf_',
-        'torch_', 'grpc_', 'protobuf_', 'pb_', 'kafka_',
-        'redis_', 'mongo_', 'mysql_', 'postgres_', 'elastic_',
-        
-        # Mobile specific
-        'firebase_', 'crashlytics_', 'fabric_', 'realm_',
-        'retrofit_', 'okhttp_', 'picasso_', 'glide_',
-        'butterknife_', 'eventbus_', 'leakcanary_',
-        
-        # Component specific prefixes
-        'joda_', 'JODA_', 'solr_', 'SOLR_', 'lucene_', 'LUCENE_',
-        'netty_', 'NETTY_', 'guava_', 'GUAVA_', 'gson_', 'GSON_',
-        'jackson_', 'JACKSON_', 'dagger_', 'DAGGER_',
-        'yoga_', 'YOGA_', 'folly_', 'FOLLY_', 'react_', 'REACT_'
-    }
+    # Filter month names
+    if pattern_lower in MONTHS:
+        return True
     
-    def __init__(self):
-        self.cleaned_count = 0
-        self.total_signatures = 0
-        self.component_stats = defaultdict(lambda: {'removed': 0, 'kept': 0})
-    
-    def should_keep_pattern(self, pattern: str, confidence: float = 0.5) -> bool:
-        """Determine if a pattern should be kept."""
-        # Remove if in removal list
-        if pattern in self.PATTERNS_TO_REMOVE:
-            return False
-        
-        # Remove if too short
-        if len(pattern) < self.MIN_PATTERN_LENGTH:
-            return False
-        
-        # Keep if it has a valid prefix
-        pattern_lower = pattern.lower()
-        for prefix in self.VALID_PREFIXES:
-            if pattern_lower.startswith(prefix.lower()):
-                return True
-        
-        # Keep if it's a proper namespace/package
-        if '::' in pattern or pattern.count('.') >= 2:
-            # But not if it ends with a dot
-            if not pattern.endswith('.'):
-                return True
-        
-        # Keep if high confidence and long enough
-        if confidence >= 0.9 and len(pattern) >= 12:
+    # Filter patterns that are too short (less than 4 chars)
+    # But keep if they have special chars or underscores (likely prefixes)
+    if len(pattern) < 4:
+        if not any(c in pattern for c in ['_', '-', '::', '.']):
             return True
-        
-        # Keep version patterns
-        if any(v in pattern.lower() for v in ['version', '_v1', '_v2', '_v3', '_1_', '_2_']):
+    
+    # Filter pure numeric or short hex patterns
+    if pattern.replace('0', '').replace('1', '').replace('2', '').replace('3', '').replace('4', '') \
+             .replace('5', '').replace('6', '').replace('7', '').replace('8', '').replace('9', '') \
+             .replace('a', '').replace('b', '').replace('c', '').replace('d', '').replace('e', '').replace('f', '') \
+             .replace('A', '').replace('B', '').replace('C', '').replace('D', '').replace('E', '').replace('F', '') == '':
+        if len(pattern) < 8:  # Short hex patterns are too generic
             return True
-        
-        # Keep patterns with special characters (often specific)
-        if any(c in pattern for c in ['_', '->', '@', '(', ')', '[', ']']) and len(pattern) >= 8:
-            # But not generic HTTP patterns
-            if not any(http in pattern for http in ['HTTP', 'Http', 'http']):
-                return True
-        
-        # Remove generic single words
-        if pattern.isalpha() and len(pattern) < 10:
-            return False
-        
-        # Remove test patterns
-        if any(test in pattern.lower() for test in ['test', 'example', 'sample', 'demo']):
-            return False
-        
-        # Default: keep if confidence is high enough
-        return confidence >= 0.8 and len(pattern) >= 8
     
-    def clean_signature_file(self, file_path: Path) -> Dict:
-        """Clean a single signature file."""
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            component_name = data.get('component', {}).get('name', 'Unknown')
-            original_signatures = data.get('signatures', [])
-            self.total_signatures += len(original_signatures)
-            
-            # Filter signatures
-            cleaned_signatures = []
-            for sig in original_signatures:
-                pattern = sig.get('pattern', '')
-                confidence = sig.get('confidence', 0.5)
-                
-                if self.should_keep_pattern(pattern, confidence):
-                    cleaned_signatures.append(sig)
-                    self.component_stats[component_name]['kept'] += 1
-                else:
-                    self.cleaned_count += 1
-                    self.component_stats[component_name]['removed'] += 1
-            
-            # Update data
-            data['signatures'] = cleaned_signatures
-            data['signature_metadata']['signature_count'] = len(cleaned_signatures)
-            data['signature_metadata']['updated'] = "2025-08-05T00:00:00Z"
-            data['signature_metadata']['cleaned'] = True
-            
-            return {
-                'component': component_name,
-                'original_count': len(original_signatures),
-                'cleaned_count': len(cleaned_signatures),
-                'removed_count': len(original_signatures) - len(cleaned_signatures),
-                'data': data
-            }
-            
-        except Exception as e:
-            print(f"Error cleaning {file_path}: {e}")
-            return None
+    # Filter patterns that are just uppercase versions of generic terms
+    if pattern.isupper() and pattern_lower in GENERIC_PATTERNS:
+        return True
     
-    def clean_all_signatures(self, signatures_dir: Path, output_dir: Path):
-        """Clean all signature files in directory."""
-        print("\n" + "="*80)
-        print("SIGNATURE CLEANING PROCESS")
-        print("="*80)
-        
-        # Create output directory
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Create backup directory
-        backup_dir = signatures_dir.parent / "signatures_backup"
-        if not backup_dir.exists():
-            print(f"\nCreating backup at: {backup_dir}")
-            shutil.copytree(signatures_dir, backup_dir)
-        
-        # Process all signature files
-        results = []
-        for sig_file in sorted(signatures_dir.glob("*.json")):
-            if sig_file.name in ["manifest.json", "template.json"]:
-                # Copy these files as-is
-                shutil.copy2(sig_file, output_dir / sig_file.name)
-                continue
-            
-            print(f"\nProcessing: {sig_file.name}")
-            result = self.clean_signature_file(sig_file)
-            
-            if result:
-                results.append(result)
-                
-                # Save cleaned file
-                output_file = output_dir / sig_file.name
-                with open(output_file, 'w', encoding='utf-8') as f:
-                    json.dump(result['data'], f, indent=2, ensure_ascii=False)
-                
-                print(f"  Original: {result['original_count']} signatures")
-                print(f"  Cleaned: {result['cleaned_count']} signatures")
-                print(f"  Removed: {result['removed_count']} signatures")
-        
-        # Print summary
-        print("\n" + "="*80)
-        print("CLEANING SUMMARY")
-        print("="*80)
-        print(f"\nTotal files processed: {len(results)}")
-        print(f"Total signatures before: {self.total_signatures}")
-        print(f"Total signatures after: {self.total_signatures - self.cleaned_count}")
-        print(f"Total signatures removed: {self.cleaned_count}")
-        print(f"Reduction: {self.cleaned_count / self.total_signatures * 100:.1f}%")
-        
-        # Show most affected components
-        print("\n\nMOST AFFECTED COMPONENTS:")
-        sorted_components = sorted(
-            self.component_stats.items(), 
-            key=lambda x: x[1]['removed'], 
-            reverse=True
-        )
-        
-        for component, stats in sorted_components[:10]:
-            if stats['removed'] > 0:
-                total = stats['removed'] + stats['kept']
-                print(f"  {component}: {stats['removed']}/{total} removed ({stats['removed']/total*100:.1f}%)")
-        
-        # Special focus on Apache HTTP Core
-        if 'Apache HTTP Core' in self.component_stats:
-            stats = self.component_stats['Apache HTTP Core']
-            print(f"\n\nAPACHE HTTP CORE CLEANUP:")
-            print(f"  Signatures kept: {stats['kept']}")
-            print(f"  Signatures removed: {stats['removed']}")
-            
-            # Show what patterns were kept
-            httpcore_file = output_dir / "bsa-apache-httpcore.json"
-            if httpcore_file.exists():
-                with open(httpcore_file, 'r') as f:
-                    httpcore_data = json.load(f)
-                
-                kept_patterns = [sig['pattern'] for sig in httpcore_data['signatures'][:10]]
-                print(f"  Sample kept patterns: {', '.join(kept_patterns)}")
+    # Keep pattern if it passes all filters
+    return False
 
+def clean_signature_file(file_path: Path, dry_run: bool = False) -> dict:
+    """Clean a signature file by removing generic patterns."""
+    
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+    
+    # Handle both formats
+    if 'component' in data:
+        component = data['component']['name']
+        signatures = data.get('signatures', [])
+        
+        # Filter signatures
+        original_count = len(signatures)
+        filtered_signatures = []
+        removed_patterns = []
+        
+        for sig in signatures:
+            pattern = sig.get('pattern', '')
+            if should_filter_pattern(pattern):
+                removed_patterns.append(pattern)
+            else:
+                filtered_signatures.append(sig)
+        
+        if not dry_run and removed_patterns:
+            data['signatures'] = filtered_signatures
+            data['signature_metadata']['signature_count'] = len(filtered_signatures)
+            
+            # Save the cleaned file
+            with open(file_path, 'w') as f:
+                json.dump(data, f, indent=2)
+        
+        return {
+            'file': file_path.name,
+            'component': component,
+            'original_count': original_count,
+            'filtered_count': len(filtered_signatures),
+            'removed_count': len(removed_patterns),
+            'removed_patterns': removed_patterns[:20]  # Show first 20
+        }
+    
+    elif 'symbols' in data:
+        # Handle symbol format
+        component = data.get('package_name', file_path.stem)
+        symbols = data.get('symbols', [])
+        
+        original_count = len(symbols)
+        filtered_symbols = [s for s in symbols if not should_filter_pattern(s)]
+        removed_patterns = [s for s in symbols if should_filter_pattern(s)]
+        
+        if not dry_run and removed_patterns:
+            data['symbols'] = filtered_symbols
+            
+            # Save the cleaned file
+            with open(file_path, 'w') as f:
+                json.dump(data, f, indent=2)
+        
+        return {
+            'file': file_path.name,
+            'component': component,
+            'original_count': original_count,
+            'filtered_count': len(filtered_symbols),
+            'removed_count': len(removed_patterns),
+            'removed_patterns': removed_patterns[:20]
+        }
+    
+    return None
 
 def main():
-    """Main entry point."""
-    project_root = Path(__file__).parent.parent
-    signatures_dir = project_root / "signatures"
-    output_dir = project_root / "signatures_cleaned"
+    import argparse
+    parser = argparse.ArgumentParser(description='Clean signature files by removing generic patterns')
+    parser.add_argument('--dry-run', action='store_true', help='Show what would be removed without modifying files')
+    parser.add_argument('--target', help='Clean only specific file(s), comma-separated')
+    args = parser.parse_args()
     
-    if not signatures_dir.exists():
-        print(f"Error: Signatures directory not found at {signatures_dir}")
-        return
+    signatures_dir = Path('/Users/ovalenzuela/Projects/semantic-copycat-binarysniffer/signatures')
     
-    cleaner = SignatureCleaner()
-    cleaner.clean_all_signatures(signatures_dir, output_dir)
+    # Files to clean
+    if args.target:
+        target_files = [signatures_dir / f for f in args.target.split(',')]
+    else:
+        # Focus on the worst offenders
+        target_files = [
+            signatures_dir / 'dotnet-core.json',
+            signatures_dir / 'pcoip.json',
+            signatures_dir / 'wolfssl.json',
+            signatures_dir / 'foxit-pdf-sdk.json',
+            signatures_dir / 'qt5.json',
+            signatures_dir / 'ffmpeg-enhanced.json'
+        ]
     
-    print(f"\n\nCleaned signatures saved to: {output_dir}")
-    print("\nTo use the cleaned signatures:")
-    print("1. Review the changes in signatures_cleaned/")
-    print("2. If satisfied, replace signatures/ with signatures_cleaned/")
-    print("3. Or selectively copy cleaned files back to signatures/")
+    print(f"Cleaning signature files ({'DRY RUN' if args.dry_run else 'APPLYING CHANGES'}):")
+    print("=" * 80)
+    
+    total_removed = 0
+    
+    for file_path in target_files:
+        if not file_path.exists():
+            print(f"File not found: {file_path.name}")
+            continue
+            
+        result = clean_signature_file(file_path, dry_run=args.dry_run)
+        if result:
+            print(f"\n{result['file']} ({result['component']})")
+            print(f"  Original signatures: {result['original_count']}")
+            print(f"  After filtering: {result['filtered_count']}")
+            print(f"  Removed: {result['removed_count']}")
+            if result['removed_patterns']:
+                print(f"  Examples removed: {', '.join(result['removed_patterns'][:10])}")
+            total_removed += result['removed_count']
+    
+    print("\n" + "=" * 80)
+    print(f"Total patterns removed: {total_removed}")
+    
+    if args.dry_run:
+        print("\nThis was a DRY RUN. To apply changes, run without --dry-run")
+    else:
+        print("\nChanges have been applied to signature files")
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
