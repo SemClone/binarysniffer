@@ -16,7 +16,7 @@
     "signature_count": 10,
     "confidence_threshold": 0.7,
     "source": "manual",
-    "description": "jQuery signatures based on 1.7.1 found in Kindle APK"
+    "description": "jQuery signatures based on 1.7.1 found in APK"
   },
   "signatures": [
     {
