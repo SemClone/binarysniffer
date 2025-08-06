@@ -1,0 +1,51 @@
+{
+  "component": {
+    "name": "LZ4",
+    "version": "unknown",
+    "category": "compression",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "Extremely fast compression algorithm",
+    "license": "BSD-2-Clause",
+    "publisher": "Yann Collet"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-06T00:00:00Z",
+    "updated": "2025-08-06T00:00:00Z",
+    "signature_count": 30,
+    "source": "Extracted from liblz4.so binary analysis"
+  },
+  "signatures": [
+    {"pattern": "LZ4_versionNumber", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_versionString", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compressBound", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_sizeofState", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_initStream", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compress_fast_extState", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compress_fast", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compress_default", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compress_destSize", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_createStream", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_resetStream", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_resetStream_fast", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_freeStream", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_loadDict", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_compress_fast_continue", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_saveDict", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_safe", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_safe_partial", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_fast", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_safe_withPrefix64k", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_safe_continue", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_fast_continue", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_createStreamDecode", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_freeStreamDecode", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_setStreamDecode", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_safe_usingDict", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4_decompress_fast_usingDict", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4F_createCompressionContext", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4F_compressBegin", "type": "string", "confidence": 0.9},
+    {"pattern": "LZ4F_compressUpdate", "type": "string", "confidence": 0.9}
+  ]
+}
