@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-06T01:03:20.165022Z",
     "updated": "2025-08-06T01:03:20.165024Z",
-    "signature_count": 3360,
+    "signature_count": 3334,
     "confidence_threshold": 0.7,
     "source": "source_analysis",
     "extraction_method": "ast_parsing"
@@ -74,26 +74,6 @@
       ]
     },
     {
-      "id": "wolfssl_5",
-      "type": "string_pattern",
-      "pattern": "AAAAA",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_6",
-      "type": "string_pattern",
-      "pattern": "AEAD",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_7",
       "type": "string_pattern",
       "pattern": "AES128",
@@ -124,29 +104,9 @@
       ]
     },
     {
-      "id": "wolfssl_10",
-      "type": "string_pattern",
-      "pattern": "Apr",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_11",
       "type": "string_pattern",
       "pattern": "Attributes",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_12",
-      "type": "string_pattern",
-      "pattern": "Aug",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -204,16 +164,6 @@
       ]
     },
     {
-      "id": "wolfssl_18",
-      "type": "string_pattern",
-      "pattern": "BOOLEAN",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_19",
       "type": "string_pattern",
       "pattern": "BWQP",
@@ -247,16 +197,6 @@
       "id": "wolfssl_22",
       "type": "string_pattern",
       "pattern": "CAMELLIA256",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_23",
-      "type": "string_pattern",
-      "pattern": "CBC3",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -354,16 +294,6 @@
       ]
     },
     {
-      "id": "wolfssl_33",
-      "type": "string_pattern",
-      "pattern": "DDDDDD",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_34",
       "type": "string_pattern",
       "pattern": "DEFAULT",
@@ -397,16 +327,6 @@
       "id": "wolfssl_37",
       "type": "string_pattern",
       "pattern": "DOWNGRD",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_38",
-      "type": "string_pattern",
-      "pattern": "Dec",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -714,16 +634,6 @@
       ]
     },
     {
-      "id": "wolfssl_69",
-      "type": "string_pattern",
-      "pattern": "Feb",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_70",
       "type": "string_pattern",
       "pattern": "Finished",
@@ -757,16 +667,6 @@
       "id": "wolfssl_73",
       "type": "string_pattern",
       "pattern": "GENERALSTRING",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_74",
-      "type": "string_pattern",
-      "pattern": "GET",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -904,36 +804,6 @@
       ]
     },
     {
-      "id": "wolfssl_88",
-      "type": "string_pattern",
-      "pattern": "Jan",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_89",
-      "type": "string_pattern",
-      "pattern": "Jul",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_90",
-      "type": "string_pattern",
-      "pattern": "Jun",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_91",
       "type": "string_pattern",
       "pattern": "KeyUpdate",
@@ -984,36 +854,6 @@
       ]
     },
     {
-      "id": "wolfssl_96",
-      "type": "string_pattern",
-      "pattern": "Mar",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_97",
-      "type": "string_pattern",
-      "pattern": "May",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_98",
-      "type": "string_pattern",
-      "pattern": "NONE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_99",
       "type": "string_pattern",
       "pattern": "NUMERICSTRING",
@@ -1027,26 +867,6 @@
       "id": "wolfssl_100",
       "type": "string_pattern",
       "pattern": "Nonce",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_101",
-      "type": "string_pattern",
-      "pattern": "None",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_102",
-      "type": "string_pattern",
-      "pattern": "Nov",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1114,26 +934,6 @@
       ]
     },
     {
-      "id": "wolfssl_109",
-      "type": "string_pattern",
-      "pattern": "Oct",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_110",
-      "type": "string_pattern",
-      "pattern": "Options",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_111",
       "type": "string_pattern",
       "pattern": "PBKDF2",
@@ -1164,29 +964,9 @@
       ]
     },
     {
-      "id": "wolfssl_114",
-      "type": "string_pattern",
-      "pattern": "POST",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_115",
       "type": "string_pattern",
       "pattern": "PRINTABLESTRING",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_116",
-      "type": "string_pattern",
-      "pattern": "PUT",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1657,16 +1437,6 @@
       "id": "wolfssl_163",
       "type": "string_pattern",
       "pattern": "SendData",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_164",
-      "type": "string_pattern",
-      "pattern": "Sep",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -31844,26 +31614,6 @@
       ]
     },
     {
-      "id": "wolfssl_3182",
-      "type": "string_pattern",
-      "pattern": "fopen",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3183",
-      "type": "string_pattern",
-      "pattern": "fread",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_3184",
       "type": "string_pattern",
       "pattern": "gK99r",
@@ -32297,16 +32047,6 @@
       "id": "wolfssl_3227",
       "type": "string_pattern",
       "pattern": "nY77",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3228",
-      "type": "string_pattern",
-      "pattern": "name",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [

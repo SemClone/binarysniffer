@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-06T01:04:58.649244Z",
     "updated": "2025-08-06T01:04:58.649246Z",
-    "signature_count": 2242,
+    "signature_count": 2129,
     "confidence_threshold": 0.7,
     "source": "source_analysis",
     "extraction_method": "ast_parsing"
@@ -164,16 +164,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_14",
-      "type": "string_pattern",
-      "pattern": "Acos",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_15",
       "type": "string_pattern",
       "pattern": "Acosh",
@@ -227,16 +217,6 @@
       "id": ".net_core_runtime_20",
       "type": "string_pattern",
       "pattern": "AddToCleanupList",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_21",
-      "type": "string_pattern",
-      "pattern": "Address",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -484,16 +464,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_46",
-      "type": "string_pattern",
-      "pattern": "Array",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_47",
       "type": "string_pattern",
       "pattern": "ArraySubType",
@@ -567,16 +537,6 @@
       "id": ".net_core_runtime_54",
       "type": "string_pattern",
       "pattern": "AsRef",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_55",
-      "type": "string_pattern",
-      "pattern": "Asin",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1044,26 +1004,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_102",
-      "type": "string_pattern",
-      "pattern": "Atan",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_103",
-      "type": "string_pattern",
-      "pattern": "Atan2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_104",
       "type": "string_pattern",
       "pattern": "Atanh",
@@ -1097,16 +1037,6 @@
       "id": ".net_core_runtime_107",
       "type": "string_pattern",
       "pattern": "AvailableUnhandledExceptionPropagation",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_108",
-      "type": "string_pattern",
-      "pattern": "BEGIN",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1444,26 +1374,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_142",
-      "type": "string_pattern",
-      "pattern": "Boolean",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_143",
-      "type": "string_pattern",
-      "pattern": "Break",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_144",
       "type": "string_pattern",
       "pattern": "BreakInternal",
@@ -1477,16 +1387,6 @@
       "id": ".net_core_runtime_145",
       "type": "string_pattern",
       "pattern": "BreakOnOOM",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_146",
-      "type": "string_pattern",
-      "pattern": "Buffer",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1554,16 +1454,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_153",
-      "type": "string_pattern",
-      "pattern": "Byte",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_154",
       "type": "string_pattern",
       "pattern": "ByteOffset",
@@ -1597,16 +1487,6 @@
       "id": ".net_core_runtime_157",
       "type": "string_pattern",
       "pattern": "CONTEXT_SetThreadContextOnPort",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_158",
-      "type": "string_pattern",
-      "pattern": "CREATE",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1854,29 +1734,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_183",
-      "type": "string_pattern",
-      "pattern": "Cbrt",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_184",
       "type": "string_pattern",
       "pattern": "Ceiling",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_185",
-      "type": "string_pattern",
-      "pattern": "Char",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -1954,16 +1814,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_193",
-      "type": "string_pattern",
-      "pattern": "Class",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_194",
       "type": "string_pattern",
       "pattern": "ClassInterfaceAttribute",
@@ -2014,29 +1864,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_199",
-      "type": "string_pattern",
-      "pattern": "Cleanup",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_200",
       "type": "string_pattern",
       "pattern": "CleanupWorkListElement",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_201",
-      "type": "string_pattern",
-      "pattern": "Clear",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -2514,16 +2344,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_249",
-      "type": "string_pattern",
-      "pattern": "Copy",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_250",
       "type": "string_pattern",
       "pattern": "CopyBlock",
@@ -2557,16 +2377,6 @@
       "id": ".net_core_runtime_253",
       "type": "string_pattern",
       "pattern": "CopyTo",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_254",
-      "type": "string_pattern",
-      "pattern": "Cosh",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4164,16 +3974,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_414",
-      "type": "string_pattern",
-      "pattern": "DEBUG",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_415",
       "type": "string_pattern",
       "pattern": "DELIVER_EVENTS",
@@ -4504,16 +4304,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_448",
-      "type": "string_pattern",
-      "pattern": "Double",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_449",
       "type": "string_pattern",
       "pattern": "DrainAutoreleasePool",
@@ -4614,29 +4404,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_459",
-      "type": "string_pattern",
-      "pattern": "ENTRY",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_460",
       "type": "string_pattern",
       "pattern": "ENTRY_ASSEMBLY_NAME",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_461",
-      "type": "string_pattern",
-      "pattern": "ERROR",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4707,16 +4477,6 @@
       "id": ".net_core_runtime_468",
       "type": "string_pattern",
       "pattern": "EXCEPTION_RAISE_STATE_REPLY_64",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_469",
-      "type": "string_pattern",
-      "pattern": "EXIT",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5004,16 +4764,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_498",
-      "type": "string_pattern",
-      "pattern": "Enum",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_499",
       "type": "string_pattern",
       "pattern": "EnumBuilder",
@@ -5087,16 +4837,6 @@
       "id": ".net_core_runtime_506",
       "type": "string_pattern",
       "pattern": "Equals",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_507",
-      "type": "string_pattern",
-      "pattern": "Event",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5394,16 +5134,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_537",
-      "type": "string_pattern",
-      "pattern": "Exit",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_538",
       "type": "string_pattern",
       "pattern": "ExportedType",
@@ -5464,16 +5194,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_544",
-      "type": "string_pattern",
-      "pattern": "FILE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_545",
       "type": "string_pattern",
       "pattern": "FIND_NATIVE_IMAGE",
@@ -5517,16 +5237,6 @@
       "id": ".net_core_runtime_549",
       "type": "string_pattern",
       "pattern": "FastAllocateString",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_550",
-      "type": "string_pattern",
-      "pattern": "Field",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5607,16 +5317,6 @@
       "id": ".net_core_runtime_558",
       "type": "string_pattern",
       "pattern": "FieldRVA",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_559",
-      "type": "string_pattern",
-      "pattern": "File",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5714,16 +5414,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_569",
-      "type": "string_pattern",
-      "pattern": "Floor",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_570",
       "type": "string_pattern",
       "pattern": "FlushProcessWriteBuffers",
@@ -5797,16 +5487,6 @@
       "id": ".net_core_runtime_577",
       "type": "string_pattern",
       "pattern": "Frame",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_578",
-      "type": "string_pattern",
-      "pattern": "Free",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -8324,16 +8004,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_830",
-      "type": "string_pattern",
-      "pattern": "HANDLE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_831",
       "type": "string_pattern",
       "pattern": "HDOO",
@@ -9174,16 +8844,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_915",
-      "type": "string_pattern",
-      "pattern": "Interface",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_916",
       "type": "string_pattern",
       "pattern": "InterfaceImpl",
@@ -9547,16 +9207,6 @@
       "id": ".net_core_runtime_952",
       "type": "string_pattern",
       "pattern": "Invalid_Token",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_953",
-      "type": "string_pattern",
-      "pattern": "Invoke",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -10064,16 +9714,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1004",
-      "type": "string_pattern",
-      "pattern": "Length",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1005",
       "type": "string_pattern",
       "pattern": "LoadLibraryCallbackStub",
@@ -10117,16 +9757,6 @@
       "id": ".net_core_runtime_1009",
       "type": "string_pattern",
       "pattern": "Locale",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1010",
-      "type": "string_pattern",
-      "pattern": "Log10",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -10634,16 +10264,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1061",
-      "type": "string_pattern",
-      "pattern": "Memcpy",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1062",
       "type": "string_pattern",
       "pattern": "MemoryMarshal",
@@ -10677,16 +10297,6 @@
       "id": ".net_core_runtime_1065",
       "type": "string_pattern",
       "pattern": "MetadataImport",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1066",
-      "type": "string_pattern",
-      "pattern": "Method",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -11234,26 +10844,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1121",
-      "type": "string_pattern",
-      "pattern": "Name",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1122",
-      "type": "string_pattern",
-      "pattern": "Namespace",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1123",
       "type": "string_pattern",
       "pattern": "NativeAssemblyNameParts",
@@ -11344,16 +10934,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1132",
-      "type": "string_pattern",
-      "pattern": "Nb3",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1133",
       "type": "string_pattern",
       "pattern": "NestedClass",
@@ -11407,16 +10987,6 @@
       "id": ".net_core_runtime_1138",
       "type": "string_pattern",
       "pattern": "NonSerializedAttribute",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1139",
-      "type": "string_pattern",
-      "pattern": "None",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12124,16 +11694,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1210",
-      "type": "string_pattern",
-      "pattern": "PATH",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1211",
       "type": "string_pattern",
       "pattern": "PEEE",
@@ -12184,16 +11744,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1216",
-      "type": "string_pattern",
-      "pattern": "PROCESS",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1217",
       "type": "string_pattern",
       "pattern": "Pack",
@@ -12217,16 +11767,6 @@
       "id": ".net_core_runtime_1219",
       "type": "string_pattern",
       "pattern": "Padding",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1220",
-      "type": "string_pattern",
-      "pattern": "Param",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12267,16 +11807,6 @@
       "id": ".net_core_runtime_1224",
       "type": "string_pattern",
       "pattern": "ParameterModifier",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1225",
-      "type": "string_pattern",
-      "pattern": "Parent",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12334,29 +11864,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1231",
-      "type": "string_pattern",
-      "pattern": "Pointer",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1232",
       "type": "string_pattern",
       "pattern": "PortableTailCallFrame",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1233",
-      "type": "string_pattern",
-      "pattern": "Post",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12497,16 +12007,6 @@
       "id": ".net_core_runtime_1247",
       "type": "string_pattern",
       "pattern": "PropFlags",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1248",
-      "type": "string_pattern",
-      "pattern": "Property",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12694,16 +12194,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1267",
-      "type": "string_pattern",
-      "pattern": "Read",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1268",
       "type": "string_pattern",
       "pattern": "ReadUnaligned",
@@ -12727,16 +12217,6 @@
       "id": ".net_core_runtime_1270",
       "type": "string_pattern",
       "pattern": "ReboxToNullable",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1271",
-      "type": "string_pattern",
-      "pattern": "Receive",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -12857,16 +12337,6 @@
       "id": ".net_core_runtime_1283",
       "type": "string_pattern",
       "pattern": "ReliableEnterTimeout",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1284",
-      "type": "string_pattern",
-      "pattern": "Remove",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -13654,16 +13124,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1363",
-      "type": "string_pattern",
-      "pattern": "SYNC",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1364",
       "type": "string_pattern",
       "pattern": "SZArrayHelper",
@@ -14024,16 +13484,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1400",
-      "type": "string_pattern",
-      "pattern": "Setup",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1401",
       "type": "string_pattern",
       "pattern": "SignalAndWaitNative",
@@ -14067,26 +13517,6 @@
       "id": ".net_core_runtime_1404",
       "type": "string_pattern",
       "pattern": "Single",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1405",
-      "type": "string_pattern",
-      "pattern": "Sinh",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1406",
-      "type": "string_pattern",
-      "pattern": "Size",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14167,16 +13597,6 @@
       "id": ".net_core_runtime_1414",
       "type": "string_pattern",
       "pattern": "SpinWaitInternal",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1415",
-      "type": "string_pattern",
-      "pattern": "Sqrt",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14344,16 +13764,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1432",
-      "type": "string_pattern",
-      "pattern": "String",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1433",
       "type": "string_pattern",
       "pattern": "StringBuilder",
@@ -14444,16 +13854,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1442",
-      "type": "string_pattern",
-      "pattern": "System",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1443",
       "type": "string_pattern",
       "pattern": "SystemException",
@@ -14474,29 +13874,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1445",
-      "type": "string_pattern",
-      "pattern": "THREAD",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1446",
       "type": "string_pattern",
       "pattern": "TMPDIR",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1447",
-      "type": "string_pattern",
-      "pattern": "TRACE",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14517,16 +13897,6 @@
       "id": ".net_core_runtime_1449",
       "type": "string_pattern",
       "pattern": "TailCallTls",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1450",
-      "type": "string_pattern",
-      "pattern": "Tanh",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14557,16 +13927,6 @@
       "id": ".net_core_runtime_1453",
       "type": "string_pattern",
       "pattern": "TargetParameterCountException",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1454",
-      "type": "string_pattern",
-      "pattern": "Thread",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14684,16 +14044,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1466",
-      "type": "string_pattern",
-      "pattern": "Throw",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1467",
       "type": "string_pattern",
       "pattern": "ThrowCriticalHandleFieldChanged",
@@ -14794,16 +14144,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1477",
-      "type": "string_pattern",
-      "pattern": "Trace",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1478",
       "type": "string_pattern",
       "pattern": "TryEnsureSufficientExecutionStack",
@@ -14827,16 +14167,6 @@
       "id": ".net_core_runtime_1480",
       "type": "string_pattern",
       "pattern": "TryGetTrailByte",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1481",
-      "type": "string_pattern",
-      "pattern": "Type",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -15354,16 +14684,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1533",
-      "type": "string_pattern",
-      "pattern": "Unbox",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1534",
       "type": "string_pattern",
       "pattern": "Unbox_Helper",
@@ -15494,16 +14814,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1547",
-      "type": "string_pattern",
-      "pattern": "Value",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1548",
       "type": "string_pattern",
       "pattern": "ValueType",
@@ -15527,16 +14837,6 @@
       "id": ".net_core_runtime_1550",
       "type": "string_pattern",
       "pattern": "VirtualApple",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1551",
-      "type": "string_pattern",
-      "pattern": "Void",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -15627,16 +14927,6 @@
       "id": ".net_core_runtime_1560",
       "type": "string_pattern",
       "pattern": "WrapNonExceptionThrows",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1561",
-      "type": "string_pattern",
-      "pattern": "Write",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -19724,59 +19014,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1970",
-      "type": "string_pattern",
-      "pattern": "blob",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1971",
       "type": "string_pattern",
       "pattern": "blob_object",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1972",
-      "type": "string_pattern",
-      "pattern": "bool",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1973",
-      "type": "string_pattern",
-      "pattern": "break",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1974",
-      "type": "string_pattern",
-      "pattern": "brfalse",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1975",
-      "type": "string_pattern",
-      "pattern": "brtrue",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -19874,49 +19114,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1985",
-      "type": "string_pattern",
-      "pattern": "call",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1986",
-      "type": "string_pattern",
-      "pattern": "calli",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1987",
-      "type": "string_pattern",
-      "pattern": "callvirt",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1988",
       "type": "string_pattern",
       "pattern": "carray",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1989",
-      "type": "string_pattern",
-      "pattern": "castclass",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -19944,29 +19144,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1992",
-      "type": "string_pattern",
-      "pattern": "char",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_1993",
       "type": "string_pattern",
       "pattern": "ckfinite",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_1994",
-      "type": "string_pattern",
-      "pattern": "class",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20014,39 +19194,9 @@
       ]
     },
     {
-      "id": ".net_core_runtime_1999",
-      "type": "string_pattern",
-      "pattern": "count",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2000",
       "type": "string_pattern",
       "pattern": "countryCode",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2001",
-      "type": "string_pattern",
-      "pattern": "cpblk",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2002",
-      "type": "string_pattern",
-      "pattern": "cpobj",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20114,16 +19264,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2009",
-      "type": "string_pattern",
-      "pattern": "date",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2010",
       "type": "string_pattern",
       "pattern": "decimal",
@@ -20174,16 +19314,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2015",
-      "type": "string_pattern",
-      "pattern": "endfinally",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2016",
       "type": "string_pattern",
       "pattern": "endmac",
@@ -20197,16 +19327,6 @@
       "id": ".net_core_runtime_2017",
       "type": "string_pattern",
       "pattern": "eras",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2018",
-      "type": "string_pattern",
-      "pattern": "error",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20257,16 +19377,6 @@
       "id": ".net_core_runtime_2023",
       "type": "string_pattern",
       "pattern": "failure",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2024",
-      "type": "string_pattern",
-      "pattern": "ffffff",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20644,16 +19754,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2062",
-      "type": "string_pattern",
-      "pattern": "handle",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2063",
       "type": "string_pattern",
       "pattern": "hebrew",
@@ -20824,16 +19924,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2080",
-      "type": "string_pattern",
-      "pattern": "int",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2081",
       "type": "string_pattern",
       "pattern": "int16",
@@ -20867,26 +19957,6 @@
       "id": ".net_core_runtime_2084",
       "type": "string_pattern",
       "pattern": "int8",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2085",
-      "type": "string_pattern",
-      "pattern": "interface",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2086",
-      "type": "string_pattern",
-      "pattern": "isinst",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20944,16 +20014,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2092",
-      "type": "string_pattern",
-      "pattern": "ldarg",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2093",
       "type": "string_pattern",
       "pattern": "ldarga",
@@ -20984,16 +20044,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2096",
-      "type": "string_pattern",
-      "pattern": "ldfld",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2097",
       "type": "string_pattern",
       "pattern": "ldflda",
@@ -21017,16 +20067,6 @@
       "id": ".net_core_runtime_2099",
       "type": "string_pattern",
       "pattern": "ldlen",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2100",
-      "type": "string_pattern",
-      "pattern": "ldloc",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -21084,16 +20124,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2106",
-      "type": "string_pattern",
-      "pattern": "ldstr",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2107",
       "type": "string_pattern",
       "pattern": "ldtoken",
@@ -21107,26 +20137,6 @@
       "id": ".net_core_runtime_2108",
       "type": "string_pattern",
       "pattern": "ldvirtftn",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2109",
-      "type": "string_pattern",
-      "pattern": "leave",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2110",
-      "type": "string_pattern",
-      "pattern": "length",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -21347,16 +20357,6 @@
       "id": ".net_core_runtime_2132",
       "type": "string_pattern",
       "pattern": "memory",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2133",
-      "type": "string_pattern",
-      "pattern": "method",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -21714,16 +20714,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2169",
-      "type": "string_pattern",
-      "pattern": "return",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2170",
       "type": "string_pattern",
       "pattern": "s_currentThreadCulture",
@@ -21884,16 +20874,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2186",
-      "type": "string_pattern",
-      "pattern": "starg",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2187",
       "type": "string_pattern",
       "pattern": "stderr",
@@ -21917,26 +20897,6 @@
       "id": ".net_core_runtime_2189",
       "type": "string_pattern",
       "pattern": "stelem",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2190",
-      "type": "string_pattern",
-      "pattern": "stfld",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2191",
-      "type": "string_pattern",
-      "pattern": "stloc",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -21987,36 +20947,6 @@
       "id": ".net_core_runtime_2196",
       "type": "string_pattern",
       "pattern": "streamed_object",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2197",
-      "type": "string_pattern",
-      "pattern": "string",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2198",
-      "type": "string_pattern",
-      "pattern": "strlen",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2199",
-      "type": "string_pattern",
-      "pattern": "struct",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -22114,16 +21044,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2209",
-      "type": "string_pattern",
-      "pattern": "switch",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2210",
       "type": "string_pattern",
       "pattern": "syschar",
@@ -22164,16 +21084,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2214",
-      "type": "string_pattern",
-      "pattern": "throw",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2215",
       "type": "string_pattern",
       "pattern": "total_inactive_file",
@@ -22187,16 +21097,6 @@
       "id": ".net_core_runtime_2216",
       "type": "string_pattern",
       "pattern": "typedref",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2217",
-      "type": "string_pattern",
-      "pattern": "uPT",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -22257,16 +21157,6 @@
       "id": ".net_core_runtime_2223",
       "type": "string_pattern",
       "pattern": "uint8",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2224",
-      "type": "string_pattern",
-      "pattern": "unbox",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -22354,16 +21244,6 @@
       ]
     },
     {
-      "id": ".net_core_runtime_2233",
-      "type": "string_pattern",
-      "pattern": "vector",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": ".net_core_runtime_2234",
       "type": "string_pattern",
       "pattern": "vm_region_64",
@@ -22377,16 +21257,6 @@
       "id": ".net_core_runtime_2235",
       "type": "string_pattern",
       "pattern": "vnffy",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": ".net_core_runtime_2236",
-      "type": "string_pattern",
-      "pattern": "void",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [

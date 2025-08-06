@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:48:02.964582Z",
     "updated": "2025-08-06T00:48:02.964596Z",
-    "signature_count": 272,
+    "signature_count": 264,
     "confidence_threshold": 0.7,
     "source": "binary_analysis",
     "extraction_method": "symbol_extraction"
@@ -704,16 +704,6 @@
       ]
     },
     {
-      "id": "foxit_pdf_sdk_68",
-      "type": "string_pattern",
-      "pattern": "Bitmap",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "foxit_pdf_sdk_69",
       "type": "string_pattern",
       "pattern": "FSCRT_Pa",
@@ -814,16 +804,6 @@
       ]
     },
     {
-      "id": "foxit_pdf_sdk_79",
-      "type": "string_pattern",
-      "pattern": "Count",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "foxit_pdf_sdk_80",
       "type": "string_pattern",
       "pattern": "tChar",
@@ -857,16 +837,6 @@
       "id": "foxit_pdf_sdk_83",
       "type": "string_pattern",
       "pattern": "tBounded",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "foxit_pdf_sdk_84",
-      "type": "string_pattern",
-      "pattern": "Index",
       "confidence": 0.9,
       "context": "binary_symbol",
       "platforms": [
@@ -1334,16 +1304,6 @@
       ]
     },
     {
-      "id": "foxit_pdf_sdk_131",
-      "type": "string_pattern",
-      "pattern": "Param",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "foxit_pdf_sdk_132",
       "type": "string_pattern",
       "pattern": "FPDFDest_SetF",
@@ -1477,16 +1437,6 @@
       "id": "foxit_pdf_sdk_145",
       "type": "string_pattern",
       "pattern": "FPDFPageObj_New",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "foxit_pdf_sdk_146",
-      "type": "string_pattern",
-      "pattern": "Color",
       "confidence": 0.9,
       "context": "binary_symbol",
       "platforms": [
@@ -1797,16 +1747,6 @@
       "id": "foxit_pdf_sdk_177",
       "type": "string_pattern",
       "pattern": "PTB_Lib",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "foxit_pdf_sdk_178",
-      "type": "string_pattern",
-      "pattern": "Release",
       "confidence": 0.9,
       "context": "binary_symbol",
       "platforms": [
@@ -2384,16 +2324,6 @@
       ]
     },
     {
-      "id": "foxit_pdf_sdk_236",
-      "type": "string_pattern",
-      "pattern": "Render",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "foxit_pdf_sdk_237",
       "type": "prefix_pattern",
       "pattern": "FPDFLink_",
@@ -2427,16 +2357,6 @@
       "id": "foxit_pdf_sdk_240",
       "type": "string_pattern",
       "pattern": "WebLinks",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "foxit_pdf_sdk_241",
-      "type": "string_pattern",
-      "pattern": "Count",
       "confidence": 0.9,
       "context": "binary_symbol",
       "platforms": [

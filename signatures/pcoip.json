@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-06T01:03:47.982966Z",
     "updated": "2025-08-06T01:03:47.982973Z",
-    "signature_count": 5103,
+    "signature_count": 5017,
     "confidence_threshold": 0.7,
     "source": "source_analysis",
     "extraction_method": "ast_parsing"
@@ -977,26 +977,6 @@
       "id": "pcoip_sdk_95",
       "type": "string_pattern",
       "pattern": "A0I9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_96",
-      "type": "string_pattern",
-      "pattern": "A4A4",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_97",
-      "type": "string_pattern",
-      "pattern": "A8E1",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -3244,16 +3224,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_322",
-      "type": "string_pattern",
-      "pattern": "BfE9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_323",
       "type": "string_pattern",
       "pattern": "Bias",
@@ -3374,16 +3344,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_335",
-      "type": "string_pattern",
-      "pattern": "C0E9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_336",
       "type": "string_pattern",
       "pattern": "C0HcC",
@@ -3394,29 +3354,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_337",
-      "type": "string_pattern",
-      "pattern": "C1A9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_338",
       "type": "string_pattern",
       "pattern": "C8D3U",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_339",
-      "type": "string_pattern",
-      "pattern": "C8E1",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -3594,16 +3534,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_357",
-      "type": "string_pattern",
-      "pattern": "CLOSE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_358",
       "type": "string_pattern",
       "pattern": "CLOSED",
@@ -3727,16 +3657,6 @@
       "id": "pcoip_sdk_370",
       "type": "string_pattern",
       "pattern": "CONNECT",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_371",
-      "type": "string_pattern",
-      "pattern": "COPY",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -3877,16 +3797,6 @@
       "id": "pcoip_sdk_385",
       "type": "string_pattern",
       "pattern": "ClE1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_386",
-      "type": "string_pattern",
-      "pattern": "Close",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4057,16 +3967,6 @@
       "id": "pcoip_sdk_403",
       "type": "string_pattern",
       "pattern": "Connection",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_404",
-      "type": "string_pattern",
-      "pattern": "Const",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4584,69 +4484,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_456",
-      "type": "string_pattern",
-      "pattern": "D30C",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_457",
       "type": "string_pattern",
       "pattern": "D34K",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_458",
-      "type": "string_pattern",
-      "pattern": "D40A",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_459",
-      "type": "string_pattern",
-      "pattern": "D44fA",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_460",
-      "type": "string_pattern",
-      "pattern": "D70B",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_461",
-      "type": "string_pattern",
-      "pattern": "D74fB",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_462",
-      "type": "string_pattern",
-      "pattern": "D8D7",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4764,29 +4604,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_474",
-      "type": "string_pattern",
-      "pattern": "DB00",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_475",
       "type": "string_pattern",
       "pattern": "DEBUG_UTIL",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_476",
-      "type": "string_pattern",
-      "pattern": "DELETE",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -4994,26 +4814,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_497",
-      "type": "string_pattern",
-      "pattern": "Date",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_498",
-      "type": "string_pattern",
-      "pattern": "Decode",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_499",
       "type": "string_pattern",
       "pattern": "Decoding",
@@ -5024,29 +4824,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_500",
-      "type": "string_pattern",
-      "pattern": "Depth",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_501",
       "type": "string_pattern",
       "pattern": "DesktopCategory",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_502",
-      "type": "string_pattern",
-      "pattern": "Destination",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5207,26 +4987,6 @@
       "id": "pcoip_sdk_518",
       "type": "string_pattern",
       "pattern": "DwFH",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_519",
-      "type": "string_pattern",
-      "pattern": "E0E9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_520",
-      "type": "string_pattern",
-      "pattern": "E4fA",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -5567,16 +5327,6 @@
       "id": "pcoip_sdk_554",
       "type": "string_pattern",
       "pattern": "EHH9",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_555",
-      "type": "string_pattern",
-      "pattern": "ELEMENT",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -6084,16 +5834,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_606",
-      "type": "string_pattern",
-      "pattern": "Encode",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_607",
       "type": "string_pattern",
       "pattern": "EncodedYUV420Blocks",
@@ -6177,16 +5917,6 @@
       "id": "pcoip_sdk_615",
       "type": "string_pattern",
       "pattern": "Erasf",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_616",
-      "type": "string_pattern",
-      "pattern": "Error",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -6287,16 +6017,6 @@
       "id": "pcoip_sdk_626",
       "type": "string_pattern",
       "pattern": "External",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_627",
-      "type": "string_pattern",
-      "pattern": "F0A9",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -8314,16 +8034,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_829",
-      "type": "string_pattern",
-      "pattern": "Index",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_830",
       "type": "string_pattern",
       "pattern": "Inpu",
@@ -8337,16 +8047,6 @@
       "id": "pcoip_sdk_831",
       "type": "string_pattern",
       "pattern": "Inpuf",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_832",
-      "type": "string_pattern",
-      "pattern": "Input",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -9417,16 +9117,6 @@
       "id": "pcoip_sdk_939",
       "type": "string_pattern",
       "pattern": "LOCAL_OPEN",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_940",
-      "type": "string_pattern",
-      "pattern": "LOCK",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -10787,16 +10477,6 @@
       "id": "pcoip_sdk_1076",
       "type": "string_pattern",
       "pattern": "MODEL",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1077",
-      "type": "string_pattern",
-      "pattern": "MOVE",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -14774,29 +14454,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1475",
-      "type": "string_pattern",
-      "pattern": "NONE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1476",
       "type": "string_pattern",
       "pattern": "NOTATION",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1477",
-      "type": "string_pattern",
-      "pattern": "NOTIFY",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -15944,16 +15604,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1592",
-      "type": "string_pattern",
-      "pattern": "None",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1593",
       "type": "string_pattern",
       "pattern": "NumOfFrame",
@@ -16007,16 +15657,6 @@
       "id": "pcoip_sdk_1598",
       "type": "string_pattern",
       "pattern": "OM9n",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1599",
-      "type": "string_pattern",
-      "pattern": "OPEN",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -16614,29 +16254,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1659",
-      "type": "string_pattern",
-      "pattern": "OPTIONS",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1660",
       "type": "string_pattern",
       "pattern": "OS Release Version",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1661",
-      "type": "string_pattern",
-      "pattern": "OUTPUT",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -16804,16 +16424,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1678",
-      "type": "string_pattern",
-      "pattern": "Output",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1679",
       "type": "string_pattern",
       "pattern": "OutputFolder",
@@ -16957,26 +16567,6 @@
       "id": "pcoip_sdk_1693",
       "type": "string_pattern",
       "pattern": "PASSAVAWATAU",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1694",
-      "type": "string_pattern",
-      "pattern": "PATCH",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1695",
-      "type": "string_pattern",
-      "pattern": "PATH",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -17654,16 +17244,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1763",
-      "type": "string_pattern",
-      "pattern": "POST",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1764",
       "type": "string_pattern",
       "pattern": "PPD9",
@@ -17854,29 +17434,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1783",
-      "type": "string_pattern",
-      "pattern": "PUBLIC",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1784",
       "type": "string_pattern",
       "pattern": "PURGE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1785",
-      "type": "string_pattern",
-      "pattern": "PUSH",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -18104,16 +17664,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_1808",
-      "type": "string_pattern",
-      "pattern": "Path",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_1809",
       "type": "string_pattern",
       "pattern": "PcoipEa__EEAOSTYPE",
@@ -18267,16 +17817,6 @@
       "id": "pcoip_sdk_1824",
       "type": "string_pattern",
       "pattern": "Poin",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1825",
-      "type": "string_pattern",
-      "pattern": "Pointer",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -18447,16 +17987,6 @@
       "id": "pcoip_sdk_1842",
       "type": "string_pattern",
       "pattern": "Protocol: general caps version was %u",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1843",
-      "type": "string_pattern",
-      "pattern": "Public",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -18717,16 +18247,6 @@
       "id": "pcoip_sdk_1869",
       "type": "string_pattern",
       "pattern": "REQUIRED",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_1870",
-      "type": "string_pattern",
-      "pattern": "RESET",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20034,16 +19554,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2001",
-      "type": "string_pattern",
-      "pattern": "SYSTEM",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2002",
       "type": "string_pattern",
       "pattern": "Safe",
@@ -20327,16 +19837,6 @@
       "id": "pcoip_sdk_2030",
       "type": "string_pattern",
       "pattern": "StartFrame",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2031",
-      "type": "string_pattern",
-      "pattern": "State",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -20934,16 +20434,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2091",
-      "type": "string_pattern",
-      "pattern": "TRACE",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2092",
       "type": "string_pattern",
       "pattern": "TRECK",
@@ -21294,26 +20784,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2127",
-      "type": "string_pattern",
-      "pattern": "Transform",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2128",
-      "type": "string_pattern",
-      "pattern": "Transmit",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2129",
       "type": "namespace_pattern",
       "pattern": "Tu.H",
@@ -21447,16 +20917,6 @@
       "id": "pcoip_sdk_2142",
       "type": "string_pattern",
       "pattern": "UNLINK",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2143",
-      "type": "string_pattern",
-      "pattern": "UNLOCK",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -21884,16 +21344,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2186",
-      "type": "string_pattern",
-      "pattern": "VERSION",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2187",
       "type": "string_pattern",
       "pattern": "VGFUN",
@@ -22014,16 +21464,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2199",
-      "type": "string_pattern",
-      "pattern": "Version",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2200",
       "type": "string_pattern",
       "pattern": "VpL9e",
@@ -22107,16 +21547,6 @@
       "id": "pcoip_sdk_2208",
       "type": "string_pattern",
       "pattern": "WPMc",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2209",
-      "type": "string_pattern",
-      "pattern": "Warning",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -25004,16 +24434,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2498",
-      "type": "string_pattern",
-      "pattern": "a8E1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2499",
       "type": "string_pattern",
       "pattern": "absu",
@@ -25337,16 +24757,6 @@
       "id": "pcoip_sdk_2531",
       "type": "string_pattern",
       "pattern": "arraf",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2532",
-      "type": "string_pattern",
-      "pattern": "array",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -27144,16 +26554,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2712",
-      "type": "string_pattern",
-      "pattern": "close",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2713",
       "type": "string_pattern",
       "pattern": "cnem",
@@ -27427,16 +26827,6 @@
       "id": "pcoip_sdk_2740",
       "type": "string_pattern",
       "pattern": "copyTile",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2741",
-      "type": "string_pattern",
-      "pattern": "count",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -27904,16 +27294,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2788",
-      "type": "string_pattern",
-      "pattern": "decode",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2789",
       "type": "string_pattern",
       "pattern": "decodeDataTag",
@@ -28077,16 +27457,6 @@
       "id": "pcoip_sdk_2805",
       "type": "string_pattern",
       "pattern": "descriptors",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2806",
-      "type": "string_pattern",
-      "pattern": "destroy",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -28674,16 +28044,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2865",
-      "type": "string_pattern",
-      "pattern": "ecdd",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2866",
       "type": "string_pattern",
       "pattern": "ecddH",
@@ -28707,16 +28067,6 @@
       "id": "pcoip_sdk_2868",
       "type": "string_pattern",
       "pattern": "ed_sliceH",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2869",
-      "type": "string_pattern",
-      "pattern": "eded",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -28797,16 +28147,6 @@
       "id": "pcoip_sdk_2877",
       "type": "string_pattern",
       "pattern": "enabled",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2878",
-      "type": "string_pattern",
-      "pattern": "encode",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -28954,16 +28294,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2893",
-      "type": "string_pattern",
-      "pattern": "error",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2894",
       "type": "string_pattern",
       "pattern": "esourcesH",
@@ -29047,16 +28377,6 @@
       "id": "pcoip_sdk_2902",
       "type": "string_pattern",
       "pattern": "evenf",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2903",
-      "type": "string_pattern",
-      "pattern": "event",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -29157,16 +28477,6 @@
       "id": "pcoip_sdk_2913",
       "type": "string_pattern",
       "pattern": "fA99I",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2914",
-      "type": "string_pattern",
-      "pattern": "fA9C",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -29424,16 +28734,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2940",
-      "type": "string_pattern",
-      "pattern": "fffffff",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2941",
       "type": "string_pattern",
       "pattern": "fici",
@@ -29444,29 +28744,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_2942",
-      "type": "string_pattern",
-      "pattern": "file",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_2943",
       "type": "string_pattern",
       "pattern": "find_name_cb",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_2944",
-      "type": "string_pattern",
-      "pattern": "floor",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -32117,16 +31397,6 @@
       "id": "pcoip_sdk_3209",
       "type": "string_pattern",
       "pattern": "leftoverH",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_3210",
-      "type": "string_pattern",
-      "pattern": "length",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -36254,16 +35524,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_3623",
-      "type": "string_pattern",
-      "pattern": "name",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_3624",
       "type": "string_pattern",
       "pattern": "nartptuo",
@@ -36367,16 +35627,6 @@
       "id": "pcoip_sdk_3634",
       "type": "string_pattern",
       "pattern": "nominal_cpu_utilization",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_3635",
-      "type": "string_pattern",
-      "pattern": "none",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -36924,16 +36174,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_3690",
-      "type": "string_pattern",
-      "pattern": "open",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_3691",
       "type": "namespace_pattern",
       "pattern": "openDevice is not supported in legacy HDA mode.",
@@ -37214,16 +36454,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_3719",
-      "type": "string_pattern",
-      "pattern": "parse",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_3720",
       "type": "string_pattern",
       "pattern": "parse_cky_obj_header",
@@ -37257,16 +36487,6 @@
       "id": "pcoip_sdk_3723",
       "type": "string_pattern",
       "pattern": "parse_variant",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_3724",
-      "type": "string_pattern",
-      "pattern": "patch",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -39514,16 +38734,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_3949",
-      "type": "string_pattern",
-      "pattern": "result",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_3950",
       "type": "string_pattern",
       "pattern": "retransmit_media_selective",
@@ -40644,16 +39854,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_4062",
-      "type": "string_pattern",
-      "pattern": "send",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_4063",
       "type": "string_pattern",
       "pattern": "sendResuH",
@@ -41374,16 +40574,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_4135",
-      "type": "string_pattern",
-      "pattern": "state",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_4136",
       "type": "string_pattern",
       "pattern": "state_assemble_processing",
@@ -41687,16 +40877,6 @@
       "id": "pcoip_sdk_4166",
       "type": "string_pattern",
       "pattern": "swscale_license",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_4167",
-      "type": "string_pattern",
-      "pattern": "system",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -47754,16 +46934,6 @@
       ]
     },
     {
-      "id": "pcoip_sdk_4773",
-      "type": "string_pattern",
-      "pattern": "thread",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_4774",
       "type": "string_pattern",
       "pattern": "threadProcessing",
@@ -48327,16 +47497,6 @@
       "id": "pcoip_sdk_4830",
       "type": "string_pattern",
       "pattern": "tyle",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_4831",
-      "type": "string_pattern",
-      "pattern": "type",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -50064,29 +49224,9 @@
       ]
     },
     {
-      "id": "pcoip_sdk_5004",
-      "type": "string_pattern",
-      "pattern": "vector",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "pcoip_sdk_5005",
       "type": "string_pattern",
       "pattern": "vendorSpecificLicense",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "pcoip_sdk_5006",
-      "type": "string_pattern",
-      "pattern": "version",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [

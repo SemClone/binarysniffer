@@ -17,7 +17,7 @@
     "version": "1.0.0",
     "created": "2025-08-06T00:47:35.607747Z",
     "updated": "2025-08-06T00:47:35.607764Z",
-    "signature_count": 102,
+    "signature_count": 100,
     "confidence_threshold": 0.7,
     "source": "binary_analysis",
     "extraction_method": "symbol_extraction"
@@ -294,16 +294,6 @@
       ]
     },
     {
-      "id": "qt5_framework_27",
-      "type": "string_pattern",
-      "pattern": "Process",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "qt5_framework_28",
       "type": "string_pattern",
       "pattern": "QProcess::",
@@ -467,16 +457,6 @@
       "id": "qt5_framework_44",
       "type": "string_pattern",
       "pattern": "IMN_SETC",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "qt5_framework_45",
-      "type": "string_pattern",
-      "pattern": "STATUS",
       "confidence": 0.9,
       "context": "binary_symbol",
       "platforms": [

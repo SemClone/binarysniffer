@@ -11,7 +11,7 @@
     "version": "2.0.0",
     "created": "2025-08-06T13:05:07.900541",
     "updated": "2025-08-06T13:05:07.900544",
-    "signature_count": 11686,
+    "signature_count": 1844,
     "confidence_threshold": 0.3,
     "source": "Multi-version analysis (ffmpeg binary, libffmpeg.so, source code)",
     "enhanced": true
@@ -28,11 +28,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A0fE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A2EyA2F",
       "type": "string",
       "confidence": 0.8
@@ -43,17 +38,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A4A4",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A4ATA4",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A4Y",
       "type": "string",
       "confidence": 0.8
     },
@@ -68,22 +53,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A5fD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A6PDA6",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "A6S_",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A6fA",
       "type": "string",
       "confidence": 0.8
     },
@@ -113,37 +88,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A8fE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A8j2A8",
       "type": "string",
       "confidence": 0.8
     },
     {
-      "pattern": "A8t",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A93L",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A97A",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A99E",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9C",
       "type": "string",
       "confidence": 0.8
     },
@@ -158,32 +108,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A9E",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9E0",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A9EP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9F",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9F8A",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9FD",
       "type": "string",
       "confidence": 0.8
     },
@@ -233,11 +158,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A9N",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A9Qh",
       "type": "string",
       "confidence": 0.8
@@ -254,16 +174,6 @@
     },
     {
       "pattern": "A9UP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9V",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9W",
       "type": "string",
       "confidence": 0.8
     },
@@ -313,17 +223,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A9o",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "A9oT",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "A9u",
       "type": "string",
       "confidence": 0.8
     },
@@ -338,22 +238,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "A9w",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AA40J6",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AA9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AAAA",
       "type": "string",
       "confidence": 0.8
     },
@@ -384,16 +269,6 @@
     },
     {
       "pattern": "AAUI",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AAfffA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AAk",
       "type": "string",
       "confidence": 0.8
     },
@@ -483,11 +358,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "AEAD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AEXPA",
       "type": "string",
       "confidence": 0.8
@@ -499,11 +369,6 @@
     },
     {
       "pattern": "AGM4",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AHZ",
       "type": "string",
       "confidence": 0.8
     },
@@ -523,27 +388,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "AIC",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AIV",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AIXE",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "AIXP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AIc",
       "type": "string",
       "confidence": 0.8
     },
@@ -604,11 +454,6 @@
     },
     {
       "pattern": "ALY4",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AM9",
       "type": "string",
       "confidence": 0.8
     },
@@ -694,11 +539,6 @@
     },
     {
       "pattern": "APCM",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "APE",
       "type": "string",
       "confidence": 0.8
     },
@@ -889,11 +729,6 @@
     },
     {
       "pattern": "AQUR",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "ARA",
       "type": "string",
       "confidence": 0.8
     },
@@ -1159,11 +994,6 @@
     },
     {
       "pattern": "ARWL",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "ARj",
       "type": "string",
       "confidence": 0.8
     },
@@ -1768,11 +1598,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "ATj",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AUA1",
       "type": "string",
       "confidence": 0.8
@@ -2044,11 +1869,6 @@
     },
     {
       "pattern": "AUGgv",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AUI",
       "type": "string",
       "confidence": 0.8
     },
@@ -2668,11 +2488,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "AVD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AVDCT",
       "type": "string",
       "confidence": 0.8
@@ -2689,11 +2504,6 @@
     },
     {
       "pattern": "AVFormatContext",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AVI",
       "type": "string",
       "confidence": 0.8
     },
@@ -3318,17 +3128,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "AXI",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "AXZH",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AY3",
       "type": "string",
       "confidence": 0.8
     },
@@ -3493,22 +3293,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "Ac61",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "Acid",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "Acirc",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "AdA9",
       "type": "string",
       "confidence": 0.8
     },
@@ -3758,11 +3548,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "Azo",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "Azo4",
       "type": "string",
       "confidence": 0.8
@@ -3843,17 +3628,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "B39e",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "B3tKD3I",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "B4A9E4",
       "type": "string",
       "confidence": 0.8
     },
@@ -3863,17 +3638,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "B565",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "B6u_",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "B706B7",
       "type": "string",
       "confidence": 0.8
     },
@@ -3933,27 +3698,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "BAfD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BBBB",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BBBBBBBBBBBBBBBBBBBBBBBBBBBB",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "BBBBBBBBL",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BBC2",
       "type": "string",
       "confidence": 0.8
     },
@@ -3978,16 +3728,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "BCfD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BDEC",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BDLT",
       "type": "string",
       "confidence": 0.8
@@ -4004,16 +3744,6 @@
     },
     {
       "pattern": "BE5Q",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BEfD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BFH",
       "type": "string",
       "confidence": 0.8
     },
@@ -4078,11 +3808,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "BITMAP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BITPIX",
       "type": "string",
       "confidence": 0.8
@@ -4123,11 +3848,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "BL9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BL9BH",
       "type": "string",
       "confidence": 0.8
@@ -4144,11 +3864,6 @@
     },
     {
       "pattern": "BLZ0",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BLc",
       "type": "string",
       "confidence": 0.8
     },
@@ -4219,11 +3934,6 @@
     },
     {
       "pattern": "BRPP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BRS",
       "type": "string",
       "confidence": 0.8
     },
@@ -4378,27 +4088,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "BfA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BfB",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "BfE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BfEk",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "Bfff",
       "type": "string",
       "confidence": 0.8
     },
@@ -4468,11 +4158,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "Bool",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "BorderStyle",
       "type": "string",
       "confidence": 0.8
@@ -4528,16 +4213,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "C0A1",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C0CCC",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "C0H9",
       "type": "string",
       "confidence": 0.8
@@ -4563,11 +4238,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "C2fA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "C2jA",
       "type": "string",
       "confidence": 0.8
@@ -4579,21 +4249,6 @@
     },
     {
       "pattern": "C3cQD3",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C47fC4",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C4D9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C4E1",
       "type": "string",
       "confidence": 0.8
     },
@@ -4628,26 +4283,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "C5D8",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C62bC6",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C75a",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C75dC7",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "C82p",
       "type": "string",
       "confidence": 0.8
@@ -4658,22 +4293,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "C8A9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "C8AQM",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "C8AXH",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "C8D9",
       "type": "string",
       "confidence": 0.8
     },
@@ -4708,17 +4333,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "C9DC",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "CA4p",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CABAC",
       "type": "string",
       "confidence": 0.8
     },
@@ -4748,17 +4363,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "CBDA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "CBDAI",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CBDAf",
       "type": "string",
       "confidence": 0.8
     },
@@ -4773,32 +4378,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "CD66",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "CD9Ft",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "CDCT",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CDD9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CDDD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CDE1",
       "type": "string",
       "confidence": 0.8
     },
@@ -4819,16 +4404,6 @@
     },
     {
       "pattern": "CDXA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CE36D",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CE8C",
       "type": "string",
       "confidence": 0.8
     },
@@ -4933,11 +4508,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "CHc",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "CHfE",
       "type": "string",
       "confidence": 0.8
@@ -4969,11 +4539,6 @@
     },
     {
       "pattern": "CIPA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CIc",
       "type": "string",
       "confidence": 0.8
     },
@@ -5069,11 +4634,6 @@
     },
     {
       "pattern": "CLJRt",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "CLOSE",
       "type": "string",
       "confidence": 0.8
     },
@@ -5184,11 +4744,6 @@
     },
     {
       "pattern": "CONTINUE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "COPY",
       "type": "string",
       "confidence": 0.8
     },
@@ -5663,22 +5218,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D019",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D0DI",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "D10H",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D3DA",
       "type": "string",
       "confidence": 0.8
     },
@@ -5703,21 +5248,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D549",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D54D",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D59A",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D5QI",
       "type": "string",
       "confidence": 0.8
@@ -5729,11 +5259,6 @@
     },
     {
       "pattern": "D70H",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D7DA",
       "type": "string",
       "confidence": 0.8
     },
@@ -5758,11 +5283,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D8R",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D8T2",
       "type": "string",
       "confidence": 0.8
@@ -5783,22 +5303,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D9B",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D9H",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D9HDu",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "D9I",
       "type": "string",
       "confidence": 0.8
     },
@@ -5888,11 +5393,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D9p",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D9s8tbH",
       "type": "string",
       "confidence": 0.8
@@ -5918,22 +5418,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "D9u",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "D9uxw",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "DA7s",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DA9AfA9",
       "type": "string",
       "confidence": 0.8
     },
@@ -5979,11 +5469,6 @@
     },
     {
       "pattern": "DBFH",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DCBB",
       "type": "string",
       "confidence": 0.8
     },
@@ -6034,16 +5519,6 @@
     },
     {
       "pattern": "DDXL",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DDdf",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DE4D",
       "type": "string",
       "confidence": 0.8
     },
@@ -6113,22 +5588,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "DESTINATION",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "DEVICE_FONT_NAME",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "DEWPJJ",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DFP",
       "type": "string",
       "confidence": 0.8
     },
@@ -6173,11 +5638,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "DIC",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "DISABLE_SAFE_RENEGOTIATION",
       "type": "string",
       "confidence": 0.8
@@ -6189,11 +5649,6 @@
     },
     {
       "pattern": "DISCONNECTED",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DISPLAY",
       "type": "string",
       "confidence": 0.8
     },
@@ -6328,11 +5783,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "DOT",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "DOTxan",
       "type": "string",
       "confidence": 0.8
@@ -6398,16 +5848,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "DSP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DST",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "DT2H",
       "type": "string",
       "confidence": 0.8
@@ -6463,11 +5903,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "DUP",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "DUSH",
       "type": "string",
       "confidence": 0.8
@@ -6484,11 +5919,6 @@
     },
     {
       "pattern": "DVDS",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "DVR",
       "type": "string",
       "confidence": 0.8
     },
@@ -6903,11 +6333,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "December",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "Decimation",
       "type": "string",
       "confidence": 0.8
@@ -6993,11 +6418,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "Duration",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "Dw0H",
       "type": "string",
       "confidence": 0.8
@@ -7018,22 +6438,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E0A9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E0A9E4A",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E0APD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E0E1",
       "type": "string",
       "confidence": 0.8
     },
@@ -7058,11 +6463,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E0fE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E0teH",
       "type": "string",
       "confidence": 0.8
@@ -7079,11 +6479,6 @@
     },
     {
       "pattern": "E49G",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E4D9",
       "type": "string",
       "confidence": 0.8
     },
@@ -7128,16 +6523,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E8D9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E8E1",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E8Gp",
       "type": "string",
       "confidence": 0.8
@@ -7168,11 +6553,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E8fA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E8yp",
       "type": "string",
       "confidence": 0.8
@@ -7183,17 +6563,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E9A",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E9FX",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E9H",
       "type": "string",
       "confidence": 0.8
     },
@@ -7214,11 +6584,6 @@
     },
     {
       "pattern": "E9_L",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "E9e",
       "type": "string",
       "confidence": 0.8
     },
@@ -7258,11 +6623,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "E9o",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "E9uHw",
       "type": "string",
       "confidence": 0.8
@@ -7274,11 +6634,6 @@
     },
     {
       "pattern": "E9yt",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "EAC3",
       "type": "string",
       "confidence": 0.8
     },
@@ -7298,11 +6653,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "EBDA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "EBDAI",
       "type": "string",
       "confidence": 0.8
@@ -7318,17 +6668,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "ED9CD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "EDA9GD",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "EDC2",
       "type": "string",
       "confidence": 0.8
     },
@@ -7339,11 +6679,6 @@
     },
     {
       "pattern": "EEDUEUTDE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "EEEEEEE",
       "type": "string",
       "confidence": 0.8
     },
@@ -7369,11 +6704,6 @@
     },
     {
       "pattern": "EEHi",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "EGK",
       "type": "string",
       "confidence": 0.8
     },
@@ -7433,11 +6763,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "ELEMENT",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "EM2V",
       "type": "string",
       "confidence": 0.8
@@ -7464,11 +6789,6 @@
     },
     {
       "pattern": "EMRF",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "ENABLE",
       "type": "string",
       "confidence": 0.8
     },
@@ -7593,11 +6913,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "EV3",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "EVQH",
       "type": "string",
       "confidence": 0.8
@@ -7659,11 +6974,6 @@
     },
     {
       "pattern": "EXTRA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "EYH",
       "type": "string",
       "confidence": 0.8
     },
@@ -7998,11 +7308,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "F0A1",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "F0AVAUATUSH",
       "type": "string",
       "confidence": 0.8
@@ -8014,11 +7319,6 @@
     },
     {
       "pattern": "F0I9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "F0fA",
       "type": "string",
       "confidence": 0.8
     },
@@ -8038,22 +7338,12 @@
       "confidence": 0.8
     },
     {
-      "pattern": "F6A9",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "F6kRF6h",
       "type": "string",
       "confidence": 0.8
     },
     {
       "pattern": "F8AWAVAUATUS",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "F8E1",
       "type": "string",
       "confidence": 0.8
     },
@@ -8069,11 +7359,6 @@
     },
     {
       "pattern": "F8PH",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "F94",
       "type": "string",
       "confidence": 0.8
     },
@@ -8153,17 +7438,7 @@
       "confidence": 0.8
     },
     {
-      "pattern": "FEEE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "FESTIVAL",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "FFC",
       "type": "string",
       "confidence": 0.8
     },
@@ -8238,11 +7513,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "FFfE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "FGfA",
       "type": "string",
       "confidence": 0.8
@@ -8278,11 +7548,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "FHJ",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "FHo4F",
       "type": "string",
       "confidence": 0.8
@@ -8294,11 +7559,6 @@
     },
     {
       "pattern": "FIJL",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "FINAL",
       "type": "string",
       "confidence": 0.8
     },
@@ -8598,21 +7858,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "FcfE",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "FfB",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "FffA",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "FhAT",
       "type": "string",
       "confidence": 0.8
@@ -8669,11 +7914,6 @@
     },
     {
       "pattern": "Flash",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "Floor",
       "type": "string",
       "confidence": 0.8
     },
@@ -8989,11 +8229,6 @@
     },
     {
       "pattern": "G9mMG9j",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "GA9",
       "type": "string",
       "confidence": 0.8
     },
@@ -9508,11 +8743,6 @@
       "confidence": 0.8
     },
     {
-      "pattern": "GIc",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
       "pattern": "GLH9",
       "type": "string",
       "confidence": 0.8
@@ -9529,11 +8759,6 @@
     },
     {
       "pattern": "GLIBC_TUNABLES",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "GLM",
       "type": "string",
       "confidence": 0.8
     },
@@ -9574,11 +8799,6 @@
     },
     {
       "pattern": "GNEenb",
-      "type": "string",
-      "confidence": 0.8
-    },
-    {
-      "pattern": "GNM",
       "type": "string",
       "confidence": 0.8
     },
