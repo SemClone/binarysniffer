@@ -59,6 +59,65 @@ pip install -e .
 pip install semantic-copycat-binarysniffer[fast]
 ```
 
+## Optional Tools for Enhanced Format Support
+
+BinarySniffer can leverage external tools when available to provide enhanced analysis capabilities. These tools are **optional** - the core functionality works without them, but installing them unlocks additional features:
+
+### 7-Zip (Recommended)
+**Enables**: Extraction and analysis of NSIS installers, self-extracting archives, and additional compressed formats
+
+```bash
+# macOS
+brew install p7zip
+
+# Ubuntu/Debian
+sudo apt-get install p7zip-full
+
+# Windows
+# Download from https://www.7-zip.org/
+```
+
+**Benefits**:
+- Analyze Windows installers (.exe) by extracting embedded components
+- Support for NSIS, InnoSetup, and other installer formats
+- Extract and analyze self-extracting archives
+- Support for additional archive formats (RAR, CAB, ISO, etc.)
+
+### Universal CTags (Optional)
+**Enables**: Enhanced source code analysis with semantic understanding
+
+```bash
+# macOS
+brew install universal-ctags
+
+# Ubuntu/Debian
+sudo apt-get install universal-ctags
+
+# Windows
+# Download from https://github.com/universal-ctags/ctags-win32/releases
+```
+
+**Benefits**:
+- Better function/class/method detection in source code
+- Multi-language semantic analysis
+- More accurate symbol extraction
+- Improved signature matching for source code components
+
+### Example: Analyzing Windows Installers
+
+Without 7-Zip:
+```bash
+$ binarysniffer analyze installer.exe
+# Analyzes as compressed binary - limited detection
+```
+
+With 7-Zip installed:
+```bash
+$ binarysniffer analyze installer.exe
+# Automatically extracts and analyzes contents
+# Detects: Qt5, OpenSSL, SQLite, ICU, libpng, etc.
+```
+
 ## Quick Start
 
 ### CLI Usage
