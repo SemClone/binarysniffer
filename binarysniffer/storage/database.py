@@ -356,6 +356,7 @@ class SignatureDatabase:
             cursor = conn.execute("""
                 SELECT id, component_id, signature_compressed, sig_type, confidence, minhash
                 FROM signatures
+                ORDER BY id
             """)
             return [(row['id'], row['component_id'], row['signature_compressed'], 
                      row['sig_type'], row['confidence'], row['minhash']) 
@@ -386,7 +387,7 @@ class SignatureDatabase:
             stats['database_size'] = self.db_path.stat().st_size
             
             # Metadata
-            cursor = conn.execute("SELECT key, value FROM metadata")
+            cursor = conn.execute("SELECT key, value FROM metadata ORDER BY key")
             stats['metadata'] = {row['key']: row['value'] for row in cursor}
             
             return stats

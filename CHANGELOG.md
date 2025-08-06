@@ -5,28 +5,81 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.3] - 2025-08-06
+
+### Added
+- **Deterministic mode by default** - Tool now runs with PYTHONHASHSEED=0 automatically for consistent results
+- **Non-deterministic flag** - Added `--non-deterministic` flag to disable deterministic mode when needed
+- **Duplicate log prevention** - Added DuplicateFilter to prevent the same log messages from appearing twice
+
+### Changed
+- **Default confidence threshold** - Changed from 0.8 to 0.5 to detect more components like Opus codec
+- **Removed bloom filter tier** - Disabled probabilistic bloom filters for fully deterministic results
+- **Optimized direct matching** - Improved performance from 5.3s to 1.0s (5x faster) using pre-computed indices
+
+### Fixed
+- **SQL query ordering** - Added ORDER BY clauses to ensure consistent database query results
+- **Non-deterministic iterations** - Fixed all dictionary and set iterations to use sorted order
+- **Configuration loading** - Prevented multiple Config instances from setting up duplicate loggers
+
+### Performance
+- **5x faster analysis** - Direct matcher optimization reduces analysis time from 5.3s to 1.0s
+- **Memory efficient** - Removed bloom filter memory overhead while maintaining fast lookups
+- **Deterministic results** - Consistent component detection across multiple runs
+
+## [1.6.2] - 2025-08-05
+
+### Investigated
+- **Root cause of non-determinism** - Identified that Python's hash randomization (PYTHONHASHSEED) causes inconsistent results across CLI invocations
+- **Bloom filter probabilistic behavior** - Bloom filters inherently have false positives that vary with different hash seeds
+
+### Fixed
+- **Sorted dictionary iterations** - Made component_scores iteration deterministic in DirectMatcher
+- **Sorted set conversions** - Fixed non-deterministic list creation from sets in multiple places
+- **Deterministic final sorting** - Added component name as secondary sort key for consistent ordering
+- **Deterministic feature ordering** - Sort unique features before processing in ProgressiveMatcher
+
+### Added
+- **Deterministic bloom filter implementation** - Created new implementation using SHA-256 instead of Python's hash()
+
+### Known Issues
+- Component detection still shows some inconsistency due to bloom filter's probabilistic nature
+- Running with `PYTHONHASHSEED=0` provides consistent results
+- Consider making bloom filter tier optional or removing it for fully deterministic behavior
+
+## [1.6.1] - 2025-08-05
+
+### Fixed
+- **Progress bar removed** - Removed tqdm progress bar from DirectMatcher that was causing display issues
+- **Matcher initialization order** - Fixed issue where DirectMatcher was initialized before database was populated
+- **Deterministic file ordering** - Archive extraction now uses sorted file lists for consistent results
+- **Order-preserving deduplication** - Replaced set() with dict.fromkeys() to maintain consistent string order
+
+### Known Issues
+- Component detection still shows some inconsistency across runs (under investigation)
+- Duplicate log messages appear in CLI output
+
 ## [1.6.0] - 2025-08-05
 
 ### Added
-- **Comprehensive codec detection** - Added signatures for major multimedia codecs
-- **libvpx signatures** - VP8/VP9 video codec detection (20 patterns)
-- **libaom signatures** - AV1 video codec detection (15 patterns) 
-- **LAME signatures** - MP3 encoder detection (20 patterns)
-- **FLAC signatures** - Lossless audio codec detection (20 patterns)
-- **FDK-AAC signatures** - AAC audio codec detection (20 patterns)
-- **Opus signatures** - Modern audio codec detection (20 patterns)
+- **LIEF-based extractors** - Enhanced binary analysis using LIEF library for ELF/PE/Mach-O formats
+- **DEX file extractor** - Specialized extractor for Android DEX bytecode analysis
+- **New component signatures** - Added signatures for OkHttp, OpenSSL, SQLite, ICU, FreeType, and WebKit
+- **Progress indication** - Added tqdm progress bars for long analysis operations
+- **Substring matching** - Direct matcher now supports partial string matching for better detection
 
 ### Improved
-- **Smart substring matching** - Balanced approach avoiding false positives
-- **Prefix validation** - Requires matching library prefixes (e.g., `av_`, `opus_`)
-- **Pattern length thresholds** - Minimum lengths for reliable matching
-- **Generic term filtering** - Comprehensive list of 270+ generic programming terms
-- **Evidence tracking** - Enhanced verbose output showing exact pattern matches
+- **APK analysis** - Dramatically improved component detection in Android APKs (from 1 to 25+ components)
+- **Feature extraction** - Increased from 6,741 to 152,640 features for complex archives like APKs
+- **Bloom filter capacity** - Increased limit from 1,000 to 100,000 features for better coverage
+- **Component name display** - Fixed "@unknown" suffix when version is not available
+- **Matching performance** - Optimized substring matching with early termination and pre-filtering
 
 ### Fixed
-- **False positive elimination** - Fixed generic terms matching codec patterns
-- **Substring contamination** - Prevented `_strdup` matching `av_strdup`
-- **Cross-library contamination** - Library-specific pattern validation
+- **Archive processing** - DEX files and native libraries within APKs are now properly analyzed
+- **Feature counting** - Analyzer now correctly reports total features extracted
+- **Substring matching logic** - Fixed reversed logic (pattern in string, not string in pattern)
+- **Progressive matcher** - Component names no longer show "@unknown" for unknown versions
 
 ## [1.5.1] - 2025-08-05
 

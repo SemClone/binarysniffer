@@ -1,0 +1,20 @@
+{
+  "name": "FFmpeg-Speex",
+  "version": "unknown",
+  "ecosystem": "native",
+  "description": "Speex audio codec",
+  "publisher": "Xiph.Org",
+  "license": "BSD-3-Clause",
+  "metadata": {
+    "homepage": "https://www.speex.org/",
+    "repository": "https://gitlab.xiph.org/xiph/speex"
+  },
+  "signatures": [
+    {"pattern": "libspeex", "type": "string", "confidence": 0.9},
+    {"pattern": "speex_decoder_init", "type": "string", "confidence": 0.8},
+    {"pattern": "speex_bits_init", "type": "string", "confidence": 0.8},
+    {"pattern": "speex_encode", "type": "string", "confidence": 0.7},
+    {"pattern": "speex_decode", "type": "string", "confidence": 0.7},
+    {"pattern": "Error initializing libspeex", "type": "string", "confidence": 0.9}
+  ]
+}

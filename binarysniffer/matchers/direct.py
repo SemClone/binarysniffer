@@ -7,7 +7,6 @@ import json
 import logging
 from typing import List, Dict, Any, Set
 from collections import defaultdict
-from tqdm import tqdm
 
 from ..core.config import Config
 from ..core.results import ComponentMatch
@@ -32,6 +31,15 @@ class DirectMatcher:
         
         # Cache all signatures in memory for fast matching
         self._load_signatures()
+        
+        # Pre-compute signature lengths for optimization
+        self.sig_lengths = {sig['id']: len(sig['pattern']) for sig in self.signatures}
+        
+        # Group signatures by length for efficient matching
+        self.sigs_by_length = defaultdict(list)
+        for sig in self.signatures:
+            length = len(sig['pattern'])
+            self.sigs_by_length[length].append(sig)
     
     def _load_signatures(self):
         """Load all signatures into memory for fast matching"""
@@ -110,8 +118,8 @@ class DirectMatcher:
         matches = []
         component_scores = defaultdict(list)
         
-        # Get all strings from features (not just unique)
-        all_strings = features.strings + features.functions + features.constants + features.symbols
+        # Get all strings from features (sorted for deterministic processing)
+        all_strings = sorted(features.strings + features.functions + features.constants + features.symbols)
         
         if not all_strings:
             self.last_analysis_time = time.time() - start_time
@@ -123,48 +131,54 @@ class DirectMatcher:
         logger.debug(f"Direct matching against {len(string_set)} unique strings")
         
         # Pre-filter strings for substring matching (exclude very short/generic ones)
-        valid_strings = [s for s in string_set if len(s) >= 6 and s not in self._get_generic_terms()]
+        generic_terms = self._get_generic_terms()
+        valid_strings = sorted([s for s in string_set if len(s) >= 6 and s not in generic_terms])
         
-        # Match each signature with progress bar
-        for sig in tqdm(self.signatures, desc="Matching signatures", disable=not logger.isEnabledFor(logging.INFO)):
-            pattern = sig['pattern']
-            
-            # Check for exact match first (fast)
-            if pattern in string_set:
-                component_scores[sig['component_id']].append({
-                    'sig_id': sig['id'],
-                    'confidence': sig['confidence'],
-                    'sig_type': sig['sig_type'],
-                    'pattern': pattern,
-                    'matched_string': pattern  # exact match
-                })
-                continue
-            
-            # Smart substring matching - only for specific patterns
-            # Skip if pattern is too short or generic
-            if len(pattern) < 5 or self._contains_only_generic_terms(pattern):
-                continue
+        # Create a set of all substrings for faster matching
+        # Only for strings up to a reasonable length to avoid memory explosion
+        substring_set = set()
+        for s in valid_strings:
+            if len(s) <= 50:  # Limit substring generation
+                for i in range(len(s)):
+                    for j in range(i + 5, min(i + 30, len(s) + 1)):
+                        substring_set.add(s[i:j])
+        
+        # Process signatures in length order for cache efficiency
+        for length in sorted(self.sigs_by_length.keys()):
+            for sig in self.sigs_by_length[length]:
+                pattern = sig['pattern']
                 
-            # For common patterns, use more efficient matching
-            matches_found = 0
-            for string in valid_strings:
-                # Limit matches per pattern to avoid excessive matching
-                if matches_found >= 5:
-                    break
-                    
-                # Check if pattern is substring of string
-                if pattern in string:
-                    matches_found += 1
+                # Check for exact match first (fast)
+                if pattern in string_set:
                     component_scores[sig['component_id']].append({
                         'sig_id': sig['id'],
-                        'confidence': sig['confidence'] * 0.8,  # Slightly lower confidence for substring match
+                        'confidence': sig['confidence'],
                         'sig_type': sig['sig_type'],
                         'pattern': pattern,
-                        'matched_string': string
+                        'matched_string': pattern  # exact match
                     })
+                    continue
+                
+                # Skip if pattern is too short or generic
+                if length < 5 or self._contains_only_generic_terms(pattern):
+                    continue
+                
+                # Fast substring check using pre-computed set
+                if length <= 30 and pattern in substring_set:
+                    # Find which string contains this pattern
+                    for string in valid_strings:
+                        if pattern in string:
+                            component_scores[sig['component_id']].append({
+                                'sig_id': sig['id'],
+                                'confidence': sig['confidence'] * 0.8,
+                                'sig_type': sig['sig_type'],
+                                'pattern': pattern,
+                                'matched_string': string
+                            })
+                            break  # Only need one match per pattern
         
-        # Aggregate scores by component
-        for component_id, sig_matches in component_scores.items():
+        # Aggregate scores by component (sorted for deterministic order)
+        for component_id, sig_matches in sorted(component_scores.items()):
             if component_id not in self.component_map:
                 continue
             
@@ -221,8 +235,8 @@ class DirectMatcher:
                 )
                 matches.append(match)
         
-        # Sort by confidence
-        matches.sort(key=lambda m: m.confidence, reverse=True)
+        # Sort by confidence, then by component name for deterministic order
+        matches.sort(key=lambda m: (-m.confidence, m.component))
         
         self.last_analysis_time = time.time() - start_time
         logger.info(f"Direct matching found {len(matches)} components in {self.last_analysis_time:.3f}s")

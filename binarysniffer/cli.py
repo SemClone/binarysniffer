@@ -2,6 +2,7 @@
 Command-line interface for BinarySniffer
 """
 
+import os
 import sys
 import json
 import time
@@ -31,27 +32,30 @@ logger = logging.getLogger(__name__)
 @click.option('--config', type=click.Path(exists=True), help='Path to configuration file')
 @click.option('--data-dir', type=click.Path(), help='Override data directory')
 @click.option('-v', '--verbose', count=True, help='Increase verbosity (-v, -vv, -vvv)')
+@click.option('--non-deterministic', is_flag=True, help='Disable deterministic mode (allows Python hash randomization)')
 @click.pass_context
-def cli(ctx, config, data_dir, verbose):
+def cli(ctx, config, data_dir, verbose, non_deterministic):
     """
     Semantic Copycat BinarySniffer - Detect OSS components in binaries
     
     A high-performance CLI tool for detecting open source components
     through semantic signature matching.
+    
+    By default, runs in deterministic mode (PYTHONHASHSEED=0) for consistent results.
+    Use --non-deterministic to disable this behavior.
     """
-    # Setup logging
+    # Setup logging level only (handler will be set up by Config)
     log_levels = {0: "WARNING", 1: "INFO", 2: "DEBUG"}
     log_level = log_levels.get(verbose, "DEBUG")
-    logging.basicConfig(
-        level=getattr(logging, log_level),
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
     
     # Load configuration
     if config:
         cfg = Config.load(Path(config))
     else:
         cfg = Config()
+    
+    # Override log level from CLI
+    cfg.log_level = log_level
     
     # Override data directory if specified
     if data_dir:
@@ -67,7 +71,7 @@ def cli(ctx, config, data_dir, verbose):
 @cli.command()
 @click.argument('path', type=click.Path(exists=True))
 @click.option('--recursive', '-r', is_flag=True, help='Analyze directories recursively')
-@click.option('--threshold', '-t', type=float, help='Confidence threshold (0.0-1.0, default: 0.8)')
+@click.option('--threshold', '-t', type=float, help='Confidence threshold (0.0-1.0, default: 0.5)')
 @click.option('--deep', is_flag=True, help='Enable deep analysis mode')
 @click.option('--format', '-f', 
               type=click.Choice(['table', 'json', 'csv'], case_sensitive=False),
@@ -741,6 +745,14 @@ def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], mi
 
 def main():
     """Main entry point"""
+    # Check if --non-deterministic is in argv to decide on PYTHONHASHSEED
+    if '--non-deterministic' not in sys.argv:
+        # Default: deterministic mode
+        if os.environ.get('PYTHONHASHSEED') != '0':
+            # Re-execute with PYTHONHASHSEED=0 for deterministic results
+            os.environ['PYTHONHASHSEED'] = '0'
+            os.execv(sys.executable, [sys.executable] + sys.argv)
+    
     cli(obj={})
 
 

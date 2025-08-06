@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from .config import Config
 from .results import AnalysisResult, ComponentMatch
 from ..extractors.factory import ExtractorFactory
-from ..matchers.progressive import ProgressiveMatcher
+# Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
@@ -37,15 +37,15 @@ class EnhancedBinarySniffer:
         # Initialize components
         self.db = SignatureDatabase(self.config.db_path)
         self.extractor_factory = ExtractorFactory()
-        self.progressive_matcher = ProgressiveMatcher(self.config)
-        self.direct_matcher = DirectMatcher(self.config)
         self.signature_manager = SignatureManager(self.config, self.db)
-        # Updater is handled by regular analyzer if needed
         
-        # Check if database needs initialization
+        # Check if database needs initialization BEFORE creating matchers
         if not self.db.is_initialized():
             logger.info("Initializing signature database...")
             self._initialize_database()
+        
+        # Create direct matcher only (bloom filters disabled for deterministic results)
+        self.direct_matcher = DirectMatcher(self.config)
     
     def analyze_file(
         self, 
@@ -74,32 +74,26 @@ class EnhancedBinarySniffer:
         extractor = self.extractor_factory.get_extractor(file_path)
         features = extractor.extract(file_path)
         
-        # Use high threshold to reduce false positives
-        threshold = confidence_threshold or 0.8
+        # Use lower threshold for direct matching since we're not using bloom filters
+        threshold = confidence_threshold or 0.5
         
-        # Try progressive matching first
-        progressive_matches = self.progressive_matcher.match(
-            features, 
-            threshold=threshold,
-            deep=deep_analysis
-        )
-        
-        # Always use direct matching for better detection
+        # Use direct matcher only for deterministic results
+        # (bloom filters disabled per user request)
         direct_matches = self.direct_matcher.match(
             features,
             threshold=threshold,
             deep=deep_analysis
         )
         
-        # Merge matches, keeping highest confidence for each component
-        merged_matches = self._merge_matches(progressive_matches, direct_matches)
+        # No merging needed - just use direct matches
+        merged_matches = direct_matches
         
         # Apply technology filtering to reduce false positives
         file_type = features.file_type
         filtered_matches = self._filter_by_technology(merged_matches, file_type)
         
         # Build result
-        total_time = self.progressive_matcher.last_analysis_time + self.direct_matcher.last_analysis_time
+        total_time = self.direct_matcher.last_analysis_time
         
         return AnalysisResult(
             file_path=str(file_path),

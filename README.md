@@ -5,13 +5,22 @@ A high-performance CLI tool and Python library for detecting open source compone
 ## Features
 
 ### Core Analysis
-- **Fast Local Analysis**: SQLite-based signature storage with tiered bloom filters
+- **Deterministic Results**: Consistent analysis results across multiple runs (NEW in v1.6.3)
+- **Fast Local Analysis**: SQLite-based signature storage with optimized direct matching
 - **Efficient Matching**: MinHash LSH for similarity detection, trigram indexing for substring matching
 - **Dual Interface**: Use as CLI tool or Python library
 - **Smart Compression**: ZSTD-compressed signatures with ~90% size reduction
 - **Low Memory Footprint**: Streaming analysis with <100MB memory usage
 
-### Archive Support (NEW in v1.1.0)
+### Enhanced Binary Analysis (NEW in v1.6.0)
+- **LIEF Integration**: Advanced ELF/PE/Mach-O analysis with symbol and import extraction
+- **Android DEX Support**: Specialized extractor for DEX bytecode files
+- **Improved APK Detection**: 25+ components detected vs 1 previously (152K features extracted)
+- **Substring Matching**: Detects components even with partial pattern matches
+- **Progress Indication**: Real-time progress bars for long analysis operations
+- **New Component Signatures**: OkHttp, OpenSSL, SQLite, ICU, FreeType, WebKit
+
+### Archive Support
 - **Android APK Analysis**: Extract and analyze AndroidManifest.xml, DEX files, native libraries
 - **iOS IPA Analysis**: Parse Info.plist, detect frameworks, analyze executables
 - **Java Archive Support**: Process JAR/WAR files with MANIFEST.MF parsing and package detection
@@ -19,13 +28,13 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Nested Archive Processing**: Handle archives containing other archives
 - **Comprehensive Format Support**: ZIP, TAR, 7z, and compound formats
 
-### Enhanced Source Analysis (NEW in v1.1.0)
+### Enhanced Source Analysis
 - **CTags Integration**: Advanced source code analysis when universal-ctags is available
 - **Multi-language Support**: C/C++, Python, Java, JavaScript, Go, Rust, PHP, Swift, Kotlin
 - **Semantic Symbol Extraction**: Functions, classes, structs, constants, and dependencies
 - **Graceful Fallback**: Regex-based extraction when CTags is unavailable
 
-### Signature Database (NEW in v1.1.0)
+### Signature Database
 - **90+ OSS Components**: Pre-loaded signatures from Facebook SDK, Jackson, FFmpeg, and more
 - **Real-world Detection**: Thousands of component signatures from BSA database migration
 - **License Detection**: Automatic license identification for detected components
@@ -66,8 +75,8 @@ binarysniffer analyze library.jar                # Java JAR
 # Analyze directories recursively
 binarysniffer analyze /path/to/project --recursive
 
-# Custom threshold (default is 0.3 for optimal detection)
-binarysniffer analyze file.exe --threshold 0.1   # More sensitive
+# Custom threshold (default is 0.5 for optimal detection)
+binarysniffer analyze file.exe --threshold 0.3   # More sensitive
 binarysniffer analyze file.exe --threshold 0.8   # More conservative
 
 # Export results as JSON
@@ -75,6 +84,9 @@ binarysniffer analyze project/ --format json -o results.json
 
 # Deep analysis with pattern filtering
 binarysniffer analyze project/ --recursive --deep -p "*.so" -p "*.dll"
+
+# Non-deterministic mode (if needed for performance testing)
+binarysniffer --non-deterministic analyze file.bin
 ```
 
 ### Python Library Usage
@@ -137,11 +149,11 @@ The tool uses a multi-tiered approach for efficient matching:
 
 ## Performance
 
-- **Analysis Speed**: ~10-50ms per file (after index loading)
+- **Analysis Speed**: ~1 second per binary file (5x faster in v1.6.3)
 - **Archive Processing**: ~100-500ms for APK/IPA files (depends on contents)
-- **Signature Storage**: ~1-5MB for 1K signatures, ~50-100MB for 1M signatures
+- **Signature Storage**: ~3.5MB database with 5,136 signatures from 131 components
 - **Memory Usage**: <100MB during analysis, <200MB for large archives
-- **Database Size**: Current database: ~2MB with 90+ components and 1000+ signatures
+- **Deterministic Results**: Consistent detection across runs (NEW in v1.6.3)
 
 ## Configuration
 
@@ -162,7 +174,7 @@ Configuration file location: `~/.binarysniffer/config.json`
 
 ## Signature Database
 
-The tool includes a pre-built signature database with **90+ OSS components** including:
+The tool includes a pre-built signature database with **131 OSS components** including:
 - **Mobile SDKs**: Facebook Android SDK, Google Firebase, Google Ads
 - **Java Libraries**: Jackson, Apache Commons, Google Guava, Netty  
 - **Media Libraries**: FFmpeg, x264, x265, Vorbis, Opus
@@ -193,6 +205,9 @@ pip install -e .[dev]
 # Optional: Install CTags for enhanced source analysis
 # macOS: brew install universal-ctags
 # Ubuntu: apt install universal-ctags
+
+# Optional: Install LIEF for enhanced binary analysis
+pip install lief
 ```
 
 ### Running tests

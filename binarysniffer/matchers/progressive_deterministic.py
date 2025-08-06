@@ -1,17 +1,17 @@
 """
-Progressive matching implementation with three-tier strategy
+Deterministic progressive matching implementation
 """
 
 import time
 import logging
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Any, Set, Tuple
 from pathlib import Path
+from collections import defaultdict
 
 from ..core.config import Config
 from ..core.results import ComponentMatch
 from ..extractors.base import ExtractedFeatures
 from ..storage.database import SignatureDatabase
-from ..index.bloom import TieredBloomFilter
 from ..index.minhash import MinHashIndex
 from ..utils.hashing import compute_minhash_for_strings, compute_sha256
 
@@ -19,10 +19,12 @@ from ..utils.hashing import compute_minhash_for_strings, compute_sha256
 logger = logging.getLogger(__name__)
 
 
-class ProgressiveMatcher:
+class DeterministicProgressiveMatcher:
     """
-    Three-tier progressive matching:
-    1. Bloom filters for quick elimination
+    Deterministic progressive matching without bloom filters.
+    
+    Uses a prefix-based hash index for fast candidate selection:
+    1. Hash prefix index for quick candidate selection
     2. MinHash LSH for similarity search  
     3. Detailed database matching
     """
@@ -31,7 +33,6 @@ class ProgressiveMatcher:
         """Initialize matcher with configuration"""
         self.config = config
         self.db = SignatureDatabase(config.db_path)
-        self.bloom_filter = TieredBloomFilter(config.bloom_filter_dir)
         self.minhash_index = MinHashIndex(
             config.index_dir / "minhash.idx",
             num_perm=config.minhash_permutations,
@@ -39,8 +40,15 @@ class ProgressiveMatcher:
         )
         self.last_analysis_time = 0.0
         
-        # Initialize indexes if needed
-        self._ensure_indexes()
+        # Build hash prefix index for fast lookup
+        self.hash_prefix_index = None
+        self.prefix_length = 8  # Use first 8 chars of SHA256 hash
+        self._build_hash_index()
+        
+        # Initialize MinHash index if needed
+        if not self.minhash_index.is_initialized():
+            logger.info("Initializing MinHash index...")
+            self._build_minhash_index()
     
     def match(
         self,
@@ -49,7 +57,7 @@ class ProgressiveMatcher:
         deep: bool = False
     ) -> List[ComponentMatch]:
         """
-        Perform progressive matching on extracted features.
+        Perform deterministic progressive matching on extracted features.
         
         Args:
             features: Extracted features from file
@@ -68,22 +76,18 @@ class ProgressiveMatcher:
             self.last_analysis_time = time.time() - start_time
             return matches
         
-        logger.debug(f"Matching {len(all_features)} features")
+        logger.info(f"Matching {len(all_features)} features")
         
-        # Tier 1: Bloom filter check
-        bloom_candidates = self._bloom_filter_check(all_features)
-        logger.debug(f"Bloom filter candidates: {len(bloom_candidates)}")
-        
-        if not bloom_candidates and not deep:
-            self.last_analysis_time = time.time() - start_time
-            return matches
+        # Tier 1: Hash prefix index lookup
+        hash_candidates = self._hash_index_lookup(all_features)
+        logger.info(f"Hash index candidates: {len(hash_candidates)}")
         
         # Tier 2: MinHash similarity search
         minhash_candidates = self._minhash_search(all_features, threshold)
-        logger.debug(f"MinHash candidates: {len(minhash_candidates)}")
+        logger.info(f"MinHash candidates: {len(minhash_candidates)}")
         
         # Combine candidates
-        all_candidates = bloom_candidates.union(minhash_candidates)
+        all_candidates = hash_candidates.union(minhash_candidates)
         
         if not all_candidates:
             self.last_analysis_time = time.time() - start_time
@@ -95,16 +99,55 @@ class ProgressiveMatcher:
         self.last_analysis_time = time.time() - start_time
         return matches
     
-    def _bloom_filter_check(self, features: List[str]) -> Set[str]:
-        """Check features against bloom filters"""
+    def _build_hash_index(self):
+        """Build hash prefix index from database"""
+        logger.info("Building hash prefix index...")
+        
+        self.hash_prefix_index = defaultdict(set)
+        
+        try:
+            # Get all signatures from database
+            signatures = self.db.get_all_signatures()
+            
+            if not signatures:
+                logger.warning("No signatures found in database")
+                return
+            
+            # Build prefix index
+            count = 0
+            for sig_id, component_id, sig_compressed, sig_type, confidence, minhash in signatures:
+                if sig_compressed:
+                    # Decompress signature
+                    import zstandard as zstd
+                    dctx = zstd.ZstdDecompressor()
+                    signature = dctx.decompress(sig_compressed).decode('utf-8')
+                    
+                    # Compute hash and store prefix mapping
+                    sig_hash = compute_sha256(signature)
+                    prefix = sig_hash[:self.prefix_length]
+                    self.hash_prefix_index[prefix].add(sig_hash)
+                    count += 1
+            
+            logger.info(f"Built hash index with {count} signatures, {len(self.hash_prefix_index)} unique prefixes")
+            
+        except Exception as e:
+            logger.error(f"Error building hash index: {e}")
+    
+    def _hash_index_lookup(self, features: List[str]) -> Set[str]:
+        """Look up features in hash prefix index"""
         candidates = set()
         
-        # Check each feature
-        for feature in features[:100000]:  # Increased limit for better detection
-            tier = self.bloom_filter.check_string(feature)
-            if tier:
-                # Add feature hash as candidate
-                candidates.add(compute_sha256(feature))
+        if not self.hash_prefix_index:
+            return candidates
+        
+        # Check each feature's hash prefix
+        for feature in features[:100000]:  # Limit for performance
+            feature_hash = compute_sha256(feature)
+            prefix = feature_hash[:self.prefix_length]
+            
+            # If prefix exists in index, add all signatures with that prefix
+            if prefix in self.hash_prefix_index:
+                candidates.update(self.hash_prefix_index[prefix])
         
         return candidates
     
@@ -199,7 +242,6 @@ class ProgressiveMatcher:
         }.get(sig_type, 1.0)
         
         # Simple presence check for now
-        # In a real implementation, this would be more sophisticated
         return base_confidence * type_weight
     
     def _sig_type_to_string(self, sig_type: int) -> str:
@@ -210,50 +252,6 @@ class ProgressiveMatcher:
             3: "constant",
             4: "pattern"
         }.get(sig_type, "unknown")
-    
-    def _ensure_indexes(self):
-        """Ensure indexes are initialized"""
-        # Check if bloom filters exist
-        if not self.bloom_filter.is_initialized():
-            logger.info("Initializing bloom filters...")
-            self._build_bloom_filters()
-        
-        # Check if MinHash index exists
-        if not self.minhash_index.is_initialized():
-            logger.info("Initializing MinHash index...")
-            self._build_minhash_index()
-    
-    def _build_bloom_filters(self):
-        """Build bloom filters from database"""
-        logger.info("Building bloom filters from signature database...")
-        
-        try:
-            # Get all signatures from database
-            signatures = self.db.get_all_signatures()
-            
-            if not signatures:
-                logger.warning("No signatures found in database")
-                return
-            
-            # Add each signature to bloom filter
-            count = 0
-            for sig_id, component_id, sig_compressed, sig_type, confidence, minhash in signatures:
-                if sig_compressed:
-                    # Decompress signature
-                    import zstandard as zstd
-                    dctx = zstd.ZstdDecompressor()
-                    signature = dctx.decompress(sig_compressed).decode('utf-8')
-                    
-                    # Add to bloom filter
-                    self.bloom_filter.add_string(signature)
-                    count += 1
-            
-            # Save bloom filter
-            self.bloom_filter.save()
-            logger.info(f"Added {count} signatures to bloom filter")
-            
-        except Exception as e:
-            logger.error(f"Error building bloom filters: {e}")
     
     def _build_minhash_index(self):
         """Build MinHash index from database"""

@@ -92,7 +92,7 @@ class LiefBinaryExtractor(BaseExtractor):
         # Categorize strings
         features.functions = self._extract_functions(features.strings)
         features.constants = self._extract_constants(features.strings)
-        features.imports = list(set(features.imports))[:5000]  # Limit imports
+        features.imports = list(dict.fromkeys(features.imports))[:5000]  # Limit imports
         features.symbols = self._extract_symbols(features.strings)
         
         # Set metadata

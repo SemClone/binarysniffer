@@ -1,0 +1,20 @@
+{
+  "name": "FFmpeg-SwScale",
+  "version": "unknown",
+  "ecosystem": "native",
+  "description": "FFmpeg video scaling and pixel format conversion library",
+  "publisher": "FFmpeg",
+  "license": "LGPL-2.1",
+  "metadata": {
+    "homepage": "https://ffmpeg.org/",
+    "description": "Video scaling and colorspace/pixel format conversion"
+  },
+  "signatures": [
+    {"pattern": "libswscale", "type": "string", "confidence": 0.9},
+    {"pattern": "sws_scale", "type": "string", "confidence": 0.8},
+    {"pattern": "SwsContext", "type": "string", "confidence": 0.8},
+    {"pattern": "sws_getContext", "type": "string", "confidence": 0.7},
+    {"pattern": "src/libswscale/utils.c", "type": "string", "confidence": 0.9},
+    {"pattern": "Flags to pass to libswscale", "type": "string", "confidence": 0.8}
+  ]
+}

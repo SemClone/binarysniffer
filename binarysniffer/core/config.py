@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class Config:
+    _logging_setup = False
     """
     Configuration for BinarySniffer.
     
@@ -60,6 +61,7 @@ class Config:
     
     def __post_init__(self):
         """Post-initialization processing"""
+        
         # Ensure Path objects
         if isinstance(self.data_dir, str):
             self.data_dir = Path(self.data_dir)
@@ -72,8 +74,10 @@ class Config:
         # Override with environment variables
         self._load_from_env()
         
-        # Setup logging
-        self._setup_logging()
+        # Setup logging only once globally
+        if not Config._logging_setup:
+            self._setup_logging()
+            Config._logging_setup = True
     
     @property
     def db_path(self) -> Path:
@@ -143,20 +147,31 @@ class Config:
         """Setup logging configuration"""
         log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         
-        # Console handler
+        # Get all binarysniffer loggers
+        bs_logger = logging.getLogger("binarysniffer")
+        bs_logger.setLevel(getattr(logging, self.log_level.upper()))
+        
+        # Clear any existing handlers first
+        bs_logger.handlers.clear()
+        
+        # Add single console handler with duplicate filter
+        from ..utils.logging import DuplicateFilter
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(logging.Formatter(log_format))
+        console_handler.addFilter(DuplicateFilter())
+        bs_logger.addHandler(console_handler)
         
-        # Root logger configuration
-        root_logger = logging.getLogger("binarysniffer")
-        root_logger.setLevel(getattr(logging, self.log_level.upper()))
-        root_logger.addHandler(console_handler)
+        # Prevent propagation to avoid duplicates
+        bs_logger.propagate = False
         
         # File handler if specified
         if self.log_file:
             file_handler = logging.FileHandler(self.log_file)
             file_handler.setFormatter(logging.Formatter(log_format))
-            root_logger.addHandler(file_handler)
+            bs_logger.addHandler(file_handler)
+        
+        # Clear root logger handlers to prevent any duplicates
+        logging.root.handlers.clear()
     
     def save(self, config_file: Optional[Path] = None):
         """

@@ -97,60 +97,61 @@ class ArchiveExtractor(BaseExtractor):
                             prioritized_files.append(f)
                         else:
                             other_files.append(f)
-                    # Process native libraries and DEX files first, then others
-                    extracted_files = prioritized_files + other_files[:100]  # Limit other files
+                    # Process native libraries and DEX files first, then others (sorted for consistency)
+                    extracted_files = sorted(prioritized_files) + sorted(other_files)[:100]  # Limit other files
                     file_limit = len(extracted_files)
                 else:
                     file_limit = 10000 if not is_single_file else 1
                 
                 for extracted_file in extracted_files[:file_limit]:  # Limit files for large archives
-                    if extracted_file.is_file():
-                        try:
-                            # Extract features from each file
-                            file_features = factory.extract(extracted_file)
-                            
-                            # Merge features - use all features for single file archives
-                            if is_single_file:
-                                features.strings.extend(file_features.strings)
-                                features.functions.extend(file_features.functions)
-                                features.constants.extend(file_features.constants)
-                                features.imports.extend(file_features.imports)
-                                features.symbols.extend(file_features.symbols)
-                            else:
-                                # Apply limits only for multi-file archives - ULTRA MASSIVE
-                                features.strings.extend(file_features.strings[:50000])  # Was 5000
-                                features.functions.extend(file_features.functions[:10000])  # Was 1000  
-                                features.constants.extend(file_features.constants[:10000])  # Was 1000
-                                features.imports.extend(file_features.imports[:5000])  # Was 500
-                                features.symbols.extend(file_features.symbols[:10000])  # Was 1000
-                            
-                        except Exception as e:
-                            logger.debug(f"Error processing {extracted_file}: {e}")
+                    # No need to check is_file() again since we already filtered
+                    try:
+                        # Extract features from each file
+                        file_features = factory.extract(extracted_file)
+                        
+                        # Merge features - use all features for single file archives
+                        if is_single_file:
+                            features.strings.extend(file_features.strings)
+                            features.functions.extend(file_features.functions)
+                            features.constants.extend(file_features.constants)
+                            features.imports.extend(file_features.imports)
+                            features.symbols.extend(file_features.symbols)
+                        else:
+                            # Apply limits only for multi-file archives - ULTRA MASSIVE
+                            features.strings.extend(file_features.strings[:50000])  # Was 5000
+                            features.functions.extend(file_features.functions[:10000])  # Was 1000  
+                            features.constants.extend(file_features.constants[:10000])  # Was 1000
+                            features.imports.extend(file_features.imports[:5000])  # Was 500
+                            features.symbols.extend(file_features.symbols[:10000])  # Was 1000
+                        
+                    except Exception as e:
+                        logger.debug(f"Error processing {extracted_file}: {e}")
                 
                 # Deduplicate and limit (be generous for single-file archives)
                 if is_single_file:
                     # For single file archives, use the same limits as the original extractor
-                    features.strings = list(set(features.strings))[:self.max_strings]
-                    features.functions = list(set(features.functions))
-                    features.constants = list(set(features.constants))
-                    features.imports = list(set(features.imports))
-                    features.symbols = list(set(features.symbols))
+                    # Use dict.fromkeys() for order-preserving deduplication
+                    features.strings = list(dict.fromkeys(features.strings))[:self.max_strings]
+                    features.functions = list(dict.fromkeys(features.functions))
+                    features.constants = list(dict.fromkeys(features.constants))
+                    features.imports = list(dict.fromkeys(features.imports))
+                    features.symbols = list(dict.fromkeys(features.symbols))
                 else:
                     # For multi-file archives, apply limits based on type
                     if features.file_type == 'android':
                         # For APKs, be very generous with limits
-                        features.strings = list(set(features.strings))[:100000]  # 100k strings for APKs
-                        features.functions = list(set(features.functions))[:20000]
-                        features.constants = list(set(features.constants))[:10000]
-                        features.imports = list(set(features.imports))[:5000]
-                        features.symbols = list(set(features.symbols))[:20000]
+                        features.strings = list(dict.fromkeys(features.strings))[:100000]  # 100k strings for APKs
+                        features.functions = list(dict.fromkeys(features.functions))[:20000]
+                        features.constants = list(dict.fromkeys(features.constants))[:10000]
+                        features.imports = list(dict.fromkeys(features.imports))[:5000]
+                        features.symbols = list(dict.fromkeys(features.symbols))[:20000]
                     else:
                         # Standard limits for other archives
-                        features.strings = list(set(features.strings))[:self.max_strings]
-                        features.functions = list(set(features.functions))[:5000]
-                        features.constants = list(set(features.constants))[:2000]
-                        features.imports = list(set(features.imports))[:1000]
-                        features.symbols = list(set(features.symbols))[:5000]
+                        features.strings = list(dict.fromkeys(features.strings))[:self.max_strings]
+                        features.functions = list(dict.fromkeys(features.functions))[:5000]
+                        features.constants = list(dict.fromkeys(features.constants))[:2000]
+                        features.imports = list(dict.fromkeys(features.imports))[:1000]
+                        features.symbols = list(dict.fromkeys(features.symbols))[:5000]
                 
                 # Add base metadata
                 if not hasattr(features, 'metadata') or features.metadata is None:
@@ -176,13 +177,13 @@ class ArchiveExtractor(BaseExtractor):
                 # Handle ZIP-based archives
                 with zipfile.ZipFile(archive_path, 'r') as zip_file:
                     zip_file.extractall(extract_to)
-                    extracted_files = list(extract_to.rglob('*'))
+                    extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
             elif tarfile.is_tarfile(archive_path):
                 # Handle TAR archives
                 with tarfile.open(archive_path, 'r:*') as tar_file:
                     tar_file.extractall(extract_to)
-                    extracted_files = list(extract_to.rglob('*'))
+                    extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
             else:
                 logger.warning(f"Unsupported archive format: {archive_path}")
@@ -239,7 +240,7 @@ class ArchiveExtractor(BaseExtractor):
             features.metadata['has_android_manifest'] = True
         
         # Look for classes.dex
-        dex_files = list(extract_path.glob("classes*.dex"))
+        dex_files = sorted(list(extract_path.glob("classes*.dex")))
         if dex_files:
             features.metadata['dex_files'] = len(dex_files)
             # Extract strings from DEX files using simple strings command
@@ -288,12 +289,12 @@ class ArchiveExtractor(BaseExtractor):
     def _handle_ipa(self, extract_path: Path, features: ExtractedFeatures):
         """Handle iOS IPA files"""
         # Look for Info.plist
-        info_plists = list(extract_path.rglob("Info.plist"))
+        info_plists = sorted(list(extract_path.rglob("Info.plist")))
         if info_plists:
             features.metadata['has_info_plist'] = True
         
         # Look for executable in .app directory
-        app_dirs = list(extract_path.glob("Payload/*.app"))
+        app_dirs = sorted(list(extract_path.glob("Payload/*.app")))
         if app_dirs:
             app_dir = app_dirs[0]
             # Find main executable
@@ -304,7 +305,7 @@ class ArchiveExtractor(BaseExtractor):
         
         # Look for frameworks
         frameworks = []
-        framework_dirs = list(extract_path.rglob("*.framework"))
+        framework_dirs = sorted(list(extract_path.rglob("*.framework")))
         for fw in framework_dirs[:20]:
             frameworks.append(fw.name)
             features.imports.append(fw.name)
@@ -334,7 +335,7 @@ class ArchiveExtractor(BaseExtractor):
             features.metadata['is_webapp'] = True
         
         # Extract package structure
-        class_files = list(extract_path.rglob("*.class"))
+        class_files = sorted(list(extract_path.rglob("*.class")))
         packages = set()
         for class_file in class_files[:100]:
             parts = class_file.relative_to(extract_path).parts
