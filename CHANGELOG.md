@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2025-08-06
+
+### Added
+- **TLSH Fuzzy Matching** - Detect similar/modified OSS components using locality-sensitive hashing
+- **Enhanced FFmpeg signature** - 2,000 high-quality patterns covering versions 4.4 to 6.0 with TLSH hash
+- **CLI options for fuzzy matching** - New `--use-tlsh` and `--tlsh-threshold` parameters for similarity detection
+- **TLSH signature store** - Manage and query TLSH hashes for fuzzy component matching
+- **Optional TLSH addition script** - Tool to add TLSH hashes to existing signatures (`scripts/add_tlsh_to_signatures.py`)
+
+### Improved
+- **Detection accuracy** - Find modified, recompiled, or patched OSS components that pattern matching might miss
+- **Signature generation** - Automatically generates TLSH hashes for new signatures
+- **Version detection** - Better identification of different versions of the same library
+- **Component matching** - Merged fuzzy and pattern matching for comprehensive detection
+
+### Technical
+- **New dependency** - Added `python-tlsh` as optional dependency (`pip install binarysniffer[fuzzy]`)
+- **New module** - `binarysniffer.hashing.tlsh_hasher` for TLSH operations
+- **Documentation** - Comprehensive TLSH guide in `docs/TLSH_FUZZY_MATCHING.md`
+
 ## [1.7.0] - 2025-08-06
 
 ### Added

@@ -5,6 +5,7 @@ A high-performance CLI tool and Python library for detecting open source compone
 ## Features
 
 ### Core Analysis
+- **TLSH Fuzzy Matching**: Detect modified, recompiled, or patched OSS components (NEW in v1.8.0)
 - **Deterministic Results**: Consistent analysis results across multiple runs (NEW in v1.6.3)
 - **Fast Local Analysis**: SQLite-based signature storage with optimized direct matching
 - **Efficient Matching**: MinHash LSH for similarity detection, trigram indexing for substring matching
@@ -57,6 +58,12 @@ pip install -e .
 ### With Performance Extras
 ```bash
 pip install semantic-copycat-binarysniffer[fast]
+```
+
+### With Fuzzy Matching Support
+```bash
+# Includes TLSH for detecting modified/recompiled components
+pip install semantic-copycat-binarysniffer[fuzzy]
 ```
 
 ## Optional Tools for Enhanced Format Support
@@ -155,6 +162,11 @@ binarysniffer analyze project/ --recursive --deep -p "*.so" -p "*.dll"
 
 # Non-deterministic mode (if needed for performance testing)
 binarysniffer --non-deterministic analyze file.bin
+
+# TLSH fuzzy matching for detecting modified components
+binarysniffer analyze modified_ffmpeg.bin --use-tlsh        # Enable fuzzy matching (default)
+binarysniffer analyze file.bin --tlsh-threshold 30          # More sensitive fuzzy matching
+binarysniffer analyze file.bin --no-tlsh                    # Disable fuzzy matching
 ```
 
 ### Python Library Usage
@@ -185,6 +197,16 @@ results = sniffer.analyze_directory("/path/to/project", recursive=True)
 for file_path, result in results.items():
     if result.matches:
         print(f"{file_path}: {len(result.matches)} components detected")
+
+# TLSH fuzzy matching for modified components
+result = sniffer.analyze_file(
+    "modified_binary.exe",
+    use_tlsh=True,              # Enable TLSH fuzzy matching (default)
+    tlsh_threshold=50           # Lower threshold = more similar required
+)
+for match in result.matches:
+    if match.match_type == 'tlsh_fuzzy':
+        print(f"Fuzzy match: {match.component} (similarity: {match.confidence:.0%})")
 ```
 
 ### Creating Signatures
@@ -211,9 +233,20 @@ binarysniffer signatures create binary.so \
 
 The tool uses a multi-tiered approach for efficient matching:
 
-1. **Tier 1 - Bloom Filters**: Quick elimination of non-matches (microseconds)
-2. **Tier 2 - MinHash LSH**: Fast similarity search (milliseconds)
-3. **Tier 3 - Detailed Matching**: Precise signature verification (seconds)
+1. **Pattern Matching**: Direct string/symbol matching against signature database
+2. **MinHash LSH**: Fast similarity search for near-duplicate detection (milliseconds)
+3. **TLSH Fuzzy Matching**: Locality-sensitive hashing to detect modified/recompiled components
+4. **Detailed Verification**: Precise signature verification with confidence scoring
+
+### TLSH Fuzzy Matching (v1.8.0+)
+
+TLSH (Trend Micro Locality Sensitive Hash) enables detection of:
+- **Modified Components**: Components with patches or custom modifications
+- **Recompiled Binaries**: Same source code compiled with different options
+- **Version Variants**: Different versions of the same library
+- **Obfuscated Code**: Components with mild obfuscation or optimization
+
+The TLSH algorithm generates a compact hash that remains similar even when files are modified, making it ideal for detecting OSS components that have been customized or rebuilt.
 
 ## Performance
 
