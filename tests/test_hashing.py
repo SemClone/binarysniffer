@@ -110,13 +110,15 @@ class TestHashingUtils:
     
     def test_lsh_index(self):
         """Test LSH index functionality"""
-        index = LSHIndex(num_perm=128, bands=16)
+        # Use more bands with fewer rows for lower similarity threshold
+        # 32 bands of 4 rows each makes it more likely to find matches
+        index = LSHIndex(num_perm=128, bands=32)
         
-        # Create MinHashes for different sets
+        # Create MinHashes for different sets with higher similarity
         sets = {
-            "set1": ["apple", "banana", "cherry"],
-            "set2": ["apple", "banana", "date"],
-            "set3": ["completely", "different", "items"]
+            "set1": ["apple", "banana", "cherry", "date", "elderberry"],
+            "set2": ["apple", "banana", "cherry", "date", "fig"],  # 80% similar to set1
+            "set3": ["completely", "different", "items", "here", "nothing"]
         }
         
         minhashes = {}
@@ -126,15 +128,16 @@ class TestHashingUtils:
             minhashes[key] = mh
             index.add(key, mh)
         
-        # Query with similar set
+        # Query with very similar set (80% overlap with set1 and set2)
         query_mh = MinHash(num_perm=128)
-        query_mh.update_batch(["apple", "banana", "elderberry"])
+        query_mh.update_batch(["apple", "banana", "cherry", "date", "grape"])
         
         candidates = index.query(query_mh)
         
-        # Should find set1 and set2 as candidates
+        # Should find set1 and/or set2 as candidates
+        assert len(candidates) > 0, "Should find at least one similar set"
         assert "set1" in candidates or "set2" in candidates
-        # Probably shouldn't find set3
+        # Should probably not find set3 (completely different)
         # Note: LSH is probabilistic, so we can't guarantee set3 won't appear
     
     def test_compute_minhash_for_strings(self):

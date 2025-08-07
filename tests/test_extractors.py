@@ -208,7 +208,10 @@ class TestExtractorFactory:
         binary_file.write_bytes(b'MZ\x00\x01')
         
         extractor = factory.get_extractor(binary_file)
-        assert isinstance(extractor, BinaryExtractor)
+        # Can be either BinaryExtractor or LiefBinaryExtractor (if LIEF is available)
+        from binarysniffer.extractors.binary_lief import LiefBinaryExtractor
+        from binarysniffer.extractors.binary_improved import ImprovedBinaryExtractor
+        assert isinstance(extractor, (BinaryExtractor, LiefBinaryExtractor, ImprovedBinaryExtractor))
     
     def test_extract_via_factory(self, tmp_path):
         """Test extraction through factory"""

@@ -4,7 +4,7 @@ Enhanced Binary Sniffer analyzer with improved detection
 
 import logging
 from pathlib import Path
-from typing import Union, Optional, List, Dict
+from typing import Union, Optional, List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .config import Config
@@ -59,7 +59,9 @@ class EnhancedBinarySniffer:
         deep_analysis: bool = False,
         show_features: bool = False,
         use_tlsh: bool = True,
-        tlsh_threshold: int = 70
+        tlsh_threshold: int = 70,
+        include_hashes: bool = False,
+        include_fuzzy_hashes: bool = False
     ) -> AnalysisResult:
         """
         Analyze a single file for OSS components using enhanced detection.
@@ -71,6 +73,8 @@ class EnhancedBinarySniffer:
             show_features: Show extracted features in result
             use_tlsh: Enable TLSH fuzzy matching
             tlsh_threshold: TLSH distance threshold for matches (lower = more similar)
+            include_hashes: Include MD5, SHA1, SHA256 hashes in result
+            include_fuzzy_hashes: Include TLSH and ssdeep fuzzy hashes in result
             
         Returns:
             AnalysisResult object containing matches and metadata
@@ -146,6 +150,15 @@ class EnhancedBinarySniffer:
                 }
             )
         
+        # Calculate file hashes if requested
+        file_hashes = None
+        if include_hashes or include_fuzzy_hashes:
+            from binarysniffer.utils.file_metadata import calculate_file_hashes
+            try:
+                file_hashes = calculate_file_hashes(file_path, include_fuzzy=include_fuzzy_hashes)
+            except Exception as e:
+                logger.debug(f"Failed to calculate hashes: {e}")
+        
         return AnalysisResult(
             file_path=str(file_path),
             file_size=file_path.stat().st_size,
@@ -154,7 +167,8 @@ class EnhancedBinarySniffer:
             analysis_time=total_time,
             features_extracted=len(features.strings) + len(features.symbols),
             confidence_threshold=threshold,
-            extracted_features=extracted_features_summary
+            extracted_features=extracted_features_summary,
+            file_hashes=file_hashes
         )
     
     def _merge_matches(
@@ -319,6 +333,77 @@ class EnhancedBinarySniffer:
                        f"similarity: {match_info['similarity_level']})")
         
         return matches
+    
+    def rebuild_signatures(self, include_github: bool = True) -> Dict[str, int]:
+        """
+        Rebuild signature database from scratch.
+        
+        Args:
+            include_github: Whether to download signatures from GitHub first
+            
+        Returns:
+            Dictionary with statistics about the rebuild
+        """
+        return self.signature_manager.rebuild_database(include_github)
+    
+    def update_signatures(self, source: str = "github") -> Dict[str, int]:
+        """
+        Update signatures from a source.
+        
+        Args:
+            source: Source to update from ('github' or path to signatures directory)
+            
+        Returns:
+            Dictionary with statistics about the update
+        """
+        if source == "github":
+            return self.signature_manager.update_from_github()
+        else:
+            # Import from directory
+            from pathlib import Path
+            return self.signature_manager.import_from_directory(Path(source))
+    
+    def get_signature_stats(self) -> Dict[str, Any]:
+        """
+        Get statistics about the signature database.
+        
+        Returns:
+            Dictionary with database statistics
+        """
+        return self.signature_manager.get_status()
+    
+    def extract_package_inventory(
+        self, 
+        package_path: Union[str, Path],
+        analyze_contents: bool = False,
+        include_hashes: bool = False,
+        include_fuzzy_hashes: bool = False,
+        detect_components: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Extract file inventory from a package/archive with comprehensive analysis.
+        
+        Args:
+            package_path: Path to the package file
+            analyze_contents: Extract and analyze file contents (slower but comprehensive)
+            include_hashes: Include MD5, SHA1, SHA256 hashes
+            include_fuzzy_hashes: Include TLSH and ssdeep fuzzy hashes
+            detect_components: Run component detection on files
+            
+        Returns:
+            Dictionary containing comprehensive package inventory with:
+            - files: List of files with metadata, hashes, components detected
+            - summary: Statistics including total files, sizes, components found
+        """
+        from binarysniffer.utils.inventory import extract_package_inventory
+        return extract_package_inventory(
+            Path(package_path), 
+            analyzer=self,
+            analyze_contents=analyze_contents,
+            include_hashes=include_hashes,
+            include_fuzzy_hashes=include_fuzzy_hashes,
+            detect_components=detect_components
+        )
     
     def _merge_tlsh_matches(
         self,

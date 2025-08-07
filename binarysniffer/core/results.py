@@ -73,6 +73,7 @@ class AnalysisResult:
     error: Optional[str] = None
     timestamp: datetime = field(default_factory=datetime.now)
     extracted_features: Optional[ExtractedFeaturesSummary] = None  # For --show-features flag
+    file_hashes: Optional[Dict[str, str]] = None  # For --include-hashes flag
     
     @property
     def has_matches(self) -> bool:
@@ -118,6 +119,10 @@ class AnalysisResult:
         # Add extracted features if present
         if self.extracted_features:
             result["extracted_features"] = self.extracted_features.to_dict()
+        
+        # Add file hashes if present
+        if self.file_hashes:
+            result["file_hashes"] = self.file_hashes
         
         return result
     

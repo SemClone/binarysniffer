@@ -62,7 +62,8 @@ class TestArchiveExtractor:
         assert features.metadata["archive_type"] == "android"
         assert features.metadata.get("has_android_manifest") == True
         assert features.metadata.get("dex_files") == 1
-        assert "libnative.so" in features.imports
+        # Native libs are stored in metadata, not imports
+        assert "libnative.so" in features.metadata.get("native_libs", [])
     
     def test_extract_ipa(self, tmp_path):
         """Test extracting iOS IPA"""

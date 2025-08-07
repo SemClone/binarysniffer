@@ -97,9 +97,11 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.option('--save-features', type=click.Path(), help='Save all extracted features to JSON file')
 @click.option('--use-tlsh/--no-tlsh', default=True, help='Enable TLSH fuzzy matching')
 @click.option('--tlsh-threshold', type=int, default=70, help='TLSH distance threshold (0-300, lower=more similar)')
+@click.option('--include-hashes', is_flag=True, help='Include file hashes (MD5, SHA1, SHA256) in output')
+@click.option('--include-fuzzy-hashes', is_flag=True, help='Include fuzzy hashes (TLSH, ssdeep) in output')
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence, 
-            show_features, feature_limit, save_features, use_tlsh, tlsh_threshold):
+            show_features, feature_limit, save_features, use_tlsh, tlsh_threshold, include_hashes, include_fuzzy_hashes):
     """
     Analyze files for OSS components.
     
@@ -164,6 +166,19 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
                 
                 progress.update(task, completed=len(results))
         
+        # Add file hashes if requested
+        if include_hashes or include_fuzzy_hashes:
+            from binarysniffer.utils.file_metadata import calculate_file_hashes
+            for file_path, result in results.items():
+                if not result.error:
+                    try:
+                        hashes = calculate_file_hashes(Path(file_path), include_fuzzy=include_fuzzy_hashes)
+                        # Add hashes to the result - we'll need to update the AnalysisResult class
+                        if not hasattr(result, 'file_hashes'):
+                            result.file_hashes = hashes
+                    except Exception as e:
+                        logger.debug(f"Failed to calculate hashes for {file_path}: {e}")
+        
         # Create batch result
         batch_result = BatchAnalysisResult.from_results(
             results,
@@ -192,6 +207,143 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         console.print(f"[red]Error: {e}[/red]")
         logger.exception("Analysis failed")
         sys.exit(1)
+
+
+@cli.command()
+@click.argument('package_path', type=click.Path(exists=True))
+@click.option('--format', '-f', type=click.Choice(['json', 'csv', 'tree', 'summary']), default='summary', 
+              help='Output format for inventory')
+@click.option('--output', '-o', type=click.Path(), help='Output file path')
+@click.option('--analyze', '-a', is_flag=True, help='Analyze file contents (slower but comprehensive)')
+@click.option('--include-hashes', is_flag=True, help='Include MD5, SHA1, SHA256 hashes')
+@click.option('--include-fuzzy-hashes', is_flag=True, help='Include TLSH and ssdeep fuzzy hashes')
+@click.option('--detect-components', is_flag=True, help='Run component detection on files')
+@click.option('--verbose', '-v', is_flag=True, help='Include detailed file information')
+def inventory(package_path, format, output, analyze, include_hashes, include_fuzzy_hashes, detect_components, verbose):
+    """
+    Extract and export file inventory from a package/archive.
+    
+    Examples:
+    
+        # Show summary of APK contents
+        binarysniffer inventory app.apk
+        
+        # Export full inventory as JSON
+        binarysniffer inventory app.apk -f json -o inventory.json
+        
+        # Export as CSV for analysis
+        binarysniffer inventory app.jar -f csv -o files.csv
+        
+        # Show as tree structure
+        binarysniffer inventory archive.zip -f tree
+    """
+    from binarysniffer.utils.inventory import (
+        extract_package_inventory, 
+        export_inventory_json,
+        export_inventory_csv,
+        export_inventory_tree,
+        get_package_inventory_summary
+    )
+    
+    package_path = Path(package_path)
+    
+    # Create analyzer if needed for component detection
+    analyzer = None
+    if detect_components:
+        from binarysniffer.core.analyzer_enhanced import EnhancedBinarySniffer
+        analyzer = EnhancedBinarySniffer()
+    
+    if format == 'summary':
+        # Show summary
+        summary = get_package_inventory_summary(package_path)
+        console.print(summary)
+    else:
+        # Extract full inventory with analysis options
+        status_msg = f"Extracting inventory from {package_path.name}..."
+        if analyze:
+            status_msg = f"Analyzing and extracting inventory from {package_path.name}..."
+        
+        with console.status(status_msg):
+            inventory = extract_package_inventory(
+                package_path,
+                analyzer=analyzer,
+                analyze_contents=analyze,
+                include_hashes=include_hashes,
+                include_fuzzy_hashes=include_fuzzy_hashes,
+                detect_components=detect_components
+            )
+        
+        if 'error' in inventory:
+            console.print(f"[red]Error: {inventory['error']}[/red]")
+            return
+        
+        if output:
+            output_path = Path(output)
+            if format == 'json':
+                export_inventory_json(inventory, output_path)
+            elif format == 'csv':
+                export_inventory_csv(inventory, output_path)
+            elif format == 'tree':
+                export_inventory_tree(inventory, output_path)
+            console.print(f"[green]Inventory exported to {output_path}[/green]")
+        else:
+            # Print to console
+            if format == 'json':
+                console.print(json.dumps(inventory, indent=2, default=str))
+            elif format == 'csv':
+                # Print CSV to console - use same export function logic
+                from io import StringIO
+                import csv
+                csv_buffer = StringIO()
+                
+                # Determine fieldnames based on available data
+                fieldnames = ['path', 'size', 'compressed_size', 'compression_ratio', 
+                            'compression_method', 'mime_type', 'modified', 'crc', 'is_directory']
+                
+                # Add optional fields if present
+                if any('features_extracted' in f for f in inventory.get('files', [])):
+                    fieldnames.append('features_extracted')
+                if any('hashes' in f for f in inventory.get('files', [])):
+                    fieldnames.extend(['md5', 'sha1', 'sha256', 'tlsh', 'ssdeep'])
+                if any('components' in f for f in inventory.get('files', [])):
+                    fieldnames.extend(['components_detected', 'top_component', 'top_confidence'])
+                
+                writer = csv.DictWriter(csv_buffer, fieldnames=fieldnames, extrasaction='ignore')
+                writer.writeheader()
+                for file_entry in inventory.get('files', []):
+                    row = file_entry.copy()
+                    # Flatten hash and component data
+                    if 'hashes' in file_entry:
+                        row.update(file_entry['hashes'])
+                    if 'components' in file_entry and file_entry['components']:
+                        row['components_detected'] = len(file_entry['components'])
+                        row['top_component'] = file_entry['components'][0]['name']
+                        row['top_confidence'] = file_entry['components'][0]['confidence']
+                    writer.writerow(row)
+                
+                console.print(csv_buffer.getvalue())
+            elif format == 'tree':
+                # Generate tree in memory and print
+                from io import StringIO
+                tree_output = StringIO()
+                # We'll need to adapt the tree export function
+                console.print("[yellow]Tree format to console not fully implemented yet[/yellow]")
+        
+        # Show summary stats
+        console.print(f"\n[bold]Summary:[/bold]")
+        console.print(f"Total files: {inventory['summary']['total_files']}")
+        console.print(f"Total size: {inventory['summary']['total_size']:,} bytes")
+        
+        if inventory['summary'].get('components_detected'):
+            console.print(f"\n[bold]Components detected:[/bold]")
+            for component in sorted(inventory['summary']['components_detected'])[:10]:
+                console.print(f"  • {component}")
+        
+        if inventory['summary']['file_types']:
+            console.print("\n[bold]Top file types:[/bold]")
+            for ext, count in sorted(inventory['summary']['file_types'].items(), 
+                                    key=lambda x: x[1], reverse=True)[:5]:
+                console.print(f"  {ext}: {count} files")
 
 
 @cli.command()

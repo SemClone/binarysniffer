@@ -294,23 +294,64 @@ class BinarySniffer:
         """Collect files from directory based on patterns"""
         files = []
         
+        # Excluded directories - always exclude these
+        excluded_dirs = {'.git', '__pycache__', 'node_modules', '.venv', 'venv'}
+        
+        # Also exclude the data directory if it's under the scan directory
+        try:
+            data_dir_abs = self.config.data_dir.resolve()
+            directory_abs = directory.resolve()
+            
+            # Check if data_dir is inside the directory being scanned
+            # Use string comparison for Python 3.8 compatibility
+            if str(data_dir_abs).startswith(str(directory_abs)):
+                # Add the relative part to excluded dirs
+                try:
+                    relative_data_dir = data_dir_abs.relative_to(directory_abs)
+                    excluded_dirs.add(str(relative_data_dir.parts[0]))
+                except ValueError:
+                    pass
+        except (AttributeError, OSError):
+            # If path operations fail, just use default exclusions
+            pass
+        
+        # Always exclude .binarysniffer directories regardless
+        excluded_dirs.add('.binarysniffer')
+        
         if patterns:
             # Use glob patterns
             for pattern in patterns:
                 if recursive:
-                    files.extend(directory.rglob(pattern))
+                    all_files = directory.rglob(pattern)
                 else:
-                    files.extend(directory.glob(pattern))
+                    all_files = directory.glob(pattern)
+                # Filter out files in excluded directories
+                files.extend([
+                    f for f in all_files 
+                    if not any(excluded in f.parts for excluded in excluded_dirs)
+                ])
         else:
             # All files
             if recursive:
-                files = [f for f in directory.rglob("*") if f.is_file()]
+                all_files = [f for f in directory.rglob("*") if f.is_file()]
             else:
-                files = [f for f in directory.iterdir() if f.is_file()]
+                all_files = [f for f in directory.iterdir() if f.is_file()]
+            
+            # Filter out files in excluded directories
+            files = [
+                f for f in all_files 
+                if not any(excluded in f.parts for excluded in excluded_dirs)
+            ]
         
         # Filter out common non-binary files if no patterns specified
         if not patterns:
             excluded_extensions = {'.txt', '.md', '.rst', '.json', '.xml', '.yml', '.yaml'}
             files = [f for f in files if f.suffix.lower() not in excluded_extensions]
+        
+        # Debug logging
+        logger.debug(f"Collected {len(files)} files after filtering")
+        logger.debug(f"Excluded dirs: {excluded_dirs}")
+        if files and '.binarysniffer' in str(files[0]):
+            logger.warning(f"Warning: .binarysniffer files still in list: {[str(f) for f in files if '.binarysniffer' in str(f)]}")
         
         return sorted(set(files))  # Remove duplicates and sort
