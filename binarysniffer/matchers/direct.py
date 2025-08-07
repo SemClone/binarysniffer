@@ -229,6 +229,7 @@ class DirectMatcher:
                     evidence={
                         'signatures_matched': len(sig_matches),
                         'match_method': 'direct string matching',
+                        'file_path': features.file_path,  # Add file path for tracking
                         'confidence_score': f"{final_confidence:.1%}",
                         'matched_patterns': matched_patterns
                     }

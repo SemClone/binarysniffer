@@ -80,50 +80,142 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 
 @cli.command()
 @click.argument('path', type=click.Path(exists=True))
-@click.option('--recursive', '-r', is_flag=True, help='Analyze directories recursively')
-@click.option('--threshold', '-t', type=float, help='Confidence threshold (0.0-1.0, default: 0.5)')
-@click.option('--deep', is_flag=True, help='Enable deep analysis mode')
-@click.option('--format', '-f', 
-              type=click.Choice(['table', 'json', 'csv'], case_sensitive=False),
-              default='table',
-              help='Output format')
-@click.option('--output', '-o', type=click.Path(), help='Save results to file')
-@click.option('--patterns', '-p', multiple=True, help='File patterns to match (e.g., *.exe, *.so)')
-@click.option('--parallel/--no-parallel', default=True, help='Enable parallel processing')
-@click.option('--min-patterns', '-m', type=int, default=0, help='Minimum number of patterns to show component (filters results)')
-@click.option('--verbose-evidence', '-ve', is_flag=True, help='Show detailed evidence including matched patterns')
-@click.option('--show-features', is_flag=True, help='Display all extracted features for debugging')
-@click.option('--feature-limit', type=int, default=20, help='Number of features to display per category (with --show-features)')
-@click.option('--save-features', type=click.Path(), help='Save all extracted features to JSON file')
-@click.option('--use-tlsh/--no-tlsh', default=True, help='Enable TLSH fuzzy matching')
-@click.option('--tlsh-threshold', type=int, default=70, help='TLSH distance threshold (0-300, lower=more similar)')
-@click.option('--include-hashes', is_flag=True, help='Include file hashes (MD5, SHA1, SHA256) in output')
-@click.option('--include-fuzzy-hashes', is_flag=True, help='Include fuzzy hashes (TLSH, ssdeep) in output')
+# Basic options
+@click.option('-r', '--recursive', is_flag=True, help='Analyze directories recursively')
+@click.option('-t', '--threshold', type=float, default=0.5, show_default=True,
+              help='Confidence threshold (0.0-1.0)')
+@click.option('-p', '--patterns', multiple=True, 
+              help='File patterns to match (e.g., *.exe, *.so)')
+# Output options
+@click.option('-o', '--output', type=click.Path(), 
+              help='Save results to file (format auto-detected from extension)')
+@click.option('-f', '--format', 
+              type=click.Choice(['table', 'json', 'csv', 'cyclonedx', 'cdx', 'sbom'], case_sensitive=False),
+              default='table', show_default=True,
+              help='Output format (sbom/cyclonedx for SBOM)')
+# Performance options
+@click.option('--deep', is_flag=True, 
+              help='Deep analysis mode (slower, more thorough)')
+@click.option('--fast', is_flag=True,
+              help='Fast mode (skip TLSH fuzzy matching)')
+@click.option('--parallel/--no-parallel', default=True, show_default=True,
+              help='Enable parallel processing for directories')
+# Hash options
+@click.option('--with-hashes', is_flag=True,
+              help='Include all hashes (MD5, SHA1, SHA256, TLSH, ssdeep)')
+@click.option('--basic-hashes', is_flag=True,
+              help='Include only basic hashes (MD5, SHA1, SHA256)')
+# Filtering options
+@click.option('--min-matches', type=int, default=0,
+              help='Minimum pattern matches to show component')
+# Debug options
+@click.option('--show-evidence', is_flag=True,
+              help='Show detailed match evidence')
+@click.option('--show-features', is_flag=True,
+              help='Display extracted features (for debugging)')
+@click.option('--save-features', type=click.Path(),
+              help='Save features to JSON (for signature creation)')
+# Advanced options (hidden from basic help)
+@click.option('--tlsh-threshold', type=int, default=70, hidden=True,
+              help='TLSH distance threshold (0-300, lower=more similar)')
+@click.option('--feature-limit', type=int, default=20, hidden=True,
+              help='Number of features to display per category')
+# Legacy options (deprecated but kept for compatibility)
+@click.option('--verbose-evidence', '-ve', is_flag=True, hidden=True,
+              help='[Deprecated] Use --show-evidence')
+@click.option('--min-patterns', '-m', type=int, hidden=True,
+              help='[Deprecated] Use --min-matches')
+@click.option('--include-hashes', is_flag=True, hidden=True,
+              help='[Deprecated] Use --with-hashes')
+@click.option('--include-fuzzy-hashes', is_flag=True, hidden=True,
+              help='[Deprecated] Use --with-hashes')
+@click.option('--use-tlsh/--no-tlsh', default=True, hidden=True,
+              help='[Deprecated] Use --fast to disable')
 @click.pass_context
-def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, parallel, min_patterns, verbose_evidence, 
-            show_features, feature_limit, save_features, use_tlsh, tlsh_threshold, include_hashes, include_fuzzy_hashes):
+def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
+            with_hashes, basic_hashes, min_matches, show_evidence, show_features, save_features,
+            tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
+            include_fuzzy_hashes, use_tlsh):
     """
-    Analyze files for OSS components.
+    Analyze files for open source components.
     
-    Examples:
-    
-        # Analyze a single file
-        binarysniffer analyze binary.exe
+    \b
+    EXAMPLES:
+        # Basic analysis
+        binarysniffer analyze app.apk
+        binarysniffer analyze project/ -r
         
-        # Analyze directory recursively
-        binarysniffer analyze /path/to/project -r
+        # Output formats
+        binarysniffer analyze app.apk -o report.json    # Auto-detect JSON
+        binarysniffer analyze app.apk --sbom -o sbom.json
+        binarysniffer analyze app.apk -f csv -o results.csv
         
-        # Filter by file patterns
+        # Performance modes
+        binarysniffer analyze large.bin --fast          # Quick scan
+        binarysniffer analyze app.apk --deep            # Thorough analysis
+        
+        # With hashes
+        binarysniffer analyze file.exe --with-hashes -o report.json
+        
+        # Filtering
         binarysniffer analyze . -r -p "*.so" -p "*.dll"
-        
-        # Export results as JSON
-        binarysniffer analyze project/ -f json -o results.json
+        binarysniffer analyze app.apk -t 0.8            # High confidence only
+        binarysniffer analyze lib.so --min-matches 5    # 5+ pattern matches
     """
     # Initialize sniffer (always use enhanced mode for better detection)
     if ctx.obj['sniffer'] is None:
         ctx.obj['sniffer'] = EnhancedBinarySniffer(ctx.obj['config'])
     
     sniffer = ctx.obj['sniffer']
+    
+    # Set defaults for new options
+    threshold = threshold or ctx.obj['config'].min_confidence
+    
+    # Handle deprecated options with warnings
+    if verbose_evidence:
+        console.print("[yellow]Warning: --verbose-evidence is deprecated, using --show-evidence[/yellow]")
+        show_evidence = True
+    
+    if min_patterns and min_patterns > 0:
+        console.print("[yellow]Warning: --min-patterns is deprecated, using --min-matches[/yellow]")
+        min_matches = min_patterns
+    
+    if include_hashes or include_fuzzy_hashes:
+        console.print("[yellow]Warning: --include-hashes/--include-fuzzy-hashes are deprecated, using --with-hashes[/yellow]")
+        with_hashes = True
+    
+    # Handle new hash options
+    if basic_hashes:
+        include_hashes = True
+        include_fuzzy_hashes = False
+    elif with_hashes:
+        include_hashes = True
+        include_fuzzy_hashes = True
+    else:
+        include_hashes = False
+        include_fuzzy_hashes = False
+    
+    # Handle performance modes
+    if fast:
+        use_tlsh = False
+        deep = False
+    elif deep:
+        use_tlsh = True
+    
+    # Auto-detect format from output filename if not specified
+    if output and format == 'table':
+        output_path = Path(output)
+        if output_path.suffix.lower() == '.json':
+            format = 'json'
+        elif output_path.suffix.lower() == '.csv':
+            format = 'csv'
+        elif output_path.suffix.lower() in ('.sbom', '.cdx'):
+            format = 'cyclonedx'
+    
+    # Handle format aliases
+    if format == 'sbom':
+        format = 'cyclonedx'
+    
     path = Path(path)
     
     # Check for updates if auto-update is enabled
@@ -136,12 +228,14 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
     try:
         if path.is_file():
             # Single file analysis
-            # Enable show_features if verbose_evidence is set (to get archive contents)
-            effective_show_features = show_features or verbose_evidence
+            # Enable show_features if show_evidence is set (to get archive contents)
+            effective_show_features = show_features or show_evidence
             with console.status(f"Analyzing {path.name}..."):
                 result = sniffer.analyze_file(
                     path, threshold, deep, effective_show_features,
-                    use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold
+                    use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold,
+                    include_hashes=include_hashes,
+                    include_fuzzy_hashes=include_fuzzy_hashes
                 )
             results = {str(path): result}
         else:
@@ -191,11 +285,13 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
         
         # Output results
         if format == 'json':
-            output_json(batch_result, output, min_patterns, verbose_evidence)
+            output_json(batch_result, output, min_matches, show_evidence)
         elif format == 'csv':
-            output_csv(batch_result, output, min_patterns)
+            output_csv(batch_result, output, min_matches)
+        elif format in ('cyclonedx', 'cdx'):
+            output_cyclonedx(batch_result, output, show_features)
         else:
-            output_table(batch_result, min_patterns, verbose_evidence, show_features, feature_limit)
+            output_table(batch_result, min_matches, show_evidence, show_features, feature_limit)
         
         # Summary
         console.print(f"\n[green]Analysis complete![/green]")
@@ -211,32 +307,55 @@ def analyze(ctx, path, recursive, threshold, deep, format, output, patterns, par
 
 @cli.command()
 @click.argument('package_path', type=click.Path(exists=True))
-@click.option('--format', '-f', type=click.Choice(['json', 'csv', 'tree', 'summary']), default='summary', 
-              help='Output format for inventory')
-@click.option('--output', '-o', type=click.Path(), help='Output file path')
-@click.option('--analyze', '-a', is_flag=True, help='Analyze file contents (slower but comprehensive)')
-@click.option('--include-hashes', is_flag=True, help='Include MD5, SHA1, SHA256 hashes')
-@click.option('--include-fuzzy-hashes', is_flag=True, help='Include TLSH and ssdeep fuzzy hashes')
-@click.option('--detect-components', is_flag=True, help='Run component detection on files')
-@click.option('--verbose', '-v', is_flag=True, help='Include detailed file information')
-def inventory(package_path, format, output, analyze, include_hashes, include_fuzzy_hashes, detect_components, verbose):
+@click.option('-o', '--output', type=click.Path(), help='Output file (format auto-detected from extension)')
+@click.option('-f', '--format', type=click.Choice(['json', 'csv', 'tree', 'summary']), default='summary',
+              show_default=True, help='Output format')
+@click.option('--analyze', is_flag=True, help='Deep analysis (extract and analyze contents)')
+@click.option('--with-hashes', is_flag=True, help='Include all hashes (MD5, SHA1, SHA256, TLSH, ssdeep)')
+@click.option('--with-components', is_flag=True, help='Detect OSS components in files')
+@click.option('-v', '--verbose', is_flag=True, help='Detailed output')
+# Legacy options
+@click.option('--include-hashes', is_flag=True, hidden=True, help='[Deprecated] Use --with-hashes')
+@click.option('--include-fuzzy-hashes', is_flag=True, hidden=True, help='[Deprecated] Use --with-hashes')
+@click.option('--detect-components', is_flag=True, hidden=True, help='[Deprecated] Use --with-components')
+def inventory(package_path, output, format, analyze, with_hashes, with_components, verbose,
+              include_hashes, include_fuzzy_hashes, detect_components):
     """
     Extract and export file inventory from a package/archive.
     
-    Examples:
-    
-        # Show summary of APK contents
+    \b
+    EXAMPLES:
+        # Quick summary
         binarysniffer inventory app.apk
         
-        # Export full inventory as JSON
-        binarysniffer inventory app.apk -f json -o inventory.json
+        # Export with auto-format detection
+        binarysniffer inventory app.apk -o inventory.json
+        binarysniffer inventory app.jar -o files.csv
         
-        # Export as CSV for analysis
-        binarysniffer inventory app.jar -f csv -o files.csv
+        # Deep analysis with hashes
+        binarysniffer inventory app.apk --analyze --with-hashes -o full.json
         
-        # Show as tree structure
-        binarysniffer inventory archive.zip -f tree
+        # With component detection
+        binarysniffer inventory lib.jar --with-components -o components.csv
     """
+    # Handle deprecated options
+    if include_hashes or include_fuzzy_hashes:
+        console.print("[yellow]Warning: --include-hashes/--include-fuzzy-hashes are deprecated, using --with-hashes[/yellow]")
+        with_hashes = True
+    
+    if detect_components:
+        console.print("[yellow]Warning: --detect-components is deprecated, using --with-components[/yellow]")
+        with_components = True
+    
+    # Auto-detect format from output filename
+    if output and format == 'summary':
+        output_path = Path(output)
+        if output_path.suffix.lower() == '.json':
+            format = 'json'
+        elif output_path.suffix.lower() == '.csv':
+            format = 'csv'
+        elif output_path.suffix.lower() == '.txt':
+            format = 'tree'
     from binarysniffer.utils.inventory import (
         extract_package_inventory, 
         export_inventory_json,
@@ -268,9 +387,9 @@ def inventory(package_path, format, output, analyze, include_hashes, include_fuz
                 package_path,
                 analyzer=analyzer,
                 analyze_contents=analyze,
-                include_hashes=include_hashes,
-                include_fuzzy_hashes=include_fuzzy_hashes,
-                detect_components=detect_components
+                include_hashes=with_hashes,
+                include_fuzzy_hashes=with_hashes,  # Both included when --with-hashes
+                detect_components=with_components
             )
         
         if 'error' in inventory:
@@ -934,6 +1053,31 @@ def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str], m
         console.print(f"[green]Results saved to {output_path}[/green]")
     else:
         console.print(json_str)
+
+
+def output_cyclonedx(batch_result: BatchAnalysisResult, output_path: Optional[str], include_features: bool = False):
+    """Output results as CycloneDX SBOM"""
+    from .output.cyclonedx_formatter import CycloneDxFormatter
+    
+    formatter = CycloneDxFormatter()
+    sbom_json = formatter.format_results(
+        batch_result,
+        format_type='json',
+        include_evidence=True,
+        include_features=include_features
+    )
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(sbom_json)
+        console.print(f"[green]SBOM saved to {output_path}[/green]")
+        
+        # Show summary
+        import json
+        sbom_data = json.loads(sbom_json)
+        console.print(f"[cyan]SBOM contains {len(sbom_data.get('components', []))} components[/cyan]")
+    else:
+        console.print(sbom_json)
 
 
 def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0):

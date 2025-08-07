@@ -125,7 +125,7 @@ binarysniffer signatures import [--force]
 binarysniffer signatures rebuild [--github/--no-github]
 ```
 
-#### `inventory` - Extract package file inventory (v1.8.5+)
+#### `inventory` - Extract package file inventory (v1.8.6+)
 ```bash
 # Basic inventory extraction
 binarysniffer inventory package.apk
@@ -187,7 +187,7 @@ binarysniffer analyze suspicious_binary --deep --enhanced
 binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
 ```
 
-### Example 5: Package Inventory Extraction (v1.8.5+)
+### Example 5: Package Inventory Extraction (v1.8.6+)
 ```bash
 # Basic inventory summary
 binarysniffer inventory app.apk

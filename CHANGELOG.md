@@ -5,16 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.8.5] - 2025-08-07
+## [1.8.6] - 2025-08-07
 
 ### Added
+- **CycloneDX SBOM Export** - Generate industry-standard SBOMs for security and compliance toolchains
 - **Package Inventory Extraction** - New `inventory` command for comprehensive package analysis
+- **File Path Tracking** - Evidence now includes file paths for component location tracking
 - **File Metadata Export** - Extract MIME types, compression ratios, file sizes, timestamps from archives
 - **Hash Calculation** - Generate MD5, SHA1, SHA256 hashes for all files in packages
 - **Fuzzy Hash Support** - Calculate TLSH and ssdeep hashes for similarity analysis
 - **Component Detection in Archives** - Run OSS detection on individual files within packages
-- **Multiple Export Formats** - JSON, CSV, tree visualization, and summary reports
+- **Multiple Export Formats** - JSON, CSV, CycloneDX, tree visualization, and summary reports
 - **Enhanced CSV Export** - Rich CSV output with hashes, MIME types, and component detection results
+- **Feature Extraction Export** - Save extracted features for signature recreation with `--save-features`
 - **API Feature Parity** - All CLI inventory features available via Python API
 
 ### Improved
@@ -28,10 +31,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Directory Analysis** - Properly excludes .binarysniffer directory from recursive scans
 
 ### Technical
+- **New Module** - `binarysniffer.output.cyclonedx_formatter` for SBOM generation
 - **New Module** - `binarysniffer.utils.inventory` for package enumeration
 - **Enhanced Module** - `binarysniffer.utils.file_metadata` for hash calculations
+- **Evidence Enhancement** - ComponentMatch evidence now includes file paths
 - **API Methods** - `extract_package_inventory()` with full parameter control
-- **CLI Flags** - `--analyze`, `--include-hashes`, `--include-fuzzy-hashes`, `--detect-components`
+- **CLI Formats** - Added `cyclonedx` and `cdx` output formats
+- **CLI Flags** - `--analyze`, `--include-hashes`, `--include-fuzzy-hashes`, `--detect-components`, `--save-features`
 
 ## [1.8.4] - 2025-08-06
 

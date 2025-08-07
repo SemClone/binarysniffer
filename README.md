@@ -13,7 +13,14 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Smart Compression**: ZSTD-compressed signatures with ~90% size reduction
 - **Low Memory Footprint**: Streaming analysis with <100MB memory usage
 
-### Package Inventory Extraction (NEW in v1.8.5)
+### SBOM Export Support (NEW in v1.8.6)
+- **CycloneDX Format**: Industry-standard SBOM export for security and compliance toolchains
+- **File Path Tracking**: Evidence includes file paths for component location tracking
+- **Feature Extraction**: Optional feature dump for signature recreation
+- **Confidence Scores**: All detections include confidence levels in SBOM
+- **Multi-file Support**: Aggregate SBOM for entire projects
+
+### Package Inventory Extraction (NEW in v1.8.6)
 - **Comprehensive File Enumeration**: Extract complete file listings from archives
 - **Rich Metadata**: MIME types, compression ratios, file sizes, timestamps
 - **Hash Calculation**: MD5, SHA1, SHA256 for integrity verification
@@ -147,34 +154,45 @@ $ binarysniffer analyze app.dmg
 ### CLI Usage
 
 ```bash
-# Analyze a single file (enhanced detection is always enabled)
+# Basic analysis
 binarysniffer analyze /path/to/binary
-
-# Analyze mobile applications
 binarysniffer analyze app.apk                    # Android APK
 binarysniffer analyze app.ipa                    # iOS IPA
 binarysniffer analyze library.jar                # Java JAR
 
 # Analyze directories recursively
-binarysniffer analyze /path/to/project --recursive
+binarysniffer analyze /path/to/project -r
 
-# Custom threshold (default is 0.5 for optimal detection)
-binarysniffer analyze file.exe --threshold 0.3   # More sensitive
-binarysniffer analyze file.exe --threshold 0.8   # More conservative
+# Output with auto-format detection
+binarysniffer analyze app.apk -o report.json     # Auto-detects JSON format
+binarysniffer analyze app.apk -o report.csv      # Auto-detects CSV format
+binarysniffer analyze app.apk -o app.sbom        # Auto-detects SBOM format
 
-# Export results as JSON
-binarysniffer analyze project/ --format json -o results.json
+# Performance modes
+binarysniffer analyze large.bin --fast           # Quick scan (no fuzzy matching)
+binarysniffer analyze app.apk --deep             # Thorough analysis
 
-# Deep analysis with pattern filtering
-binarysniffer analyze project/ --recursive --deep -p "*.so" -p "*.dll"
+# Custom confidence threshold
+binarysniffer analyze file.exe -t 0.3            # More sensitive (30% confidence)
+binarysniffer analyze file.exe -t 0.8            # More conservative (80% confidence)
 
-# Non-deterministic mode (if needed for performance testing)
-binarysniffer --non-deterministic analyze file.bin
+# Include file hashes in output
+binarysniffer analyze file.exe --with-hashes -o report.json
+binarysniffer analyze file.exe --basic-hashes    # Only MD5, SHA1, SHA256
 
-# TLSH fuzzy matching for detecting modified components
-binarysniffer analyze modified_ffmpeg.bin --use-tlsh        # Enable fuzzy matching (default)
-binarysniffer analyze file.bin --tlsh-threshold 30          # More sensitive fuzzy matching
-binarysniffer analyze file.bin --no-tlsh                    # Disable fuzzy matching
+# Filter by file patterns
+binarysniffer analyze project/ -r -p "*.so" -p "*.dll"
+
+# Export as CycloneDX SBOM
+binarysniffer analyze app.apk -f sbom -o app-sbom.json
+binarysniffer analyze app.apk --format cyclonedx -o sbom.json
+
+# Save features for signature creation
+binarysniffer analyze binary.exe --save-features features.json --show-features
+
+# Filter results
+binarysniffer analyze lib.so --min-matches 5     # Show components with 5+ matches
+binarysniffer analyze app.apk --show-evidence    # Show detailed match evidence
 ```
 
 ### Python Library Usage
@@ -196,9 +214,12 @@ apk_result = sniffer.analyze_file("app.apk")
 ipa_result = sniffer.analyze_file("app.ipa")
 jar_result = sniffer.analyze_file("library.jar")
 
-# Analyze with custom threshold (default is 0.3)
-result = sniffer.analyze_file("file.exe", confidence_threshold=0.1)  # More sensitive
+# Analyze with custom threshold (default is 0.5)
+result = sniffer.analyze_file("file.exe", confidence_threshold=0.3)  # More sensitive
 result = sniffer.analyze_file("file.exe", confidence_threshold=0.8)  # More conservative
+
+# Analyze with file hashes
+result = sniffer.analyze_file("file.exe", include_hashes=True, include_fuzzy_hashes=True)
 
 # Directory analysis
 results = sniffer.analyze_directory("/path/to/project", recursive=True)
@@ -217,7 +238,29 @@ for match in result.matches:
         print(f"Fuzzy match: {match.component} (similarity: {match.confidence:.0%})")
 ```
 
-### Package Inventory Extraction (NEW in v1.8.5)
+### SBOM Export (NEW in v1.8.6)
+
+Generate Software Bill of Materials in CycloneDX format for integration with security and compliance tools:
+
+```bash
+# Export single file analysis as SBOM
+binarysniffer analyze app.apk --format cyclonedx -o app-sbom.json
+
+# Export directory analysis as aggregated SBOM
+binarysniffer analyze project/ -r --format cdx -o project-sbom.json
+
+# Include extracted features for signature recreation
+binarysniffer analyze binary.exe --format cyclonedx --show-features -o sbom-with-features.json
+```
+
+The SBOM includes:
+- Component names, versions, and licenses
+- Confidence scores for each detection
+- File paths showing where components were found
+- Evidence details including matched patterns
+- Optional extracted features for signature recreation
+
+### Package Inventory Extraction (NEW in v1.8.6)
 
 Extract comprehensive file inventories from packages with metadata, hashes, and component detection:
 
@@ -225,19 +268,19 @@ Extract comprehensive file inventories from packages with metadata, hashes, and 
 # Basic inventory summary
 binarysniffer inventory app.apk
 
-# Export full inventory with file metadata
-binarysniffer inventory app.apk --format json -o inventory.json
+# Export full inventory with auto-format detection
+binarysniffer inventory app.apk -o inventory.json
+binarysniffer inventory app.jar -o files.csv
 
-# Include file hashes (MD5, SHA1, SHA256)
-binarysniffer inventory app.jar --analyze --include-hashes --format csv -o files.csv
+# Include file hashes (MD5, SHA1, SHA256, TLSH, ssdeep)
+binarysniffer inventory app.jar --analyze --with-hashes -o files.csv
 
 # Full analysis with component detection
 binarysniffer inventory app.ipa \
   --analyze \
-  --include-hashes \
-  --include-fuzzy-hashes \
-  --detect-components \
-  --format json -o full_inventory.json
+  --with-hashes \
+  --with-components \
+  -o full_inventory.json
 
 # Export as directory tree visualization
 binarysniffer inventory archive.zip --format tree -o structure.txt
@@ -362,57 +405,123 @@ The tool includes a pre-built signature database with **131 OSS components** inc
 
 ### Signature Management
 
-For detailed information on creating, updating, and managing signatures, see [docs/SIGNATURE_MANAGEMENT.md](docs/SIGNATURE_MANAGEMENT.md).
+Maintaining an up-to-date signature database is critical for accurate detection. BinarySniffer provides comprehensive signature management commands:
+
+#### Viewing Signature Status
 
 ```bash
-# View current database stats
-python -c "
-from binarysniffer.storage.database import SignatureDatabase
-db = SignatureDatabase('data/signatures.db')
-print(db.get_stats())
-"
+# Check current signature database status
+binarysniffer signatures status
+# Shows: total signatures, components, last update, database location
+
+# View detailed statistics
+binarysniffer signatures stats
+# Shows: signatures per component, database size, index status
 ```
 
-## Development
+#### Updating Signatures
 
-### Setting up development environment
 ```bash
-git clone https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer
-cd semantic-copycat-binarysniffer
-pip install -e .[dev]
+# Update signatures from GitHub repository (recommended)
+binarysniffer signatures update
+# Pulls latest community-contributed signatures
 
-# Optional: Install CTags for enhanced source analysis
-# macOS: brew install universal-ctags
-# Ubuntu: apt install universal-ctags
+# Alternative update command (backward compatible)
+binarysniffer update
 
-# Optional: Install LIEF for enhanced binary analysis
-pip install lief
+# Force update even if current
+binarysniffer signatures update --force
 ```
 
-### Running tests
+#### Rebuilding Database
+
 ```bash
-# Run all tests
-pytest tests/
+# Rebuild database from packaged signatures
+binarysniffer signatures rebuild
+# Useful when database is corrupted or needs fresh start
 
-# Run specific test suites  
-pytest tests/test_archive_extractor.py -v    # Archive processing
-pytest tests/test_integration.py -v         # End-to-end scenarios
+# Import specific signature files
+binarysniffer signatures import signatures/*.json
 
-# Run with coverage
-pytest tests/ --cov=binarysniffer
+# Import from custom directory
+binarysniffer signatures import /path/to/signatures --recursive
 ```
 
-### Building and Testing Package
+#### Creating Custom Signatures
+
 ```bash
-# Build package
-python -m build
+# Create signature from binary
+binarysniffer signatures create /usr/bin/curl \
+  --name "curl" \
+  --version 7.81.0 \
+  --license "MIT" \
+  --output signatures/curl.json
 
-# Test installation
-pip install dist/*.whl
+# Create from source code directory
+binarysniffer signatures create /path/to/source \
+  --name "MyLibrary" \
+  --version 1.0.0 \
+  --license "Apache-2.0" \
+  --min-length 8  # Minimum pattern length
 
-# Test CLI
-binarysniffer --help
+# Create with metadata
+binarysniffer signatures create binary.so \
+  --name "Custom Component" \
+  --publisher "My Company" \
+  --description "Custom implementation" \
+  --url "https://github.com/mycompany/component"
 ```
+
+#### Signature Validation
+
+```bash
+# Validate signature quality before adding
+binarysniffer signatures validate signatures/new-component.json
+# Checks for: generic patterns, minimum length, uniqueness
+
+# Test signature against known files
+binarysniffer signatures test signatures/component.json /path/to/test/files
+```
+
+#### Database Management
+
+```bash
+# Export signatures to JSON (for backup or sharing)
+binarysniffer signatures export --output my-signatures/
+# Creates one JSON file per component
+
+# Clear database (use with caution)
+binarysniffer signatures clear --confirm
+# Removes all signatures from database
+
+# Optimize database
+binarysniffer signatures optimize
+# Rebuilds indexes and vacuums database for better performance
+```
+
+#### Automated Updates
+
+Configure automatic signature updates in `~/.binarysniffer/config.json`:
+
+```json
+{
+  "auto_update": true,
+  "update_check_interval_days": 7,
+  "signature_sources": [
+    "https://github.com/oscarvalenzuelab/binarysniffer-signatures"
+  ]
+}
+```
+
+#### Best Practices
+
+1. **Regular Updates**: Run `binarysniffer signatures update` weekly for latest detections
+2. **Custom Signatures**: Create signatures for proprietary components you want to track
+3. **Validation**: Always validate new signatures to avoid false positives
+4. **Backup**: Export signatures before major updates using `signatures export`
+5. **Performance**: Run `signatures optimize` monthly for best performance
+
+For detailed signature creation and management documentation, see [docs/SIGNATURE_MANAGEMENT.md](docs/SIGNATURE_MANAGEMENT.md).
 
 ## License
 

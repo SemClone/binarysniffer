@@ -324,7 +324,8 @@ class EnhancedBinarySniffer:
                 evidence={
                     'tlsh_distance': match_info['distance'],
                     'similarity_level': match_info['similarity_level'],
-                    'similarity_score': confidence
+                    'similarity_score': confidence,
+                    'file_path': str(file_path)  # Add file path for tracking
                 }
             )
             matches.append(match)

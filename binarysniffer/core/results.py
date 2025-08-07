@@ -157,6 +157,15 @@ class BatchAnalysisResult:
     timestamp: datetime = field(default_factory=datetime.now)
     
     @property
+    def total_matches(self) -> int:
+        """Get total number of matches across all files"""
+        total = 0
+        for result in self.results.values():
+            if not result.error:
+                total += len(result.matches)
+        return total
+    
+    @property
     def all_components(self) -> List[str]:
         """Get all unique components found"""
         components = set()
