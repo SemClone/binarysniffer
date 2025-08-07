@@ -1,0 +1,228 @@
+{
+  "component": {
+    "name": "Core-js",
+    "version": "3.x",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "javascript"
+    ],
+    "description": "Standard library polyfills for JavaScript",
+    "license": "MIT",
+    "publisher": "Denis Pushkarev"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-07T15:31:00.000000Z",
+    "updated": "2025-08-07T15:31:00.000000Z",
+    "signature_count": 20,
+    "confidence_threshold": 0.5,
+    "source": "hermes_bytecode_analysis",
+    "extraction_method": "bytecode_pattern_extraction"
+  },
+  "signatures": [
+    {
+      "id": "corejs_bc_0",
+      "type": "string_pattern",
+      "pattern": "__core-js_shared__",
+      "confidence": 0.95,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ],
+      "description": "Core-js shared state marker"
+    },
+    {
+      "id": "corejs_bc_1",
+      "type": "string_pattern",
+      "pattern": "core-js_shared",
+      "confidence": 0.95,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_2",
+      "type": "string_pattern",
+      "pattern": "__defineProperty",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_3",
+      "type": "string_pattern",
+      "pattern": "getOwnPropertyDescriptor",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_4",
+      "type": "string_pattern",
+      "pattern": "getOwnPropertyDescriptors",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_5",
+      "type": "string_pattern",
+      "pattern": "isNativeReflectConstruct",
+      "confidence": 0.85,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_6",
+      "type": "string_pattern",
+      "pattern": "CollectHeapSnapshot",
+      "confidence": 0.7,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_7",
+      "type": "string_pattern",
+      "pattern": "GarbageCollect",
+      "confidence": 0.7,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_8",
+      "type": "string_pattern",
+      "pattern": "__setModuleDefault",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_9",
+      "type": "string_pattern",
+      "pattern": "__importStar",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_10",
+      "type": "string_pattern",
+      "pattern": "__createBinding",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_11",
+      "type": "string_pattern",
+      "pattern": "hasOwnProperty",
+      "confidence": 0.65,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_12",
+      "type": "string_pattern",
+      "pattern": "regeneratorRuntime",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_13",
+      "type": "string_pattern",
+      "pattern": "asyncGeneratorStep",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_14",
+      "type": "string_pattern",
+      "pattern": "_asyncToGenerator",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_15",
+      "type": "string_pattern",
+      "pattern": "Symbol.iterator",
+      "confidence": 0.75,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_16",
+      "type": "string_pattern",
+      "pattern": "[Symbol.iterator]",
+      "confidence": 0.75,
+      "context": "bytecode_property",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_17",
+      "type": "string_pattern",
+      "pattern": "@@toStringTag",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_18",
+      "type": "string_pattern",
+      "pattern": "In order to be iterable, non-array objects must have a [Symbol.iterator]() method",
+      "confidence": 0.9,
+      "context": "bytecode_error_message",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "corejs_bc_19",
+      "type": "string_pattern",
+      "pattern": "Promises must be constructed via new",
+      "confidence": 0.85,
+      "context": "bytecode_error_message",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}

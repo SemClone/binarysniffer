@@ -1,0 +1,208 @@
+{
+  "component": {
+    "name": "Prop-Types",
+    "version": "15.x",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "javascript"
+    ],
+    "description": "Runtime type checking for React props",
+    "license": "MIT",
+    "publisher": "Facebook"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-07T15:33:00.000000Z",
+    "updated": "2025-08-07T15:33:00.000000Z",
+    "signature_count": 18,
+    "confidence_threshold": 0.5,
+    "source": "hermes_bytecode_analysis",
+    "extraction_method": "bytecode_pattern_extraction"
+  },
+  "signatures": [
+    {
+      "id": "proptypes_bc_0",
+      "type": "string_pattern",
+      "pattern": "Calling PropTypes validators directly is not supported by the `prop-types` package",
+      "confidence": 0.95,
+      "context": "bytecode_error_message",
+      "platforms": [
+        "all"
+      ],
+      "description": "PropTypes validation error message"
+    },
+    {
+      "id": "proptypes_bc_1",
+      "type": "string_pattern",
+      "pattern": "PropTypes.checkPropTypes",
+      "confidence": 0.9,
+      "context": "bytecode_function_call",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_2",
+      "type": "string_pattern",
+      "pattern": "Use PropTypes.checkPropTypes() to call them",
+      "confidence": 0.9,
+      "context": "bytecode_error_message",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_3",
+      "type": "string_pattern",
+      "pattern": "Read more at http://fb.me/use-check-prop-types",
+      "confidence": 0.9,
+      "context": "bytecode_url",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_4",
+      "type": "string_pattern",
+      "pattern": "DeprecatedStyleSheetPropTypeHelper",
+      "confidence": 0.85,
+      "context": "bytecode_class",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_5",
+      "type": "string_pattern",
+      "pattern": "TextInputPropTypes",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_6",
+      "type": "string_pattern",
+      "pattern": "ColorPropType",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_7",
+      "type": "string_pattern",
+      "pattern": "AccessibilityActionInfoPropType",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_8",
+      "type": "string_pattern",
+      "pattern": "checkPropTypes",
+      "confidence": 0.8,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_9",
+      "type": "string_pattern",
+      "pattern": "prop-types",
+      "confidence": 0.85,
+      "context": "bytecode_module_name",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_10",
+      "type": "string_pattern",
+      "pattern": "Invalid props",
+      "confidence": 0.75,
+      "context": "bytecode_error_message",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_11",
+      "type": "string_pattern",
+      "pattern": "PropTypes",
+      "confidence": 0.75,
+      "context": "bytecode_class",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_12",
+      "type": "string_pattern",
+      "pattern": "isRequired",
+      "confidence": 0.7,
+      "context": "bytecode_property",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_13",
+      "type": "string_pattern",
+      "pattern": "oneOfType",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_14",
+      "type": "string_pattern",
+      "pattern": "arrayOf",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_15",
+      "type": "string_pattern",
+      "pattern": "objectOf",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_16",
+      "type": "string_pattern",
+      "pattern": "instanceOf",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "proptypes_bc_17",
+      "type": "string_pattern",
+      "pattern": "this.props",
+      "confidence": 0.65,
+      "context": "bytecode_property_access",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}
