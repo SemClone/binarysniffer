@@ -153,7 +153,7 @@ class BinaryStringExtractor:
         
         for string in strings:
             # Library names (*.dll, *.so, *.dylib)
-            if re.match(r'^[\w\-]+\.(dll|so|dylib)(?:\.\d+)?$', string.lower()):
+            if re.match(r'^[\w\-\.]+\.(dll|so|dylib)(?:[\.\d]+)?$', string.lower()):
                 imports.append(string)
             # Package imports (e.g., com.example.package)
             elif re.match(r'^[a-z]+(?:\.[a-z]+)+$', string):
