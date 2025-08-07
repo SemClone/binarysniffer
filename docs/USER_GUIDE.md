@@ -125,6 +125,29 @@ binarysniffer signatures import [--force]
 binarysniffer signatures rebuild [--github/--no-github]
 ```
 
+#### `inventory` - Extract package file inventory (v1.8.5+)
+```bash
+# Basic inventory extraction
+binarysniffer inventory package.apk
+
+# With full analysis and component detection
+binarysniffer inventory package.jar \
+  --analyze \
+  --include-hashes \
+  --include-fuzzy-hashes \
+  --detect-components \
+  --format csv \
+  --output inventory.csv
+
+Options:
+  --analyze               Extract and analyze file contents
+  --include-hashes       Include MD5, SHA1, SHA256 hashes
+  --include-fuzzy-hashes Include TLSH and ssdeep fuzzy hashes
+  --detect-components    Run OSS component detection on files
+  --format              Output format: json, csv, tree, summary
+  --output              Save results to file
+```
+
 ## Usage Examples
 
 ### Example 1: Analyzing an Android APK
@@ -162,6 +185,31 @@ binarysniffer analyze suspicious_binary --deep --enhanced
 ```bash
 # Analyze large directory with parallel processing
 binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
+```
+
+### Example 5: Package Inventory Extraction (v1.8.5+)
+```bash
+# Basic inventory summary
+binarysniffer inventory app.apk
+
+# Export inventory with file hashes
+binarysniffer inventory app.jar --analyze --include-hashes --format csv -o inventory.csv
+
+# Full analysis with component detection
+binarysniffer inventory app.ipa \
+  --analyze \
+  --include-hashes \
+  --detect-components \
+  --format json \
+  -o full_inventory.json
+
+# The inventory includes:
+# - Complete file listing with relative paths
+# - MIME types for all files
+# - MD5, SHA1, SHA256 hashes (when --include-hashes)
+# - TLSH and ssdeep fuzzy hashes (when --include-fuzzy-hashes)
+# - Detected OSS components per file (when --detect-components)
+# - Compression ratios and metadata
 ```
 
 ## Output Formats

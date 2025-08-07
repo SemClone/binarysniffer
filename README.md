@@ -13,7 +13,15 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Smart Compression**: ZSTD-compressed signatures with ~90% size reduction
 - **Low Memory Footprint**: Streaming analysis with <100MB memory usage
 
-### Enhanced Binary Analysis (NEW in v1.6.0)
+### Package Inventory Extraction (NEW in v1.8.5)
+- **Comprehensive File Enumeration**: Extract complete file listings from archives
+- **Rich Metadata**: MIME types, compression ratios, file sizes, timestamps
+- **Hash Calculation**: MD5, SHA1, SHA256 for integrity verification
+- **Fuzzy Hashing**: TLSH and ssdeep for similarity analysis
+- **Component Detection**: Run OSS detection on individual files within packages
+- **Multiple Export Formats**: JSON, CSV, tree visualization, summary reports
+
+### Enhanced Binary Analysis (v1.6.0)
 - **LIEF Integration**: Advanced ELF/PE/Mach-O analysis with symbol and import extraction
 - **Android DEX Support**: Specialized extractor for DEX bytecode files
 - **Improved APK Detection**: 25+ components detected vs 1 previously (152K features extracted)
@@ -208,6 +216,76 @@ for match in result.matches:
     if match.match_type == 'tlsh_fuzzy':
         print(f"Fuzzy match: {match.component} (similarity: {match.confidence:.0%})")
 ```
+
+### Package Inventory Extraction (NEW in v1.8.5)
+
+Extract comprehensive file inventories from packages with metadata, hashes, and component detection:
+
+```bash
+# Basic inventory summary
+binarysniffer inventory app.apk
+
+# Export full inventory with file metadata
+binarysniffer inventory app.apk --format json -o inventory.json
+
+# Include file hashes (MD5, SHA1, SHA256)
+binarysniffer inventory app.jar --analyze --include-hashes --format csv -o files.csv
+
+# Full analysis with component detection
+binarysniffer inventory app.ipa \
+  --analyze \
+  --include-hashes \
+  --include-fuzzy-hashes \
+  --detect-components \
+  --format json -o full_inventory.json
+
+# Export as directory tree visualization
+binarysniffer inventory archive.zip --format tree -o structure.txt
+```
+
+#### Python API for Inventory Extraction
+
+```python
+from binarysniffer import EnhancedBinarySniffer
+
+sniffer = EnhancedBinarySniffer()
+
+# Basic inventory extraction
+inventory = sniffer.extract_package_inventory("app.apk")
+print(f"Total files: {inventory['summary']['total_files']}")
+print(f"Package size: {inventory['package_size']:,} bytes")
+
+# Full analysis with all features
+inventory = sniffer.extract_package_inventory(
+    "app.apk",
+    analyze_contents=True,        # Extract and analyze file contents
+    include_hashes=True,          # Calculate MD5, SHA1, SHA256
+    include_fuzzy_hashes=True,    # Calculate TLSH and ssdeep
+    detect_components=True        # Run OSS component detection
+)
+
+# Access comprehensive file metadata
+for file_entry in inventory['files']:
+    if not file_entry['is_directory']:
+        print(f"File: {file_entry['path']}")
+        print(f"  MIME: {file_entry['mime_type']}")
+        print(f"  Size: {file_entry['size']:,} bytes")
+        print(f"  Compression ratio: {file_entry['compression_ratio']:.1%}")
+        
+        if 'hashes' in file_entry:
+            print(f"  SHA256: {file_entry['hashes']['sha256']}")
+        
+        if 'components' in file_entry:
+            for comp in file_entry['components']:
+                print(f"  Component: {comp['name']} ({comp['confidence']:.0%})")
+```
+
+#### Inventory Export Formats
+
+- **JSON**: Complete structured data with all metadata
+- **CSV**: Tabular format for data analysis (includes hashes, MIME types, components)
+- **Tree**: Visual directory structure representation
+- **Summary**: Quick overview with file type statistics
 
 ### Creating Signatures
 

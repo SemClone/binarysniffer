@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.5] - 2025-08-07
+
+### Added
+- **Package Inventory Extraction** - New `inventory` command for comprehensive package analysis
+- **File Metadata Export** - Extract MIME types, compression ratios, file sizes, timestamps from archives
+- **Hash Calculation** - Generate MD5, SHA1, SHA256 hashes for all files in packages
+- **Fuzzy Hash Support** - Calculate TLSH and ssdeep hashes for similarity analysis
+- **Component Detection in Archives** - Run OSS detection on individual files within packages
+- **Multiple Export Formats** - JSON, CSV, tree visualization, and summary reports
+- **Enhanced CSV Export** - Rich CSV output with hashes, MIME types, and component detection results
+- **API Feature Parity** - All CLI inventory features available via Python API
+
+### Improved
+- **File Analysis API** - Added `include_hashes` and `include_fuzzy_hashes` parameters to `analyze_file()`
+- **Inventory Performance** - Selective analysis options to balance speed vs comprehensiveness
+- **Archive Metadata** - Relative paths, compression ratios, and CRC checksums for all files
+
+### Fixed
+- **Test Suite** - Fixed 7 failing tests for better stability
+- **Archive Extractor Test** - Corrected APK native library detection expectations
+- **Directory Analysis** - Properly excludes .binarysniffer directory from recursive scans
+
+### Technical
+- **New Module** - `binarysniffer.utils.inventory` for package enumeration
+- **Enhanced Module** - `binarysniffer.utils.file_metadata` for hash calculations
+- **API Methods** - `extract_package_inventory()` with full parameter control
+- **CLI Flags** - `--analyze`, `--include-hashes`, `--include-fuzzy-hashes`, `--detect-components`
+
 ## [1.8.4] - 2025-08-06
 
 ### Fixed
