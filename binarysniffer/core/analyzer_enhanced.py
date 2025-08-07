@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .config import Config
 from .results import AnalysisResult, ComponentMatch
+from .base_analyzer import BaseAnalyzer
 from ..extractors.factory import ExtractorFactory
 # Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
@@ -20,7 +21,7 @@ from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
 logger = logging.getLogger(__name__)
 
 
-class EnhancedBinarySniffer:
+class EnhancedBinarySniffer(BaseAnalyzer):
     """
     Enhanced main analyzer class with improved detection capabilities.
     Uses both progressive and direct matching for better results.
@@ -33,10 +34,9 @@ class EnhancedBinarySniffer:
         Args:
             config: Configuration object (uses default if not provided)
         """
-        self.config = config or Config()
+        super().__init__(config)
         
-        # Initialize components
-        self.db = SignatureDatabase(self.config.db_path)
+        # Initialize components specific to EnhancedBinarySniffer
         self.extractor_factory = ExtractorFactory()
         self.signature_manager = SignatureManager(self.config, self.db)
         
@@ -448,113 +448,8 @@ class EnhancedBinarySniffer:
         
         return merged
     
-    def analyze_directory(
-        self,
-        directory_path: Union[str, Path],
-        recursive: bool = True,
-        file_patterns: Optional[List[str]] = None,
-        confidence_threshold: Optional[float] = None,
-        parallel: bool = True
-    ) -> Dict[str, AnalysisResult]:
-        """
-        Analyze all files in a directory.
-        
-        Args:
-            directory_path: Path to directory
-            recursive: Analyze subdirectories
-            file_patterns: List of glob patterns (e.g., ["*.exe", "*.so"])
-            confidence_threshold: Minimum confidence score
-            parallel: Use parallel processing
-            
-        Returns:
-            Dictionary mapping file paths to results
-        """
-        directory_path = Path(directory_path)
-        if not directory_path.is_dir():
-            raise NotADirectoryError(f"Not a directory: {directory_path}")
-        
-        # Collect files
-        files = self._collect_files(directory_path, recursive, file_patterns)
-        logger.debug(f"Found {len(files)} files to analyze")
-        
-        results = {}
-        
-        if parallel and len(files) > 1:
-            # Parallel processing
-            with ThreadPoolExecutor(max_workers=self.config.parallel_workers) as executor:
-                future_to_file = {
-                    executor.submit(
-                        self.analyze_file, 
-                        file, 
-                        confidence_threshold
-                    ): file 
-                    for file in files
-                }
-                
-                for future in as_completed(future_to_file):
-                    file_path = future_to_file[future]
-                    try:
-                        result = future.result()
-                        results[str(file_path)] = result
-                    except Exception as e:
-                        logger.error(f"Error analyzing {file_path}: {e}")
-                        results[str(file_path)] = AnalysisResult.create_error(
-                            str(file_path), str(e)
-                        )
-        else:
-            # Sequential processing
-            for file_path in files:
-                try:
-                    results[str(file_path)] = self.analyze_file(
-                        file_path, 
-                        confidence_threshold
-                    )
-                except Exception as e:
-                    logger.error(f"Error analyzing {file_path}: {e}")
-                    results[str(file_path)] = AnalysisResult.create_error(
-                        str(file_path), str(e)
-                    )
-        
-        return results
     
-    def _collect_files(
-        self,
-        directory: Path,
-        recursive: bool,
-        patterns: Optional[List[str]] = None
-    ) -> List[Path]:
-        """Collect files from directory"""
-        files = []
-        
-        if patterns:
-            # Use glob patterns
-            for pattern in patterns:
-                if recursive:
-                    files.extend(directory.rglob(pattern))
-                else:
-                    files.extend(directory.glob(pattern))
-        else:
-            # Get all files
-            if recursive:
-                files = [f for f in directory.rglob('*') if f.is_file()]
-            else:
-                files = [f for f in directory.iterdir() if f.is_file()]
-        
-        return sorted(set(files))
     
-    def _initialize_database(self):
-        """Initialize signature database with packaged signatures"""
-        try:
-            synced = self.signature_manager.ensure_database_synced()
-            if synced:
-                logger.info("Imported packaged signatures on first run")
-            else:
-                # If no sync occurred but database is still empty, try import
-                if not self.db.is_initialized():
-                    count = self.signature_manager.import_packaged_signatures()
-                    logger.info(f"Imported {count} packaged signatures")
-        except Exception as e:
-            logger.error(f"Failed to initialize signature database: {e}")
     
     def get_signature_stats(self) -> Dict[str, any]:
         """Get signature database statistics"""

@@ -17,14 +17,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: bool = False,
+def extract_package_inventory(file_path, analyzer=None, analyze_contents: bool = False,
                              include_hashes: bool = False, include_fuzzy_hashes: bool = False,
                              detect_components: bool = False) -> Dict[str, Any]:
     """
     Extract inventory of files from a package/archive with comprehensive analysis.
     
     Args:
-        file_path: Path to the package file
+        file_path: Path to the package file (str or Path object)
         analyzer: Optional analyzer instance to use for component detection
         analyze_contents: Extract and analyze file contents (slower but more comprehensive)
         include_hashes: Include cryptographic hashes (MD5, SHA1, SHA256)
@@ -37,6 +37,10 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
     import zipfile
     import tarfile
     import hashlib
+    
+    # Convert to Path if string
+    if isinstance(file_path, str):
+        file_path = Path(file_path)
     
     inventory = {
         "package_path": str(file_path),

@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import List, Set
 
 from .base import BaseExtractor, ExtractedFeatures
+from ..utils.binary_strings import BinaryStringExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -63,25 +64,28 @@ class ImprovedBinaryExtractor(BaseExtractor):
         )
         
         try:
+            # Initialize string extractor with improved settings
+            string_extractor = BinaryStringExtractor(min_length=self.min_string_length, max_strings=self.max_strings)
+            
             # Extract printable strings with minimal filtering
-            all_strings = self._extract_strings(file_path)
+            raw_strings = string_extractor.extract_strings(file_path)
             
             # Keep ALL strings for matching (important!)
-            features.strings = all_strings
+            features.strings = list(raw_strings)
             
-            # Also categorize strings for backward compatibility
-            features.functions = self._extract_functions(all_strings)
-            features.constants = self._extract_constants(all_strings)
-            features.imports = self._extract_imports(all_strings)
+            # Also categorize strings using shared utility
+            features.functions = string_extractor.extract_functions(raw_strings)
+            features.constants = string_extractor.extract_constants(raw_strings)
+            features.imports = string_extractor.extract_imports(raw_strings)
             
             # Extract additional symbols that might be signatures
-            features.symbols = self._extract_symbols(all_strings)
+            features.symbols = self._extract_symbols(features.strings)
             
             # Set metadata
             features.metadata = {
                 'size': file_path.stat().st_size,
-                'total_strings': len(all_strings),
-                'unique_strings': len(set(all_strings))
+                'total_strings': len(raw_strings),
+                'unique_strings': len(set(raw_strings))
             }
             
         except Exception as e:
@@ -89,49 +93,6 @@ class ImprovedBinaryExtractor(BaseExtractor):
         
         return features
     
-    def _extract_strings(self, file_path: Path) -> List[str]:
-        """Extract printable ASCII strings from binary"""
-        strings = []
-        
-        # Pattern for printable ASCII strings (lowered minimum to 4)
-        pattern = rb'[\x20-\x7e]{4,}'
-        
-        try:
-            with open(file_path, 'rb') as f:
-                # Read in chunks to handle large files
-                chunk_size = 1024 * 1024  # 1MB chunks
-                overlap = 100  # Overlap to catch strings split across chunks
-                
-                previous_tail = b''
-                
-                while True:
-                    chunk = f.read(chunk_size)
-                    if not chunk:
-                        break
-                    
-                    # Combine with tail of previous chunk
-                    search_data = previous_tail + chunk
-                    
-                    # Find strings in chunk
-                    for match in re.finditer(pattern, search_data):
-                        try:
-                            string = match.group().decode('ascii', errors='ignore')
-                            if string and len(string) >= self.min_string_length:
-                                strings.append(string)
-                        except Exception:
-                            continue
-                    
-                    # Keep tail for next iteration
-                    previous_tail = chunk[-overlap:] if len(chunk) > overlap else chunk
-                    
-                    # Limit total strings
-                    if len(strings) > self.max_strings:
-                        break
-        
-        except Exception as e:
-            logger.error(f"Error reading binary file {file_path}: {e}")
-        
-        return strings
     
     def _extract_symbols(self, strings: List[str]) -> List[str]:
         """Extract potential symbol names including library functions"""
@@ -170,61 +131,3 @@ class ImprovedBinaryExtractor(BaseExtractor):
         
         return symbols[:5000]  # More generous limit
     
-    def _extract_functions(self, strings: List[str]) -> List[str]:
-        """Extract function-like symbols"""
-        functions = []
-        
-        # More inclusive patterns for function names
-        patterns = [
-            r'^[a-zA-Z_][a-zA-Z0-9_]*$',  # C-style identifiers
-            r'^[a-zA-Z_][a-zA-Z0-9_]*::[a-zA-Z_][a-zA-Z0-9_]*$',  # C++ methods
-            r'^[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z_][a-zA-Z0-9_]*$',  # Object methods
-            r'^[a-zA-Z_][a-zA-Z0-9_]*\$[a-zA-Z0-9_]*$',  # Mangled names
-        ]
-        
-        for string in strings:
-            # More permissive length check
-            if len(string) < 2 or len(string) > 200:
-                continue
-            
-            # Check patterns
-            for pattern in patterns:
-                if re.match(pattern, string):
-                    functions.append(string)
-                    break
-        
-        return functions[:5000]  # Increased limit
-    
-    def _extract_constants(self, strings: List[str]) -> List[str]:
-        """Extract constant-like symbols"""
-        constants = []
-        
-        for string in strings:
-            # Constants are often uppercase with underscores
-            if re.match(r'^[A-Z][A-Z0-9_]+$', string) and len(string) >= 3:
-                constants.append(string)
-            # Also version-like strings
-            elif re.match(r'^\d+\.\d+(\.\d+)?', string):
-                constants.append(string)
-        
-        return constants[:2000]  # Increased limit
-    
-    def _extract_imports(self, strings: List[str]) -> List[str]:
-        """Extract import/library references"""
-        imports = []
-        
-        # Common library patterns
-        lib_patterns = [
-            r'\.dll$', r'\.so(\.\d+)?$', r'\.dylib$',  # Libraries
-            r'^lib[a-z0-9_-]+', r'[a-z0-9_-]+\.h$',  # Headers
-            r'\.jar$', r'\.class$',  # Java
-            r'\.framework',  # macOS/iOS
-        ]
-        
-        for string in strings:
-            for pattern in lib_patterns:
-                if re.search(pattern, string, re.IGNORECASE):
-                    imports.append(string)
-                    break
-        
-        return imports[:1000]  # Increased limit

@@ -8,7 +8,7 @@ import json
 import time
 import logging
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional
 
 import click
 from rich.console import Console
@@ -506,7 +506,6 @@ def update(ctx, force):
 @click.pass_context
 def stats(ctx):
     """Show signature database statistics."""
-    from .signatures.manager import SignatureManager
     from .storage.database import SignatureDatabase
     
     config = ctx.obj['config']
