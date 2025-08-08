@@ -100,7 +100,18 @@ pip install semantic-copycat-binarysniffer[android]
 
 ## Optional Tools for Enhanced Format Support
 
-BinarySniffer can leverage external tools when available to provide enhanced analysis capabilities. These tools are **optional** - the core functionality works without them, but installing them unlocks additional features:
+BinarySniffer can leverage external tools when available to provide enhanced analysis capabilities. These tools are **optional** - the core functionality works without them, but installing them unlocks additional features.
+
+### Quick Reference: Archive Format Requirements
+
+| Format | Python Package | System Tool (Alternative) | Fallback |
+|--------|---------------|---------------------------|----------|
+| 7z | py7zr (included) | 7-Zip | - |
+| RAR | rarfile (included) | unrar | 7-Zip |
+| DEB | python-debian (included) | ar | 7-Zip |
+| RPM | - | rpm2cpio | 7-Zip |
+| ZIP/JAR | Built-in | - | - |
+| TAR/GZ | Built-in | - | - |
 
 ### 7-Zip (Recommended)
 **Enables**: Extraction and analysis of Windows installers, macOS packages, and additional compressed formats
@@ -122,6 +133,56 @@ sudo apt-get install p7zip-full
 - Support for NSIS, InnoSetup, and other installer formats
 - Extract and analyze self-extracting archives
 - Support for additional archive formats (RAR, CAB, ISO, etc.)
+
+### Tools for Extended Archive Support (Optional)
+
+When using the `[archives]` installation option, these tools enhance format support:
+
+#### DEB Package Analysis
+```bash
+# For DEB packages (Debian/Ubuntu)
+# Option 1: Install python-debian (included with [archives])
+pip install semantic-copycat-binarysniffer[archives]
+
+# Option 2: Use system ar command (usually pre-installed)
+# Ubuntu/Debian
+which ar  # Check if available
+
+# macOS
+# ar is included with Xcode Command Line Tools
+xcode-select --install  # If not already installed
+```
+
+#### RPM Package Analysis
+```bash
+# For RPM packages (Red Hat/Fedora/CentOS)
+# Option 1: Install rpm2cpio
+# Ubuntu/Debian
+sudo apt-get install rpm2cpio
+
+# macOS
+brew install rpm2cpio
+
+# Fedora/RHEL/CentOS
+# rpm2cpio is usually pre-installed
+
+# Option 2: Falls back to 7-Zip if available
+```
+
+#### Additional Archive Formats
+The `[archives]` option includes Python libraries for:
+- **7z files**: py7zr (pure Python, no external tools needed)
+- **RAR files**: rarfile (requires unrar tool)
+  ```bash
+  # Install unrar for RAR support
+  # Ubuntu/Debian
+  sudo apt-get install unrar
+  
+  # macOS
+  brew install unrar
+  
+  # Note: Falls back to 7-Zip if unrar not available
+  ```
 
 ### Universal CTags (Optional)
 **Enables**: Enhanced source code analysis with semantic understanding
