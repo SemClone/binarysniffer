@@ -28,8 +28,9 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Component Detection**: Run OSS detection on individual files within packages
 - **Multiple Export Formats**: JSON, CSV, tree visualization, summary reports
 
-### Enhanced Binary Analysis (v1.6.0)
+### Enhanced Binary Analysis (v1.6.0+)
 - **LIEF Integration**: Advanced ELF/PE/Mach-O analysis with symbol and import extraction
+- **Static Library Support** (v1.8.8): Parse and analyze .a archives, examining each object file separately
 - **Android DEX Support**: Specialized extractor for DEX bytecode files
 - **Improved APK Detection**: 25+ components detected vs 1 previously (152K features extracted)
 - **Substring Matching**: Detects components even with partial pattern matches
