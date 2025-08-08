@@ -1,0 +1,52 @@
+{
+  "licenses_detected": [
+    "Apache-2.0"
+  ],
+  "license_details": {
+    "Apache-2.0": {
+      "count": 1,
+      "confidence": 0.84,
+      "components": [],
+      "files": [
+        "LICENSE"
+      ]
+    }
+  },
+  "license_files": {
+    "LICENSE": [
+      {
+        "component": "Apache License 2.0",
+        "ecosystem": "license",
+        "confidence": 0.84,
+        "license": "Apache-2.0",
+        "match_type": "license_pattern",
+        "evidence": {
+          "matched_patterns": 1,
+          "pattern_details": [
+            {
+              "pattern": "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied",
+              "context": "license_clause",
+              "confidence": 0.7
+            }
+          ],
+          "detection_method": "pattern_matching",
+          "file_path": "LICENSE"
+        }
+      }
+    ]
+  },
+  "compatibility": {
+    "compatible": true,
+    "warnings": [],
+    "license_types": {
+      "copyleft": [],
+      "weak_copyleft": [],
+      "permissive": [
+        "Apache-2.0"
+      ],
+      "unknown": []
+    }
+  },
+  "total_components": 1,
+  "analysis_path": "LICENSE"
+}

@@ -1,0 +1,53 @@
+{
+  "component": {
+    "name": "Apache License 2.0",
+    "version": "2.0",
+    "license": "Apache-2.0",
+    "publisher": "Apache Software Foundation",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "Apache License[,]? Version 2\\.0",
+      "confidence": 0.95,
+      "type": "regex_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "Licensed under the Apache License, Version 2\\.0",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "http://www\\.apache\\.org/licenses/LICENSE-2\\.0",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_url"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*Apache-2\\.0",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    },
+    {
+      "pattern": "Unless required by applicable law or agreed to in writing, software",
+      "confidence": 0.8,
+      "type": "string_pattern",
+      "context": "license_clause"
+    },
+    {
+      "pattern": "distributed under the License is distributed on an \"AS IS\" BASIS",
+      "confidence": 0.8,
+      "type": "string_pattern",
+      "context": "license_clause"
+    },
+    {
+      "pattern": "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied",
+      "confidence": 0.7,
+      "type": "string_pattern",
+      "context": "license_clause"
+    }
+  ]
+}
