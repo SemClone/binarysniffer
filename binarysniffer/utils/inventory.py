@@ -17,14 +17,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: bool = False,
+def extract_package_inventory(file_path, analyzer=None, analyze_contents: bool = False,
                              include_hashes: bool = False, include_fuzzy_hashes: bool = False,
                              detect_components: bool = False) -> Dict[str, Any]:
     """
     Extract inventory of files from a package/archive with comprehensive analysis.
     
     Args:
-        file_path: Path to the package file
+        file_path: Path to the package file (str or Path object)
         analyzer: Optional analyzer instance to use for component detection
         analyze_contents: Extract and analyze file contents (slower but more comprehensive)
         include_hashes: Include cryptographic hashes (MD5, SHA1, SHA256)
@@ -38,6 +38,10 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
     import tarfile
     import hashlib
     
+    # Convert to Path if string
+    if isinstance(file_path, str):
+        file_path = Path(file_path)
+    
     inventory = {
         "package_path": str(file_path),
         "package_name": file_path.name,
@@ -45,6 +49,7 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
         "files": [],
         "summary": {
             "total_files": 0,
+            "total_directories": 0,
             "total_size": 0,
             "file_types": {},
             "components_detected": set() if detect_components else None
@@ -129,7 +134,9 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
                     inventory["files"].append(file_entry)
                     
                     # Update summary
-                    if not file_entry["is_directory"]:
+                    if file_entry["is_directory"]:
+                        inventory["summary"]["total_directories"] += 1
+                    else:
                         inventory["summary"]["total_files"] += 1
                         inventory["summary"]["total_size"] += file_entry["size"]
                         
@@ -160,6 +167,144 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
                 inventory["package_type"] = "java"
             elif file_path.suffix.lower() == '.war':
                 inventory["package_type"] = "java_web"
+                
+        elif file_path.suffix.lower() in ['.zst', '.tar.zst', '.tzst', '.vpkg']:
+            # Handle Zstandard compressed files
+            inventory["package_type"] = "zstd"
+            
+            import io
+            import zstandard as zstd
+            
+            # Decompress
+            compressed_data = file_path.read_bytes()
+            decompressor = zstd.ZstdDecompressor()
+            
+            try:
+                decompressed_data = decompressor.decompress(compressed_data)
+            except zstd.ZstdError as e:
+                # If Python library fails, try system zstd command as fallback
+                logger.debug(f"Python zstandard failed ({e}), trying system zstd command")
+                
+                import subprocess
+                try:
+                    # Check if zstd command is available
+                    result = subprocess.run(['which', 'zstd'], capture_output=True, text=True)
+                    if result.returncode != 0:
+                        raise Exception("System zstd command not found")
+                    
+                    # Use system zstd to decompress
+                    with tempfile.NamedTemporaryFile(suffix='.tmp', delete=False) as tmp_out:
+                        tmp_output = Path(tmp_out.name)
+                    
+                    result = subprocess.run(
+                        ['zstd', '-d', str(file_path), '-o', str(tmp_output), '-f'],
+                        capture_output=True,
+                        text=True,
+                        timeout=30
+                    )
+                    
+                    if result.returncode != 0:
+                        raise Exception(f"System zstd decompression failed: {result.stderr}")
+                    
+                    # Read decompressed data
+                    decompressed_data = tmp_output.read_bytes()
+                    tmp_output.unlink()  # Clean up temp file
+                    
+                except Exception as e:
+                    logger.error(f"Failed to decompress with system zstd: {e}")
+                    inventory["error"] = f"Failed to decompress: {e}"
+                    return inventory
+            
+            # Check if it's a tar.zst or vpkg (which are usually tar archives)
+            if file_path.suffix.lower() in ['.tar.zst', '.tzst', '.vpkg'] or file_path.name.endswith('.tar.zst'):
+                # Handle as tar
+                inventory["package_type"] = "tar.zst"
+                tar_buffer = io.BytesIO(decompressed_data)
+                with tarfile.open(fileobj=tar_buffer, mode='r') as tf:
+                    for member in tf.getmembers():
+                        file_entry = {
+                            "path": member.name,
+                            "size": member.size,
+                            "compressed_size": 0,  # We don't have individual compression info
+                            "compression_method": "zstd",
+                            "compression_ratio": 0,
+                            "modified": str(member.mtime),
+                            "is_directory": member.isdir()
+                        }
+                        
+                        # Add MIME type
+                        mime_type, _ = mimetypes.guess_type(member.name)
+                        file_entry["mime_type"] = mime_type or "application/octet-stream"
+                        
+                        # Process file contents if requested
+                        if not file_entry["is_directory"] and analyze_contents:
+                            try:
+                                if temp_dir:
+                                    # Extract single file
+                                    tf.extract(member, temp_dir)
+                                    extracted_path = Path(temp_dir) / member.name
+                                    
+                                    # Calculate hashes if requested
+                                    if include_hashes or include_fuzzy_hashes:
+                                        from binarysniffer.utils.file_metadata import calculate_file_hashes
+                                        try:
+                                            hashes = calculate_file_hashes(extracted_path, include_fuzzy=include_fuzzy_hashes)
+                                            file_entry["hashes"] = hashes
+                                        except Exception as e:
+                                            logger.debug(f"Failed to calculate hashes for {member.name}: {e}")
+                                    
+                                    # Run component detection if requested
+                                    if detect_components and analyzer:
+                                        try:
+                                            result = analyzer.analyze_file(extracted_path, confidence_threshold=0.5)
+                                            if result.matches:
+                                                file_entry["components"] = [
+                                                    {
+                                                        "name": match.component,
+                                                        "confidence": round(match.confidence, 3),
+                                                        "license": match.license
+                                                    }
+                                                    for match in result.matches
+                                                ]
+                                                # Add to summary
+                                                for match in result.matches:
+                                                    inventory["summary"]["components_detected"].add(match.component)
+                                            
+                                            # Add feature count
+                                            file_entry["features_extracted"] = result.features_extracted
+                                        except Exception as e:
+                                            logger.debug(f"Failed to analyze {member.name}: {e}")
+                            except Exception as e:
+                                logger.debug(f"Failed to process {member.name}: {e}")
+                        
+                        # Add to inventory
+                        inventory["files"].append(file_entry)
+                        
+                        # Update summary
+                        if file_entry["is_directory"]:
+                            inventory["summary"]["total_directories"] += 1
+                        else:
+                            inventory["summary"]["total_files"] += 1
+                            inventory["summary"]["total_size"] += file_entry["size"]
+                            
+                            # Track file types
+                            ext = Path(file_entry["path"]).suffix.lower()
+                            if ext:
+                                inventory["summary"]["file_types"][ext] = \
+                                    inventory["summary"]["file_types"].get(ext, 0) + 1
+            else:
+                # Plain .zst file - treat as single compressed file
+                file_entry = {
+                    "path": file_path.stem,  # Remove .zst extension
+                    "size": len(decompressed_data),
+                    "compressed_size": file_path.stat().st_size,
+                    "compression_method": "zstd",
+                    "compression_ratio": round(1 - (file_path.stat().st_size / len(decompressed_data)), 3) if len(decompressed_data) > 0 else 0,
+                    "is_directory": False
+                }
+                inventory["files"].append(file_entry)
+                inventory["summary"]["total_files"] = 1
+                inventory["summary"]["total_size"] = len(decompressed_data)
                 
         elif tarfile.is_tarfile(file_path):
             # Handle TAR-based archives
@@ -229,7 +374,9 @@ def extract_package_inventory(file_path: Path, analyzer=None, analyze_contents: 
                     inventory["files"].append(file_entry)
                     
                     # Update summary
-                    if not file_entry["is_directory"]:
+                    if file_entry["is_directory"]:
+                        inventory["summary"]["total_directories"] += 1
+                    else:
                         inventory["summary"]["total_files"] += 1
                         inventory["summary"]["total_size"] += file_entry["size"]
                         

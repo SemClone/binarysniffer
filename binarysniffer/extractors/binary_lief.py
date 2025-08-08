@@ -15,6 +15,7 @@ except ImportError:
     HAS_LIEF = False
 
 from .base import BaseExtractor, ExtractedFeatures
+from ..utils.binary_strings import BinaryStringExtractor
 
 logger = logging.getLogger(__name__)
 
@@ -68,8 +69,11 @@ class LiefBinaryExtractor(BaseExtractor):
             file_type="binary"
         )
         
-        # First, extract strings using traditional method
-        all_strings = self._extract_strings_traditional(file_path)
+        # Initialize string extractor
+        string_extractor = BinaryStringExtractor(min_length=self.min_string_length, max_strings=self.max_strings)
+        
+        # First, extract strings using the shared utility
+        all_strings = string_extractor.extract_strings(file_path)
         
         # Then enhance with LIEF if available
         if self.has_lief:
@@ -89,9 +93,9 @@ class LiefBinaryExtractor(BaseExtractor):
         # Store all extracted strings
         features.strings = list(all_strings)[:self.max_strings]
         
-        # Categorize strings
-        features.functions = self._extract_functions(features.strings)
-        features.constants = self._extract_constants(features.strings)
+        # Categorize strings using shared utility
+        features.functions = string_extractor.extract_functions(all_strings)
+        features.constants = string_extractor.extract_constants(all_strings)
         features.imports = list(dict.fromkeys(features.imports))[:5000]  # Limit imports
         features.symbols = self._extract_symbols(features.strings)
         
@@ -105,50 +109,6 @@ class LiefBinaryExtractor(BaseExtractor):
         
         return features
     
-    def _extract_strings_traditional(self, file_path: Path) -> Set[str]:
-        """Extract strings using traditional method (fast and comprehensive)"""
-        strings = set()
-        
-        try:
-            # Use the strings command if available (fastest method)
-            result = subprocess.run(
-                ['strings', '-n', str(self.min_string_length), str(file_path)],
-                capture_output=True,
-                text=True,
-                timeout=30
-            )
-            if result.returncode == 0:
-                for line in result.stdout.split('\n'):
-                    if line and len(line) >= self.min_string_length:
-                        strings.add(line.strip())
-                return strings
-        except Exception:
-            pass
-        
-        # Fallback to Python-based extraction
-        pattern = rb'[\x20-\x7e]{' + str(self.min_string_length).encode() + rb',}'
-        
-        try:
-            with open(file_path, 'rb') as f:
-                # Read in chunks
-                chunk_size = 1024 * 1024  # 1MB chunks
-                while len(strings) < self.max_strings:
-                    chunk = f.read(chunk_size)
-                    if not chunk:
-                        break
-                    
-                    # Find strings in chunk
-                    for match in re.finditer(pattern, chunk):
-                        try:
-                            string = match.group().decode('ascii', errors='ignore')
-                            if string and len(string) >= self.min_string_length:
-                                strings.add(string)
-                        except Exception:
-                            continue
-        except Exception as e:
-            logger.error(f"Error extracting strings from {file_path}: {e}")
-        
-        return strings
     
     def _extract_elf_features(self, binary, features: ExtractedFeatures, existing_strings: Set[str]):
         """Extract ELF-specific features using LIEF"""
@@ -248,44 +208,3 @@ class LiefBinaryExtractor(BaseExtractor):
         
         return symbols[:10000]  # Limit symbols
     
-    def _extract_functions(self, strings: List[str]) -> List[str]:
-        """Extract function-like strings"""
-        functions = []
-        
-        # Patterns that indicate functions
-        func_patterns = [
-            r'^[a-zA-Z_][a-zA-Z0-9_]*_(?:init|create|destroy|open|close|read|write|get|set)$',
-            r'^[a-zA-Z_][a-zA-Z0-9_]*(?:Init|Create|Destroy|Open|Close|Read|Write|Get|Set)$',
-            r'^(?:png|jpeg|jpg|gif|webp|tiff|bmp)_[a-zA-Z0-9_]+$',  # Image library functions
-            r'^(?:ssl|tls|crypto|aes|rsa|sha|md5)_[a-zA-Z0-9_]+$',  # Crypto functions
-            r'^(?:xml|json|yaml|toml)_[a-zA-Z0-9_]+$',  # Parser functions
-        ]
-        
-        for string in strings:
-            if 3 < len(string) < 100:
-                for pattern in func_patterns:
-                    if re.match(pattern, string, re.IGNORECASE):
-                        functions.append(string)
-                        break
-        
-        return functions[:10000]  # Limit functions
-    
-    def _extract_constants(self, strings: List[str]) -> List[str]:
-        """Extract constant-like strings"""
-        constants = []
-        
-        # Patterns for constants
-        const_patterns = [
-            r'^[A-Z][A-Z0-9_]*$',  # ALL_CAPS
-            r'^k[A-Z][a-zA-Z0-9]*$',  # kConstantName
-            r'^[A-Z]+_[A-Z]+(?:_[A-Z0-9]+)*$',  # MULTI_WORD_CONSTANT
-        ]
-        
-        for string in strings:
-            if 2 < len(string) < 50:
-                for pattern in const_patterns:
-                    if re.match(pattern, string):
-                        constants.append(string)
-                        break
-        
-        return constants[:5000]  # Limit constants

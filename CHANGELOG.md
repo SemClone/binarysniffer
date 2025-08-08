@@ -5,6 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.7] - 2025-08-07
+
+### Added
+- **Zstandard Archive Support** - Full support for `.zst`, `.tar.zst`, and `.vpkg` compressed archives for analysis and inventory extraction
+- **System zstd Fallback** - Automatic fallback to system zstd command when Python library can't handle certain frame formats
+- **GStreamer Signatures** - Added 17 high-quality signatures for GStreamer multimedia framework detection
+- **Hermes React Native Signatures** - Added 25 signatures for Hermes JavaScript engine including bytecode magic detection
+- **Native Hermes Bytecode Inspector** - Pure Python implementation for analyzing Hermes bytecode files without external dependencies
+- **Hermes Decompiler Script** - Basic decompilation and analysis tool for React Native Hermes bundles
+
+### Fixed  
+- **Signature Creation from Binaries** - Fixed component name matching to handle "lib" prefix variations (e.g., libcap vs cap)
+- **Inventory Extraction Tests** - Fixed all 11 tests by adding missing `total_directories` field and correcting function references
+- **API Consistency** - Fixed `analyze_directory` to return `BatchAnalysisResult` consistently across all analyzers
+- **CLI Tests** - Fixed all 12 CLI tests by properly handling BatchAnalysisResult in single and batch file analysis
+- **Microsoft OLE False Positives** - Removed 16 overly generic patterns (24.6% reduction) that caused false detections
+- **Qt5 False Positives** - Removed 28 generic patterns (28% reduction) that could cause legal issues
+- **PCoIP SDK False Positives** - Removed 519 generic patterns (73.6% reduction) eliminating widespread false detections
+
+### Improved
+- **Code Organization** - Eliminated 400+ lines of duplicate code through BaseAnalyzer refactoring
+- **Binary String Extraction** - Centralized binary string extraction logic in shared utility module
+- **Test Coverage** - Added comprehensive tests for Zstandard support (5 new tests)
+- **Detection Accuracy** - Dramatically reduced false positives across Microsoft OLE, Qt5, and PCoIP SDK components
+- **Signature Quality** - Cleaned up over 563 problematic patterns across multiple components
+
+### Technical
+- **New Module** - `binarysniffer.core.base_analyzer` for shared analyzer functionality
+- **New Module** - `binarysniffer.utils.binary_strings` for centralized binary string extraction
+- **New Module** - `binarysniffer.extractors.hermes` for native Hermes bytecode extraction
+- **New Tests** - `tests/test_zstandard_support.py` for Zstandard archive validation
+- **Archive Extensions** - Added `.zst`, `.tar.zst`, `.tzst`, and `.vpkg` to supported formats
+- **New Signatures** - `signatures/gstreamer.json` with multimedia framework patterns
+- **New Signatures** - `signatures/hermes.json` with React Native JavaScript engine patterns
+- **Cleanup Scripts** - Added scripts for removing generic patterns from Microsoft OLE, Qt5, and PCoIP SDK
+- **Analysis Tools** - `scripts/hermes_decompiler.py` for Hermes bytecode inspection and basic decompilation
+- **Hermes Support** - Native parsing of Hermes header, string table extraction, and framework detection
+
 ## [1.8.6] - 2025-08-07
 
 ### Added

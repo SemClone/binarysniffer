@@ -1,0 +1,279 @@
+{
+  "component": {
+    "name": "Lodash",
+    "version": "4.17.x",
+    "category": "imported",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "javascript"
+    ],
+    "description": "A modern JavaScript utility library",
+    "license": "MIT",
+    "publisher": "The Lodash Authors"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-07T15:30:00.000000Z",
+    "updated": "2025-08-07T15:30:00.000000Z",
+    "signature_count": 25,
+    "confidence_threshold": 0.5,
+    "source": "hermes_bytecode_analysis",
+    "extraction_method": "bytecode_pattern_extraction"
+  },
+  "signatures": [
+    {
+      "id": "lodash_bc_0",
+      "type": "string_pattern",
+      "pattern": "__lodash_hash_undefined",
+      "confidence": 0.95,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ],
+      "description": "Lodash hash undefined marker in bytecode"
+    },
+    {
+      "id": "lodash_bc_1",
+      "type": "string_pattern",
+      "pattern": "__lodash_placeholder",
+      "confidence": 0.95,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_2",
+      "type": "string_pattern",
+      "pattern": "lodash_hash_",
+      "confidence": 0.9,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_3",
+      "type": "string_pattern",
+      "pattern": "__iteratees__",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_4",
+      "type": "string_pattern",
+      "pattern": "__wrapped__",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_5",
+      "type": "string_pattern",
+      "pattern": "__filtered__",
+      "confidence": 0.85,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_6",
+      "type": "string_pattern",
+      "pattern": "_slicedToArraySet",
+      "confidence": 0.8,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_7",
+      "type": "string_pattern",
+      "pattern": "_toArraySet",
+      "confidence": 0.8,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_8",
+      "type": "string_pattern",
+      "pattern": "_fromArraySet",
+      "confidence": 0.8,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_9",
+      "type": "string_pattern",
+      "pattern": "baseLodashWrapper",
+      "confidence": 0.85,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_10",
+      "type": "string_pattern",
+      "pattern": "debounce",
+      "confidence": 0.7,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_11",
+      "type": "string_pattern",
+      "pattern": "throttle",
+      "confidence": 0.7,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_12",
+      "type": "string_pattern",
+      "pattern": "isObjectLike",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_13",
+      "type": "string_pattern",
+      "pattern": "_setPrototypeOf",
+      "confidence": 0.75,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_14",
+      "type": "string_pattern",
+      "pattern": "_indexOf",
+      "confidence": 0.7,
+      "context": "bytecode_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_15",
+      "type": "string_pattern",
+      "pattern": "leadingEdge",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_16",
+      "type": "string_pattern",
+      "pattern": "trailingEdge",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_17",
+      "type": "string_pattern",
+      "pattern": "baseToString",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_18",
+      "type": "string_pattern",
+      "pattern": "baseToNumber",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_19",
+      "type": "string_pattern",
+      "pattern": "baseIsNaN",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_20",
+      "type": "string_pattern",
+      "pattern": "baseRandom",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_21",
+      "type": "string_pattern",
+      "pattern": "assignMergeValue",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_22",
+      "type": "string_pattern",
+      "pattern": "IterateeCall",
+      "confidence": 0.75,
+      "context": "bytecode_function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_23",
+      "type": "string_pattern",
+      "pattern": "randomizationFactor",
+      "confidence": 0.7,
+      "context": "bytecode_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "lodash_bc_24",
+      "type": "regex_pattern",
+      "pattern": "^(?:pop|shift|push|sort|unshift)$",
+      "confidence": 0.65,
+      "context": "bytecode_regex",
+      "platforms": [
+        "all"
+      ],
+      "description": "Lodash array method detection regex"
+    }
+  ]
+}

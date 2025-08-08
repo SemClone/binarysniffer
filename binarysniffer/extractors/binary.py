@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import List, Set
 
 from .base import BaseExtractor, ExtractedFeatures
+from ..utils.binary_strings import BinaryStringExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -53,23 +54,22 @@ class BinaryExtractor(BaseExtractor):
         )
         
         try:
+            # Initialize string extractor with default settings
+            string_extractor = BinaryStringExtractor(min_length=5, max_strings=self.max_strings * 2)
+            
             # Extract printable strings
-            strings = self._extract_strings(file_path)
-            features.strings = self._filter_strings(strings)
+            raw_strings = string_extractor.extract_strings(file_path)
+            features.strings = self._filter_strings(list(raw_strings))
             
-            # Extract function-like symbols
-            features.functions = self._extract_functions(features.strings)
-            
-            # Extract constant-like symbols
-            features.constants = self._extract_constants(features.strings)
-            
-            # Extract import-like strings
-            features.imports = self._extract_imports(features.strings)
+            # Extract categorized strings using the shared utility
+            features.functions = string_extractor.extract_functions(raw_strings)
+            features.constants = string_extractor.extract_constants(raw_strings)
+            features.imports = string_extractor.extract_imports(raw_strings)
             
             # Set metadata
             features.metadata = {
                 'size': file_path.stat().st_size,
-                'total_strings': len(strings),
+                'total_strings': len(raw_strings),
                 'filtered_strings': len(features.strings)
             }
             
@@ -78,90 +78,3 @@ class BinaryExtractor(BaseExtractor):
         
         return features
     
-    def _extract_strings(self, file_path: Path) -> List[str]:
-        """Extract printable ASCII strings from binary"""
-        strings = []
-        
-        # Pattern for printable ASCII strings
-        pattern = rb'[\x20-\x7e]{5,}'
-        
-        try:
-            with open(file_path, 'rb') as f:
-                # Read in chunks to handle large files
-                chunk_size = 1024 * 1024  # 1MB chunks
-                
-                while True:
-                    chunk = f.read(chunk_size)
-                    if not chunk:
-                        break
-                    
-                    # Find strings in chunk
-                    for match in re.finditer(pattern, chunk):
-                        try:
-                            string = match.group().decode('ascii', errors='ignore')
-                            if string:
-                                strings.append(string)
-                        except Exception:
-                            continue
-                    
-                    # Limit total strings
-                    if len(strings) > self.max_strings * 2:
-                        break
-        
-        except Exception as e:
-            logger.error(f"Error reading binary file {file_path}: {e}")
-        
-        return strings
-    
-    def _extract_functions(self, strings: List[str]) -> List[str]:
-        """Extract function-like symbols"""
-        functions = []
-        
-        # Patterns for function names
-        patterns = [
-            r'^[a-zA-Z_][a-zA-Z0-9_]*$',  # C-style identifiers
-            r'^[a-zA-Z_][a-zA-Z0-9_]*::[a-zA-Z_][a-zA-Z0-9_]*$',  # C++ methods
-            r'^[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z_][a-zA-Z0-9_]*$',  # Object methods
-        ]
-        
-        for string in strings:
-            # Skip if too short or too long
-            if len(string) < 3 or len(string) > 100:
-                continue
-            
-            # Check patterns
-            for pattern in patterns:
-                if re.match(pattern, string):
-                    functions.append(string)
-                    break
-        
-        return functions[:1000]  # Limit functions
-    
-    def _extract_constants(self, strings: List[str]) -> List[str]:
-        """Extract constant-like symbols"""
-        constants = []
-        
-        for string in strings:
-            # Constants are often uppercase with underscores
-            if re.match(r'^[A-Z][A-Z0-9_]+$', string) and len(string) >= 5:
-                constants.append(string)
-        
-        return constants[:500]  # Limit constants
-    
-    def _extract_imports(self, strings: List[str]) -> List[str]:
-        """Extract import/library references"""
-        imports = []
-        
-        # Common library patterns
-        lib_patterns = [
-            r'\.dll$', r'\.so(\.\d+)?$', r'\.dylib$',  # Libraries
-            r'^lib[a-z0-9_-]+', r'[a-z0-9_-]+\.h$',  # Headers
-        ]
-        
-        for string in strings:
-            for pattern in lib_patterns:
-                if re.search(pattern, string, re.IGNORECASE):
-                    imports.append(string)
-                    break
-        
-        return imports[:200]  # Limit imports

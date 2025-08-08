@@ -34,12 +34,13 @@ class ArchiveExtractor(BaseExtractor):
         '.egg', '.whl', '.nupkg', '.vsix', '.crx',
         # TAR-based
         '.tar', '.tar.gz', '.tgz', '.tar.bz2', '.tbz2', '.tar.xz',
+        '.tar.zst', '.tzst',  # Zstandard compressed tar
         # Windows installers (require 7-Zip)
         '.msi',
         # macOS installers (require 7-Zip)
         '.pkg', '.dmg',
-        # Other
-        '.gz', '.bz2', '.xz'
+        # Other compression formats
+        '.gz', '.bz2', '.xz', '.zst', '.vpkg'  # Added .zst and .vpkg for Zstandard
     }
     
     # Special archive types that need specific handling
@@ -208,14 +209,18 @@ class ArchiveExtractor(BaseExtractor):
         extracted_files = []
         
         try:
-            if zipfile.is_zipfile(archive_path):
+            # Check for Zstandard compressed files first (.zst, .tar.zst, .vpkg)
+            if archive_path.suffix.lower() in ['.zst', '.vpkg'] or str(archive_path).lower().endswith('.tar.zst'):
+                extracted_files = self._extract_zstd_archive(archive_path, extract_to)
+                
+            elif zipfile.is_zipfile(archive_path):
                 # Handle ZIP-based archives
                 with zipfile.ZipFile(archive_path, 'r') as zip_file:
                     zip_file.extractall(extract_to)
                     extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
             elif tarfile.is_tarfile(archive_path):
-                # Handle TAR archives
+                # Handle TAR archives (including .tar.gz, .tar.bz2, .tar.xz)
                 with tarfile.open(archive_path, 'r:*') as tar_file:
                     tar_file.extractall(extract_to)
                     extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
@@ -470,6 +475,72 @@ class ArchiveExtractor(BaseExtractor):
             logger.debug(f"Error checking NSIS installer: {e}")
         
         return False
+    
+    def _extract_zstd_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract Zstandard compressed archive"""
+        import io
+        import subprocess
+        import zstandard as zstd
+        
+        try:
+            # First try with Python zstandard library
+            compressed_data = archive_path.read_bytes()
+            decompressor = zstd.ZstdDecompressor()
+            
+            try:
+                decompressed_data = decompressor.decompress(compressed_data)
+            except zstd.ZstdError as e:
+                # If Python library fails, try system zstd command as fallback
+                logger.debug(f"Python zstandard failed ({e}), trying system zstd command")
+                
+                # Check if zstd command is available
+                try:
+                    result = subprocess.run(['which', 'zstd'], capture_output=True, text=True)
+                    if result.returncode != 0:
+                        logger.error("System zstd command not found")
+                        return []
+                    
+                    # Use system zstd to decompress
+                    temp_output = extract_to / 'decompressed.tmp'
+                    result = subprocess.run(
+                        ['zstd', '-d', str(archive_path), '-o', str(temp_output), '-f'],
+                        capture_output=True,
+                        text=True,
+                        timeout=30
+                    )
+                    
+                    if result.returncode != 0:
+                        logger.error(f"System zstd decompression failed: {result.stderr}")
+                        return []
+                    
+                    # Read decompressed data
+                    decompressed_data = temp_output.read_bytes()
+                    temp_output.unlink()  # Clean up temp file
+                    
+                except Exception as e:
+                    logger.error(f"Failed to use system zstd: {e}")
+                    return []
+            
+            # Check if it's a tar.zst or vpkg (which are often tar archives)
+            if str(archive_path).lower().endswith(('.tar.zst', '.vpkg')):
+                # Extract tar from decompressed data
+                tar_buffer = io.BytesIO(decompressed_data)
+                with tarfile.open(fileobj=tar_buffer, mode='r') as tar_file:
+                    tar_file.extractall(extract_to)
+                    extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+                    logger.info(f"Extracted {len(extracted_files)} files from {archive_path.name}")
+                    return extracted_files
+            else:
+                # Plain .zst file - save decompressed content
+                output_name = archive_path.stem  # Remove .zst extension
+                output_path = extract_to / output_name
+                output_path.write_bytes(decompressed_data)
+                logger.info(f"Decompressed {archive_path.name} to {output_name}")
+                return [output_path]
+                
+        except Exception as e:
+            logger.error(f"Failed to extract Zstandard archive {archive_path}: {e}")
+            return []
     
     def _extract_with_seven_zip(self, archive_path: Path, extract_to: Path) -> List[Path]:
         """Extract archive using 7-Zip"""

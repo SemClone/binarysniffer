@@ -1,0 +1,280 @@
+{
+  "component": {
+    "name": "Hermes React Native",
+    "version": "0.12.0",
+    "category": "imported",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "languages": [
+      "javascript",
+      "native"
+    ],
+    "description": "JavaScript engine optimized for React Native",
+    "license": "MIT",
+    "publisher": "Meta"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-07T14:15:00.000000Z",
+    "updated": "2025-08-07T14:15:00.000000Z",
+    "signature_count": 25,
+    "confidence_threshold": 0.7,
+    "source": "binary_analysis",
+    "extraction_method": "symbol_and_magic_extraction"
+  },
+  "signatures": [
+    {
+      "id": "hermes_0",
+      "type": "magic_bytes",
+      "pattern": "\u00c6\u001f\u00bc\u0003",
+      "confidence": 0.95,
+      "context": "hermes_bytecode_header",
+      "platforms": [
+        "all"
+      ],
+      "description": "Hermes bytecode magic header (c6 1f bc 03)"
+    },
+    {
+      "id": "hermes_1",
+      "type": "string_pattern",
+      "pattern": "HermesInternal",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_2",
+      "type": "string_pattern",
+      "pattern": "hermes::vm",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_3",
+      "type": "string_pattern",
+      "pattern": "hermes::Runtime",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_4",
+      "type": "string_pattern",
+      "pattern": "HermesRuntime",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_5",
+      "type": "string_pattern",
+      "pattern": "hermes_create_runtime",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_6",
+      "type": "string_pattern",
+      "pattern": "hermes_execute_bytecode",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_7",
+      "type": "string_pattern",
+      "pattern": "HBC_VERSION",
+      "confidence": 0.85,
+      "context": "binary_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_8",
+      "type": "string_pattern",
+      "pattern": "Hermes bytecode",
+      "confidence": 0.85,
+      "context": "error_string",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_9",
+      "type": "string_pattern",
+      "pattern": "facebook::hermes",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_10",
+      "type": "string_pattern",
+      "pattern": "libhermes.so",
+      "confidence": 0.85,
+      "context": "library_name",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "hermes_11",
+      "type": "string_pattern",
+      "pattern": "libhermes.dylib",
+      "confidence": 0.85,
+      "context": "library_name",
+      "platforms": [
+        "ios"
+      ]
+    },
+    {
+      "id": "hermes_12",
+      "type": "string_pattern",
+      "pattern": "hermes::debugger",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_13",
+      "type": "string_pattern",
+      "pattern": "hermes::inst",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_14",
+      "type": "string_pattern",
+      "pattern": "hermes::parser",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_15",
+      "type": "string_pattern",
+      "pattern": "hermes_dump_crash_data",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_16",
+      "type": "string_pattern",
+      "pattern": "HermesValue",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_17",
+      "type": "string_pattern",
+      "pattern": "hermesLog",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_18",
+      "type": "string_pattern",
+      "pattern": "Hermes-Memory",
+      "confidence": 0.85,
+      "context": "profiling_marker",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_19",
+      "type": "string_pattern",
+      "pattern": "Hermes-GC",
+      "confidence": 0.85,
+      "context": "profiling_marker",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_20",
+      "type": "string_pattern",
+      "pattern": "HermesProfiler",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_21",
+      "type": "prefix_pattern",
+      "pattern": "hermes_",
+      "confidence": 0.8,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_22",
+      "type": "prefix_pattern",
+      "pattern": "HBC_",
+      "confidence": 0.8,
+      "context": "binary_constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_23",
+      "type": "string_pattern",
+      "pattern": "JSI/Hermes",
+      "confidence": 0.85,
+      "context": "runtime_identifier",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "hermes_24",
+      "type": "string_pattern",
+      "pattern": "ReactNativeHermes",
+      "confidence": 0.85,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
+}
