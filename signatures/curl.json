@@ -1,24 +1,24 @@
 {
   "component": {
     "name": "cURL",
-    "version": "7.x-8.x",
-    "category": "networking",
+    "version": "unknown",
+    "category": "library",
     "platforms": [
       "all"
     ],
     "languages": [
-      "native"
+      "c"
     ],
     "description": "Command line tool and library for transferring data with URLs",
-    "license": "MIT/X",
-    "publisher": "Daniel Stenberg"
+    "license": "curl",
+    "publisher": "Open Source"
   },
   "signature_metadata": {
     "version": "1.0.0",
-    "signature_count": 10,
+    "signature_count": 30,
     "confidence_threshold": 0.3,
-    "source": "manual",
-    "extraction_method": "symbol_analysis",
+    "source": "extracted_from_binary",
+    "extraction_method": "binarysniffer",
     "cleaned": true,
     "cleaning_version": "1.0"
   },
@@ -26,62 +26,302 @@
     {
       "id": "curl_0",
       "type": "string_pattern",
-      "pattern": "curl_easy_init",
-      "confidence": 0.95
+      "pattern": "curl_global_init_mem",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_1",
       "type": "string_pattern",
-      "pattern": "curl_easy_setopt",
-      "confidence": 0.95
+      "pattern": "Curl_pp_setup",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_2",
       "type": "string_pattern",
-      "pattern": "curl_easy_perform",
-      "confidence": 0.95
+      "pattern": "Curl_resolver_getsock",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_3",
       "type": "string_pattern",
-      "pattern": "curl_easy_cleanup",
-      "confidence": 0.95
+      "pattern": "unsupported parameter to CURLOPT_FTPSSLAUTH: %d",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_4",
       "type": "string_pattern",
-      "pattern": "CURLOPT_URL",
-      "confidence": 0.9
+      "pattern": "Curl_follow",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_5",
       "type": "string_pattern",
-      "pattern": "libcurl/",
-      "confidence": 0.9
+      "pattern": "Curl_loadhostpairs",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_6",
       "type": "string_pattern",
-      "pattern": "curl_multi_init",
-      "confidence": 0.9
+      "pattern": "Curl_init_dnscache",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_7",
       "type": "string_pattern",
-      "pattern": "curl_global_init",
-      "confidence": 0.9
+      "pattern": "Curl_multi_max_concurrent_streams",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_8",
       "type": "string_pattern",
-      "pattern": "CURLOPT_USERAGENT",
-      "confidence": 0.85
+      "pattern": "curl_multi_remove_handle",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     },
     {
       "id": "curl_9",
       "type": "string_pattern",
-      "pattern": "curl_version_info",
-      "confidence": 0.85
+      "pattern": "curl_path.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_10",
+      "type": "string_pattern",
+      "pattern": "Curl_sec_login",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_11",
+      "type": "string_pattern",
+      "pattern": "Curl_conn_cf_data_pending",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_12",
+      "type": "string_pattern",
+      "pattern": "Curl_ntlm_core_mk_ntlmv2_hash",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_13",
+      "type": "string_pattern",
+      "pattern": "Curl_conn_ev_data_attach",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_14",
+      "type": "string_pattern",
+      "pattern": "Curl_sasl_start",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_15",
+      "type": "string_pattern",
+      "pattern": "Curl_ssl_config_matches",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_16",
+      "type": "string_pattern",
+      "pattern": "Curl_getworkingpath",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_17",
+      "type": "string_pattern",
+      "pattern": "Curl_handler_sftp",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_18",
+      "type": "string_pattern",
+      "pattern": "Curl_sasl_decode_mech",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_19",
+      "type": "string_pattern",
+      "pattern": "Curl_http2_ver",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_20",
+      "type": "string_pattern",
+      "pattern": "Curl_ntlm_core_mk_nt_hash",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_21",
+      "type": "string_pattern",
+      "pattern": "Curl_freeset",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_22",
+      "type": "string_pattern",
+      "pattern": "Curl_output_negotiate, no persistent authentication: cleanup existing context",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_23",
+      "type": "string_pattern",
+      "pattern": "Curl_http_auth_cleanup_negotiate",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_24",
+      "type": "string_pattern",
+      "pattern": "Curl_conn_is_ip_connected",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_25",
+      "type": "string_pattern",
+      "pattern": "Curl_dyn_addn",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_26",
+      "type": "string_pattern",
+      "pattern": "curl_msprintf",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_27",
+      "type": "string_pattern",
+      "pattern": "Curl_conncache_add_conn",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_28",
+      "type": "string_pattern",
+      "pattern": "Curl_unencode_write",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "curl_29",
+      "type": "string_pattern",
+      "pattern": "Curl_wildcard_init",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
     }
   ]
 }

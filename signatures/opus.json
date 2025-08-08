@@ -2,27 +2,326 @@
   "component": {
     "name": "Opus",
     "version": "unknown",
-    "category": "multimedia",
+    "category": "library",
     "platforms": [
       "all"
     ],
     "languages": [
       "c"
     ],
-    "description": "Opus audio codec",
+    "description": "Open, royalty-free, highly versatile audio codec",
     "license": "BSD-3-Clause",
-    "publisher": "Xiph.Org Foundation"
+    "publisher": "Open Source"
   },
   "signature_metadata": {
     "version": "1.0.0",
-    "created": "2025-08-05T00:00:00Z",
-    "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 0,
-    "confidence_threshold": 0.7,
-    "source": "manual_analysis",
-    "extraction_method": "api_analysis",
+    "signature_count": 30,
+    "confidence_threshold": 0.3,
+    "source": "extracted_from_binary",
+    "extraction_method": "binarysniffer",
     "cleaned": true,
-    "cleaning_version": "2.0"
+    "cleaning_version": "1.0"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "id": "opus_0",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_1",
+      "type": "string_pattern",
+      "pattern": "opus_copy_channel_out_float",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_2",
+      "type": "string_pattern",
+      "pattern": "assertion failed: (opus_multistream_decoder_ctl(st, 4029, ((&Fs) + ((&Fs) - (opus_int32*)(&Fs))))) == OPUS_OK",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_3",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_ctl",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_4",
+      "type": "string_pattern",
+      "pattern": "opus_pcm_soft_clip",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_5",
+      "type": "string_pattern",
+      "pattern": "opus_decode",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_6",
+      "type": "string_pattern",
+      "pattern": "opus_encoder.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_7",
+      "type": "string_pattern",
+      "pattern": "opus_projection_ambisonics_encoder_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_8",
+      "type": "string_pattern",
+      "pattern": "opus_encode",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_9",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_init",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_10",
+      "type": "string_pattern",
+      "pattern": "opus_copy_channel_in_short",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_11",
+      "type": "string_pattern",
+      "pattern": "opus_projection_decoder_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_12",
+      "type": "string_pattern",
+      "pattern": "opus_projection_ambisonics_encoder_init",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_13",
+      "type": "string_pattern",
+      "pattern": "opus_packet_get_samples_per_frame",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_14",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_15",
+      "type": "string_pattern",
+      "pattern": "opus_encoder_get_size",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_16",
+      "type": "string_pattern",
+      "pattern": "opus_fft_c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_17",
+      "type": "string_pattern",
+      "pattern": "opus_strerror",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_18",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_decoder.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_19",
+      "type": "string_pattern",
+      "pattern": "opus_decoder_get_nb_samples",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_20",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_encoder_destroy",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_21",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_encoder_init",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_22",
+      "type": "string_pattern",
+      "pattern": "opus_projection_decode",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_23",
+      "type": "string_pattern",
+      "pattern": "src/opus_multistream_decoder.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_24",
+      "type": "string_pattern",
+      "pattern": "opus_decode_frame",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_25",
+      "type": "string_pattern",
+      "pattern": "assertion failed: st->mode == MODE_HYBRID || curr_bandwidth == OPUS_BANDWIDTH_WIDEBAND",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_26",
+      "type": "string_pattern",
+      "pattern": "assertion failed: (opus_custom_decoder_ctl(celt_dec, 4028)) == OPUS_OK",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_27",
+      "type": "string_pattern",
+      "pattern": "/home/conda/feedstock_root/build_artifacts/libopus_1606823424254/_build_env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_28",
+      "type": "string_pattern",
+      "pattern": "opus_multistream_encoder_init_impl.part.0",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "opus_29",
+      "type": "string_pattern",
+      "pattern": "8src/opus_encoder.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
 }

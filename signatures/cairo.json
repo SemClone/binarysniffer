@@ -2,25 +2,326 @@
   "component": {
     "name": "Cairo",
     "version": "unknown",
-    "category": "graphics",
+    "category": "library",
     "platforms": [
       "all"
     ],
     "languages": [
       "c"
     ],
-    "description": "2D graphics library with support for multiple output devices",
-    "license": "LGPL-2.1 OR MPL-1.1",
-    "publisher": "Cairo Graphics"
+    "description": "A 2D graphics library with support for multiple output devices",
+    "license": "LGPL-2.1",
+    "publisher": "Open Source"
   },
   "signature_metadata": {
     "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from libcairo.so binary analysis",
+    "signature_count": 30,
+    "confidence_threshold": 0.3,
+    "source": "extracted_from_binary",
+    "extraction_method": "binarysniffer",
     "cleaned": true,
-    "cleaning_version": "2.0"
+    "cleaning_version": "1.0"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "id": "cairo_0",
+      "type": "string_pattern",
+      "pattern": "_cairo_recording_surface_tag",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_1",
+      "type": "string_pattern",
+      "pattern": "_cairo_xcb_screen_store_radial_picture",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_2",
+      "type": "string_pattern",
+      "pattern": "cairo_mesh_pattern_set_corner_color_rgb",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_3",
+      "type": "string_pattern",
+      "pattern": "_cairo_surface_subsurface_create_similar",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_4",
+      "type": "string_pattern",
+      "pattern": "_cairo_device_set_error",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_5",
+      "type": "string_pattern",
+      "pattern": "cairo_svg_surface_paginated_backend",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_6",
+      "type": "string_pattern",
+      "pattern": "cairo-deflate-stream.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_7",
+      "type": "string_pattern",
+      "pattern": "cairo_pdf_surface_backend",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_8",
+      "type": "string_pattern",
+      "pattern": "_cairo_recording_surface_replay_internal",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_9",
+      "type": "string_pattern",
+      "pattern": "_cairo_ps_supported_mime_types",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_10",
+      "type": "string_pattern",
+      "pattern": "_cairo_cache_insert",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_11",
+      "type": "string_pattern",
+      "pattern": "_cairo_default_context_get_tolerance",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_12",
+      "type": "string_pattern",
+      "pattern": "cairo_pdf_surface_restrict_to_version",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_13",
+      "type": "string_pattern",
+      "pattern": "_cairo_tor22_scan_converter_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_14",
+      "type": "string_pattern",
+      "pattern": "cairo-xcb-surface-core.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_15",
+      "type": "string_pattern",
+      "pattern": "_cairo_in_fill_curve_to",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_16",
+      "type": "string_pattern",
+      "pattern": "INT_cairo_mesh_pattern_get_corner_color_rgba",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_17",
+      "type": "string_pattern",
+      "pattern": "_cairo_surface_subsurface_finish",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_18",
+      "type": "string_pattern",
+      "pattern": "_cairo_traps_contain",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_19",
+      "type": "string_pattern",
+      "pattern": "cairo-gstate.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_20",
+      "type": "string_pattern",
+      "pattern": "_cairo_ps_surface_create_padded_image_from_image.constprop.0",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_21",
+      "type": "string_pattern",
+      "pattern": "INT_cairo_create",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_22",
+      "type": "string_pattern",
+      "pattern": "_cairo_xlib_core_compositor_stroke",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_23",
+      "type": "string_pattern",
+      "pattern": "_cairo_xlib_surface_set_precision",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_24",
+      "type": "string_pattern",
+      "pattern": "_cairo_surface_wrapper_set_clip",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_25",
+      "type": "string_pattern",
+      "pattern": "_cairo_truetype_index_to_ucs4",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_26",
+      "type": "string_pattern",
+      "pattern": "cairo-clip-surface.c",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_27",
+      "type": "string_pattern",
+      "pattern": "_cairo_gstate_get_matrix",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_28",
+      "type": "string_pattern",
+      "pattern": "_cairo_twin_charmap",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "cairo_29",
+      "type": "string_pattern",
+      "pattern": "_cairo_default_context_get_line_join",
+      "confidence": 0.9,
+      "context": "binary_symbol",
+      "platforms": [
+        "all"
+      ]
+    }
+  ]
 }
