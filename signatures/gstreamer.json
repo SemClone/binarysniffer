@@ -17,10 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-07T14:01:05.682617Z",
     "updated": "2025-08-07T14:01:05.682633Z",
-    "signature_count": 17,
+    "signature_count": 4,
     "confidence_threshold": 0.7,
     "source": "binary_analysis",
-    "extraction_method": "symbol_extraction"
+    "extraction_method": "symbol_extraction",
+    "cleaned": true,
+    "cleaning_version": "4.0"
   },
   "signatures": [
     {
@@ -54,140 +56,10 @@
       ]
     },
     {
-      "id": "gstreamer_3",
-      "type": "string_pattern",
-      "pattern": "gst_query_replace",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "gstreamer_4",
       "type": "string_pattern",
       "pattern": "gst_element_state_get_name",
       "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_5",
-      "type": "prefix_pattern",
-      "pattern": "_get_",
-      "confidence": 0.85,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_6",
-      "type": "string_pattern",
-      "pattern": "gst_p",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_7",
-      "type": "string_pattern",
-      "pattern": "_type",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_8",
-      "type": "string_pattern",
-      "pattern": "gst_e",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_9",
-      "type": "string_pattern",
-      "pattern": "t_type",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_10",
-      "type": "prefix_pattern",
-      "pattern": "_set_",
-      "confidence": 0.85,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_11",
-      "type": "string_pattern",
-      "pattern": "gst_b",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_12",
-      "type": "string_pattern",
-      "pattern": "_get_t",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_13",
-      "type": "string_pattern",
-      "pattern": "st_pa",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_14",
-      "type": "string_pattern",
-      "pattern": "gst_s",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_15",
-      "type": "prefix_pattern",
-      "pattern": "gst_",
-      "confidence": 0.85,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "gstreamer_16",
-      "type": "prefix_pattern",
-      "pattern": "GST_",
-      "confidence": 0.85,
       "context": "binary_symbol",
       "platforms": [
         "all"

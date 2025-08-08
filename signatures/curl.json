@@ -1,26 +1,87 @@
 {
   "component": {
     "name": "cURL",
-    "version": "unknown",
+    "version": "7.x-8.x",
     "category": "networking",
     "platforms": [
       "all"
     ],
     "languages": [
-      "c"
+      "native"
     ],
     "description": "Command line tool and library for transferring data with URLs",
-    "license": "curl",
-    "publisher": "curl project"
+    "license": "MIT/X",
+    "publisher": "Daniel Stenberg"
   },
   "signature_metadata": {
     "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from libcurl.so binary analysis",
+    "signature_count": 10,
+    "confidence_threshold": 0.3,
+    "source": "manual",
+    "extraction_method": "symbol_analysis",
     "cleaned": true,
-    "cleaning_version": "2.0"
+    "cleaning_version": "1.0"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "id": "curl_0",
+      "type": "string_pattern",
+      "pattern": "curl_easy_init",
+      "confidence": 0.95
+    },
+    {
+      "id": "curl_1",
+      "type": "string_pattern",
+      "pattern": "curl_easy_setopt",
+      "confidence": 0.95
+    },
+    {
+      "id": "curl_2",
+      "type": "string_pattern",
+      "pattern": "curl_easy_perform",
+      "confidence": 0.95
+    },
+    {
+      "id": "curl_3",
+      "type": "string_pattern",
+      "pattern": "curl_easy_cleanup",
+      "confidence": 0.95
+    },
+    {
+      "id": "curl_4",
+      "type": "string_pattern",
+      "pattern": "CURLOPT_URL",
+      "confidence": 0.9
+    },
+    {
+      "id": "curl_5",
+      "type": "string_pattern",
+      "pattern": "libcurl/",
+      "confidence": 0.9
+    },
+    {
+      "id": "curl_6",
+      "type": "string_pattern",
+      "pattern": "curl_multi_init",
+      "confidence": 0.9
+    },
+    {
+      "id": "curl_7",
+      "type": "string_pattern",
+      "pattern": "curl_global_init",
+      "confidence": 0.9
+    },
+    {
+      "id": "curl_8",
+      "type": "string_pattern",
+      "pattern": "CURLOPT_USERAGENT",
+      "confidence": 0.85
+    },
+    {
+      "id": "curl_9",
+      "type": "string_pattern",
+      "pattern": "curl_version_info",
+      "confidence": 0.85
+    }
+  ]
 }

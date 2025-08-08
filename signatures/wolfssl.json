@@ -17,12 +17,12 @@
     "version": "1.0.0",
     "created": "2025-08-06T01:03:20.165022Z",
     "updated": "2025-01-06T00:00:00Z",
-    "signature_count": 75,
+    "signature_count": 63,
     "confidence_threshold": 0.7,
     "source": "source_analysis",
     "extraction_method": "ast_parsing",
     "cleaned": true,
-    "cleaning_version": "4.0-crypto-specific",
+    "cleaning_version": "4.0",
     "notes": "Removed generic crypto patterns that appear in all SSL libraries. Kept only wolfSSL-specific patterns."
   },
   "signatures": [
@@ -187,36 +187,6 @@
       ]
     },
     {
-      "id": "wolfssl_706",
-      "type": "string_pattern",
-      "pattern": "_wc_PBKDF1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_708",
-      "type": "string_pattern",
-      "pattern": "_wc_PBKDF2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_719",
-      "type": "string_pattern",
-      "pattern": "_wc_PRF_TLSv1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_754",
       "type": "string_pattern",
       "pattern": "_wc_RsaPSS_CheckPadding_ex2",
@@ -230,16 +200,6 @@
       "id": "wolfssl_794",
       "type": "string_pattern",
       "pattern": "_wc_RsaSSL_Verify_ex2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_940",
-      "type": "string_pattern",
-      "pattern": "_wc_d2i_PKCS12",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -270,16 +230,6 @@
       "id": "wolfssl_993",
       "type": "string_pattern",
       "pattern": "_wc_ecc_make_key_ex2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_1024",
-      "type": "string_pattern",
-      "pattern": "_wc_i2d_PKCS12",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
@@ -477,16 +427,6 @@
       ]
     },
     {
-      "id": "wolfssl_2235",
-      "type": "string_pattern",
-      "pattern": "_wolfSSL_SHA1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_2240",
       "type": "string_pattern",
       "pattern": "_wolfSSL_SHA224",
@@ -657,16 +597,6 @@
       ]
     },
     {
-      "id": "wolfssl_3101",
-      "type": "string_pattern",
-      "pattern": "aaj_55",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
       "id": "wolfssl_3121",
       "type": "string_pattern",
       "pattern": "brainpoolP160r1",
@@ -700,56 +630,6 @@
       "id": "wolfssl_3125",
       "type": "string_pattern",
       "pattern": "brainpoolP320r1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3247",
-      "type": "string_pattern",
-      "pattern": "prime192v2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3248",
-      "type": "string_pattern",
-      "pattern": "prime192v3",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3250",
-      "type": "string_pattern",
-      "pattern": "prime239v1",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3251",
-      "type": "string_pattern",
-      "pattern": "prime239v2",
-      "confidence": 0.8,
-      "context": "source_code",
-      "platforms": [
-        "all"
-      ]
-    },
-    {
-      "id": "wolfssl_3252",
-      "type": "string_pattern",
-      "pattern": "prime239v3",
       "confidence": 0.8,
       "context": "source_code",
       "platforms": [
