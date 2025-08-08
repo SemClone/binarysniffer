@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.8] - 2025-08-08
+
+### Added
+- **Static Library Support** - Full AR archive parsing and analysis for `.a` and `.lib` files with per-object file tracking
+- **Source Attribution** - Track which symbols come from which object files within static libraries (e.g., `_CRYPTO_malloc@libcrypto-lib-pvkfmt.o`)
+- **BSD AR Format Support** - Handle both standard and BSD-style extended names in AR archives
+- **OpenSSL-Specific Signatures** - 35 highly specific patterns for accurate OpenSSL detection without false positives
+- **Signature Optimization Script** - Tool for removing generic patterns that cause false positives between similar libraries
+
+### Fixed
+- **OpenSSL False Positives** - Eliminated incorrect FFmpeg (was 85.6%) and wolfSSL (was 84%) detections in OpenSSL libraries
+- **JSON/CSV Console Output** - Fixed mixing of summary text with JSON/CSV output when not saving to file
+
+### Improved
+- **OpenSSL Detection** - Increased accuracy from 78% to 92.8% confidence with optimized signatures
+- **Static Library Analysis** - Can now analyze individual object files within archives (e.g., 62 objects in libcrypto.a)
+- **Component Attribution** - Better understanding of which parts of a library contribute which symbols
+
 ## [1.8.7] - 2025-08-07
 
 ### Added
