@@ -1,13 +1,24 @@
 {
-  "name": "FFmpeg-SoXR",
-  "version": "unknown",
-  "ecosystem": "native",
-  "description": "SoX Resampler library",
-  "publisher": "Rob Sykes",
-  "license": "LGPL-2.1",
-  "metadata": {
-    "homepage": "https://sourceforge.net/projects/soxr/",
-    "description": "High quality audio sample rate converter"
+  "component": {
+    "name": "FFmpeg-SoXR",
+    "version": "unknown",
+    "publisher": "Rob Sykes",
+    "license": "LGPL-2.1",
+    "ecosystem": "native",
+    "description": "SoX Resampler library",
+    "category": "media-processing",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 1,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
   "signatures": [
     {

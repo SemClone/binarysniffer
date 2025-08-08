@@ -398,6 +398,91 @@ class SignatureManager:
             cursor.execute("SELECT COUNT(*) FROM components")
             return cursor.fetchone()[0]
     
+    def verify_import_status(self) -> Dict[str, Any]:
+        """
+        Verify that signature files match database entries.
+        
+        Returns:
+            Dictionary with verification status and details
+        """
+        result = {
+            'files': {},
+            'database': {},
+            'issues': [],
+            'rebuild_needed': False
+        }
+        
+        # Get signature files
+        if self.package_signatures_dir.exists():
+            for json_file in self.package_signatures_dir.glob("*.json"):
+                # Skip non-signature files and backups
+                if json_file.name in ["manifest.json", "template.json", "README.json"]:
+                    continue
+                if any(x in json_file.name for x in ['.bak', '.backup', '.old', '-old', '.orig', '.backup2']):
+                    continue
+                    
+                try:
+                    with open(json_file) as f:
+                        data = json.load(f)
+                    
+                    component_name = data.get('component', {}).get('name', 'Unknown')
+                    sig_count = len(data.get('signatures', []))
+                    result['files'][component_name] = {
+                        'file': json_file.name,
+                        'signatures': sig_count
+                    }
+                except Exception as e:
+                    logger.warning(f"Error reading {json_file}: {e}")
+        
+        # Get database stats
+        with self.db._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT c.name, COUNT(s.id) as sig_count 
+                FROM components c 
+                LEFT JOIN signatures s ON c.id = s.component_id 
+                GROUP BY c.name
+            """)
+            
+            for row in cursor.fetchall():
+                result['database'][row[0]] = row[1]
+        
+        # Check for issues
+        missing_in_db = []
+        mismatches = []
+        
+        for comp_name, file_info in result['files'].items():
+            db_count = result['database'].get(comp_name, 0)
+            file_count = file_info['signatures']
+            
+            if db_count == 0 and file_count > 0:
+                missing_in_db.append(comp_name)
+                result['issues'].append(f"NOT IMPORTED: {comp_name} ({file_count} signatures in file)")
+            elif db_count != file_count:
+                mismatches.append(comp_name)
+                result['issues'].append(f"MISMATCH: {comp_name} - {file_count} in file vs {db_count} in DB")
+        
+        # Check for problematic components
+        problematic = ['PCoIP SDK', 'Foxit PDF SDK']
+        for comp in problematic:
+            if comp in result['database'] and result['database'][comp] > 0:
+                result['issues'].append(f"PROBLEMATIC: {comp} causes false positives ({result['database'][comp]} signatures)")
+        
+        # Determine if rebuild needed
+        if missing_in_db or mismatches:
+            result['rebuild_needed'] = True
+        
+        result['summary'] = {
+            'total_files': len(result['files']),
+            'total_file_signatures': sum(f['signatures'] for f in result['files'].values()),
+            'total_db_components': len(result['database']),
+            'total_db_signatures': sum(result['database'].values()),
+            'missing_in_db': len(missing_in_db),
+            'mismatches': len(mismatches)
+        }
+        
+        return result
+    
     def _get_last_update(self) -> Optional[str]:
         """Get last update timestamp"""
         if self.manifest_path.exists():

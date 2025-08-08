@@ -1,13 +1,24 @@
 {
-  "name": "FFmpeg-SwResample",
-  "version": "unknown",
-  "ecosystem": "native",
-  "description": "FFmpeg audio resampling library",
-  "publisher": "FFmpeg",
-  "license": "LGPL-2.1",
-  "metadata": {
-    "homepage": "https://ffmpeg.org/",
-    "description": "Audio resampling, format conversion and mixing"
+  "component": {
+    "name": "FFmpeg-SwResample",
+    "version": "unknown",
+    "publisher": "FFmpeg",
+    "license": "LGPL-2.1",
+    "ecosystem": "native",
+    "description": "FFmpeg audio resampling library",
+    "category": "media-processing",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 0,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
   "signatures": []
 }

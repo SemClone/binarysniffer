@@ -680,7 +680,7 @@ def signatures(ctx):
 @signatures.command(name='status')
 @click.pass_context
 def signatures_status(ctx):
-    """Show signature database status."""
+    """Show signature database status and verify import."""
     from .signatures.manager import SignatureManager
     from .storage.database import SignatureDatabase
     
@@ -706,6 +706,56 @@ def signatures_status(ctx):
         table.add_row("Last Updated", info['last_updated'])
     
     console.print(table)
+    
+    # Run verification
+    console.print("\n[bold]Import Verification[/bold]\n")
+    verification = manager.verify_import_status()
+    summary = verification['summary']
+    
+    # Show summary
+    verify_table = Table(show_header=False)
+    verify_table.add_column("Check", style="cyan")
+    verify_table.add_column("Status", style="green")
+    
+    verify_table.add_row("Signature Files", f"{summary['total_files']} files with {summary['total_file_signatures']} signatures")
+    verify_table.add_row("Database Components", f"{summary['total_db_components']} components with {summary['total_db_signatures']} signatures")
+    
+    if summary['missing_in_db'] > 0:
+        verify_table.add_row("Missing in DB", f"[red]{summary['missing_in_db']} components not imported[/red]")
+    else:
+        verify_table.add_row("Missing in DB", "[green]None - all imported[/green]")
+    
+    if summary['mismatches'] > 0:
+        verify_table.add_row("Signature Mismatches", f"[yellow]{summary['mismatches']} components[/yellow]")
+    else:
+        verify_table.add_row("Signature Mismatches", "[green]None - all match[/green]")
+    
+    console.print(verify_table)
+    
+    # Show issues if any
+    if verification['issues']:
+        console.print("\n[bold yellow]Issues Found:[/bold yellow]")
+        for issue in verification['issues'][:10]:  # Show first 10 issues
+            if 'NOT IMPORTED' in issue:
+                console.print(f"  [red]❌ {issue}[/red]")
+            elif 'MISMATCH' in issue:
+                console.print(f"  [yellow]⚠️  {issue}[/yellow]")
+            elif 'PROBLEMATIC' in issue:
+                console.print(f"  [red]❌ {issue}[/red]")
+            else:
+                console.print(f"  ⚠️  {issue}")
+        
+        if len(verification['issues']) > 10:
+            console.print(f"  ... and {len(verification['issues']) - 10} more issues")
+    
+    # Recommendation
+    if verification['rebuild_needed']:
+        console.print("\n[bold red]Action Required:[/bold red]")
+        console.print("  Database rebuild needed. Run: [cyan]binarysniffer signatures rebuild --no-github[/cyan]")
+        if 'PROBLEMATIC' in ' '.join(verification['issues']):
+            console.print("  Then remove problematic components from database")
+    else:
+        console.print("\n[bold green]✅ Database is in sync with signature files[/bold green]")
 
 
 @signatures.command(name='import')

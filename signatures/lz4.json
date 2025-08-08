@@ -1,26 +1,150 @@
 {
   "component": {
     "name": "LZ4",
-    "version": "unknown",
-    "category": "compression",
+    "version": "",
+    "publisher": "",
+    "license": "BSD-2-Clause",
+    "ecosystem": "native",
+    "description": "Fast compression algorithm library",
+    "category": "system-library",
     "platforms": [
       "all"
     ],
     "languages": [
-      "c"
-    ],
-    "description": "Extremely fast compression algorithm",
-    "license": "BSD-2-Clause",
-    "publisher": "Yann Collet"
+      "c",
+      "c++"
+    ]
   },
   "signature_metadata": {
-    "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from liblz4.so binary analysis",
-    "cleaned": true,
-    "cleaning_version": "2.0"
+    "signature_count": 25,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "pattern": "LZ4_compressHC2_limitedOutput_withStateHC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compressHC_limitedOutput_withStateHC",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_safe_partial_forceExtDict",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4HC_compress_generic_noDictCtx.part.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compressHC2_limitedOutput_continue",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compressHC_limitedOutput_continue",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_safe_partial_usingDict",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERROR_compressionState_uninitialized",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compress_HC_extStateHC_fastReset",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compress_fast_extState_fastReset",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compress_limitedOutput_withState",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compress_limitedOutput_continue",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_safe_withSmallPrefix",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERROR_frameDecoding_alreadyStarted",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERROR_contentChecksumFlag_invalid",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compress_HC_continue_destSize",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_fast_withPrefix64k",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_safe_withPrefix64k",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_decompress_safe_forceExtDict",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_uncompress_unknownOutputSize",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4F_createDecompressionContext",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4_compressHC_continue_generic",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ERROR_compressionLevel_invalid",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4F_resetDecompressionContext",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "LZ4HC_compress_generic_dictCtx",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
 }

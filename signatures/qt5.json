@@ -58,8 +58,8 @@
     {
       "id": "qt5_framework_52",
       "type": "prefix_pattern",
-      "pattern": "z_inflateInit_",
-      "confidence": 0.85,
+      "pattern": "QWidget::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -68,8 +68,8 @@
     {
       "id": "qt5_framework_53",
       "type": "prefix_pattern",
-      "pattern": "z_inflateBackInit_",
-      "confidence": 0.85,
+      "pattern": "QApplication::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -88,8 +88,8 @@
     {
       "id": "qt5_framework_82",
       "type": "prefix_pattern",
-      "pattern": "Sha3_",
-      "confidence": 0.85,
+      "pattern": "QObject::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -98,8 +98,8 @@
     {
       "id": "qt5_framework_83",
       "type": "string_pattern",
-      "pattern": "Sha3_2",
-      "confidence": 0.9,
+      "pattern": "QMetaObject::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -108,8 +108,8 @@
     {
       "id": "qt5_framework_84",
       "type": "prefix_pattern",
-      "pattern": "Keccak_",
-      "confidence": 0.85,
+      "pattern": "QString::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -118,8 +118,8 @@
     {
       "id": "qt5_framework_85",
       "type": "string_pattern",
-      "pattern": "Keccak_2",
-      "confidence": 0.9,
+      "pattern": "QVariant::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -128,8 +128,8 @@
     {
       "id": "qt5_framework_97",
       "type": "prefix_pattern",
-      "pattern": "RealSha3_",
-      "confidence": 0.85,
+      "pattern": "QThread::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"
@@ -138,8 +138,8 @@
     {
       "id": "qt5_framework_98",
       "type": "string_pattern",
-      "pattern": "RealSha3_2",
-      "confidence": 0.9,
+      "pattern": "QCoreApplication::",
+      "confidence": 0.95,
       "context": "binary_symbol",
       "platforms": [
         "all"

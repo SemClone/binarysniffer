@@ -1,26 +1,90 @@
 {
   "component": {
     "name": "XZ Utils",
-    "version": "unknown",
-    "category": "compression",
+    "version": "",
+    "publisher": "",
+    "license": "Public Domain",
+    "ecosystem": "native",
+    "description": "LZMA compression library",
+    "category": "system-library",
     "platforms": [
       "all"
     ],
     "languages": [
-      "c"
-    ],
-    "description": "Free general-purpose data compression software with LZMA/LZMA2 algorithms",
-    "license": "Public Domain OR LGPL-2.1+",
-    "publisher": "Tukaani Project"
+      "c",
+      "c++"
+    ]
   },
   "signature_metadata": {
-    "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from liblzma.so binary analysis",
-    "cleaned": true,
-    "cleaning_version": "2.0"
+    "signature_count": 13,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "pattern": "lzma_lzma_decoder_memusage_nocheck",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_armthumb_decoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_armthumb_encoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_filter_decoder_is_supported",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_filter_encoder_is_supported",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_powerpc_decoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_powerpc_encoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_stream_encoder_mt_memusage",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_sparc_decoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_sparc_encoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_encoder_optimum_normal.c",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_ia64_decoder_init",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "lzma_simple_ia64_encoder_init",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
 }

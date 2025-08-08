@@ -1,13 +1,24 @@
 {
-  "name": "FFmpeg-SwScale",
-  "version": "unknown",
-  "ecosystem": "native",
-  "description": "FFmpeg video scaling and pixel format conversion library",
-  "publisher": "FFmpeg",
-  "license": "LGPL-2.1",
-  "metadata": {
-    "homepage": "https://ffmpeg.org/",
-    "description": "Video scaling and colorspace/pixel format conversion"
+  "component": {
+    "name": "FFmpeg-SwScale",
+    "version": "unknown",
+    "publisher": "FFmpeg",
+    "license": "LGPL-2.1",
+    "ecosystem": "native",
+    "description": "FFmpeg video scaling and pixel format conversion library",
+    "category": "media-processing",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 0,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
   "signatures": []
 }

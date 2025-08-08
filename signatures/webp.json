@@ -1,26 +1,155 @@
 {
   "component": {
     "name": "WebP",
-    "version": "unknown",
-    "category": "multimedia",
+    "version": "",
+    "publisher": "",
+    "license": "BSD-3-Clause",
+    "ecosystem": "native",
+    "description": "Image compression library",
+    "category": "system-library",
     "platforms": [
       "all"
     ],
     "languages": [
-      "c"
-    ],
-    "description": "Modern image format providing superior lossless and lossy compression for images on the web",
-    "license": "BSD-3-Clause",
-    "publisher": "Google"
+      "c",
+      "c++"
+    ]
   },
   "signature_metadata": {
-    "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from libwebp.so binary analysis",
-    "cleaned": true,
-    "cleaning_version": "2.0"
+    "signature_count": 26,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "pattern": "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"!",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "!\"#$%%&'()*+,-../0123456789:;<=>?@ABCDEFGHIJKLLMNOPQRSTUVWXY[]_`bdefhjlnprtvz|~",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "!\"#$%&'()*+,-./0123456789:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtwz}",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "$1CSdsl^L@2,(\")-3AM_mvqg\\PD<869=EQ]hrwtojaXTJHKUYbkpu",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "}{ywusqonkigfdb`^\\[YVVSRPMLJIGECB@?=;976431/.,+)(&$#!",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPInitConvertARGBToYUV_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPInitYUV444Converters_body_last_cpuinfo_used.2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "\"#%&()+,.0134679:<>?ABDEGHJKMOPRSUVXY]`cfilorux|",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPInitAlphaProcessing_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPRescalerDspInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPInitUpsamplers_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8EncDspCostInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "ConvertPopulationCountTableToBitEstimates",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "WebPInitSamplers_body_last_cpuinfo_used.2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "InitGammaTables_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "Premature end-of-partition0 encountered.",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8FiltersInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8LEncDspInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8SSIMDspInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "InitGetCoeffs_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8EncDspInit_body_last_cpuinfo_used.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "no memory during frame initialization.",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "BackwardReferencesLz77Box.constprop.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "NULL VP8Io parameter in VP8Decode().",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "VP8LBackwardReferencesTraceBackwards",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
 }

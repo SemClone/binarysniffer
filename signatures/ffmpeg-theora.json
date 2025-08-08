@@ -1,13 +1,24 @@
 {
-  "name": "FFmpeg-Theora",
-  "version": "unknown",
-  "ecosystem": "native",
-  "description": "Theora video codec",
-  "publisher": "Xiph.Org",
-  "license": "BSD-3-Clause",
-  "metadata": {
-    "homepage": "https://www.theora.org/",
-    "repository": "https://gitlab.xiph.org/xiph/theora"
+  "component": {
+    "name": "FFmpeg-Theora",
+    "version": "unknown",
+    "publisher": "Xiph.Org",
+    "license": "BSD-3-Clause",
+    "ecosystem": "native",
+    "description": "Theora video codec",
+    "category": "media-processing",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 0,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
   "signatures": []
 }

@@ -1,13 +1,24 @@
 {
-  "name": "FFmpeg-RubberBand",
-  "version": "unknown",
-  "ecosystem": "native",
-  "description": "RubberBand audio time-stretching and pitch-shifting library",
-  "publisher": "Breakfast Quay",
-  "license": "GPL-2.0",
-  "metadata": {
-    "homepage": "https://breakfastquay.com/rubberband/",
-    "repository": "https://github.com/breakfastquay/rubberband"
+  "component": {
+    "name": "FFmpeg-RubberBand",
+    "version": "unknown",
+    "publisher": "Breakfast Quay",
+    "license": "GPL-2.0",
+    "ecosystem": "native",
+    "description": "RubberBand audio time-stretching and pitch-shifting library",
+    "category": "media-processing",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 1,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
   "signatures": [
     {

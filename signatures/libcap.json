@@ -1,26 +1,95 @@
 {
   "component": {
     "name": "libcap",
-    "version": "unknown",
-    "category": "system",
+    "version": "",
+    "publisher": "",
+    "license": "BSD-3-Clause",
+    "ecosystem": "native",
+    "description": "POSIX capabilities library",
+    "category": "system-library",
     "platforms": [
-      "linux"
+      "all"
     ],
     "languages": [
-      "c"
-    ],
-    "description": "POSIX 1003.1e capabilities library",
-    "license": "BSD-3-Clause OR GPL-2.0",
-    "publisher": "libcap developers"
+      "c",
+      "c++"
+    ]
   },
   "signature_metadata": {
-    "version": "1.0.0",
-    "created": "2025-08-06T00:00:00Z",
-    "updated": "2025-08-06T00:00:00Z",
-    "signature_count": 0,
-    "source": "Extracted from libcap.so binary analysis",
-    "cleaned": true,
-    "cleaning_version": "2.0"
+    "signature_count": 14,
+    "created": "2025-08-08",
+    "source": "extracted"
   },
-  "signatures": []
+  "signatures": [
+    {
+      "pattern": "Number of cap values known to: this libcap=%d, running kernel=%d",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "More information on this library is available from:",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "See the License file for distribution information.",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "%s is the shared library version: libcap-2.67.",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "https://sites.google.com/site/fullycapable/",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "usage: libcap.so [--help|--usage|--summary]",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "=> Newer kernels also provide support for:",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "=> Consider upgrading libcap to name:",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "failed to allocate memory for argv",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "/lib64/ld-linux-x86-64.so.2",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "unable to parse arguments",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "cap_launcher_set_chroot",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "cap_checkpoint_restore",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "cap_launcher_setgroups",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
 }

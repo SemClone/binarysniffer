@@ -1,0 +1,155 @@
+{
+  "component": {
+    "name": "Expat",
+    "version": "",
+    "publisher": "",
+    "license": "MIT",
+    "ecosystem": "native",
+    "description": "XML parsing C library",
+    "category": "system-library",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "c",
+      "c++"
+    ]
+  },
+  "signature_metadata": {
+    "signature_count": 26,
+    "created": "2025-08-08",
+    "source": "extracted"
+  },
+  "signatures": [
+    {
+      "pattern": "expat: Entities(%p): Count %9d, depth %2d/%2d %*s%s%s; %s length %d (xmlparse.c:%d)",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "reserved prefix (xml) must not be undeclared or bound to another namespace name",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "expat: Accounting(%p): Direct %10llu, indirect %10llu, amplification %8.2f%s",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "limit on input amplification factor (from DTD and entities) breached",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "prefix must not be bound to one of the reserved namespace names",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "a successful prior call to function XML_GetBuffer is required",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "reserved prefix (xmlns) must not be declared or undeclared",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "XML_SetBillionLaughsAttackProtectionMaximumAmplification",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "XML_SetBillionLaughsAttackProtectionActivationThreshold",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "requested feature requires XML_DTD support in Expat",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "encoding specified in XML declaration is incorrect",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "unexpected parser state - please send a bug report",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "XML or text declaration not at start of entity",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "error in processing external entity reference",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "cannot change setting once parsing has begun",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "cannot suspend in external parameter entity",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "_INTERNAL_trim_to_complete_utf8_characters",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "expat: Entropy: %s --> 0x%0*lx (%lu bytes)",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "reference to external entity in attribute",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "xml=http://www.w3.org/XML/1998/namespace",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "(+%6ld bytes %s|%d, xmlparse.c:%d) %*s\"",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "normal_checkPiTarget.part.0.constprop.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "generate_hash_secret_salt.constprop.0",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "incomplete markup in parameter entity",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "reference to invalid character number",
+      "type": "string",
+      "confidence": 0.8
+    },
+    {
+      "pattern": "http://www.w3.org/XML/1998/namespace",
+      "type": "string",
+      "confidence": 0.8
+    }
+  ]
+}
