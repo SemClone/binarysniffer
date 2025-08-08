@@ -177,8 +177,12 @@ class BinaryStringExtractor:
         if not string or string.isspace():
             return False
         
+        # Always keep MIME types and codec-related strings
+        if self._is_mime_or_codec_string(string):
+            return True
+        
         # Skip strings with too many special characters
-        special_count = sum(1 for c in string if not c.isalnum() and c not in '._-/:')
+        special_count = sum(1 for c in string if not c.isalnum() and c not in '._-/:@')
         if special_count > len(string) * 0.5:
             return False
         
@@ -187,3 +191,39 @@ class BinaryStringExtractor:
             return False
         
         return True
+    
+    def _is_mime_or_codec_string(self, string: str) -> bool:
+        """Check if string is a MIME type or codec-related string
+        
+        Args:
+            string: String to check
+            
+        Returns:
+            True if string is MIME type or codec-related
+        """
+        string_lower = string.lower()
+        
+        # MIME types (audio/*, video/*, application/*, etc.)
+        if re.match(r'^(audio|video|application|text|image|font|model|message)/[\w\-\+\.]+$', string_lower):
+            return True
+        
+        # Codec names and identifiers
+        codec_patterns = [
+            r'^(h264|h265|hevc|avc|av1|vp8|vp9|opus|vorbis|aac|mp3|ac3|eac3|dolby)',
+            r'(codec|encoder|decoder|muxer|demuxer|parse|parser)$',
+            r'^(mpeg|mp4|mkv|webm|ogg|flac|wav|m4a)',
+            r'^lib(x264|x265|vpx|opus|vorbis|aac|mp3)',
+            r'^(video|audio)/([\w\-]+)$',
+            r'^MIME_',
+            r'Profile[A-Z]',  # For Dolby Vision profiles
+        ]
+        
+        for pattern in codec_patterns:
+            if re.search(pattern, string_lower):
+                return True
+        
+        # Also keep strings that look like codec configurations
+        if 'codec' in string_lower or 'mime' in string_lower:
+            return True
+        
+        return False

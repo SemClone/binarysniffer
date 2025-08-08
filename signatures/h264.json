@@ -1,0 +1,71 @@
+{
+  "component": {
+    "name": "H.264/AVC",
+    "version": "unknown",
+    "category": "codec",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "H.264/AVC video codec",
+    "license": "Various",
+    "publisher": "ITU-T/ISO/IEC"
+  },
+  "confidence_threshold": 0.6,
+  "patterns": [
+    {
+      "pattern": "video/h264",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "video/avc",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "H264",
+      "confidence": 0.70
+    },
+    {
+      "pattern": "h264_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "h264_encode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "avc_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "MIME_H264",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "x264",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "libx264",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "h264parse",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "h264_nal",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "avcC",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "AVC1",
+      "confidence": 0.75
+    },
+    {
+      "pattern": "AVCLevel",
+      "confidence": 0.70
+    }
+  ]
+}

@@ -1,69 +1,136 @@
 {
   "component": {
     "name": "GStreamer",
-    "version": "1.0",
-    "category": "imported",
-    "platforms": [
-      "all"
-    ],
-    "languages": [
-      "native"
-    ],
-    "description": "Open source multimedia framework",
+    "version": "1.0.0-1.x",
+    "category": "framework",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "GStreamer multimedia framework",
     "license": "LGPL-2.1+",
     "publisher": "GStreamer Project"
   },
-  "signature_metadata": {
-    "version": "1.0.0",
-    "created": "2025-08-07T14:01:05.682617Z",
-    "updated": "2025-08-07T14:01:05.682633Z",
-    "signature_count": 4,
-    "confidence_threshold": 0.7,
-    "source": "binary_analysis",
-    "extraction_method": "symbol_extraction",
-    "cleaned": true,
-    "cleaning_version": "4.0"
-  },
-  "signatures": [
+  "confidence_threshold": 0.8,
+  "patterns": [
     {
-      "id": "gstreamer_0",
-      "type": "string_pattern",
-      "pattern": "gst_bus_source_dispose",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
+      "pattern": "gst_init",
+      "confidence": 0.95
     },
     {
-      "id": "gstreamer_1",
-      "type": "string_pattern",
-      "pattern": "GST_PAD_FLAG_PENDING_EVENTS",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
+      "pattern": "gst_element_factory",
+      "confidence": 0.95
     },
     {
-      "id": "gstreamer_2",
-      "type": "string_pattern",
-      "pattern": "GST_MEMORY_FLAG_LAST",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
+      "pattern": "gst_pipeline_new",
+      "confidence": 0.95
     },
     {
-      "id": "gstreamer_4",
-      "type": "string_pattern",
-      "pattern": "gst_element_state_get_name",
-      "confidence": 0.9,
-      "context": "binary_symbol",
-      "platforms": [
-        "all"
-      ]
+      "pattern": "gst_element_set_state",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "GST_STATE_PLAYING",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_STATE_PAUSED",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_message_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_caps_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_buffer_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_pad_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GStreamer-",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "libgstreamer",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_plugin_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_registry_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_bus_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_DEBUG",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "gst_object_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_ELEMENT",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_segment_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_event_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_query_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_clock_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_TYPE_",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "gst_format_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_tag_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_structure_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_value_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_mini_object_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "gst_stream_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GstElement",
+      "confidence": 0.90
     }
   ]
 }
+EOF < /dev/null

@@ -132,7 +132,10 @@ class DirectMatcher:
         
         # Pre-filter strings for substring matching (exclude very short/generic ones)
         generic_terms = self._get_generic_terms()
-        valid_strings = sorted([s for s in string_set if len(s) >= 6 and s not in generic_terms])
+        # Be more permissive - allow shorter strings that look like MIME types or codec identifiers
+        valid_strings = sorted([s for s in string_set 
+                               if (len(s) >= 6 and s not in generic_terms) or
+                                  self._is_codec_or_mime_string(s)])
         
         # Create a set of all substrings for faster matching
         # Only for strings up to a reasonable length to avoid memory explosion
@@ -159,9 +162,10 @@ class DirectMatcher:
                     })
                     continue
                 
-                # Skip if pattern is too short or generic
-                if length < 5 or self._contains_only_generic_terms(pattern):
-                    continue
+                # Skip if pattern is too short or generic (unless it's a codec/MIME pattern)
+                if not self._is_codec_or_mime_string(pattern):
+                    if length < 5 or self._contains_only_generic_terms(pattern):
+                        continue
                 
                 # Fast substring check using pre-computed set
                 if length <= 30 and pattern in substring_set:
@@ -259,6 +263,24 @@ class DirectMatcher:
             return type_map.get(most_common, "unknown")
         
         return "unknown"
+    
+    def _is_codec_or_mime_string(self, s: str) -> bool:
+        """Check if string is likely a MIME type or codec identifier"""
+        s_lower = s.lower()
+        
+        # MIME types
+        if '/' in s_lower and any(s_lower.startswith(prefix) for prefix in 
+                                  ['audio/', 'video/', 'application/', 'text/', 'image/']):
+            return True
+        
+        # Codec identifiers
+        codec_keywords = ['h264', 'h265', 'hevc', 'avc', 'av1', 'vp8', 'vp9',
+                         'aac', 'mp3', 'opus', 'vorbis', 'ac3', 'eac3', 'dolby',
+                         'mpeg', 'codec', 'mime', 'gst_', 'gstreamer']
+        if any(keyword in s_lower for keyword in codec_keywords):
+            return True
+            
+        return False
     
     def _get_generic_terms(self) -> Set[str]:
         """Get set of generic programming terms to avoid in matching"""

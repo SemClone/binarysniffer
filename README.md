@@ -52,9 +52,10 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Semantic Symbol Extraction**: Functions, classes, structs, constants, and dependencies
 - **Graceful Fallback**: Regex-based extraction when CTags is unavailable
 
-### Signature Database
-- **90+ OSS Components**: Pre-loaded signatures from Facebook SDK, Jackson, FFmpeg, and more
-- **Real-world Detection**: Thousands of component signatures from BSA database migration
+### Signature Database (v1.9.0+)
+- **173 OSS Components**: Expanded coverage including system libraries, compression tools, and multimedia codecs
+- **1,197 Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
+- **System Library Support**: Added libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, and Opus
 - **License Detection**: Automatic license identification for detected components
 - **Metadata Rich**: Publisher, version, and ecosystem information for each component
 

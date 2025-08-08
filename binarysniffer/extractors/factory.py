@@ -31,9 +31,25 @@ class ExtractorFactory:
         self.extractors = [
             ArchiveExtractor(),     # Check archives first (contains other files)
             StaticLibraryExtractor(),  # Static libraries (.a files)
+        ]
+        
+        # Add Androguard APK extractor if available
+        try:
+            from .androguard_apk import AndroguardExtractor, ANDROGUARD_AVAILABLE
+            if ANDROGUARD_AVAILABLE:
+                androguard_extractor = AndroguardExtractor()
+                self.extractors.append(androguard_extractor)
+                logger.debug("Androguard APK extractor enabled")
+            else:
+                logger.debug("Androguard not available, APK files will use basic extraction")
+        except ImportError:
+            logger.debug("Androguard module not found, APK files will use basic extraction")
+        
+        # Add other extractors
+        self.extractors.extend([
             DexExtractor(),        # DEX files (Android bytecode)
             HermesExtractor(),     # Hermes bytecode (React Native)
-        ]
+        ])
         
         # Add LIEF-based binary extractor if available
         try:

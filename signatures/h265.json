@@ -1,0 +1,59 @@
+{
+  "component": {
+    "name": "H.265/HEVC",
+    "version": "unknown",
+    "category": "codec",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "H.265/HEVC video codec",
+    "license": "Various",
+    "publisher": "ITU-T/ISO/IEC"
+  },
+  "confidence_threshold": 0.7,
+  "patterns": [
+    {
+      "pattern": "video/hevc",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "video/h265",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "HEVC",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "H265",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "hevc_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "hevc_encode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "x265",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "libx265",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "hevcparse",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "hevc_nal",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "hvcC",
+      "confidence": 0.80
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "component": {
+    "name": "GLib",
+    "version": "2.0.0-2.x",
+    "category": "library",
+    "platforms": ["all"],
+    "languages": ["c"],
+    "description": "GLib low-level core library",
+    "license": "LGPL-2.1+",
+    "publisher": "GNOME Project"
+  },
+  "confidence_threshold": 0.8,
+  "patterns": [
+    {
+      "pattern": "g_malloc",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "g_free",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "g_strdup",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "g_list_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "g_hash_table_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "g_main_loop_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "g_object_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "g_signal_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "g_type_",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "GObject",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GMainLoop",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GHashTable",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_error_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_warning",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "g_critical",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "g_return_if_fail",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_return_val_if_fail",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_assert",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "g_slice_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_thread_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_mutex_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_cond_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_async_queue_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_io_channel_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "libglib-2.0",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "libgobject-2.0",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "libgmodule-2.0",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "GLib-GObject",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "g_variant_",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "glib_gettext",
+      "confidence": 0.85
+    }
+  ]
+}
+EOF < /dev/null

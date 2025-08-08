@@ -69,7 +69,7 @@ class AnalysisResult:
     matches: List[ComponentMatch]
     analysis_time: float  # seconds
     features_extracted: int
-    confidence_threshold: float
+    confidence_threshold: float = 0.3  # Default threshold for reasonable detection
     error: Optional[str] = None
     timestamp: datetime = field(default_factory=datetime.now)
     extracted_features: Optional[ExtractedFeaturesSummary] = None  # For --show-features flag
