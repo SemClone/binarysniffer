@@ -19,7 +19,9 @@ class LicenseMatcher:
         r'COPYING(?:\.(?:txt|md|rst))?$',
         r'COPYRIGHT(?:\.(?:txt|md|rst))?$',
         r'NOTICE(?:\.(?:txt|md|rst))?$',
-        r'LICENSE-.*',
+        r'.*LICENSE.*',  # Match any file with LICENSE in the name
+        r'.*LICENCE.*',  # Match any file with LICENCE in the name
+        r'.*COPYING.*',  # Match any file with COPYING in the name
         r'license\..*',
         r'UNLICENSE(?:\.(?:txt|md|rst))?$',
     ]

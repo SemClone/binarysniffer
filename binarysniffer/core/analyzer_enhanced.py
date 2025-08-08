@@ -491,16 +491,19 @@ class EnhancedBinarySniffer(BaseAnalyzer):
             result = self.analyze_file(file_path)
             all_matches.extend(result.matches)
             
-            # Check if it's a license file and analyze content
-            if self.license_matcher.is_license_file(str(file_path)):
+            # Always analyze file content for licenses (not just license files)
+            try:
                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                    content = f.read()
+                    content = f.read(1024 * 100)  # Read first 100KB
                 license_matches = self.license_matcher.detect_licenses_in_content(
                     content, str(file_path)
                 )
-                all_matches.extend(license_matches)
                 if license_matches:
-                    license_files[str(file_path)] = license_matches
+                    all_matches.extend(license_matches)
+                    if self.license_matcher.is_license_file(str(file_path)):
+                        license_files[str(file_path)] = license_matches
+            except Exception as e:
+                logger.debug(f"Could not read file {file_path} for license detection: {e}")
                     
         elif file_path.is_dir():
             # Find all relevant files
@@ -527,6 +530,19 @@ class EnhancedBinarySniffer(BaseAnalyzer):
                         license_files[str(lf)] = license_matches
                 except Exception as e:
                     logger.warning(f"Failed to analyze license file {lf}: {e}")
+            
+            # Also analyze source code files for embedded licenses
+            for sf in relevant_files[:50]:  # Limit to 50 files for performance
+                try:
+                    with open(sf, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read(1024 * 10)  # Read first 10KB of source files
+                    license_matches = self.license_matcher.detect_licenses_in_content(
+                        content, str(sf)
+                    )
+                    if license_matches:
+                        all_matches.extend(license_matches)
+                except Exception as e:
+                    logger.debug(f"Could not analyze source file {sf}: {e}")
             
             # Analyze code files for embedded licenses
             if include_dependencies:
