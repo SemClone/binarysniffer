@@ -332,6 +332,62 @@ for file_entry in inventory['files']:
 - **Tree**: Visual directory structure representation
 - **Summary**: Quick overview with file type statistics
 
+### License Detection (v1.8.9+)
+
+Detect and analyze software licenses using pattern matching and SPDX identifier recognition:
+
+```bash
+# Analyze licenses in a file or directory
+binarysniffer license /path/to/project
+
+# Check license compatibility
+binarysniffer license . --check-compatibility
+
+# Show which files contain each license
+binarysniffer license src/ --show-files
+
+# Export license report
+binarysniffer license app.apk -o licenses.json
+binarysniffer license project/ -o report.md --format markdown
+```
+
+#### Integrated License Detection with Analysis
+
+Combine component and license detection in a single analysis:
+
+```bash
+# Add license detection to regular analysis
+binarysniffer analyze app.jar --license-focus
+
+# Perform only license detection (skip component analysis)
+binarysniffer analyze source/ --license-only
+```
+
+#### Python API for License Detection
+
+```python
+from binarysniffer import EnhancedBinarySniffer
+
+sniffer = EnhancedBinarySniffer()
+
+# Analyze licenses in a project
+license_result = sniffer.analyze_licenses("/path/to/project")
+print(f"Detected licenses: {', '.join(license_result['licenses_detected'])}")
+
+# Check compatibility
+compatibility = license_result['compatibility']
+if not compatibility['compatible']:
+    for warning in compatibility['warnings']:
+        print(f"Warning: {warning}")
+```
+
+#### Features
+- **Pattern-based detection** for common licenses (MIT, Apache-2.0, GPL, BSD, LGPL, ISC)
+- **SPDX identifier support** with 100% confidence
+- **License compatibility checking** to identify conflicts
+- **Multiple output formats**: Table, JSON, CSV, Markdown
+- **Works on**: License files, source code with embedded licenses, archives
+
 ### Creating Signatures
 
 Create custom signatures for your components:

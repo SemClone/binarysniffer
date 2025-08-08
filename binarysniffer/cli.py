@@ -8,7 +8,7 @@ import json
 import time
 import logging
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
 
 import click
 from rich.console import Console
@@ -108,6 +108,11 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 # Filtering options
 @click.option('--min-matches', type=int, default=0,
               help='Minimum pattern matches to show component')
+# License options
+@click.option('--license-focus', is_flag=True,
+              help='Focus on license detection and compliance')
+@click.option('--license-only', is_flag=True,
+              help='Only detect licenses, skip component detection')
 # Debug options
 @click.option('--show-evidence', is_flag=True,
               help='Show detailed match evidence')
@@ -133,7 +138,8 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
               help='[Deprecated] Use --fast to disable')
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
-            with_hashes, basic_hashes, min_matches, show_evidence, show_features, save_features,
+            with_hashes, basic_hashes, min_matches, license_focus, license_only,
+            show_evidence, show_features, save_features,
             tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
             include_fuzzy_hashes, use_tlsh):
     """
@@ -268,6 +274,37 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                 results = batch_result.results
                 
                 progress.update(task, completed=len(results))
+        
+        # Add license detection if requested
+        if license_focus or license_only:
+            # Perform license analysis
+            license_result = sniffer.analyze_licenses(path, include_dependencies=True)
+            
+            if license_only:
+                # Replace results with only license information
+                console.print("\n[bold]License Detection Results:[/bold]")
+                output_license_table(license_result, check_compatibility=True, show_files=False)
+                return
+            else:
+                # Add license information to existing results
+                console.print("\n[bold cyan]Additional License Information:[/bold cyan]")
+                if license_result['licenses_detected']:
+                    console.print(f"Detected licenses: {', '.join(license_result['licenses_detected'])}")
+                    
+                    # Add license information to each result
+                    for file_path, result in batch_result.results.items():
+                        # Check if this file has license detections
+                        file_licenses = []
+                        for license_id, details in license_result.get('license_details', {}).items():
+                            if file_path in details.get('files', []):
+                                file_licenses.append(license_id)
+                        
+                        # Add to result metadata
+                        if file_licenses and not result.error:
+                            if not hasattr(result, 'detected_licenses'):
+                                result.detected_licenses = file_licenses
+                else:
+                    console.print("[yellow]No licenses detected[/yellow]")
         
         # Add file hashes if requested
         if include_hashes or include_fuzzy_hashes:
@@ -553,6 +590,61 @@ def stats(ctx):
             table.add_row(f"  {type_names.get(sig_type, 'Unknown')}", f"{count:,}")
     
     console.print(table)
+
+
+@cli.command()
+@click.argument('path', type=click.Path(exists=True))
+@click.option('-o', '--output', type=click.Path(), 
+              help='Save report to file (format auto-detected from extension)')
+@click.option('-f', '--format', 
+              type=click.Choice(['table', 'json', 'csv', 'markdown'], case_sensitive=False),
+              default='table', show_default=True,
+              help='Output format for license report')
+@click.option('--check-compatibility', is_flag=True,
+              help='Check license compatibility and show warnings')
+@click.option('--include-dependencies/--no-dependencies', default=True,
+              help='Include license detection in dependencies')
+@click.option('--show-files', is_flag=True,
+              help='Show which files contain each license')
+@click.pass_context
+def license(ctx, path, output, format, check_compatibility, include_dependencies, show_files):
+    """Analyze licenses in files and directories.
+    
+    \b
+    EXAMPLES:
+        # Analyze licenses in a project
+        binarysniffer license /path/to/project
+        
+        # Generate license report
+        binarysniffer license app.apk -o licenses.json
+        
+        # Check license compatibility
+        binarysniffer license project/ --check-compatibility
+        
+        # Show which files contain licenses
+        binarysniffer license src/ --show-files
+    """
+    # Get or create sniffer instance
+    sniffer = ctx.obj.get('sniffer')
+    if not sniffer:
+        from .core.analyzer_enhanced import EnhancedBinarySniffer
+        sniffer = EnhancedBinarySniffer(ctx.obj['config'])
+        ctx.obj['sniffer'] = sniffer
+    
+    path = Path(path)
+    
+    with console.status(f"Analyzing licenses in {path}..."):
+        license_result = sniffer.analyze_licenses(path, include_dependencies)
+    
+    # Format output
+    if format == 'json':
+        output_license_json(license_result, output)
+    elif format == 'csv':
+        output_license_csv(license_result, output)
+    elif format == 'markdown':
+        output_license_markdown(license_result, output)
+    else:  # table format
+        output_license_table(license_result, check_compatibility, show_files)
 
 
 @cli.command()
@@ -900,6 +992,10 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         console.print(f"  Features extracted: {result.features_extracted}")
         console.print(f"  Analysis time: {result.analysis_time:.3f}s")
         
+        # Show detected licenses if available
+        if hasattr(result, 'detected_licenses') and result.detected_licenses:
+            console.print(f"  [cyan]Detected licenses: {', '.join(result.detected_licenses)}[/cyan]")
+        
         # Display extracted features if requested
         if show_features and result.extracted_features:
             console.print("\n[bold]Feature Extraction Summary:[/bold]")
@@ -1126,6 +1222,199 @@ def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], mi
         console.print(f"[green]Results saved to {output_path}[/green]")
     else:
         console.print(csv_content)
+
+
+def output_license_table(license_result: Dict[str, Any], check_compatibility: bool, show_files: bool):
+    """Output license analysis as a formatted table"""
+    console.print("\n[bold]License Analysis Report[/bold]\n")
+    
+    # Basic info
+    console.print(f"[cyan]Analysis Path:[/cyan] {license_result['analysis_path']}")
+    console.print(f"[cyan]Total Components:[/cyan] {license_result['total_components']}")
+    console.print(f"[cyan]Unique Licenses:[/cyan] {len(license_result['licenses_detected'])}\n")
+    
+    # License table
+    table = Table(title="Detected Licenses")
+    table.add_column("License", style="cyan")
+    table.add_column("Count", style="green")
+    table.add_column("Confidence", style="yellow")
+    table.add_column("Components", style="magenta")
+    
+    license_details = license_result.get('license_details', {})
+    for license_id in sorted(license_result['licenses_detected']):
+        details = license_details.get(license_id, {})
+        components = details.get('components', [])
+        comp_str = ', '.join(components[:3])
+        if len(components) > 3:
+            comp_str += f" (+{len(components)-3} more)"
+        
+        table.add_row(
+            license_id,
+            str(details.get('count', 0)),
+            f"{details.get('confidence', 0):.0%}",
+            comp_str or "N/A"
+        )
+    
+    console.print(table)
+    
+    # Show files if requested
+    if show_files and license_result.get('license_files'):
+        console.print("\n[bold]License Files Found:[/bold]")
+        for file_path, matches in license_result['license_files'].items():
+            licenses = ', '.join([m.license for m in matches])
+            console.print(f"  • {file_path}: [green]{licenses}[/green]")
+    
+    # Compatibility check
+    if check_compatibility:
+        compatibility = license_result.get('compatibility', {})
+        console.print("\n[bold]License Compatibility Check:[/bold]")
+        
+        if compatibility.get('compatible'):
+            console.print("[green]✓ Licenses appear to be compatible[/green]")
+        else:
+            console.print("[red]✗ License compatibility issues detected[/red]")
+        
+        warnings = compatibility.get('warnings', [])
+        if warnings:
+            console.print("\n[yellow]Warnings:[/yellow]")
+            for warning in warnings:
+                console.print(f"  ⚠ {warning}")
+        
+        # Show license types
+        license_types = compatibility.get('license_types', {})
+        if any(license_types.values()):
+            console.print("\n[bold]License Categories:[/bold]")
+            if license_types.get('copyleft'):
+                console.print(f"  Copyleft: {', '.join(license_types['copyleft'])}")
+            if license_types.get('weak_copyleft'):
+                console.print(f"  Weak Copyleft: {', '.join(license_types['weak_copyleft'])}")
+            if license_types.get('permissive'):
+                console.print(f"  Permissive: {', '.join(license_types['permissive'])}")
+            if license_types.get('unknown'):
+                console.print(f"  Unknown: {', '.join(license_types['unknown'])}")
+
+
+def output_license_json(license_result: Dict[str, Any], output_path: Optional[str]):
+    """Output license analysis as JSON"""
+    import json
+    from .core.results import ComponentMatch
+    
+    # Convert any sets to lists and ComponentMatch objects to dicts for JSON serialization
+    def convert_for_json(obj):
+        if isinstance(obj, set):
+            return list(obj)
+        elif isinstance(obj, ComponentMatch):
+            return obj.to_dict()
+        elif isinstance(obj, dict):
+            return {k: convert_for_json(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [convert_for_json(item) for item in obj]
+        return obj
+    
+    clean_result = convert_for_json(license_result)
+    json_output = json.dumps(clean_result, indent=2)
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(json_output)
+        console.print(f"[green]License report saved to {output_path}[/green]")
+    else:
+        console.print(json_output)
+
+
+def output_license_csv(license_result: Dict[str, Any], output_path: Optional[str]):
+    """Output license analysis as CSV"""
+    import csv
+    from io import StringIO
+    
+    output = StringIO()
+    writer = csv.writer(output)
+    
+    # Header
+    writer.writerow(['License', 'Count', 'Confidence', 'Components', 'Files'])
+    
+    # Data rows
+    license_details = license_result.get('license_details', {})
+    for license_id in sorted(license_result['licenses_detected']):
+        details = license_details.get(license_id, {})
+        components = ', '.join(details.get('components', []))
+        files = ', '.join(details.get('files', []))
+        
+        writer.writerow([
+            license_id,
+            details.get('count', 0),
+            f"{details.get('confidence', 0):.2f}",
+            components,
+            files
+        ])
+    
+    csv_content = output.getvalue()
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(csv_content)
+        console.print(f"[green]License report saved to {output_path}[/green]")
+    else:
+        console.print(csv_content)
+
+
+def output_license_markdown(license_result: Dict[str, Any], output_path: Optional[str]):
+    """Output license analysis as Markdown"""
+    lines = []
+    
+    # Header
+    lines.append("# License Analysis Report\n")
+    lines.append(f"**Analysis Path:** `{license_result['analysis_path']}`  ")
+    lines.append(f"**Total Components:** {license_result['total_components']}  ")
+    lines.append(f"**Unique Licenses:** {len(license_result['licenses_detected'])}\n")
+    
+    # License table
+    lines.append("## Detected Licenses\n")
+    lines.append("| License | Count | Confidence | Components |")
+    lines.append("|---------|-------|------------|------------|")
+    
+    license_details = license_result.get('license_details', {})
+    for license_id in sorted(license_result['licenses_detected']):
+        details = license_details.get(license_id, {})
+        components = details.get('components', [])
+        comp_str = ', '.join(components[:3])
+        if len(components) > 3:
+            comp_str += f" (+{len(components)-3} more)"
+        
+        lines.append(f"| {license_id} | {details.get('count', 0)} | "
+                    f"{details.get('confidence', 0):.0%} | {comp_str or 'N/A'} |")
+    
+    # Compatibility
+    compatibility = license_result.get('compatibility', {})
+    if compatibility:
+        lines.append("\n## License Compatibility\n")
+        
+        if compatibility.get('compatible'):
+            lines.append("✅ **Licenses appear to be compatible**\n")
+        else:
+            lines.append("❌ **License compatibility issues detected**\n")
+        
+        warnings = compatibility.get('warnings', [])
+        if warnings:
+            lines.append("### Warnings\n")
+            for warning in warnings:
+                lines.append(f"- ⚠️ {warning}")
+    
+    # License files
+    if license_result.get('license_files'):
+        lines.append("\n## License Files\n")
+        for file_path, matches in license_result['license_files'].items():
+            licenses = ', '.join([m.license for m in matches])
+            lines.append(f"- `{file_path}`: {licenses}")
+    
+    markdown_content = '\n'.join(lines)
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(markdown_content)
+        console.print(f"[green]License report saved to {output_path}[/green]")
+    else:
+        console.print(markdown_content)
 
 
 def main():

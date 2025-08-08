@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.9] - 2025-08-08
+
+### Added
+- **License Detection System** - Comprehensive license detection using pattern matching for MIT, Apache-2.0, GPL, BSD, LGPL, and ISC licenses
+- **New `license` Command** - Dedicated command for license analysis with compatibility checking and multiple output formats
+- **SPDX Identifier Support** - Automatic detection of SPDX license identifiers with 100% confidence
+- **License Compatibility Checking** - Identifies incompatible license combinations (e.g., GPL-2.0 vs GPL-3.0)
+- **Integrated License Detection** - Added `--license-focus` and `--license-only` flags to the analyze command
+- **Multiple Output Formats** - License reports in Table, JSON, CSV, and Markdown formats
+- **License File Recognition** - Automatic detection of LICENSE, COPYING, and similar files
+- **Embedded License Detection** - Finds licenses in source code comments and headers
+
+### Features
+- Pattern-based detection for 7 major open-source licenses
+- License categorization (copyleft, weak copyleft, permissive)
+- Compatibility warnings for mixed license scenarios
+- Works on single files, directories, and archives
+- Python API support for programmatic license analysis
+
 ## [1.8.8] - 2025-08-08
 
 ### Added

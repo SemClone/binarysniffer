@@ -1,0 +1,59 @@
+{
+  "component": {
+    "name": "GNU Lesser General Public License v2.1",
+    "version": "2.1",
+    "license": "LGPL-2.1",
+    "publisher": "Free Software Foundation",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "GNU LESSER GENERAL PUBLIC LICENSE[\\s]+Version 2\\.1",
+      "confidence": 0.95,
+      "type": "regex_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "This library is free software; you can redistribute it and/or",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "modify it under the terms of the GNU Lesser General Public",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "License as published by the Free Software Foundation; either",
+      "confidence": 0.85,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "version 2\\.1 of the License, or \\(at your option\\) any later version",
+      "confidence": 0.9,
+      "type": "regex_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "This library is distributed in the hope that it will be useful",
+      "confidence": 0.85,
+      "type": "string_pattern",
+      "context": "license_disclaimer"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*LGPL-2\\.1",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    },
+    {
+      "pattern": "https://www\\.gnu\\.org/licenses/lgpl-2\\.1",
+      "confidence": 0.9,
+      "type": "regex_pattern",
+      "context": "license_url"
+    }
+  ]
+}

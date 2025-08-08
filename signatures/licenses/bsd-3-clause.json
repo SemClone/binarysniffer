@@ -1,0 +1,59 @@
+{
+  "component": {
+    "name": "BSD 3-Clause License",
+    "version": "1.0",
+    "license": "BSD-3-Clause",
+    "publisher": "BSD",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "BSD 3-Clause License",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "Redistribution and use in source and binary forms, with or without",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "modification, are permitted provided that the following conditions are met",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "Redistributions of source code must retain the above copyright notice",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_condition"
+    },
+    {
+      "pattern": "this list of conditions and the following disclaimer",
+      "confidence": 0.85,
+      "type": "string_pattern",
+      "context": "license_condition"
+    },
+    {
+      "pattern": "Neither the name of .+ nor the names of its contributors",
+      "confidence": 0.85,
+      "type": "regex_pattern",
+      "context": "license_condition"
+    },
+    {
+      "pattern": "THIS SOFTWARE IS PROVIDED BY .+ \"AS IS\"",
+      "confidence": 0.9,
+      "type": "regex_pattern",
+      "context": "license_disclaimer"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*BSD-3-Clause",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    }
+  ]
+}

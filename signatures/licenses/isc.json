@@ -1,0 +1,53 @@
+{
+  "component": {
+    "name": "ISC License",
+    "version": "1.0",
+    "license": "ISC",
+    "publisher": "ISC",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "ISC License",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "Permission to use, copy, modify, and/or distribute this software",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "for any purpose with or without fee is hereby granted",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "provided that the above copyright notice and this permission notice",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_condition"
+    },
+    {
+      "pattern": "appear in all copies",
+      "confidence": 0.85,
+      "type": "string_pattern",
+      "context": "license_condition"
+    },
+    {
+      "pattern": "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_disclaimer"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*ISC",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    }
+  ]
+}

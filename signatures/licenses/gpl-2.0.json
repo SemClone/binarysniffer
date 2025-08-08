@@ -1,0 +1,41 @@
+{
+  "component": {
+    "name": "GNU General Public License v2.0",
+    "version": "2.0",
+    "license": "GPL-2.0",
+    "publisher": "Free Software Foundation",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "GNU GENERAL PUBLIC LICENSE[\\s]+Version 2",
+      "confidence": 0.95,
+      "type": "regex_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*GPL-2\\.0",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    },
+    {
+      "pattern": "either version 2 of the License",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "GNU General Public License as published by",
+      "confidence": 0.85,
+      "type": "string_pattern",
+      "context": "license_notice"
+    },
+    {
+      "pattern": "the Free Software Foundation; either version 2",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_notice"
+    }
+  ]
+}

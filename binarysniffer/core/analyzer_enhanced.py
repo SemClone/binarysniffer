@@ -13,6 +13,7 @@ from .base_analyzer import BaseAnalyzer
 from ..extractors.factory import ExtractorFactory
 # Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
+from ..matchers.license import LicenseMatcher
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
 from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
@@ -47,6 +48,7 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         
         # Create direct matcher only (bloom filters disabled for deterministic results)
         self.direct_matcher = DirectMatcher(self.config)
+        self.license_matcher = LicenseMatcher()
         
         # Initialize TLSH components
         self.tlsh_hasher = TLSHHasher()
@@ -464,3 +466,109 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         """Update signature database"""
         # Update functionality not implemented in enhanced analyzer
         return False
+    
+    def analyze_licenses(
+        self,
+        file_path: Union[str, Path],
+        include_dependencies: bool = True
+    ) -> Dict[str, Any]:
+        """
+        Perform license-focused analysis on a file or directory.
+        
+        Args:
+            file_path: Path to file or directory to analyze
+            include_dependencies: Also detect licenses in dependencies
+            
+        Returns:
+            Dictionary with license analysis results
+        """
+        file_path = Path(file_path)
+        all_matches = []
+        license_files = {}
+        
+        if file_path.is_file():
+            # Analyze single file
+            result = self.analyze_file(file_path)
+            all_matches.extend(result.matches)
+            
+            # Always analyze file content for licenses (not just license files)
+            try:
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    content = f.read(1024 * 100)  # Read first 100KB
+                license_matches = self.license_matcher.detect_licenses_in_content(
+                    content, str(file_path)
+                )
+                if license_matches:
+                    all_matches.extend(license_matches)
+                    if self.license_matcher.is_license_file(str(file_path)):
+                        license_files[str(file_path)] = license_matches
+            except Exception as e:
+                logger.debug(f"Could not read file {file_path} for license detection: {e}")
+                    
+        elif file_path.is_dir():
+            # Find all relevant files
+            relevant_files = []
+            license_file_paths = []
+            
+            for p in file_path.rglob('*'):
+                if p.is_file():
+                    if self.license_matcher.is_license_file(str(p)):
+                        license_file_paths.append(p)
+                    elif p.suffix in self.license_matcher.CODE_FILE_EXTENSIONS:
+                        relevant_files.append(p)
+            
+            # Analyze license files
+            for lf in license_file_paths:
+                try:
+                    with open(lf, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read(1024 * 100)  # Read first 100KB
+                    license_matches = self.license_matcher.detect_licenses_in_content(
+                        content, str(lf)
+                    )
+                    if license_matches:
+                        all_matches.extend(license_matches)
+                        license_files[str(lf)] = license_matches
+                except Exception as e:
+                    logger.warning(f"Failed to analyze license file {lf}: {e}")
+            
+            # Also analyze source code files for embedded licenses
+            for sf in relevant_files[:50]:  # Limit to 50 files for performance
+                try:
+                    with open(sf, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read(1024 * 10)  # Read first 10KB of source files
+                    license_matches = self.license_matcher.detect_licenses_in_content(
+                        content, str(sf)
+                    )
+                    if license_matches:
+                        all_matches.extend(license_matches)
+                except Exception as e:
+                    logger.debug(f"Could not analyze source file {sf}: {e}")
+            
+            # Analyze code files for embedded licenses
+            if include_dependencies:
+                batch_results = self.analyze_directory(
+                    file_path,
+                    recursive=True,
+                    file_patterns=None,
+                    confidence_threshold=0.5,
+                    parallel=True
+                )
+                for result in batch_results.results.values():
+                    if not result.error:
+                        all_matches.extend(result.matches)
+        
+        # Aggregate license information
+        license_info = self.license_matcher.aggregate_licenses(all_matches)
+        
+        # Check license compatibility
+        detected_licenses = set(license_info.keys())
+        compatibility = self.license_matcher.check_license_compatibility(detected_licenses)
+        
+        return {
+            'licenses_detected': list(detected_licenses),
+            'license_details': license_info,
+            'license_files': license_files,
+            'compatibility': compatibility,
+            'total_components': len(all_matches),
+            'analysis_path': str(file_path)
+        }

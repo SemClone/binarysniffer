@@ -1,0 +1,53 @@
+{
+  "component": {
+    "name": "MIT License",
+    "version": "1.0",
+    "license": "MIT",
+    "publisher": "MIT",
+    "ecosystem": "license"
+  },
+  "signatures": [
+    {
+      "pattern": "MIT License",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_header"
+    },
+    {
+      "pattern": "Permission is hereby granted, free of charge",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "to deal in the Software without restriction",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "including without limitation the rights to use, copy, modify, merge",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_grant"
+    },
+    {
+      "pattern": "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND",
+      "confidence": 0.95,
+      "type": "string_pattern",
+      "context": "license_disclaimer"
+    },
+    {
+      "pattern": "SPDX-License-Identifier:[\\s]*MIT",
+      "confidence": 1.0,
+      "type": "regex_pattern",
+      "context": "spdx_identifier"
+    },
+    {
+      "pattern": "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE",
+      "confidence": 0.9,
+      "type": "string_pattern",
+      "context": "license_disclaimer"
+    }
+  ]
+}

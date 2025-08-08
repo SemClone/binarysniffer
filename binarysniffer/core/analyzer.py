@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from ..storage.database import SignatureDatabase
 from ..storage.updater import SignatureUpdater
 from ..matchers.progressive import ProgressiveMatcher
+from ..matchers.license import LicenseMatcher
 from ..extractors.factory import ExtractorFactory
 from .config import Config
 from .results import AnalysisResult, ComponentMatch
@@ -43,6 +44,7 @@ class BinarySniffer(BaseAnalyzer):
         
         # Initialize components specific to BinarySniffer
         self.matcher = ProgressiveMatcher(self.config)
+        self.license_matcher = LicenseMatcher()
         self.extractor_factory = ExtractorFactory()
         self.updater = SignatureUpdater(self.config)
         
@@ -187,6 +189,89 @@ class BinarySniffer(BaseAnalyzer):
             Dictionary with signature statistics
         """
         return self.db.get_statistics()
+    
+    def analyze_licenses(
+        self,
+        file_path: Union[str, Path],
+        include_dependencies: bool = True
+    ) -> Dict[str, Any]:
+        """
+        Perform license-focused analysis on a file or directory.
+        
+        Args:
+            file_path: Path to file or directory to analyze
+            include_dependencies: Also detect licenses in dependencies
+            
+        Returns:
+            Dictionary with license analysis results
+        """
+        file_path = Path(file_path)
+        all_matches = []
+        license_files = {}
+        
+        if file_path.is_file():
+            # Analyze single file
+            result = self.analyze_file(file_path)
+            all_matches.extend(result.matches)
+            
+            # Check if it's a license file and analyze content
+            if self.license_matcher.is_license_file(str(file_path)):
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    content = f.read()
+                license_matches = self.license_matcher.detect_licenses_in_content(
+                    content, str(file_path)
+                )
+                all_matches.extend(license_matches)
+                if license_matches:
+                    license_files[str(file_path)] = license_matches
+                    
+        elif file_path.is_dir():
+            # Find all relevant files
+            relevant_files = []
+            license_file_paths = []
+            
+            for p in file_path.rglob('*'):
+                if p.is_file():
+                    if self.license_matcher.is_license_file(str(p)):
+                        license_file_paths.append(p)
+                    elif p.suffix in self.license_matcher.CODE_FILE_EXTENSIONS:
+                        relevant_files.append(p)
+            
+            # Analyze license files
+            for lf in license_file_paths:
+                try:
+                    with open(lf, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read(1024 * 100)  # Read first 100KB
+                    license_matches = self.license_matcher.detect_licenses_in_content(
+                        content, str(lf)
+                    )
+                    if license_matches:
+                        all_matches.extend(license_matches)
+                        license_files[str(lf)] = license_matches
+                except Exception as e:
+                    logger.warning(f"Failed to analyze license file {lf}: {e}")
+            
+            # Analyze code files for embedded licenses
+            if include_dependencies:
+                batch_results = self.analyze_batch(relevant_files[:100])  # Limit to 100 files
+                for result in batch_results.values():
+                    all_matches.extend(result.matches)
+        
+        # Aggregate license information
+        license_info = self.license_matcher.aggregate_licenses(all_matches)
+        
+        # Check license compatibility
+        detected_licenses = set(license_info.keys())
+        compatibility = self.license_matcher.check_license_compatibility(detected_licenses)
+        
+        return {
+            'licenses_detected': list(detected_licenses),
+            'license_details': license_info,
+            'license_files': license_files,
+            'compatibility': compatibility,
+            'total_components': len(all_matches),
+            'analysis_path': str(file_path)
+        }
     
     
     
