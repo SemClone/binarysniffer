@@ -768,16 +768,17 @@ class ArchiveExtractor(BaseExtractor):
                 from debian import debfile
                 deb = debfile.DebFile(str(archive_path))
                 # Extract data.tar.* which contains the actual files
-                data_tar = deb.data
+                # DebFile.data is a DebData object with a .tgz() method that returns a TarFile
+                data_tar = deb.data.tgz()
                 if data_tar:
                     data_tar.extractall(extract_to)
                 # Also extract control information
-                control_tar = deb.control
+                control_tar = deb.control.tgz()
                 if control_tar:
                     control_dir = extract_to / 'DEBIAN'
                     control_dir.mkdir(exist_ok=True)
                     control_tar.extractall(control_dir)
-            except ImportError:
+            except (ImportError, AttributeError) as e:
                 # Fallback: DEB is an ar archive, extract with ar command
                 import subprocess
                 # Extract with ar
