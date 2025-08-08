@@ -300,11 +300,12 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
         else:
             output_table(batch_result, min_matches, show_evidence, show_features, feature_limit)
         
-        # Summary
-        console.print(f"\n[green]Analysis complete![/green]")
-        console.print(f"Files analyzed: {batch_result.total_files}")
-        console.print(f"Components found: {len(batch_result.all_components)}")
-        console.print(f"Time elapsed: {batch_result.total_time:.2f}s")
+        # Summary - only show for table format or when output to file
+        if format == 'table' or output:
+            console.print(f"\n[green]Analysis complete![/green]")
+            console.print(f"Files analyzed: {batch_result.total_files}")
+            console.print(f"Components found: {len(batch_result.all_components)}")
+            console.print(f"Time elapsed: {batch_result.total_time:.2f}s")
         
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")
