@@ -13,6 +13,7 @@ from .archive import ArchiveExtractor
 from .dex import DexExtractor
 from .binary_lief import LiefBinaryExtractor
 from .hermes import HermesExtractor
+from .static_library import StaticLibraryExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +30,7 @@ class ExtractorFactory:
         """
         self.extractors = [
             ArchiveExtractor(),     # Check archives first (contains other files)
+            StaticLibraryExtractor(),  # Static libraries (.a files)
             DexExtractor(),        # DEX files (Android bytecode)
             HermesExtractor(),     # Hermes bytecode (React Native)
         ]
