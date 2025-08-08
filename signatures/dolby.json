@@ -1,0 +1,87 @@
+{
+  "component": {
+    "name": "Dolby Audio/Video",
+    "version": "unknown",
+    "category": "codec",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "Dolby Digital (AC3), Digital Plus (EAC3), and Dolby Vision codecs",
+    "license": "Proprietary",
+    "publisher": "Dolby Laboratories"
+  },
+  "confidence_threshold": 0.7,
+  "patterns": [
+    {
+      "pattern": "audio/eac3",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "audio/ac3",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "EAC3",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "AC3",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "DolbyDigital",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "DolbyDigitalPlus",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "DolbyVision",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "DolbyVisionProfile",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "DolbyVisionProfileDvavSe",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "DolbyVisionProfileDvheSt",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "DolbyVisionProfileDvheDtb",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "DolbyVisionProfileDvheDth",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "DolbyVisionProfileDvheStn",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "DolbyVisionProfileDvheDtr",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "ac3_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "eac3_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "ac3parse",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "a52dec",
+      "confidence": 0.85
+    }
+  ]
+}

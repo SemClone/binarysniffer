@@ -117,25 +117,79 @@ class ArchiveExtractor(BaseExtractor):
                 # Track which files we process for verbose output
                 processed_files = []
                 
-                # CRITICAL: For APKs, prioritize native libraries and DEX files
-                if features.file_type == 'android':
-                    # Sort files to prioritize .so and .dex files
-                    prioritized_files = []
-                    other_files = []
+                # INTELLIGENT PRIORITIZATION: Detect archive type based on content
+                # Priority 1: Native libraries and executables (highest value for detection)
+                # Priority 2: Bytecode and intermediate files
+                # Priority 3: Source code files
+                # Priority 4: Configuration and data files
+                
+                priority_extensions = {
+                    1: ['.so', '.dll', '.dylib', '.a', '.lib', '.exe', '.elf', '.ko', '.o'],  # Native binaries
+                    2: ['.dex', '.class', '.jar', '.pyc', '.pyo', '.beam', '.wasm'],  # Bytecode
+                    3: ['.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.m', '.mm', '.swift'],  # Source code
+                    4: ['.js', '.py', '.java', '.kt', '.ts', '.go', '.rs', '.rb'],  # High-level source
+                    5: ['.json', '.xml', '.yaml', '.yml', '.conf', '.ini', '.properties']  # Config files
+                }
+                
+                # Check if archive contains native libraries or mobile app content
+                has_native_libs = any(f.suffix.lower() in priority_extensions[1] for f in extracted_files[:100])
+                has_mobile_content = any(f.suffix.lower() in ['.dex', '.swift', '.m', '.mm'] for f in extracted_files[:100])
+                has_embedded_content = any('lib/' in str(f) or 'bin/' in str(f) or 'usr/' in str(f) for f in extracted_files[:100])
+                
+                # Determine if this is a binary-rich archive (embedded, mobile, or contains many native libs)
+                is_binary_rich = has_native_libs or has_mobile_content or has_embedded_content or \
+                                 features.file_type == 'android' or features.file_type == 'ios'
+                
+                if is_binary_rich:
+                    # Smart prioritization for binary-rich archives
+                    prioritized_files = {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
+                    
                     for f in extracted_files:
-                        if f.suffix in ['.so', '.dex']:
-                            prioritized_files.append(f)
-                        else:
-                            other_files.append(f)
-                    # Process native libraries and DEX files first, then others (sorted for consistency)
-                    extracted_files = sorted(prioritized_files) + sorted(other_files)[:100]  # Limit other files
+                        suffix = f.suffix.lower()
+                        placed = False
+                        for priority, extensions in priority_extensions.items():
+                            if suffix in extensions:
+                                prioritized_files[priority].append(f)
+                                placed = True
+                                break
+                        if not placed:
+                            prioritized_files[6].append(f)  # Other files
+                    
+                    # Combine prioritized files, sorted within each priority level
+                    extracted_files = []
+                    remaining_slots = 10000  # Maximum files to process
+                    
+                    for priority in sorted(prioritized_files.keys()):
+                        files = sorted(prioritized_files[priority])
+                        if priority <= 2:  # Native and bytecode - take all up to limit
+                            extracted_files.extend(files[:remaining_slots])
+                            remaining_slots -= len(files[:remaining_slots])
+                        else:  # Other files - take subset
+                            subset_size = min(100, remaining_slots // 2)  # Take fewer of lower priority
+                            extracted_files.extend(files[:subset_size])
+                            remaining_slots -= len(files[:subset_size])
+                        
+                        if remaining_slots <= 0:
+                            break
+                    
                     file_limit = len(extracted_files)
                 else:
+                    # Standard processing for non-binary archives
                     file_limit = 10000 if not is_single_file else 1
+                
+                # Keep track of nested archives to process recursively
+                nested_archives = []
                 
                 for extracted_file in extracted_files[:file_limit]:  # Limit files for large archives
                     # No need to check is_file() again since we already filtered
                     try:
+                        # Check if this is a nested archive
+                        if self.can_handle(extracted_file):
+                            # Queue it for recursive extraction
+                            nested_archives.append(extracted_file)
+                            logger.debug(f"Found nested archive: {extracted_file}")
+                            continue
+                        
                         # Extract features from each file
                         file_features = factory.extract(extracted_file)
                         
@@ -161,6 +215,57 @@ class ArchiveExtractor(BaseExtractor):
                     except Exception as e:
                         logger.debug(f"Error processing {extracted_file}: {e}")
                 
+                # Process nested archives recursively (with depth limit)
+                max_recursion_depth = 5
+                current_depth = 0
+                
+                while nested_archives and current_depth < max_recursion_depth:
+                    current_depth += 1
+                    next_level_archives = []
+                    
+                    for nested_archive in nested_archives:
+                        logger.info(f"Extracting nested archive (depth {current_depth}): {nested_archive.name}")
+                        try:
+                            # Create a subdirectory for nested archive extraction
+                            nested_temp = temp_path / f"nested_{current_depth}_{nested_archive.stem}"
+                            nested_temp.mkdir(exist_ok=True)
+                            
+                            # Extract nested archive
+                            nested_files = self._extract_archive(nested_archive, nested_temp)
+                            
+                            for nested_file in nested_files[:1000]:  # Limit nested files
+                                if not nested_file.is_file():
+                                    continue
+                                    
+                                # Check if this is another nested archive
+                                if self.can_handle(nested_file):
+                                    next_level_archives.append(nested_file)
+                                    continue
+                                
+                                try:
+                                    # Extract features from nested file
+                                    nested_features = factory.extract(nested_file)
+                                    
+                                    # Track nested path
+                                    nested_relative = f"[nested:{current_depth}]{nested_archive.name}/{nested_file.name}"
+                                    processed_files.append(nested_relative)
+                                    
+                                    # Merge features with limits for nested content
+                                    features.strings.extend(nested_features.strings[:10000])
+                                    features.functions.extend(nested_features.functions[:2000])
+                                    features.constants.extend(nested_features.constants[:2000])
+                                    features.imports.extend(nested_features.imports[:1000])
+                                    features.symbols.extend(nested_features.symbols[:2000])
+                                    
+                                except Exception as e:
+                                    logger.debug(f"Error processing nested file {nested_file}: {e}")
+                                    
+                        except Exception as e:
+                            logger.warning(f"Failed to extract nested archive {nested_archive}: {e}")
+                    
+                    # Move to next level of nesting
+                    nested_archives = next_level_archives
+                
                 # Deduplicate and limit (be generous for single-file archives)
                 if is_single_file:
                     # For single file archives, use the same limits as the original extractor
@@ -171,16 +276,16 @@ class ArchiveExtractor(BaseExtractor):
                     features.imports = list(dict.fromkeys(features.imports))
                     features.symbols = list(dict.fromkeys(features.symbols))
                 else:
-                    # For multi-file archives, apply limits based on type
-                    if features.file_type == 'android':
-                        # For APKs, be very generous with limits
-                        features.strings = list(dict.fromkeys(features.strings))[:100000]  # 100k strings for APKs
+                    # For multi-file archives, apply limits based on detected content type
+                    if is_binary_rich:
+                        # Binary-rich archives (mobile apps, embedded systems, firmware, etc.) - very generous limits
+                        features.strings = list(dict.fromkeys(features.strings))[:100000]  # 100k strings
                         features.functions = list(dict.fromkeys(features.functions))[:20000]
                         features.constants = list(dict.fromkeys(features.constants))[:10000]
                         features.imports = list(dict.fromkeys(features.imports))[:5000]
                         features.symbols = list(dict.fromkeys(features.symbols))[:20000]
                     else:
-                        # Standard limits for other archives
+                        # Standard archives (source code, documents, etc.) - moderate limits
                         features.strings = list(dict.fromkeys(features.strings))[:self.max_strings]
                         features.functions = list(dict.fromkeys(features.functions))[:5000]
                         features.constants = list(dict.fromkeys(features.constants))[:2000]

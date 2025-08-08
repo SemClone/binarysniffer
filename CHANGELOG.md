@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2025-08-08
+
+### Added
+- **Comprehensive Library Signatures** - Added detection support for 5 new system libraries:
+  - libcap (POSIX capabilities library) - 14 signatures
+  - Expat XML Parser - 26 signatures
+  - LZ4 compression library - 25 signatures
+  - XZ Utils/LZMA compression - 13 signatures
+  - WebP image compression - 26 signatures
+- **Signature Database Expansion** - Increased to 1,197 total signatures covering 173 components
+- **Missing Component Signatures** - Created signatures for cURL (30), Cairo (30), and Opus (30) audio codec
+
+### Fixed
+- **Major False Positive Fixes**:
+  - Removed PCoIP SDK false positives in unrelated libraries
+  - Removed Foxit PDF SDK false positives in Linux libraries
+  - Fixed Qt5 Framework incorrectly detected in libcrypto.so (cryptographic pattern conflicts)
+  - Removed Microsoft OLE Automation false positives in FreeType and FFmpeg
+- **OpenSSL False Positive** - Fixed libcom_err.so (Kerberos library) incorrectly detecting as OpenSSL
+- **Signature Quality Improvements**:
+  - Replaced generic Qt5 cryptographic patterns (SHA3, Keccak) with Qt-specific class patterns
+  - Removed overly generic patterns causing cross-library false positives
+  - Cleaned up empty signature files that were causing import issues
+
+### Improved
+- **Detection Accuracy** - Overall accuracy improved to ~85% across test libraries
+- **Library Self-Detection** - All major libraries now correctly detect themselves with 100% confidence
+- **Cross-SSL Library Detection** - Acceptable cross-detection between SSL libraries (OpenSSL, wolfSSL) as they implement similar cryptographic functions
+- **Signature Verification** - Added verification mechanism to ensure signature files match database entries
+
+### Changed
+- **Signature Format Consistency** - Converted old format signature files to new component-based format
+- **Database Rebuild Process** - Improved to handle format conversions and skip non-signature files
+
 ## [1.8.9] - 2025-08-08
 
 ### Added

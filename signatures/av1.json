@@ -1,0 +1,67 @@
+{
+  "component": {
+    "name": "AV1 Video Codec",
+    "version": "unknown",
+    "category": "codec",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "AOMedia Video 1 (AV1) codec",
+    "license": "BSD-2-Clause",
+    "publisher": "Alliance for Open Media"
+  },
+  "confidence_threshold": 0.7,
+  "patterns": [
+    {
+      "pattern": "video/av01",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "video/av1",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "AV1",
+      "confidence": 0.80
+    },
+    {
+      "pattern": "av1_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "av1_encode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "libaom",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "libdav1d",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "librav1e",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "av1parse",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "av01",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "aom_codec",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "dav1d",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "rav1e",
+      "confidence": 0.85
+    }
+  ]
+}

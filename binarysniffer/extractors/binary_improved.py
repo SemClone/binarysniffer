@@ -23,7 +23,7 @@ class ImprovedBinaryExtractor(BaseExtractor):
         '.a', '.lib', '.ko', '.elf', '.bin', '.dat'
     }
     
-    def __init__(self, min_string_length: int = 4, max_strings: int = 50000):
+    def __init__(self, min_string_length: int = 4, max_strings: int = 100000):
         """
         Initialize extractor with more permissive defaults.
         
@@ -109,12 +109,24 @@ class ImprovedBinaryExtractor(BaseExtractor):
             r'^(sqlite3_|mysql_|pg_)',
             r'^(curl_|http_|https_)',
             r'^(z_|gz_|zip_|compress|deflate|inflate)',
+            # Codec-related prefixes
+            r'^(h264|h265|hevc|avc|av1|vp8|vp9)',
+            r'^(aac|mp3|opus|vorbis|ac3|eac3)',
+            r'^(audio|video|codec|encoder|decoder)',
+            r'^(gst_|GST_)',  # GStreamer
+            r'^(av_|ff_|avcodec_|avformat_)',  # FFmpeg
             # Common suffixes
             r'_(init|create|destroy|free|alloc|open|close|read|write)$',
+            r'_(encode|decode|parse|mux|demux)$',
             # Version strings
             r'(version|Version|VERSION)',
             # Library identifiers
-            r'(copyright|Copyright|LICENSE|library|Library)'
+            r'(copyright|Copyright|LICENSE|library|Library)',
+            # MIME types
+            r'^(audio|video|application|text)/',
+            # Dolby patterns
+            r'Dolby|DOLBY|dolby',
+            r'Profile[A-Z]'
         ]
         
         for string in strings:

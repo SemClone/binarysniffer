@@ -90,9 +90,9 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.option('-o', '--output', type=click.Path(), 
               help='Save results to file (format auto-detected from extension)')
 @click.option('-f', '--format', 
-              type=click.Choice(['table', 'json', 'csv', 'cyclonedx', 'cdx', 'sbom'], case_sensitive=False),
+              type=click.Choice(['table', 'json', 'csv', 'cyclonedx', 'cdx', 'sbom', 'kissbom', 'kiss'], case_sensitive=False),
               default='table', show_default=True,
-              help='Output format (sbom/cyclonedx for SBOM)')
+              help='Output format (sbom/cyclonedx for SBOM, kiss/kissbom for KISS BOM)')
 # Performance options
 @click.option('--deep', is_flag=True, 
               help='Deep analysis mode (slower, more thorough)')
@@ -217,6 +217,8 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             format = 'csv'
         elif output_path.suffix.lower() in ('.sbom', '.cdx'):
             format = 'cyclonedx'
+        elif output_path.suffix.lower() in ('.kissbom', '.kiss', '.bom'):
+            format = 'kissbom'
     
     # Handle format aliases
     if format == 'sbom':
@@ -334,6 +336,12 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             output_csv(batch_result, output, min_matches)
         elif format in ('cyclonedx', 'cdx'):
             output_cyclonedx(batch_result, output, show_features)
+        elif format in ('kissbom', 'kiss'):
+            # Determine KISS BOM format type
+            kiss_format = 'json'  # Default
+            if output and output.endswith('.txt'):
+                kiss_format = 'table'
+            output_kissbom(batch_result, output, kiss_format)
         else:
             output_table(batch_result, min_matches, show_evidence, show_features, feature_limit)
         
@@ -1231,6 +1239,41 @@ def output_cyclonedx(batch_result: BatchAnalysisResult, output_path: Optional[st
         console.print(f"[cyan]SBOM contains {len(sbom_data.get('components', []))} components[/cyan]")
     else:
         console.print(sbom_json)
+
+
+def output_kissbom(batch_result: BatchAnalysisResult, output_path: Optional[str], format_type: str = 'json'):
+    """Output results as KISS BOM"""
+    from .output.kissbom_formatter import KissBomFormatter
+    
+    formatter = KissBomFormatter()
+    
+    # Convert BatchAnalysisResult to list of AnalysisResult
+    if hasattr(batch_result, 'results'):
+        # BatchAnalysisResult.results is a Dict[str, AnalysisResult]
+        results = list(batch_result.results.values())
+    else:
+        # Single result
+        results = [batch_result]
+    
+    kissbom_output = formatter.format_results(
+        results,
+        format_type=format_type,
+        include_optional=False
+    )
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(kissbom_output)
+        console.print(f"[green]KISS BOM saved to {output_path}[/green]")
+        
+        # Show summary
+        if format_type == 'json':
+            import json
+            kissbom_data = json.loads(kissbom_output)
+            component_count = len(kissbom_data.get('components', kissbom_data.get('all_components', [])))
+            console.print(f"[cyan]KISS BOM contains {component_count} components[/cyan]")
+    else:
+        console.print(kissbom_output)
 
 
 def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0):

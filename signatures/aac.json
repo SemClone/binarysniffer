@@ -1,0 +1,75 @@
+{
+  "component": {
+    "name": "AAC Audio Codec",
+    "version": "unknown",
+    "category": "codec",
+    "platforms": ["all"],
+    "languages": ["c", "c++"],
+    "description": "Advanced Audio Coding (AAC) codec",
+    "license": "Various",
+    "publisher": "ISO/IEC"
+  },
+  "confidence_threshold": 0.7,
+  "patterns": [
+    {
+      "pattern": "audio/aac",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "audio/mp4a",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "audio/aac-adts",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "audio/aac-loas",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "audio/aac-raw",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "MIME_AAC",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "aac_decode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "aac_encode",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "faac",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "faad",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "libfaac",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "libfaad",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "aacparse",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "AAC-LC",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "mp4a.40",
+      "confidence": 0.80
+    }
+  ]
+}
