@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.2] - 2025-08-08
+
+### Added
+- **Extended Archive Format Support** - Implemented support for additional archive formats (closes #12):
+  - 7z archives using py7zr library
+  - RAR archives using rarfile library  
+  - DEB packages (Debian/Ubuntu) with python-debian or ar command
+  - RPM packages (Red Hat/Fedora) with rpm2cpio or 7-Zip fallback
+- **Optional Archive Dependencies** - New `[archives]` install option for extended format support
+- **Intelligent Format Detection** - Automatic detection of required tools for each format
+- **Fallback Extraction** - Uses 7-Zip as fallback when Python libraries unavailable
+
+### Improved
+- **Archive Extractor** - Modular extraction methods for each archive type
+- **Error Handling** - Graceful degradation when optional tools not available
+- **Documentation** - Updated README with new format support and installation options
+
 ## [1.9.1] - 2025-08-08
 
 ### Added

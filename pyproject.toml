@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semantic-copycat-binarysniffer"
-version = "1.9.1"
+version = "1.9.2"
 description = "A high-performance CLI and library for detecting open source components in binaries through semantic signature matching"
 readme = "README.md"
 authors = [
@@ -48,6 +48,11 @@ fuzzy = [
 ]
 android = [
     "androguard>=3.3.5",
+]
+archives = [
+    "py7zr>=0.20.0",  # 7z archive support
+    "rarfile>=4.0",   # RAR archive support
+    "python-debian>=0.1.40",  # DEB package support
 ]
 dev = [
     "pytest>=7.0.0",

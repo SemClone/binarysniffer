@@ -39,6 +39,11 @@ class ArchiveExtractor(BaseExtractor):
         '.msi',
         # macOS installers (require 7-Zip)
         '.pkg', '.dmg',
+        # Package formats
+        '.deb', '.rpm',  # Linux packages
+        # Additional archive formats
+        '.7z', '.rar',  # Common archives
+        '.cpio', '.squashfs',  # Firmware/embedded formats
         # Other compression formats
         '.gz', '.bz2', '.xz', '.zst', '.vpkg'  # Added .zst and .vpkg for Zstandard
     }
@@ -61,9 +66,36 @@ class ArchiveExtractor(BaseExtractor):
         
         # Check standard archive extensions
         if suffix in self.ARCHIVE_EXTENSIONS:
-            # MSI, PKG, and DMG files require 7-Zip
+            # Some formats have special requirements
             if suffix in ['.msi', '.pkg', '.dmg']:
+                # MSI, PKG, and DMG files require 7-Zip
                 return self._seven_zip_path is not None
+            elif suffix == '.rpm':
+                # RPM requires rpm2cpio or 7-Zip
+                import subprocess
+                try:
+                    result = subprocess.run(['which', 'rpm2cpio'], capture_output=True)
+                    if result.returncode == 0:
+                        return True
+                except:
+                    pass
+                return self._seven_zip_path is not None
+            elif suffix == '.deb':
+                # DEB can be handled with ar command or python-debian
+                import subprocess
+                try:
+                    result = subprocess.run(['which', 'ar'], capture_output=True)
+                    if result.returncode == 0:
+                        return True
+                except:
+                    pass
+                try:
+                    import debian
+                    return True
+                except ImportError:
+                    pass
+                return self._seven_zip_path is not None
+            # Other formats can be handled with Python libraries
             return True
         
         # Check for NSIS installers (Windows .exe files)
@@ -312,11 +344,28 @@ class ArchiveExtractor(BaseExtractor):
     def _extract_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
         """Extract archive and return list of extracted files"""
         extracted_files = []
+        suffix = archive_path.suffix.lower()
         
         try:
             # Check for Zstandard compressed files first (.zst, .tar.zst, .vpkg)
-            if archive_path.suffix.lower() in ['.zst', '.vpkg'] or str(archive_path).lower().endswith('.tar.zst'):
+            if suffix in ['.zst', '.vpkg'] or str(archive_path).lower().endswith('.tar.zst'):
                 extracted_files = self._extract_zstd_archive(archive_path, extract_to)
+            
+            # 7z archives
+            elif suffix == '.7z':
+                extracted_files = self._extract_7z_archive(archive_path, extract_to)
+            
+            # RAR archives
+            elif suffix == '.rar':
+                extracted_files = self._extract_rar_archive(archive_path, extract_to)
+            
+            # DEB packages
+            elif suffix == '.deb':
+                extracted_files = self._extract_deb_archive(archive_path, extract_to)
+            
+            # RPM packages
+            elif suffix == '.rpm':
+                extracted_files = self._extract_rpm_archive(archive_path, extract_to)
                 
             elif zipfile.is_zipfile(archive_path):
                 # Handle ZIP-based archives
@@ -330,7 +379,7 @@ class ArchiveExtractor(BaseExtractor):
                     tar_file.extractall(extract_to)
                     extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
                     
-            elif self._seven_zip_path and archive_path.suffix.lower() in ['.exe', '.msi', '.pkg', '.dmg']:
+            elif self._seven_zip_path and suffix in ['.exe', '.msi', '.pkg', '.dmg']:
                 # Try to extract NSIS installer, MSI, PKG, or DMG with 7-Zip
                 extracted_files = self._extract_with_seven_zip(archive_path, extract_to)
                 if not extracted_files:
@@ -674,4 +723,112 @@ class ArchiveExtractor(BaseExtractor):
         except Exception as e:
             logger.error(f"7-Zip extraction error: {e}")
         
+        return []
+    
+    def _extract_7z_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract 7z archive using py7zr"""
+        try:
+            import py7zr
+            with py7zr.SevenZipFile(archive_path, mode='r') as z:
+                z.extractall(path=extract_to)
+            extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+            logger.info(f"Extracted {len(extracted_files)} files from 7z archive")
+            return extracted_files
+        except ImportError:
+            logger.warning("py7zr not installed, trying 7-Zip command")
+            if self._seven_zip_path:
+                return self._extract_with_seven_zip(archive_path, extract_to)
+        except Exception as e:
+            logger.error(f"Failed to extract 7z archive: {e}")
+        return []
+    
+    def _extract_rar_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract RAR archive using rarfile"""
+        try:
+            import rarfile
+            with rarfile.RarFile(archive_path) as rf:
+                rf.extractall(extract_to)
+            extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+            logger.info(f"Extracted {len(extracted_files)} files from RAR archive")
+            return extracted_files
+        except ImportError:
+            logger.warning("rarfile not installed, trying 7-Zip command")
+            if self._seven_zip_path:
+                return self._extract_with_seven_zip(archive_path, extract_to)
+        except Exception as e:
+            logger.error(f"Failed to extract RAR archive: {e}")
+        return []
+    
+    def _extract_deb_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract DEB package"""
+        try:
+            # DEB files are ar archives containing tar.gz files
+            # First try with python-debian if available
+            try:
+                from debian import debfile
+                deb = debfile.DebFile(str(archive_path))
+                # Extract data.tar.* which contains the actual files
+                data_tar = deb.data
+                if data_tar:
+                    data_tar.extractall(extract_to)
+                # Also extract control information
+                control_tar = deb.control
+                if control_tar:
+                    control_dir = extract_to / 'DEBIAN'
+                    control_dir.mkdir(exist_ok=True)
+                    control_tar.extractall(control_dir)
+            except ImportError:
+                # Fallback: DEB is an ar archive, extract with ar command
+                import subprocess
+                # Extract with ar
+                subprocess.run(['ar', 'x', str(archive_path)], cwd=extract_to, check=True)
+                # Extract data.tar.* 
+                for data_file in extract_to.glob('data.tar*'):
+                    with tarfile.open(data_file, 'r:*') as tar:
+                        tar.extractall(extract_to)
+                    data_file.unlink()  # Clean up tar file
+                # Extract control.tar.*
+                for control_file in extract_to.glob('control.tar*'):
+                    control_dir = extract_to / 'DEBIAN'
+                    control_dir.mkdir(exist_ok=True)
+                    with tarfile.open(control_file, 'r:*') as tar:
+                        tar.extractall(control_dir)
+                    control_file.unlink()  # Clean up tar file
+            
+            extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+            logger.info(f"Extracted {len(extracted_files)} files from DEB package")
+            return extracted_files
+        except Exception as e:
+            logger.error(f"Failed to extract DEB package: {e}")
+        return []
+    
+    def _extract_rpm_archive(self, archive_path: Path, extract_to: Path) -> List[Path]:
+        """Extract RPM package"""
+        try:
+            # RPM extraction using rpm2cpio and cpio
+            import subprocess
+            
+            # Convert RPM to CPIO and extract
+            rpm2cpio = subprocess.Popen(['rpm2cpio', str(archive_path)], stdout=subprocess.PIPE)
+            cpio = subprocess.Popen(['cpio', '-idmv'], stdin=rpm2cpio.stdout, cwd=extract_to, 
+                                  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            rpm2cpio.stdout.close()
+            output, error = cpio.communicate()
+            
+            if cpio.returncode != 0:
+                logger.error(f"RPM extraction failed: {error.decode()}")
+                # Try with 7-Zip as fallback
+                if self._seven_zip_path:
+                    return self._extract_with_seven_zip(archive_path, extract_to)
+                return []
+            
+            extracted_files = sorted([f for f in extract_to.rglob('*') if f.is_file()])
+            logger.info(f"Extracted {len(extracted_files)} files from RPM package")
+            return extracted_files
+        except FileNotFoundError:
+            logger.warning("rpm2cpio not found, trying 7-Zip")
+            if self._seven_zip_path:
+                return self._extract_with_seven_zip(archive_path, extract_to)
+        except Exception as e:
+            logger.error(f"Failed to extract RPM package: {e}")
         return []

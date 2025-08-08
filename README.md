@@ -38,13 +38,15 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Progress Indication**: Real-time progress bars for long analysis operations
 - **New Component Signatures**: OkHttp, OpenSSL, SQLite, ICU, FreeType, WebKit
 
-### Archive Support (Zstandard added in v1.8.7)
+### Archive Support (Extended in v1.9.2)
 - **Android APK Analysis**: Extract and analyze AndroidManifest.xml, DEX files, native libraries
 - **iOS IPA Analysis**: Parse Info.plist, detect frameworks, analyze executables
 - **Java Archive Support**: Process JAR/WAR files with MANIFEST.MF parsing and package detection
 - **Python Package Support**: Analyze wheels (.whl) and eggs (.egg) with metadata extraction
-- **Nested Archive Processing**: Handle archives containing other archives
-- **Comprehensive Format Support**: ZIP, TAR, 7z, Zstandard (.zst, .tar.zst), and compound formats
+- **Linux Package Support**: DEB (Debian/Ubuntu) and RPM (Red Hat/Fedora) packages
+- **Extended Archive Formats**: 7z, RAR, Zstandard (.zst, .tar.zst), CPIO
+- **Nested Archive Processing**: Handle archives containing other archives (up to 5 levels)
+- **Intelligent Extraction**: Prioritizes binaries, bytecode, and source files for analysis
 
 ### Enhanced Source Analysis
 - **CTags Integration**: Advanced source code analysis when universal-ctags is available
@@ -82,6 +84,18 @@ pip install semantic-copycat-binarysniffer[fast]
 ```bash
 # Includes TLSH for detecting modified/recompiled components
 pip install semantic-copycat-binarysniffer[fuzzy]
+```
+
+### With Extended Archive Support
+```bash
+# Includes support for 7z, RAR, DEB, RPM formats
+pip install semantic-copycat-binarysniffer[archives]
+```
+
+### With Android APK Analysis
+```bash
+# Includes Androguard for advanced APK analysis
+pip install semantic-copycat-binarysniffer[android]
 ```
 
 ## Optional Tools for Enhanced Format Support
