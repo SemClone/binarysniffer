@@ -275,6 +275,37 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                 
                 progress.update(task, completed=len(results))
         
+        # Add license detection if requested
+        if license_focus or license_only:
+            # Perform license analysis
+            license_result = sniffer.analyze_licenses(path, include_dependencies=True)
+            
+            if license_only:
+                # Replace results with only license information
+                console.print("\n[bold]License Detection Results:[/bold]")
+                output_license_table(license_result, check_compatibility=True, show_files=False)
+                return
+            else:
+                # Add license information to existing results
+                console.print("\n[bold cyan]Additional License Information:[/bold cyan]")
+                if license_result['licenses_detected']:
+                    console.print(f"Detected licenses: {', '.join(license_result['licenses_detected'])}")
+                    
+                    # Add license information to each result
+                    for file_path, result in batch_result.results.items():
+                        # Check if this file has license detections
+                        file_licenses = []
+                        for license_id, details in license_result.get('license_details', {}).items():
+                            if file_path in details.get('files', []):
+                                file_licenses.append(license_id)
+                        
+                        # Add to result metadata
+                        if file_licenses and not result.error:
+                            if not hasattr(result, 'detected_licenses'):
+                                result.detected_licenses = file_licenses
+                else:
+                    console.print("[yellow]No licenses detected[/yellow]")
+        
         # Add file hashes if requested
         if include_hashes or include_fuzzy_hashes:
             from binarysniffer.utils.file_metadata import calculate_file_hashes
@@ -960,6 +991,10 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         console.print(f"  File type: {result.file_type}")
         console.print(f"  Features extracted: {result.features_extracted}")
         console.print(f"  Analysis time: {result.analysis_time:.3f}s")
+        
+        # Show detected licenses if available
+        if hasattr(result, 'detected_licenses') and result.detected_licenses:
+            console.print(f"  [cyan]Detected licenses: {', '.join(result.detected_licenses)}[/cyan]")
         
         # Display extracted features if requested
         if show_features and result.extracted_features:
