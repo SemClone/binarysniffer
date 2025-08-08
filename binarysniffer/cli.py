@@ -238,6 +238,14 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                     include_fuzzy_hashes=include_fuzzy_hashes
                 )
             results = {str(path): result}
+            # Create BatchAnalysisResult for single file
+            batch_result = BatchAnalysisResult(
+                results=results,
+                total_files=1,
+                successful_files=1 if not result.error else 0,
+                failed_files=1 if result.error else 0,
+                total_time=time.time() - start_time
+            )
         else:
             # Directory analysis
             with Progress(
@@ -250,13 +258,14 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             ) as progress:
                 task = progress.add_task("Analyzing files...", total=None)
                 
-                results = sniffer.analyze_directory(
+                batch_result = sniffer.analyze_directory(
                     path,
                     recursive=recursive,
                     file_patterns=list(patterns) if patterns else None,
                     confidence_threshold=threshold,
                     parallel=parallel
                 )
+                results = batch_result.results
                 
                 progress.update(task, completed=len(results))
         
@@ -273,11 +282,9 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                     except Exception as e:
                         logger.debug(f"Failed to calculate hashes for {file_path}: {e}")
         
-        # Create batch result
-        batch_result = BatchAnalysisResult.from_results(
-            results,
-            time.time() - start_time
-        )
+        # Update batch result with timing if needed
+        if not hasattr(batch_result, 'total_time'):
+            batch_result.total_time = time.time() - start_time
         
         # Save features to file if requested
         if save_features:

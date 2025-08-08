@@ -383,16 +383,36 @@ class SymbolExtractor:
         
         # If specific component requested, filter
         if component_name:
+            # First try exact match
             if component_name in components:
                 components = {component_name: components[component_name]}
             else:
-                # Try to find all symbols that might belong to this component
-                component_symbols = set()
-                for symbol in symbols['all']:
-                    if component_name.lower() in symbol.lower():
-                        component_symbols.add(symbol)
-                if component_symbols:
-                    components = {component_name: component_symbols}
+                # Try case-insensitive match
+                found = False
+                for comp_name in list(components.keys()):
+                    if comp_name.lower() == component_name.lower():
+                        components = {component_name: components[comp_name]}
+                        found = True
+                        break
+                    # Also try if component_name is part of comp_name or vice versa
+                    elif component_name.lower() in comp_name.lower() or comp_name.lower() in component_name.lower():
+                        components = {component_name: components[comp_name]}
+                        found = True
+                        break
+                
+                if not found:
+                    # Try to find all symbols that might belong to this component
+                    component_symbols = set()
+                    # Remove common prefixes like "lib" when searching
+                    search_name = component_name.lower()
+                    if search_name.startswith('lib'):
+                        search_name = search_name[3:]
+                    
+                    for symbol in symbols['all']:
+                        if search_name in symbol.lower():
+                            component_symbols.add(symbol)
+                    if component_symbols:
+                        components = {component_name: component_symbols}
         
         # Generate signatures for each component
         signatures = {}

@@ -13,14 +13,14 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Smart Compression**: ZSTD-compressed signatures with ~90% size reduction
 - **Low Memory Footprint**: Streaming analysis with <100MB memory usage
 
-### SBOM Export Support (NEW in v1.8.6)
+### SBOM Export Support (v1.8.6+)
 - **CycloneDX Format**: Industry-standard SBOM export for security and compliance toolchains
 - **File Path Tracking**: Evidence includes file paths for component location tracking
 - **Feature Extraction**: Optional feature dump for signature recreation
 - **Confidence Scores**: All detections include confidence levels in SBOM
 - **Multi-file Support**: Aggregate SBOM for entire projects
 
-### Package Inventory Extraction (NEW in v1.8.6)
+### Package Inventory Extraction (v1.8.6+)
 - **Comprehensive File Enumeration**: Extract complete file listings from archives
 - **Rich Metadata**: MIME types, compression ratios, file sizes, timestamps
 - **Hash Calculation**: MD5, SHA1, SHA256 for integrity verification
@@ -36,13 +36,13 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Progress Indication**: Real-time progress bars for long analysis operations
 - **New Component Signatures**: OkHttp, OpenSSL, SQLite, ICU, FreeType, WebKit
 
-### Archive Support
+### Archive Support (Zstandard added in v1.8.7)
 - **Android APK Analysis**: Extract and analyze AndroidManifest.xml, DEX files, native libraries
 - **iOS IPA Analysis**: Parse Info.plist, detect frameworks, analyze executables
 - **Java Archive Support**: Process JAR/WAR files with MANIFEST.MF parsing and package detection
 - **Python Package Support**: Analyze wheels (.whl) and eggs (.egg) with metadata extraction
 - **Nested Archive Processing**: Handle archives containing other archives
-- **Comprehensive Format Support**: ZIP, TAR, 7z, and compound formats
+- **Comprehensive Format Support**: ZIP, TAR, 7z, Zstandard (.zst, .tar.zst), and compound formats
 
 ### Enhanced Source Analysis
 - **CTags Integration**: Advanced source code analysis when universal-ctags is available
@@ -238,7 +238,7 @@ for match in result.matches:
         print(f"Fuzzy match: {match.component} (similarity: {match.confidence:.0%})")
 ```
 
-### SBOM Export (NEW in v1.8.6)
+### SBOM Export (v1.8.6+)
 
 Generate Software Bill of Materials in CycloneDX format for integration with security and compliance tools:
 
@@ -260,7 +260,7 @@ The SBOM includes:
 - Evidence details including matched patterns
 - Optional extracted features for signature recreation
 
-### Package Inventory Extraction (NEW in v1.8.6)
+### Package Inventory Extraction (v1.8.6+)
 
 Extract comprehensive file inventories from packages with metadata, hashes, and component detection:
 

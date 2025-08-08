@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from ..storage.database import SignatureDatabase
 from .config import Config
-from .results import AnalysisResult
+from .results import AnalysisResult, BatchAnalysisResult
 
 
 logger = logging.getLogger(__name__)
@@ -70,7 +70,7 @@ class BaseAnalyzer:
         file_patterns: Optional[List[str]] = None,
         confidence_threshold: Optional[float] = None,
         parallel: bool = True
-    ) -> Dict[str, AnalysisResult]:
+    ) -> BatchAnalysisResult:
         """
         Analyze all files in a directory.
         
@@ -82,7 +82,7 @@ class BaseAnalyzer:
             parallel: Use parallel processing
             
         Returns:
-            Dictionary mapping file paths to results
+            BatchAnalysisResult containing all file results
         """
         directory_path = Path(directory_path)
         if not directory_path.is_dir():
@@ -93,6 +93,9 @@ class BaseAnalyzer:
         logger.info(f"Found {len(files)} files to analyze")
         
         results = {}
+        successful = 0
+        failed = 0
+        total_time = 0.0
         
         if parallel and len(files) > 1:
             # Parallel processing
@@ -111,8 +114,15 @@ class BaseAnalyzer:
                     try:
                         result = future.result()
                         results[str(file_path)] = result
+                        total_time += result.analysis_time
+                        if result.error:
+                            failed += 1
+                        else:
+                            successful += 1
                     except Exception as e:
                         logger.error(f"Error analyzing {file_path}: {e}")
+                        failed += 1
+                        # Create error result
                         results[str(file_path)] = AnalysisResult.create_error(
                             str(file_path), str(e)
                         )
@@ -120,17 +130,31 @@ class BaseAnalyzer:
             # Sequential processing
             for file_path in files:
                 try:
-                    results[str(file_path)] = self.analyze_file(
+                    result = self.analyze_file(
                         file_path, 
                         confidence_threshold
                     )
+                    results[str(file_path)] = result
+                    total_time += result.analysis_time
+                    if result.error:
+                        failed += 1
+                    else:
+                        successful += 1
                 except Exception as e:
                     logger.error(f"Error analyzing {file_path}: {e}")
+                    failed += 1
                     results[str(file_path)] = AnalysisResult.create_error(
                         str(file_path), str(e)
                     )
         
-        return results
+        # Create and return BatchAnalysisResult
+        return BatchAnalysisResult(
+            results=results,
+            total_files=len(files),
+            successful_files=successful,
+            failed_files=failed,
+            total_time=total_time
+        )
     
     def _collect_files(
         self,

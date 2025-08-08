@@ -86,11 +86,12 @@ class TestBinarySniffer:
         (temp_dir / "file2.bin").write_bytes(b'\x00\x01\x02test\x00')
         
         # Analyze directory
-        results = sniffer.analyze_directory(temp_dir, recursive=False)
+        batch_result = sniffer.analyze_directory(temp_dir, recursive=False)
         
-        # Verify
-        assert len(results) == 2
-        assert all(isinstance(r, AnalysisResult) for r in results.values())
+        # Verify - BatchAnalysisResult has a results dict
+        assert batch_result.total_files == 2
+        assert len(batch_result.results) == 2
+        assert all(isinstance(r, AnalysisResult) for r in batch_result.results.values())
     
     def test_analyze_with_patterns(self, sniffer, temp_dir):
         """Test analyzing with file patterns"""
@@ -100,14 +101,15 @@ class TestBinarySniffer:
         (temp_dir / "test.so").write_bytes(b'\x7fELF')
         
         # Analyze only .exe and .so files
-        results = sniffer.analyze_directory(
+        batch_result = sniffer.analyze_directory(
             temp_dir,
             file_patterns=["*.exe", "*.so"]
         )
         
         # Verify
-        assert len(results) == 2
-        assert str(temp_dir / "test.txt") not in results
+        assert batch_result.total_files == 2
+        assert len(batch_result.results) == 2
+        assert str(temp_dir / "test.txt") not in batch_result.results
     
     def test_batch_analysis(self, sniffer, temp_dir):
         """Test batch analysis"""
@@ -133,20 +135,21 @@ class TestBinarySniffer:
             (temp_dir / f"file{i}.bin").write_bytes(b'test' * 100)
         
         # Test parallel
-        results_parallel = sniffer.analyze_directory(
+        batch_parallel = sniffer.analyze_directory(
             temp_dir,
             parallel=True
         )
         
         # Test sequential
-        results_sequential = sniffer.analyze_directory(
+        batch_sequential = sniffer.analyze_directory(
             temp_dir,
             parallel=False
         )
         
         # Results should be the same
-        assert len(results_parallel) == len(results_sequential)
-        assert set(results_parallel.keys()) == set(results_sequential.keys())
+        assert batch_parallel.total_files == batch_sequential.total_files
+        assert len(batch_parallel.results) == len(batch_sequential.results)
+        assert set(batch_parallel.results.keys()) == set(batch_sequential.results.keys())
     
     def test_confidence_threshold(self, sniffer, temp_dir):
         """Test confidence threshold filtering"""

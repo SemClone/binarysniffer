@@ -44,7 +44,7 @@ class TestCLI:
         """Test analyze command help"""
         result = runner.invoke(cli, ['analyze', '--help'])
         assert result.exit_code == 0
-        assert 'Analyze files for OSS components' in result.output
+        assert 'Analyze files for open source components' in result.output
         assert '--threshold' in result.output
         assert '--format' in result.output
     

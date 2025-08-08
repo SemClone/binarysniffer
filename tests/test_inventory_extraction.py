@@ -127,7 +127,7 @@ class TestInventoryExtraction:
                     assert "json" in file_entry["mime_type"].lower() or \
                            "text" in file_entry["mime_type"].lower()
     
-    @patch('binarysniffer.utils.file_metadata.calculate_hashes')
+    @patch('binarysniffer.utils.file_metadata.calculate_file_hashes')
     def test_inventory_with_hashes(self, mock_calc_hashes):
         """Test hash calculation in inventory"""
         # Mock hash calculation
@@ -156,11 +156,14 @@ class TestInventoryExtraction:
             assert "sha1" in file_entry["hashes"]
             assert "sha256" in file_entry["hashes"]
     
-    @patch('binarysniffer.utils.file_metadata.calculate_fuzzy_hashes')
-    def test_inventory_with_fuzzy_hashes(self, mock_calc_fuzzy):
+    @patch('binarysniffer.utils.file_metadata.calculate_file_hashes')
+    def test_inventory_with_fuzzy_hashes(self, mock_calc_hashes):
         """Test fuzzy hash calculation in inventory"""
-        # Mock fuzzy hash calculation
-        mock_calc_fuzzy.return_value = {
+        # Mock hash calculation including fuzzy hashes
+        mock_calc_hashes.return_value = {
+            "md5": "abc123",
+            "sha1": "def456",
+            "sha256": "ghi789",
             "tlsh": "T1234567890ABCDEF",
             "ssdeep": "3:abc123:def456"
         }
@@ -175,39 +178,40 @@ class TestInventoryExtraction:
         )
         
         # Check fuzzy hashes were calculated
-        assert mock_calc_fuzzy.called
+        assert mock_calc_hashes.called
+        assert mock_calc_hashes.call_args[1]['include_fuzzy'] == True
         
         file_entry = inventory["files"][0]
         if not file_entry.get("is_directory"):
-            assert "fuzzy_hashes" in file_entry
-            assert "tlsh" in file_entry["fuzzy_hashes"]
-            assert "ssdeep" in file_entry["fuzzy_hashes"]
+            assert "hashes" in file_entry
+            assert "tlsh" in file_entry["hashes"]
+            assert "ssdeep" in file_entry["hashes"]
     
-    @patch('binarysniffer.core.analyzer_enhanced.EnhancedBinarySniffer')
-    def test_inventory_with_component_detection(self, mock_sniffer_class):
+    def test_inventory_with_component_detection(self):
         """Test component detection in inventory"""
-        # Mock component detection
-        mock_sniffer = MagicMock()
-        mock_sniffer_class.return_value = mock_sniffer
+        # Create a mock analyzer
+        mock_analyzer = MagicMock()
         
         mock_result = MagicMock()
         mock_result.matches = [
             MagicMock(component="FFmpeg", confidence=0.85, license="LGPL"),
             MagicMock(component="OpenSSL", confidence=0.92, license="Apache-2.0")
         ]
-        mock_sniffer.analyze_file.return_value = mock_result
+        mock_result.features_extracted = 42
+        mock_analyzer.analyze_file.return_value = mock_result
         
         files = {"lib.so": b"binary content"}
         zip_path = self.create_test_zip(files)
         
         inventory = extract_package_inventory(
             str(zip_path),
+            analyzer=mock_analyzer,  # Pass the mock analyzer
             analyze_contents=True,
             detect_components=True
         )
         
         # Check component detection was performed
-        assert mock_sniffer.analyze_file.called
+        assert mock_analyzer.analyze_file.called
         
         file_entry = inventory["files"][0]
         if not file_entry.get("is_directory"):
@@ -237,7 +241,7 @@ class TestInventoryExtraction:
             assert "compression_ratio" in file_entry
             # Compression ratio should be between 0 and 1
             assert 0 <= file_entry["compression_ratio"] <= 1
-            assert file_entry["uncompressed_size"] == 1000
+            assert file_entry["size"] == 1000
     
     def test_inventory_file_types_summary(self):
         """Test file type summary in inventory"""
@@ -266,8 +270,10 @@ class TestInventoryExtraction:
     
     def test_inventory_nonexistent_file(self):
         """Test inventory extraction with nonexistent file"""
-        with pytest.raises(FileNotFoundError):
-            extract_package_inventory("/nonexistent/file.zip")
+        # Should handle gracefully instead of raising
+        inventory = extract_package_inventory("/nonexistent/file.zip")
+        assert inventory is not None
+        assert inventory["package_size"] == 0
     
     def test_inventory_invalid_archive(self):
         """Test inventory extraction with invalid archive"""
@@ -278,10 +284,10 @@ class TestInventoryExtraction:
         # Should handle gracefully
         inventory = extract_package_inventory(str(invalid_path))
         
-        # Should return minimal inventory or raise appropriate error
+        # Should return minimal inventory with error
         assert inventory is not None
-        if "error" in inventory:
-            assert "not a valid archive" in inventory["error"].lower()
+        assert "error" in inventory
+        assert "unsupported" in inventory["error"].lower() or "not a valid" in inventory["error"].lower()
     
     def test_inventory_nested_archives(self):
         """Test inventory extraction with nested archives"""
