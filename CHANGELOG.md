@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.4] - 2025-08-11
+
+### Fixed
+- **Codec Signature Import** - Fixed critical bug where codec signatures (H.264, AAC, Dolby, etc.) were not being imported
+- **JSON Pattern Support** - SignatureManager now handles both "signatures" and "patterns" keys in JSON files
+- **Multimedia Detection** - Now properly detects GStreamer, GLib, and all video/audio codecs in packages
+
+### Improved
+- **Signature Count** - Increased from 1,193 to 1,324 signatures with proper codec imports
+- **Detection Accuracy** - Significantly improved detection of multimedia components in vpkg and archive files
+
 ## [1.9.3] - 2025-08-11
 
 ### Fixed

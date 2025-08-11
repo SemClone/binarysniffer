@@ -270,8 +270,8 @@ class SignatureManager:
             metadata=json.loads(component_data['metadata']) if component_data['metadata'] else None
         )
         
-        # Add signatures from new format
-        signatures = signature_data.get("signatures", [])
+        # Add signatures from new format (handle both "signatures" and "patterns" keys)
+        signatures = signature_data.get("signatures", signature_data.get("patterns", []))
         imported_count = 0
         
         for sig_entry in signatures:

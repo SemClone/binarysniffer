@@ -6,22 +6,22 @@ A high-performance CLI tool and Python library for detecting open source compone
 ## Features
 
 ### Core Analysis
-- **TLSH Fuzzy Matching**: Detect modified, recompiled, or patched OSS components (NEW in v1.8.0)
-- **Deterministic Results**: Consistent analysis results across multiple runs (NEW in v1.6.3)
+- **Fuzzy Matching**: Detect modified, recompiled, or patched OSS components using TLSH
+- **Deterministic Results**: Consistent analysis results across multiple runs
 - **Fast Local Analysis**: SQLite-based signature storage with optimized direct matching
 - **Efficient Matching**: MinHash LSH for similarity detection, trigram indexing for substring matching
 - **Dual Interface**: Use as CLI tool or Python library
 - **Smart Compression**: ZSTD-compressed signatures with ~90% size reduction
 - **Low Memory Footprint**: Streaming analysis with <100MB memory usage
 
-### SBOM Export Support (v1.8.6+)
+### SBOM Export Support
 - **CycloneDX Format**: Industry-standard SBOM export for security and compliance toolchains
 - **File Path Tracking**: Evidence includes file paths for component location tracking
 - **Feature Extraction**: Optional feature dump for signature recreation
 - **Confidence Scores**: All detections include confidence levels in SBOM
 - **Multi-file Support**: Aggregate SBOM for entire projects
 
-### Package Inventory Extraction (v1.8.6+)
+### Package Inventory Extraction
 - **Comprehensive File Enumeration**: Extract complete file listings from archives
 - **Rich Metadata**: MIME types, compression ratios, file sizes, timestamps
 - **Hash Calculation**: MD5, SHA1, SHA256 for integrity verification
@@ -29,37 +29,36 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Component Detection**: Run OSS detection on individual files within packages
 - **Multiple Export Formats**: JSON, CSV, tree visualization, summary reports
 
-### Enhanced Binary Analysis (v1.6.0+)
-- **LIEF Integration**: Advanced ELF/PE/Mach-O analysis with symbol and import extraction
-- **Static Library Support** (v1.8.8): Parse and analyze .a archives, examining each object file separately
+### Binary Analysis
+- **Advanced Format Support**: ELF, PE, Mach-O analysis with symbol and import extraction via LIEF
+- **Static Library Support**: Parse and analyze .a archives, examining each object file separately
 - **Android DEX Support**: Specialized extractor for DEX bytecode files
-- **Improved APK Detection**: 25+ components detected vs 1 previously (152K features extracted)
+- **Improved Detection**: 25+ components detected in APK files with 152K+ features extracted
 - **Substring Matching**: Detects components even with partial pattern matches
 - **Progress Indication**: Real-time progress bars for long analysis operations
-- **New Component Signatures**: OkHttp, OpenSSL, SQLite, ICU, FreeType, WebKit
 
-### Archive Support (Extended in v1.9.2)
-- **Android APK Analysis**: Extract and analyze AndroidManifest.xml, DEX files, native libraries
-- **iOS IPA Analysis**: Parse Info.plist, detect frameworks, analyze executables
-- **Java Archive Support**: Process JAR/WAR files with MANIFEST.MF parsing and package detection
-- **Python Package Support**: Analyze wheels (.whl) and eggs (.egg) with metadata extraction
-- **Linux Package Support**: DEB (Debian/Ubuntu) and RPM (Red Hat/Fedora) packages
-- **Extended Archive Formats**: 7z, RAR, Zstandard (.zst, .tar.zst), CPIO
-- **Nested Archive Processing**: Handle archives containing other archives (up to 5 levels)
+### Archive Support
+- **Mobile Applications**: Android APK and iOS IPA with manifest parsing and native library analysis
+- **Java Archives**: JAR/WAR files with MANIFEST.MF parsing and package detection
+- **Python Packages**: Wheels (.whl) and eggs (.egg) with metadata extraction
+- **Linux Packages**: DEB (Debian/Ubuntu) and RPM (Red Hat/Fedora) packages
+- **Extended Formats**: 7z, RAR, Zstandard (.zst, .tar.zst), CPIO
+- **Nested Archives**: Handle archives containing other archives (up to 5 levels deep)
 - **Intelligent Extraction**: Prioritizes binaries, bytecode, and source files for analysis
 
-### Enhanced Source Analysis
+### Source Code Analysis
 - **CTags Integration**: Advanced source code analysis when universal-ctags is available
 - **Multi-language Support**: C/C++, Python, Java, JavaScript, Go, Rust, PHP, Swift, Kotlin
 - **Semantic Symbol Extraction**: Functions, classes, structs, constants, and dependencies
 - **Graceful Fallback**: Regex-based extraction when CTags is unavailable
 
-### Signature Database (v1.9.0+)
-- **173 OSS Components**: Expanded coverage including system libraries, compression tools, and multimedia codecs
-- **1,197 Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
-- **System Library Support**: Added libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, and Opus
+### Signature Database
+- **179 OSS Components**: Comprehensive coverage including libraries, frameworks, and multimedia codecs
+- **1,324 Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
+- **Multimedia Support**: H.264/H.265, AAC, Dolby, AV1, GStreamer, GLib, FFmpeg components
+- **System Libraries**: libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, Opus
 - **License Detection**: Automatic license identification for detected components
-- **Metadata Rich**: Publisher, version, and ecosystem information for each component
+- **Rich Metadata**: Publisher, version, and ecosystem information for each component
 
 ## Installation
 
