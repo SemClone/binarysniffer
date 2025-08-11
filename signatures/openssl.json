@@ -13,17 +13,8 @@
     "license": "Apache-2.0",
     "publisher": "OpenSSL Project"
   },
-  "signature_metadata": {
-    "version": "3.0.0",
-    "created": "2025-01-06T00:00:00Z",
-    "updated": "2025-01-06T00:00:00Z",
-    "signature_count": 100,
-    "confidence_threshold": 0.7,
-    "source": "binary_extraction_and_pattern_analysis",
-    "extraction_method": "string_analysis",
-    "notes": "Merged comprehensive OpenSSL signatures from binary extraction and pattern analysis"
-  },
-  "signatures": [
+  "confidence_threshold": 0.7,
+  "patterns": [
     {
       "id": "openssl_1",
       "type": "string_pattern",
@@ -1020,6 +1011,363 @@
       "pattern": "CRYPTO_THREADID_set_callback",
       "confidence": 0.9,
       "context": "function_name",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_0",
+      "type": "string_pattern",
+      "pattern": "OpenSSL_version_num",
+      "confidence": 0.95,
+      "context": "function",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL version number function"
+    },
+    {
+      "id": "openssl_spec_1",
+      "type": "string_pattern",
+      "pattern": "OPENSSL_VERSION_TEXT",
+      "confidence": 0.95,
+      "context": "constant",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_2",
+      "type": "string_pattern",
+      "pattern": "OPENSSL_init_crypto",
+      "confidence": 0.93,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_3",
+      "type": "string_pattern",
+      "pattern": "OPENSSL_init_ssl",
+      "confidence": 0.93,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_4",
+      "type": "string_pattern",
+      "pattern": "SSL_CTX_new",
+      "confidence": 0.9,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_5",
+      "type": "string_pattern",
+      "pattern": "SSL_CTX_set_verify",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_6",
+      "type": "string_pattern",
+      "pattern": "EVP_CIPHER_CTX_new",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_7",
+      "type": "string_pattern",
+      "pattern": "EVP_MD_CTX_new",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_8",
+      "type": "string_pattern",
+      "pattern": "EVP_PKEY_CTX_new",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_9",
+      "type": "string_pattern",
+      "pattern": "X509_STORE_CTX_new",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_10",
+      "type": "string_pattern",
+      "pattern": "X509_verify_cert",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_11",
+      "type": "string_pattern",
+      "pattern": "BIO_new_file",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_12",
+      "type": "string_pattern",
+      "pattern": "BIO_s_mem",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_13",
+      "type": "string_pattern",
+      "pattern": "BN_CTX_new",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_14",
+      "type": "string_pattern",
+      "pattern": "BN_bin2bn",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_15",
+      "type": "string_pattern",
+      "pattern": "ENGINE_load_builtin_engines",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_16",
+      "type": "string_pattern",
+      "pattern": "ENGINE_register_all_complete",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_17",
+      "type": "string_pattern",
+      "pattern": "ERR_load_crypto_strings",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_18",
+      "type": "string_pattern",
+      "pattern": "ERR_get_error",
+      "confidence": 0.85,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_19",
+      "type": "string_pattern",
+      "pattern": "PEM_read_bio_PrivateKey",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_20",
+      "type": "string_pattern",
+      "pattern": "PEM_write_bio_PUBKEY",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_21",
+      "type": "string_pattern",
+      "pattern": "ASN1_STRING_to_UTF8",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_22",
+      "type": "string_pattern",
+      "pattern": "ASN1_TIME_adj",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_23",
+      "type": "string_pattern",
+      "pattern": "RAND_load_file",
+      "confidence": 0.86,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_24",
+      "type": "string_pattern",
+      "pattern": "RAND_seed",
+      "confidence": 0.85,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_25",
+      "type": "string_pattern",
+      "pattern": "libcrypto-lib-",
+      "confidence": 0.92,
+      "context": "object_file_prefix",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL libcrypto object file prefix"
+    },
+    {
+      "id": "openssl_spec_26",
+      "type": "string_pattern",
+      "pattern": "libssl-lib-",
+      "confidence": 0.92,
+      "context": "object_file_prefix",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL libssl object file prefix"
+    },
+    {
+      "id": "openssl_spec_27",
+      "type": "string_pattern",
+      "pattern": "OSSL_PARAM_construct",
+      "confidence": 0.9,
+      "context": "function",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL 3.x parameter construction"
+    },
+    {
+      "id": "openssl_spec_28",
+      "type": "string_pattern",
+      "pattern": "OSSL_PROVIDER_load",
+      "confidence": 0.9,
+      "context": "function",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL 3.x provider loading"
+    },
+    {
+      "id": "openssl_spec_29",
+      "type": "string_pattern",
+      "pattern": "ossl_prov_",
+      "confidence": 0.88,
+      "context": "function_prefix",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL 3.x provider functions"
+    },
+    {
+      "id": "openssl_spec_30",
+      "type": "string_pattern",
+      "pattern": "d2i_X509",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_31",
+      "type": "string_pattern",
+      "pattern": "i2d_X509",
+      "confidence": 0.87,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_32",
+      "type": "string_pattern",
+      "pattern": "sk_X509_",
+      "confidence": 0.86,
+      "context": "function_prefix",
+      "platforms": [
+        "all"
+      ],
+      "description": "OpenSSL X509 stack functions"
+    },
+    {
+      "id": "openssl_spec_33",
+      "type": "string_pattern",
+      "pattern": "EC_GROUP_new_by_curve_name",
+      "confidence": 0.88,
+      "context": "function",
+      "platforms": [
+        "all"
+      ]
+    },
+    {
+      "id": "openssl_spec_34",
+      "type": "string_pattern",
+      "pattern": "EC_KEY_generate_key",
+      "confidence": 0.88,
+      "context": "function",
       "platforms": [
         "all"
       ]

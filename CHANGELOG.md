@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.5] - 2025-08-11
+
+### Fixed
+- **Signature Status Command** - Fixed pattern counting to handle both "signatures" and "patterns" keys in verification
+- **OpenSSL Signatures** - Merged openssl.json and openssl-specific.json into single file with 135 patterns
+
+### Improved
+- **Signature Organization** - Eliminated redundant signature files for cleaner structure
+- **Status Display** - No more false mismatch warnings for properly imported signatures
+
 ## [1.9.4] - 2025-08-11
 
 ### Fixed
@@ -15,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Improved
 - **Signature Count** - Increased from 1,193 to 1,324 signatures with proper codec imports
 - **Detection Accuracy** - Significantly improved detection of multimedia components in vpkg and archive files
+- **README** - Simplified Features section and removed version annotations
 
 ## [1.9.3] - 2025-08-11
 

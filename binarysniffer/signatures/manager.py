@@ -426,7 +426,8 @@ class SignatureManager:
                         data = json.load(f)
                     
                     component_name = data.get('component', {}).get('name', 'Unknown')
-                    sig_count = len(data.get('signatures', []))
+                    # Handle both 'signatures' and 'patterns' keys
+                    sig_count = len(data.get('signatures', data.get('patterns', [])))
                     result['files'][component_name] = {
                         'file': json_file.name,
                         'signatures': sig_count
