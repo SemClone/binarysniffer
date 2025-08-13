@@ -12,33 +12,57 @@ class SignatureValidator:
     # Common generic terms that appear in many projects
     GENERIC_TERMS = {
         # Common programming terms
-        'error', 'warning', 'info', 'debug', 'log', 'logger', 'logging',
-        'test', 'tests', 'testing', 'assert', 'check', 'verify',
-        'init', 'create', 'destroy', 'free', 'alloc', 'malloc',
-        'get', 'set', 'add', 'remove', 'delete', 'clear',
-        'start', 'stop', 'run', 'execute', 'process',
-        'read', 'write', 'open', 'close', 'load', 'save',
-        'send', 'receive', 'connect', 'disconnect',
-        'data', 'buffer', 'string', 'array', 'list', 'vector',
-        'error', 'exception', 'throw', 'catch', 'try',
-        'public', 'private', 'static', 'const', 'final',
-        'class', 'struct', 'function', 'method', 'void',
-        'true', 'false', 'null', 'none', 'nil',
-        'main', 'app', 'application', 'program', 'system',
-        'version', 'config', 'settings', 'options', 'params',
+        'error', 'warning', 'info', 'debug', 'log', 'logger', 'logging', 'trace',
+        'test', 'tests', 'testing', 'assert', 'check', 'verify', 'validate',
+        'init', 'create', 'destroy', 'free', 'alloc', 'malloc', 'new', 'delete',
+        'get', 'set', 'add', 'remove', 'delete', 'clear', 'reset', 'update',
+        'start', 'stop', 'run', 'execute', 'process', 'handle', 'manage',
+        'read', 'write', 'open', 'close', 'load', 'save', 'store', 'fetch',
+        'send', 'receive', 'connect', 'disconnect', 'bind', 'listen',
+        'data', 'buffer', 'string', 'array', 'list', 'vector', 'map', 'dict',
+        'error', 'exception', 'throw', 'catch', 'try', 'finally', 'raise',
+        'public', 'private', 'static', 'const', 'final', 'abstract', 'virtual',
+        'class', 'struct', 'function', 'method', 'void', 'return', 'break',
+        'true', 'false', 'null', 'none', 'nil', 'undefined', 'empty',
+        'main', 'app', 'application', 'program', 'system', 'service', 'daemon',
+        'version', 'config', 'settings', 'options', 'params', 'args', 'flags',
+        'user', 'admin', 'root', 'guest', 'default', 'custom', 'global',
+        'input', 'output', 'result', 'response', 'request', 'query', 'command',
+        'key', 'value', 'pair', 'item', 'element', 'node', 'object', 'instance',
+        'count', 'size', 'length', 'index', 'offset', 'position', 'range',
+        'begin', 'end', 'first', 'last', 'next', 'prev', 'current', 'head', 'tail',
+        'parent', 'child', 'root', 'leaf', 'branch', 'tree', 'graph',
+        'file', 'path', 'dir', 'directory', 'folder', 'name', 'extension',
+        'http', 'https', 'url', 'uri', 'host', 'port', 'protocol', 'scheme',
+        'success', 'fail', 'failure', 'ok', 'cancel', 'abort', 'retry',
+        'enable', 'disable', 'active', 'inactive', 'valid', 'invalid',
+        'push', 'pop', 'peek', 'enqueue', 'dequeue', 'insert', 'append',
+        'copy', 'move', 'clone', 'duplicate', 'merge', 'split', 'join',
+        'lock', 'unlock', 'mutex', 'semaphore', 'thread', 'async', 'sync',
+        'client', 'server', 'request', 'response', 'session', 'connection',
+        'parse', 'format', 'encode', 'decode', 'serialize', 'deserialize',
+        'print', 'printf', 'println', 'console', 'stdout', 'stderr', 'stdin',
+        # Common variable names
+        'i', 'j', 'k', 'n', 'm', 'x', 'y', 'z', 'tmp', 'temp', 'var', 'val',
+        'str', 'num', 'int', 'float', 'bool', 'char', 'byte', 'obj', 'ptr',
+        'src', 'dst', 'dest', 'source', 'target', 'from', 'to', 'in', 'out',
         # Language names
-        'java', 'python', 'javascript', 'cpp', 'csharp',
-        'kotlin', 'swift', 'rust', 'go', 'ruby',
-        # Common libraries/tools
-        'apache', 'google', 'microsoft', 'apple', 'android', 'ios',
-        'linux', 'windows', 'macos', 'unix',
+        'java', 'python', 'javascript', 'cpp', 'csharp', 'cplus', 'cplusplus',
+        'kotlin', 'swift', 'rust', 'go', 'ruby', 'php', 'perl', 'scala',
+        # Common libraries/tools (without specific versions)
+        'apache', 'google', 'microsoft', 'apple', 'android', 'ios', 'oracle',
+        'linux', 'windows', 'macos', 'unix', 'ubuntu', 'debian', 'fedora',
         # File extensions
-        'json', 'xml', 'yaml', 'toml', 'ini',
-        'jpg', 'png', 'gif', 'svg', 'pdf',
-        'zip', 'tar', 'gz', 'bz2',
+        'json', 'xml', 'yaml', 'toml', 'ini', 'conf', 'cfg', 'properties',
+        'jpg', 'png', 'gif', 'svg', 'pdf', 'ico', 'bmp', 'tiff',
+        'zip', 'tar', 'gz', 'bz2', 'rar', '7z', 'iso', 'dmg',
+        'txt', 'log', 'md', 'rst', 'doc', 'docx', 'html', 'css', 'js',
+        # HTTP methods and status codes
+        'get', 'post', 'put', 'patch', 'delete', 'head', 'options',
+        # Common acronyms
+        'api', 'sdk', 'ui', 'gui', 'cli', 'id', 'uid', 'pid', 'tid',
         # Single letters
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'l', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'
     }
     
     # Known library prefixes that are valid signatures
@@ -76,16 +100,28 @@ class SignatureValidator:
         
         Returns True if the pattern is specific enough to be useful
         """
-        # ULTRA PERMISSIVE - Accept almost everything except empty/whitespace
+        # Check for empty or whitespace
         if not pattern or not pattern.strip():
             return False
         
-        # Only reject single characters
-        if len(pattern.strip()) < 2:
+        pattern_lower = pattern.lower().strip()
+        
+        # 1. Reject very short patterns
+        if len(pattern.strip()) < 4:
             return False
         
-        # Accept everything else - no filtering for debugging
-        return True
+        # 2. Accept patterns with known library prefixes
+        for prefix in cls.VALID_PREFIXES:
+            if pattern.startswith(prefix):
+                return True
+        
+        # 3. Reject exact matches of generic terms
+        if pattern_lower in cls.GENERIC_TERMS:
+            return False
+        
+        # 4. Reject patterns that are all uppercase generic terms
+        if pattern.isupper() and pattern_lower in cls.GENERIC_TERMS:
+            return False
         
         # 5. Reject patterns that are just numbers
         if pattern.isdigit():
@@ -104,17 +140,19 @@ class SignatureValidator:
         if any(c in pattern for c in ['_', '-', '.', '::', '->', '(', ')', '[', ']']):
             return True
         
-        # 9. Accept if pattern has mixed case (camelCase or PascalCase)
+        # 10. Reject common method prefixes with generic suffixes (check before mixed case)
+        common_prefixes = ['get', 'set', 'is', 'has', 'add', 'remove', 'create', 'delete']
+        for prefix in common_prefixes:
+            if pattern_lower.startswith(prefix):
+                # Extract the suffix after the prefix
+                suffix = pattern[len(prefix):]
+                # Reject if suffix is too short or generic
+                if len(suffix) < 8 or suffix.lower() in ['item', 'data', 'value', 'name', 'type', 'id', 'key', 'val', 'valid']:
+                    return False
+        
+        # 9. Accept if pattern has mixed case (camelCase or PascalCase) - but check after prefix rejection
         if pattern != pattern.lower() and pattern != pattern.upper():
             return True
-        
-        # 10. Reject if it's a single word and too generic
-        if ' ' not in pattern and len(pattern) < 8:
-            # Check if it's a common prefix
-            common_prefixes = ['get', 'set', 'is', 'has', 'add', 'remove', 'create', 'delete']
-            for prefix in common_prefixes:
-                if pattern_lower.startswith(prefix) and not any(c in pattern for c in ['_', '-']):
-                    return False
         
         # 11. Accept longer patterns by default
         if len(pattern) >= 12:
@@ -128,8 +166,23 @@ class SignatureValidator:
             # Accept if it's not all lowercase (indicates proper noun or constant)
             if pattern != pattern.lower():
                 return True
+            # Accept if it has special characters
+            if any(c in pattern for c in ['_', '-', '.', '/']):
+                return True
         
-        # Default: reject short, all-lowercase, single words
+        # 13. For short patterns (4-7 chars), be more strict
+        if 4 <= len(pattern) < 8:
+            # Must have special characters, mixed case, or numbers to be valid
+            has_special = any(c in pattern for c in ['_', '-', '.', '/', ':'])
+            has_mixed_case = pattern != pattern.lower() and pattern != pattern.upper()
+            has_numbers = any(c.isdigit() for c in pattern)
+            
+            if has_special or has_mixed_case or has_numbers:
+                return True
+            else:
+                return False
+        
+        # Default: reject
         return False
     
     @classmethod

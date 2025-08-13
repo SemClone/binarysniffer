@@ -463,25 +463,110 @@ if not compatibility['compatible']:
 - **Multiple output formats**: Table, JSON, CSV, Markdown
 - **Works on**: License files, source code with embedded licenses, archives
 
-### Creating Signatures
+### Creating and Contributing Signatures
 
-Create custom signatures for your components:
+#### Generate Signatures from Binaries or Source Code
+
+Create custom signatures for components you want to detect:
 
 ```bash
-# From binary files (recommended)
+# From binary files (recommended for compiled components)
 binarysniffer signatures create /usr/bin/ffmpeg --name FFmpeg --version 4.4.1
 
-# From source code
+# From source code directories
 binarysniffer signatures create /path/to/source --name MyLibrary --license MIT
 
-# With full metadata
+# With complete metadata for better attribution
 binarysniffer signatures create binary.so \
   --name "My Component" \
   --version 2.0.0 \
   --license Apache-2.0 \
   --publisher "My Company" \
+  --description "Component description" \
   --output signatures/my-component.json
+
+# Specify minimum signature requirements
+binarysniffer signatures create /path/to/library \
+  --name "LibraryName" \
+  --min-signatures 10  # Require at least 10 unique patterns
 ```
+
+#### Collision Detection for Signature Quality
+
+The signature generator includes automatic collision detection to identify patterns that appear in multiple existing components:
+
+```bash
+# Check for collisions with existing signatures
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --check-collisions
+
+# Interactive review - decide on each collision
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --interactive
+
+# Auto-remove patterns with high collision severity
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --check-collisions \
+  --collision-threshold high  # Remove patterns in 3+ components
+```
+
+**Collision Severity Levels:**
+- **Critical**: Pattern appears in 5+ unrelated components (likely generic)
+- **High**: Pattern appears in 3-4 components
+- **Medium**: Pattern appears in 2 unrelated components  
+- **Low**: Pattern appears in 2 related components (e.g., ffmpeg/libav)
+
+**Features:**
+- Automatic generic word filtering (100+ common programming terms)
+- Smart deduplication - all signatures are unique
+- Cross-signature collision detection
+- Interactive and automatic filtering modes
+- Preserves library-specific prefixes (av_, curl_, SSL_, etc.)
+
+#### Contributing Signatures to the Community
+
+Help improve detection by contributing your signatures:
+
+1. **Generate the signature file**:
+   ```bash
+   binarysniffer signatures create /path/to/component \
+     --name "Component Name" \
+     --version "1.0.0" \
+     --license "MIT" \
+     --publisher "Publisher Name" \
+     --output signatures/component-name.json
+   ```
+
+2. **Test your signature**:
+   ```bash
+   # Import locally for testing
+   binarysniffer signatures import signatures/component-name.json
+   
+   # Verify detection works
+   binarysniffer analyze /path/to/test/binary
+   ```
+
+3. **Submit via GitHub Pull Request**:
+   ```bash
+   # Fork the repository on GitHub, then:
+   git clone https://github.com/YOUR_USERNAME/semantic-copycat-binarysniffer
+   cd semantic-copycat-binarysniffer
+   
+   # Add your signature file
+   cp /path/to/component-name.json signatures/
+   
+   # Commit and push
+   git add signatures/component-name.json
+   git commit -m "Add signatures for Component Name v1.0.0"
+   git push origin main
+   
+   # Create a Pull Request on GitHub
+   ```
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Architecture
 

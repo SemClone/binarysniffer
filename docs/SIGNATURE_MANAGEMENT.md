@@ -51,9 +51,100 @@ The project includes a pre-built signature database with **90+ OSS components** 
 
 ## Creating Signatures
 
+### Using the Built-in Signature Generator
+
+The easiest way to create signatures is using the built-in `signatures create` command, which automatically extracts unique patterns from binaries or source code:
+
+```bash
+# Generate signatures from a binary file
+binarysniffer signatures create /usr/bin/ffmpeg --name FFmpeg
+
+# Generate from source code directory
+binarysniffer signatures create /path/to/source --name MyLibrary --type source
+
+# With full metadata for better documentation
+binarysniffer signatures create /path/to/binary.so \
+  --name "Component Name" \
+  --version 2.0.0 \
+  --license Apache-2.0 \
+  --publisher "Company Name" \
+  --description "Brief component description" \
+  --output signatures/component-name.json
+
+# Specify extraction parameters
+binarysniffer signatures create /path/to/library \
+  --name "LibraryName" \
+  --min-signatures 10      # Require at least 10 patterns
+  --recursive              # For directories, analyze recursively
+```
+
+The generator will:
+1. Extract strings, symbols, and identifiers from the target
+2. Filter out generic patterns that could cause false positives
+3. Remove duplicates automatically (all signatures are unique)
+4. Assign confidence scores based on pattern uniqueness
+5. Create a properly formatted JSON signature file
+
+### Collision Detection and Quality Control
+
+The signature generator includes advanced collision detection to identify patterns that appear in multiple existing components, helping prevent false positives:
+
+```bash
+# Enable collision detection
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --check-collisions
+
+# Interactive mode - review each collision
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --interactive
+
+# Automatic filtering with threshold
+binarysniffer signatures create /usr/bin/myapp \
+  --name "MyApp" \
+  --check-collisions \
+  --collision-threshold high
+```
+
+#### Collision Severity Levels
+
+The system classifies collisions into four severity levels:
+
+| Severity | Description | Example | Action |
+|----------|-------------|---------|--------|
+| **Critical** | Pattern in 5+ unrelated components | Generic terms like "init", "process" | Should remove |
+| **High** | Pattern in 3-4 components | Common function names | Consider removing |
+| **Medium** | Pattern in 2 unrelated components | Shared utility functions | Review case-by-case |
+| **Low** | Pattern in 2 related components | FFmpeg/libav shared code | Usually keep |
+
+#### Related Component Families
+
+The system recognizes related component families to reduce false positives:
+- **FFmpeg family**: ffmpeg, libav, avcodec, avformat, avutil, swscale, swresample
+- **OpenSSL family**: openssl, libressl, boringssl, crypto, ssl
+- **GStreamer family**: gstreamer, gst-plugins, glib, gobject
+- **Qt family**: qt, qt5, qt6, qtcore, qtgui
+- **Boost family**: boost, boost-system, boost-thread, boost-filesystem
+- **Apache family**: apache, apache-commons, apache-http
+
+Patterns shared within a family are marked as low severity since they're expected.
+
+#### Automatic Generic Pattern Filtering
+
+The signature validator automatically filters out 100+ generic programming terms:
+- Common functions: init, create, destroy, get, set, add, remove
+- Data types: data, buffer, string, array, list, vector
+- Control flow: start, stop, run, execute, process
+- I/O operations: read, write, open, close, load, save
+- Single letters and common variable names
+- File extensions and language names
+
+Library-specific prefixes are preserved (av_, curl_, SSL_, Qt_, etc.)
+
 ### From BSA Format (JSON)
 
-The project includes a migration script for BSA-format signature files:
+For existing BSA-format signature files, use the migration script:
 
 ```bash
 # Migrate specific signatures (for testing)
@@ -348,13 +439,101 @@ python -m cProfile -s cumulative -m binarysniffer large_file.apk
 python -m memory_profiler analysis_script.py
 ```
 
+## Contributing Signatures to the Community
+
+We welcome signature contributions from the community! Contributing your signatures helps improve detection for everyone.
+
+### Step-by-Step Contribution Process
+
+1. **Generate Your Signature**
+   ```bash
+   # Use the built-in generator to create a signature file
+   binarysniffer signatures create /path/to/component \
+     --name "Component Name" \
+     --version "1.0.0" \
+     --license "MIT" \
+     --publisher "Publisher Name" \
+     --description "What this component does" \
+     --output signatures/component-name.json
+   ```
+
+2. **Validate and Test Your Signature**
+   ```bash
+   # Import your signature locally
+   binarysniffer signatures import signatures/component-name.json
+   
+   # Test detection against known binaries containing the component
+   binarysniffer analyze /path/to/test/binary
+   
+   # Verify no false positives on unrelated binaries
+   binarysniffer analyze /path/to/different/binary
+   ```
+
+3. **Fork and Clone the Repository**
+   ```bash
+   # Fork the repository on GitHub first, then:
+   git clone https://github.com/YOUR_USERNAME/semantic-copycat-binarysniffer
+   cd semantic-copycat-binarysniffer
+   ```
+
+4. **Add Your Signature File**
+   ```bash
+   # Copy your validated signature to the signatures directory
+   cp /path/to/component-name.json signatures/
+   
+   # Ensure the file follows naming convention: kebab-case
+   # Good: apache-commons.json, my-library.json
+   # Bad: ApacheCommons.json, my_library.json
+   ```
+
+5. **Commit and Push**
+   ```bash
+   git add signatures/component-name.json
+   git commit -m "Add signatures for Component Name v1.0.0
+   
+   - Added X unique patterns for Component Name
+   - Covers initialization, API calls, and error messages
+   - Tested against version 1.0.0 binaries"
+   
+   git push origin main
+   ```
+
+6. **Create a Pull Request**
+   - Go to GitHub and create a Pull Request
+   - Title: `Add signatures for [Component Name]`
+   - Description should include:
+     - Brief description of the component
+     - How you generated/extracted the signatures
+     - What testing you performed
+     - Any known limitations or version-specific notes
+
+### Signature Quality Guidelines
+
+When creating signatures, follow these best practices:
+
+- **Use unique, specific patterns** - Avoid generic terms like "init", "error", "data"
+- **Include variety** - Mix initialization functions, API calls, error messages, and constants
+- **Set appropriate confidence levels** - Higher for unique strings, lower for common patterns
+- **Test thoroughly** - Verify detection works and doesn't cause false positives
+- **Document metadata** - Include accurate license, version, and publisher information
+
+### Review Process
+
+Once you submit a PR:
+1. Automated checks will validate the JSON format
+2. Maintainers will review for quality and uniqueness
+3. Your signature may be tested against sample binaries
+4. Once approved, it will be merged and included in the next release
+
+For more details, see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
 ## Future Enhancements
 
 ### Planned Features
 - **Automatic signature generation** from OSS repositories
 - **Cloud-based signature updates** with authentication
 - **Signature quality scoring** with machine learning
-- **Community signature contributions** with verification
+- **Enhanced community contribution workflow** with automated validation
 - **Version-specific signature management** for better accuracy
 
 ### Integration Opportunities

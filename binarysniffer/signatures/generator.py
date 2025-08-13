@@ -11,6 +11,7 @@ from datetime import datetime
 from ..extractors.factory import ExtractorFactory
 from ..core.config import Config
 from ..hashing.tlsh_hasher import TLSHHasher
+from .validator import SignatureValidator
 
 logger = logging.getLogger(__name__)
 
@@ -271,26 +272,30 @@ class SignatureGenerator:
         return results
     
     def _filter_symbols(self, symbols: Set[str], min_confidence: float) -> List[str]:
-        """Filter symbols by quality and confidence"""
+        """Filter symbols by quality and confidence using SignatureValidator"""
         filtered = []
         
         for symbol in symbols:
-            # Skip very short or very long symbols
-            if len(symbol) < 3 or len(symbol) > 100:
+            # Skip very long symbols
+            if len(symbol) > 100:
                 continue
             
-            # Skip common generic terms
-            if symbol.lower() in ['main', 'init', 'test', 'data', 'null', 'true', 'false']:
-                continue
-            
-            # Skip pure numbers
-            if symbol.isdigit():
-                continue
-            
-            # Calculate basic confidence score
+            # Calculate confidence score
             confidence = self._calculate_symbol_confidence(symbol)
-            if confidence >= min_confidence:
-                filtered.append(symbol)
+            
+            # Use SignatureValidator for comprehensive checking
+            if SignatureValidator.is_valid_signature(symbol, confidence):
+                if confidence >= min_confidence:
+                    filtered.append(symbol)
+        
+        # Log filtering statistics for debugging
+        original_count = len(symbols)
+        filtered_count = len(filtered)
+        if original_count > 0:
+            logger.debug(
+                f"Symbol filtering: {original_count} -> {filtered_count} "
+                f"({filtered_count/original_count:.1%} retained)"
+            )
         
         return filtered
     

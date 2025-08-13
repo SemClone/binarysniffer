@@ -856,9 +856,16 @@ def signatures_update(ctx, force):
               help='Input type: auto-detect, binary, or source code')
 @click.option('--recursive/--no-recursive', default=True, help='Recursively analyze directories')
 @click.option('--min-signatures', default=5, help='Minimum number of signatures required')
+@click.option('--check-collisions/--no-check-collisions', default=False, 
+              help='Check for collisions with existing signatures')
+@click.option('--interactive/--no-interactive', default=False,
+              help='Interactive review of colliding patterns')
+@click.option('--collision-threshold', type=click.Choice(['low', 'medium', 'high', 'critical']),
+              default='high', help='Auto-remove patterns at or above this collision severity')
 @click.pass_context
 def signatures_create(ctx, path, name, output, version, license, publisher, description, 
-                     input_type, recursive, min_signatures):
+                     input_type, recursive, min_signatures, check_collisions, interactive,
+                     collision_threshold):
     """Create signatures from a binary or source code.
     
     Examples:
@@ -872,6 +879,7 @@ def signatures_create(ctx, path, name, output, version, license, publisher, desc
     """
     from .signatures.symbol_extractor import SymbolExtractor
     from .signatures.validator import SignatureValidator
+    from .signatures.collision_detector import SignatureCollisionDetector
     from datetime import datetime
     
     path = Path(path)
@@ -960,11 +968,73 @@ def signatures_create(ctx, path, name, output, version, license, publisher, desc
                     "platforms": ["all"]
                 })
     
-    # Check minimum signatures
+    # Collision detection if requested
+    if check_collisions or interactive:
+        console.print("\n[bold]Checking for signature collisions...[/bold]")
+        detector = SignatureCollisionDetector()
+        
+        # Extract just the patterns
+        patterns = [sig['pattern'] for sig in signatures]
+        
+        if interactive:
+            # Interactive review mode
+            console.print("Starting interactive collision review...")
+            filtered_patterns = detector.interactive_review(patterns, name)
+            
+            # Rebuild signatures with filtered patterns
+            original_count = len(signatures)
+            signatures = [sig for sig in signatures if sig['pattern'] in filtered_patterns]
+            removed_count = original_count - len(signatures)
+            
+            if removed_count > 0:
+                console.print(f"\n[yellow]Removed {removed_count} colliding patterns[/yellow]")
+        else:
+            # Automatic filtering based on threshold
+            report = detector.get_collision_report(patterns, name)
+            
+            if report['has_collisions']:
+                console.print(f"\nFound {report['collision_count']} patterns with collisions:")
+                
+                # Show severity breakdown
+                severity_counts = report['severity_counts']
+                if severity_counts.get('critical', 0) > 0:
+                    console.print(f"  [red]Critical: {severity_counts['critical']} patterns (5+ components)[/red]")
+                if severity_counts.get('high', 0) > 0:
+                    console.print(f"  [yellow]High: {severity_counts['high']} patterns (3-4 components)[/yellow]")
+                if severity_counts.get('medium', 0) > 0:
+                    console.print(f"  [cyan]Medium: {severity_counts['medium']} patterns (2 unrelated)[/cyan]")
+                if severity_counts.get('low', 0) > 0:
+                    console.print(f"  [green]Low: {severity_counts['low']} patterns (2 related)[/green]")
+                
+                # Show recommendations
+                if report['recommendations']:
+                    console.print("\n[bold]Recommendations:[/bold]")
+                    for rec in report['recommendations']:
+                        console.print(f"  • {rec}")
+                
+                # Auto-filter if not interactive
+                if collision_threshold != 'none':
+                    kept, removed = detector.filter_colliding_patterns(
+                        patterns, collision_threshold, name
+                    )
+                    
+                    if removed:
+                        console.print(f"\n[yellow]Auto-removing {len(removed)} patterns at or above '{collision_threshold}' severity[/yellow]")
+                        signatures = [sig for sig in signatures if sig['pattern'] in kept]
+                        
+                        # Show some examples of removed patterns
+                        console.print("Removed patterns (first 5):")
+                        for pattern in removed[:5]:
+                            components = report['collisions'].get(pattern, [])
+                            console.print(f"  - '{pattern}' (found in: {', '.join(components[:3])}...)")
+            else:
+                console.print("[green]✓ No collisions detected with existing signatures[/green]")
+    
+    # Check minimum signatures after filtering
     if len(signatures) < min_signatures:
-        console.print(f"[red]Error: Only {len(signatures)} signatures generated, " +
+        console.print(f"[red]Error: Only {len(signatures)} signatures remaining after filtering, " +
                      f"minimum {min_signatures} required[/red]")
-        console.print("Try analyzing more files or lowering --min-signatures")
+        console.print("Try analyzing more files, lowering --min-signatures, or adjusting --collision-threshold")
         sys.exit(1)
     
     # Build signature file
