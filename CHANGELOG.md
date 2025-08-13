@@ -5,13 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Changed
-- **Documentation** - Clarified that automated signature extraction from package managers is out of scope for the CLI tool
-  - Updated CONTRIBUTING.md to note this feature will be implemented in a separate scanning orchestrator
-  - Updated docs/SIGNATURE_MANAGEMENT.md with similar clarification about scope limitations
-
 ## [1.9.6] - 2025-08-13
 
 ### Added
