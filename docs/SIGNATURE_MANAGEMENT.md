@@ -530,7 +530,7 @@ For more details, see [CONTRIBUTING.md](../CONTRIBUTING.md).
 ## Future Enhancements
 
 ### Planned Features
-- **Automatic signature generation** from OSS repositories
+- **Automatic signature generation** from OSS repositories *(Note: Automated extraction from package managers assumes availability of source code alongside binaries, which is not always the case. This feature is considered out of scope for the CLI tool and will be implemented in a separate scanning orchestrator)*
 - **Cloud-based signature updates** with authentication
 - **Signature quality scoring** with machine learning
 - **Enhanced community contribution workflow** with automated validation

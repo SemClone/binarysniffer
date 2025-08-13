@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **Documentation** - Clarified that automated signature extraction from package managers is out of scope for the CLI tool
+  - Updated CONTRIBUTING.md to note this feature will be implemented in a separate scanning orchestrator
+  - Updated docs/SIGNATURE_MANAGEMENT.md with similar clarification about scope limitations
+
+## [1.9.6] - 2025-08-13
+
+### Added
+- **Signature Collision Detection** - New system to identify and resolve pattern conflicts between components
+  - Implemented SignatureCollisionDetector for cross-signature pattern analysis
+  - Added --check-collisions flag to analyze pattern overlaps
+  - Added --interactive mode for guided collision resolution
+  - Added --collision-threshold to control sensitivity (default: 2 patterns)
+  - Smart severity levels: critical (5+ components), high (3-4), medium (2 unrelated), low (2 related)
+  - Recognizes related component families (FFmpeg, OpenSSL, Qt, etc.)
+- **Automatic Generic Word Filtering** - Filters 100+ common programming terms to prevent false positives
+  - Automatically removes generic patterns like "error", "debug", "init", "handler", etc.
+  - Preserves library-specific prefixes (av_, ssl_, qt_, etc.)
+- **Signature Deduplication** - All signatures are now automatically deduplicated during generation
+- **Enhanced Test Coverage** - Added comprehensive test suite for signature validation
+
+### Improved
+- **Signature Quality** - Significantly reduced false positives through automatic filtering
+- **Documentation** - Updated signature management docs with collision detection features
+
 ## [1.9.5] - 2025-08-11
 
 ### Fixed

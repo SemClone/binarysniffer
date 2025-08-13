@@ -246,7 +246,7 @@ Need help contributing?
 ## 🚀 Future Enhancements
 
 We're working on:
-- **Automated signature extraction** from popular package managers
+- **Automated signature extraction** from popular package managers *(Note: This feature assumes availability of source code alongside binaries, which is not always the case. As such, automated signature creation from package managers is considered out of scope for the CLI tool and will be implemented in a separate scanning orchestrator)*
 - **Binary analysis tools** for signature discovery
 - **Community signature validation** system
 - **Integration with vulnerability databases**
