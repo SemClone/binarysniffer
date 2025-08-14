@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **SafeTensors Format Parser** - New extractor for secure tensor storage format (addresses #23)
+  - Validates SafeTensors format integrity and detects tampering
+  - Identifies format violations that could indicate file manipulation
+  - Detects injection attempts via unexpected metadata keys
+  - Flags oversized tensors (>1B elements) as potential data exfiltration risks
+  - Identifies suspicious tensor names (backdoor, trigger, hidden, etc.)
+  - Detects base64-like names that might indicate obfuscation
+  - Extracts framework metadata (PyTorch, TensorFlow, JAX, Transformers)
+  - Recognizes model architectures (BERT, LLaMA, ResNet, ViT, CLIP, etc.)
+  - Provides comprehensive security assessment for supply chain verification
+- **SafeTensors Security Signatures** - New signature sets for SafeTensors validation
+  - safetensors-format.json: Core SafeTensors format signatures
+  - safetensors-pytorch.json: PyTorch model patterns
+  - safetensors-transformers.json: Hugging Face Transformers patterns  
+  - safetensors-security.json: Security and tampering detection patterns
+
 ## [1.9.8] - 2025-08-14
 
 ### Added

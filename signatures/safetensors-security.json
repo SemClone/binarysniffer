@@ -1,0 +1,37 @@
+{
+  "component": "SafeTensors-Security",
+  "description": "Security patterns for SafeTensors format validation and tampering detection",
+  "version": "1.0",
+  "license": "Apache-2.0",
+  "publisher": "BinarySniffer Security",
+  "signatures": [
+    "invalid-tensor-type",
+    "missing-required",
+    "injection-attempt",
+    "invalid-dtype",
+    "oversized-tensor",
+    "invalid-offsets",
+    "invalid-offset-values",
+    "suspicious-name",
+    "base64-like-name",
+    "unexpected-metadata",
+    "invalid-shape",
+    "hidden",
+    "secret",
+    "payload",
+    "exfil",
+    "backdoor",
+    "trigger",
+    "malicious",
+    "data_exfiltration",
+    "steganography"
+  ],
+  "metadata": {
+    "ecosystem": "security",
+    "language": "format",
+    "created": "2025-08-14",
+    "source": "SafeTensors security analysis",
+    "risk_level": "high",
+    "description": "Patterns indicating potential tampering, data hiding, or format violations in SafeTensors files"
+  }
+}

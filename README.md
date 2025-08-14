@@ -55,13 +55,15 @@ A high-performance CLI tool and Python library for detecting open source compone
 ### ML Model Security Analysis
 - **Pickle File Parser**: Safe analysis of Python pickle files without code execution
 - **ONNX Model Parser**: Comprehensive analysis of ONNX format models
+- **SafeTensors Parser**: Validation of secure tensor storage format
 - **Malicious Detection**: 100% detection rate on real-world ML exploits
 - **Framework Detection**: Identifies PyTorch, TensorFlow, sklearn, XGBoost origins
-- **Architecture Recognition**: Detects ResNet, BERT, YOLO, EfficientNet, etc.
-- **Operator Analysis**: Extracts and validates ONNX operators and custom operations
-- **Threat Identification**: Detects backdoors, code injection, data exfiltration
+- **Architecture Recognition**: Detects ResNet, BERT, YOLO, LLaMA, ViT, etc.
+- **Format Validation**: Detects tampering, injection attempts, and format violations
+- **Data Exfiltration Detection**: Flags oversized tensors and suspicious patterns
+- **Supply Chain Security**: Verifies model provenance and integrity
 - **Risk Assessment**: Multi-level safety analysis (safe, suspicious, dangerous)
-- **Protocol Support**: Handles all pickle protocols and ONNX versions
+- **Protocol Support**: Handles all pickle protocols, ONNX versions, and SafeTensors formats
 
 ### Signature Database
 - **186 OSS Components**: Comprehensive coverage including libraries, frameworks, ML models, and multimedia codecs
@@ -251,6 +253,7 @@ binarysniffer analyze library.jar                # Java JAR
 # ML model security analysis
 binarysniffer analyze model.pkl                  # Pickle files
 binarysniffer analyze model.onnx                 # ONNX models
+binarysniffer analyze model.safetensors          # SafeTensors format
 binarysniffer analyze suspicious_model.pkl --show-features  # Detailed analysis
 
 # Analyze directories recursively
