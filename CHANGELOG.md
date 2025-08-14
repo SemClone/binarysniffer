@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.8] - 2025-08-14
+
+### Added
+- **ONNX Model Parser** - New extractor for ONNX (Open Neural Network Exchange) format models (addresses #22)
+  - Works with or without onnx library (pattern-based fallback)
+  - Detects source frameworks (PyTorch, TensorFlow, sklearn, XGBoost, etc.)
+  - Identifies model architectures (ResNet, BERT, YOLO, EfficientNet, etc.)
+  - Extracts and analyzes ONNX operators (Conv, Attention, LSTM, etc.)
+  - Detects suspicious custom operators and malicious patterns
+  - Provides security risk assessment (safe, suspicious, dangerous)
+  - Extracts model metadata (producer, version, parameters, size)
+  - 100% detection rate on suspicious ONNX models
+- **ONNX Security Signatures** - New signature sets for ONNX model analysis
+  - onnx-security.json: Patterns for detecting security risks
+  - onnx-pytorch.json: PyTorch-exported ONNX models
+  - onnx-tensorflow.json: TensorFlow-exported ONNX models
+  - onnx-architectures.json: Common model architectures
+
 ## [1.9.7] - 2025-08-14
 
 ### Added

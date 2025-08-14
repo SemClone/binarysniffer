@@ -1,0 +1,27 @@
+{
+  "component": "ONNX-Security-Risks",
+  "version": "1.0.0",
+  "license": "Detection",
+  "description": "Security risk patterns in ONNX models",
+  "patterns": [
+    "suspicious_operator:CustomOp",
+    "suspicious_operator:UnknownOp",
+    "suspicious_operator:PrivateOp",
+    "suspicious_pattern:exec",
+    "suspicious_pattern:eval",
+    "suspicious_pattern:__import__",
+    "suspicious_pattern:subprocess",
+    "suspicious_pattern:shell",
+    "suspicious_pattern:reverse_tcp",
+    "suspicious_pattern:bind_shell",
+    "suspicious_metadata:",
+    "onnx_risk:dangerous",
+    "onnx_risk:high_risk",
+    "onnx_risk:suspicious",
+    "custom_operator_detected",
+    "unknown_operator_detected"
+  ],
+  "confidence": 0.95,
+  "file_types": ["onnx"],
+  "tags": ["security", "ml-model", "onnx", "threat-detection"]
+}

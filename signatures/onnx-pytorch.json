@@ -1,0 +1,26 @@
+{
+  "component": "PyTorch-ONNX",
+  "version": "*",
+  "license": "BSD-3-Clause",
+  "description": "PyTorch models exported to ONNX format",
+  "patterns": [
+    "detected_framework:pytorch",
+    "framework_hint:aten::",
+    "framework_hint:torch.",
+    "framework_hint:_caffe2::",
+    "framework_hint:torch::jit",
+    "framework_hint:prim::",
+    "framework_hint:produced_by_pytorch",
+    "onnx_producer:pytorch",
+    "onnx_operator:aten",
+    "onnx_operator:prim",
+    "onnx_operator:ATen",
+    "onnx_opset:ai.onnx.pytorch",
+    "model_architecture:resnet",
+    "model_architecture:bert",
+    "model_architecture:transformer"
+  ],
+  "confidence": 0.85,
+  "file_types": ["onnx"],
+  "tags": ["ml", "pytorch", "deep-learning", "onnx"]
+}

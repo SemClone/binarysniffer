@@ -1,0 +1,26 @@
+{
+  "component": "TensorFlow-ONNX",
+  "version": "*",
+  "license": "Apache-2.0",
+  "description": "TensorFlow models exported to ONNX format",
+  "patterns": [
+    "detected_framework:tensorflow",
+    "framework_hint:tf.",
+    "framework_hint:tensorflow::",
+    "framework_hint:tf2onnx",
+    "framework_hint:produced_by_tensorflow",
+    "framework_hint:StatefulPartitionedCall",
+    "framework_hint:PartitionedCall",
+    "onnx_producer:tf2onnx",
+    "onnx_producer:tensorflow",
+    "onnx_operator:TensorFlow",
+    "onnx_operator:StatefulPartitionedCall",
+    "onnx_opset:ai.onnx.tf",
+    "model_architecture:bert",
+    "model_architecture:efficientnet",
+    "model_architecture:mobilenet"
+  ],
+  "confidence": 0.85,
+  "file_types": ["onnx"],
+  "tags": ["ml", "tensorflow", "deep-learning", "onnx"]
+}
