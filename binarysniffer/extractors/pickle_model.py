@@ -251,8 +251,22 @@ class PickleModelExtractor(BaseExtractor):
             logger.info(f"Extracted {len(features)} features from pickle file {file_path.name}")
 
         except Exception as e:
+            error_msg = str(e)
             logger.error(f"Error parsing pickle file {file_path}: {e}")
             features.add("pickle_parse_error")
+            
+            # Provide more specific error information
+            if "unknown" in error_msg.lower() and "opcode" in error_msg.lower():
+                features.add("malformed_pickle:invalid_opcode")
+                risk_level = "malformed"
+                suspicious_items.add("invalid_pickle_structure")
+            elif "position" in error_msg.lower():
+                features.add("malformed_pickle:truncated")
+                risk_level = "malformed"
+                suspicious_items.add("truncated_pickle_file")
+            else:
+                features.add("malformed_pickle:unknown_error")
+                risk_level = "error"
 
         return ExtractedFeatures(
             file_path=str(file_path),
@@ -262,7 +276,8 @@ class PickleModelExtractor(BaseExtractor):
             functions=[],  # Pickle doesn't have traditional functions
             constants=list(ml_frameworks),  # Use constants for detected frameworks
             symbols=[],
-            metadata={'risk_level': risk_level, 'frameworks': list(ml_frameworks)}
+            metadata={'risk_level': risk_level, 'frameworks': list(ml_frameworks), 
+                     'suspicious_items': list(suspicious_items) if suspicious_items else None}
         )
 
     def _assess_risk(self, imports: Set[str], suspicious: Set[str], frameworks: Set[str]) -> str:
