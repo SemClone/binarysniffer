@@ -10,7 +10,7 @@
       "python"
     ],
     "description": "Security risk patterns in ONNX models",
-    "license": "Detection",
+    "license": "HIGH",
     "publisher": "Unknown"
   },
   "confidence_threshold": 0.3,

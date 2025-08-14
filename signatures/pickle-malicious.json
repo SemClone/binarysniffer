@@ -10,7 +10,7 @@
       "python"
     ],
     "description": "Signatures for detecting malicious patterns in pickle files",
-    "license": "Detection",
+    "license": "CRITICAL",
     "publisher": "Unknown"
   },
   "confidence_threshold": 0.3,
