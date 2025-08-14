@@ -16,6 +16,7 @@ from .hermes import HermesExtractor
 from .static_library import StaticLibraryExtractor
 from .pickle_model import PickleModelExtractor
 from .onnx_model import ONNXModelExtractor
+from .safetensors import SafeTensorsExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -53,6 +54,7 @@ class ExtractorFactory:
             HermesExtractor(),     # Hermes bytecode (React Native)
             PickleModelExtractor(), # Pickle files (ML models)
             ONNXModelExtractor(),  # ONNX models (protobuf-based)
+            SafeTensorsExtractor(), # SafeTensors format (secure tensor storage)
         ])
         
         # Add LIEF-based binary extractor if available

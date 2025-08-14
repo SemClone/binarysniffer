@@ -1,0 +1,25 @@
+{
+  "component": "SafeTensors",
+  "description": "Secure tensor serialization format",
+  "version": "1.0",
+  "license": "Apache-2.0",
+  "publisher": "Hugging Face",
+  "signatures": [
+    "__safetensors__",
+    "safetensors_format",
+    "safetensors_v1.0",
+    "data_offsets",
+    "dtype",
+    "shape",
+    "__metadata__",
+    "format",
+    "pt_version",
+    "torch_version"
+  ],
+  "metadata": {
+    "ecosystem": "machine-learning",
+    "language": "format",
+    "created": "2025-08-14",
+    "source": "https://github.com/huggingface/safetensors"
+  }
+}

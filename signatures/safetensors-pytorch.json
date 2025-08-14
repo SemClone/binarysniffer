@@ -1,0 +1,34 @@
+{
+  "component": "SafeTensors-PyTorch",
+  "description": "PyTorch models in SafeTensors format",
+  "version": "2.0",
+  "license": "Apache-2.0",
+  "publisher": "PyTorch/Hugging Face",
+  "signatures": [
+    "weight",
+    "bias",
+    "running_mean",
+    "running_var",
+    "num_batches_tracked",
+    "_orig_mod",
+    "module.",
+    "features.",
+    "classifier.",
+    "conv1.weight",
+    "conv2.weight",
+    "fc.weight",
+    "fc.bias",
+    "bn1.weight",
+    "bn1.bias",
+    "layer1.0.conv1.weight",
+    "layer2.0.conv1.weight",
+    "layer3.0.conv1.weight",
+    "layer4.0.conv1.weight"
+  ],
+  "metadata": {
+    "ecosystem": "pytorch",
+    "language": "python",
+    "created": "2025-08-14",
+    "source": "PyTorch SafeTensors integration"
+  }
+}
