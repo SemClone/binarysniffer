@@ -17,6 +17,8 @@ from .static_library import StaticLibraryExtractor
 from .pickle_model import PickleModelExtractor
 from .onnx_model import ONNXModelExtractor
 from .safetensors import SafeTensorsExtractor
+from .pytorch_native import PyTorchNativeExtractor
+from .tensorflow_native import TensorFlowNativeExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -49,12 +51,15 @@ class ExtractorFactory:
             logger.debug("Androguard module not found, APK files will use basic extraction")
         
         # Add other extractors
+        # Note: More specific extractors should come before general ones
         self.extractors.extend([
             DexExtractor(),        # DEX files (Android bytecode)
             HermesExtractor(),     # Hermes bytecode (React Native)
-            PickleModelExtractor(), # Pickle files (ML models)
-            ONNXModelExtractor(),  # ONNX models (protobuf-based)
+            PyTorchNativeExtractor(), # PyTorch native formats (.pt, .pth) - before pickle
+            TensorFlowNativeExtractor(), # TensorFlow native formats (.pb, .h5) - before ONNX
             SafeTensorsExtractor(), # SafeTensors format (secure tensor storage)
+            ONNXModelExtractor(),  # ONNX models (protobuf-based)
+            PickleModelExtractor(), # Pickle files (ML models) - most general, last
         ])
         
         # Add LIEF-based binary extractor if available

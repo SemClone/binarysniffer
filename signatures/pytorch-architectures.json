@@ -1,0 +1,36 @@
+{
+  "component": "PyTorch-Architectures",
+  "description": "Common PyTorch model architectures",
+  "version": "1.0",
+  "license": "Various",
+  "publisher": "PyTorch Community",
+  "signatures": [
+    "architecture:resnet",
+    "architecture:vgg",
+    "architecture:densenet",
+    "architecture:mobilenet",
+    "architecture:efficientnet",
+    "architecture:transformer",
+    "architecture:bert",
+    "architecture:gpt",
+    "architecture:vit",
+    "architecture:unet",
+    "layer1.0.conv1.weight",
+    "layer2.0.conv1.weight",
+    "layer3.0.conv1.weight",
+    "layer4.0.conv1.weight",
+    "features.0.weight",
+    "classifier.0.weight",
+    "encoder.layer.0",
+    "decoder.layer.0",
+    "attention.self.query",
+    "attention.self.key",
+    "attention.self.value"
+  ],
+  "metadata": {
+    "ecosystem": "pytorch",
+    "language": "python",
+    "created": "2025-08-14",
+    "source": "PyTorch architecture patterns"
+  }
+}

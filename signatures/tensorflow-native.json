@@ -1,0 +1,42 @@
+{
+  "component": "TensorFlow-Native",
+  "description": "TensorFlow native model formats (.pb, .h5)",
+  "version": "2.0",
+  "license": "Apache-2.0",
+  "publisher": "TensorFlow",
+  "signatures": [
+    "__tensorflow__",
+    "tensorflow_native_format",
+    "saved_model",
+    "graph_def",
+    "node_def",
+    "keras_model",
+    "optimizer_weights",
+    "Conv2D",
+    "MatMul",
+    "BiasAdd",
+    "Relu",
+    "MaxPool",
+    "BatchNorm",
+    "FusedBatchNorm",
+    "DepthwiseConv2dNative",
+    "dense",
+    "conv2d",
+    "lstm",
+    "embedding",
+    "batch_normalization",
+    "dropout",
+    "model_config",
+    "keras_version",
+    "tensorflow_version",
+    "tf.GraphDef",
+    "tf.SavedModel",
+    "tf.Variable"
+  ],
+  "metadata": {
+    "ecosystem": "tensorflow",
+    "language": "python",
+    "created": "2025-08-14",
+    "source": "TensorFlow native format analysis"
+  }
+}
