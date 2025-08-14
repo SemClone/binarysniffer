@@ -1,6 +1,6 @@
 # Semantic Copycat BinarySniffer
 
-A high-performance CLI tool and Python library for detecting open source components in binaries through semantic signature matching. Specialized for analyzing mobile apps (APK/IPA), Java archives, and source code to identify OSS components and their licenses.
+A high-performance CLI tool and Python library for detecting open source components and security threats in binaries through semantic signature matching. Specialized for analyzing mobile apps (APK/IPA), Java archives, ML models, and source code to identify OSS components, their licenses, and potential security risks.
 
 
 ## Features
@@ -71,6 +71,7 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Multimedia Support**: H.264/H.265, AAC, Dolby, AV1, GStreamer, GLib, FFmpeg components
 - **System Libraries**: libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, Opus
 - **License Detection**: Automatic license identification for detected components
+- **Security Analysis**: Detection of malicious patterns with severity levels (CRITICAL, HIGH, MEDIUM, LOW)
 - **Rich Metadata**: Publisher, version, and ecosystem information for each component
 
 ## Installation
@@ -291,6 +292,23 @@ binarysniffer analyze lib.so --min-matches 5     # Show components with 5+ match
 binarysniffer analyze app.apk --show-evidence    # Show detailed match evidence
 ```
 
+### Understanding the Output
+
+The analysis results display a **Classification** column that shows either:
+- **Software licenses** (e.g., Apache-2.0, BSD-3-Clause, MIT) for legitimate OSS components
+- **Security severity levels** (CRITICAL, HIGH, MEDIUM, LOW) for detected threats
+
+Example output:
+```
+┏━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━┓
+┃ Component        ┃ Confidence ┃ Classification ┃ Type   ┃ Evidence         ┃
+┡━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━┩
+│ PyTorch-Native   │ 94.0%      │ BSD-3-Clause   │ library│ 2 patterns       │
+│ SafeTensors      │ 90.0%      │ Apache-2.0     │ library│ 3 patterns       │
+│ Pickle-Malicious │ 98.5%      │ CRITICAL       │ threat │ RCE risk detected│
+└──────────────────┴────────────┴────────────────┴────────┴──────────────────┘
+```
+
 ### Python Library Usage
 
 ```python
@@ -303,7 +321,7 @@ sniffer = EnhancedBinarySniffer()
 result = sniffer.analyze_file("/path/to/binary")
 for match in result.matches:
     print(f"{match.component} - {match.confidence:.2%}")
-    print(f"License: {match.license}")
+    print(f"Classification: {match.license}")  # Shows license or severity level
 
 # Analyze mobile applications
 apk_result = sniffer.analyze_file("app.apk")

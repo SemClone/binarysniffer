@@ -1,37 +1,99 @@
 {
-  "component": "SafeTensors-Security",
-  "description": "Security patterns for SafeTensors format validation and tampering detection",
-  "version": "1.0",
-  "license": "Apache-2.0",
-  "publisher": "BinarySniffer Security",
-  "signatures": [
-    "invalid-tensor-type",
-    "missing-required",
-    "injection-attempt",
-    "invalid-dtype",
-    "oversized-tensor",
-    "invalid-offsets",
-    "invalid-offset-values",
-    "suspicious-name",
-    "base64-like-name",
-    "unexpected-metadata",
-    "invalid-shape",
-    "hidden",
-    "secret",
-    "payload",
-    "exfil",
-    "backdoor",
-    "trigger",
-    "malicious",
-    "data_exfiltration",
-    "steganography"
-  ],
-  "metadata": {
-    "ecosystem": "security",
-    "language": "format",
-    "created": "2025-08-14",
-    "source": "SafeTensors security analysis",
-    "risk_level": "high",
-    "description": "Patterns indicating potential tampering, data hiding, or format violations in SafeTensors files"
-  }
+  "component": {
+    "name": "SafeTensors-Security",
+    "version": "1.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Security patterns for SafeTensors format validation and tampering detection",
+    "license": "MEDIUM",
+    "publisher": "BinarySniffer Security"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "invalid-tensor-type",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "missing-required",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "injection-attempt",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "invalid-dtype",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "oversized-tensor",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "invalid-offsets",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "invalid-offset-values",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "suspicious-name",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "base64-like-name",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "unexpected-metadata",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "invalid-shape",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "hidden",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "secret",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "payload",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "exfil",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "backdoor",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "trigger",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "malicious",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "data_exfiltration",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "steganography",
+      "confidence": 0.85
+    }
+  ]
 }

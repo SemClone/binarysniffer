@@ -1,25 +1,59 @@
 {
-  "component": "SafeTensors",
-  "description": "Secure tensor serialization format",
-  "version": "1.0",
-  "license": "Apache-2.0",
-  "publisher": "Hugging Face",
-  "signatures": [
-    "__safetensors__",
-    "safetensors_format",
-    "safetensors_v1.0",
-    "data_offsets",
-    "dtype",
-    "shape",
-    "__metadata__",
-    "format",
-    "pt_version",
-    "torch_version"
-  ],
-  "metadata": {
-    "ecosystem": "machine-learning",
-    "language": "format",
-    "created": "2025-08-14",
-    "source": "https://github.com/huggingface/safetensors"
-  }
+  "component": {
+    "name": "SafeTensors",
+    "version": "1.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Secure tensor serialization format",
+    "license": "Apache-2.0",
+    "publisher": "Hugging Face"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "__safetensors__",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "safetensors_format",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "safetensors_v1.0",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "data_offsets",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "dtype",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "shape",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "__metadata__",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "format",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "pt_version",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch_version",
+      "confidence": 0.9
+    }
+  ]
 }

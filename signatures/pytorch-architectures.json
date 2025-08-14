@@ -1,0 +1,103 @@
+{
+  "component": {
+    "name": "PyTorch-Architectures",
+    "version": "1.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Common PyTorch model architectures",
+    "license": "Various",
+    "publisher": "PyTorch Community"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "architecture:resnet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:vgg",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:densenet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:mobilenet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:efficientnet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:transformer",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:bert",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:gpt",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:vit",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:unet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "layer1.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer2.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer3.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer4.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "features.0.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "classifier.0.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "encoder.layer.0",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "decoder.layer.0",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.query",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.key",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.value",
+      "confidence": 0.9
+    }
+  ]
+}

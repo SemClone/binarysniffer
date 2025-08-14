@@ -4,14 +4,14 @@ Base extractor class and data structures
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import List, Set, Dict, Any
 from pathlib import Path
+from typing import Any, Dict, List, Set
 
 
 @dataclass
 class ExtractedFeatures:
     """Container for extracted features from a file"""
-    
+
     file_path: str
     file_type: str
     strings: List[str] = field(default_factory=list)
@@ -20,7 +20,7 @@ class ExtractedFeatures:
     constants: List[str] = field(default_factory=list)
     imports: List[str] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
-    
+
     @property
     def all_features(self) -> List[str]:
         """Get all extracted features"""
@@ -31,12 +31,12 @@ class ExtractedFeatures:
         features.extend(self.constants)
         features.extend(self.imports)
         return features
-    
+
     @property
     def unique_features(self) -> Set[str]:
         """Get unique features"""
         return set(self.all_features)
-    
+
     def filter_by_length(self, min_length: int = 5) -> "ExtractedFeatures":
         """Filter features by minimum length"""
         return ExtractedFeatures(
@@ -53,7 +53,7 @@ class ExtractedFeatures:
 
 class BaseExtractor(ABC):
     """Base class for all feature extractors"""
-    
+
     def __init__(self, min_string_length: int = 5, max_strings: int = 10000):
         """
         Initialize extractor.
@@ -64,22 +64,20 @@ class BaseExtractor(ABC):
         """
         self.min_string_length = min_string_length
         self.max_strings = max_strings
-    
+
     @abstractmethod
     def can_handle(self, file_path: Path) -> bool:
         """Check if this extractor can handle the file"""
-        pass
-    
+
     @abstractmethod
     def extract(self, file_path: Path) -> ExtractedFeatures:
         """Extract features from the file"""
-        pass
-    
+
     def _filter_strings(self, strings: List[str]) -> List[str]:
         """Filter and limit strings"""
         # Filter by length
         filtered = [s for s in strings if len(s) >= self.min_string_length]
-        
+
         # Remove duplicates while preserving order
         seen = set()
         unique = []
@@ -87,6 +85,6 @@ class BaseExtractor(ABC):
             if s not in seen:
                 seen.add(s)
                 unique.append(s)
-        
+
         # Limit number of strings
         return unique[:self.max_strings]

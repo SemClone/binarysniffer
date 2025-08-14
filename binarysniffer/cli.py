@@ -143,7 +143,11 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
             include_fuzzy_hashes, use_tlsh):
     """
-    Analyze files for open source components.
+    Analyze files for open source components and security issues.
+    
+    The results show a 'Classification' column that contains either:
+    - Software licenses (Apache-2.0, BSD-3-Clause, etc.) for OSS components  
+    - Security severity levels (CRITICAL, HIGH, MEDIUM, LOW) for threats
     
     \b
     EXAMPLES:
@@ -1084,7 +1088,7 @@ def signatures_create(ctx, path, name, output, version, license, publisher, desc
     table.add_row("Component", f"{name} v{version}")
     table.add_row("Signatures", str(len(signatures)))
     table.add_row("Input Type", input_type)
-    table.add_row("License", license or "Not specified")
+    table.add_row("License/Risk", license or "Not specified")
     table.add_row("Publisher", publisher or "Not specified")
     
     console.print(table)
@@ -1173,7 +1177,7 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         table = Table()
         table.add_column("Component", style="cyan")
         table.add_column("Confidence", style="green")
-        table.add_column("License", style="yellow")
+        table.add_column("Classification", style="yellow")
         table.add_column("Type", style="blue")
         table.add_column("Evidence", style="magenta")
         
@@ -1349,7 +1353,7 @@ def output_kissbom(batch_result: BatchAnalysisResult, output_path: Optional[str]
 def output_csv(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0):
     """Output results as CSV"""
     rows = []
-    headers = ["File", "Component", "Confidence", "License", "Type", "Ecosystem", "Patterns"]
+    headers = ["File", "Component", "Confidence", "Classification", "Type", "Ecosystem", "Patterns"]
     
     for file_path, result in batch_result.results.items():
         if result.error:

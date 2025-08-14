@@ -5,11 +5,11 @@ This module provides native Python extraction of features from Hermes bytecode f
 Based on the Hermes bytecode format specification.
 """
 
-import struct
 import logging
-from pathlib import Path
-from typing import List, Set, Optional, Dict, Any
+import struct
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 from binarysniffer.extractors.base import BaseExtractor
 
@@ -43,7 +43,7 @@ class HermesHeader:
     cjs_module_offset: int
     function_source_count: int
     debug_info_offset: int
-    
+
     @property
     def is_valid(self) -> bool:
         """Check if this is a valid Hermes header"""
@@ -57,30 +57,30 @@ class HermesExtractor(BaseExtractor):
     Hermes is a JavaScript engine optimized for React Native that compiles
     JavaScript to bytecode for faster startup and lower memory usage.
     """
-    
+
     SUPPORTED_EXTENSIONS = {'.hbc', '.bundle'}
-    
+
     def __init__(self):
         super().__init__()
         self.min_string_length = 4
         self.max_strings = 10000
-    
+
     def can_handle(self, file_path: Path) -> bool:
         """Check if this extractor can handle the file"""
         return self.can_extract(file_path)
-    
+
     def extract(self, file_path: Path):
         """Extract features from file"""
         from binarysniffer.extractors.base import ExtractedFeatures
         features = self.extract_features(file_path)
         metadata = self.get_metadata(file_path)
-        
+
         # Split features into appropriate categories
         strings = []
         symbols = []
         functions = []
         constants = []
-        
+
         for feature in features:
             if 'hermes::' in feature or 'Hermes' in feature:
                 symbols.append(feature)
@@ -90,7 +90,7 @@ class HermesExtractor(BaseExtractor):
                 constants.append(feature)
             else:
                 strings.append(feature)
-        
+
         return ExtractedFeatures(
             file_path=str(file_path),
             file_type='hermes_bytecode',
@@ -101,12 +101,12 @@ class HermesExtractor(BaseExtractor):
             imports=[],
             metadata=metadata
         )
-    
+
     def can_extract(self, file_path: Path) -> bool:
         """Check if file is a Hermes bytecode file"""
         if not file_path.is_file():
             return False
-            
+
         # Check extension
         if file_path.suffix.lower() not in self.SUPPORTED_EXTENSIONS:
             # Also check magic bytes for files without standard extension
@@ -116,7 +116,7 @@ class HermesExtractor(BaseExtractor):
                     return magic == HERMES_MAGIC
             except Exception:
                 return False
-        
+
         # Check magic bytes
         try:
             with open(file_path, 'rb') as f:
@@ -124,11 +124,11 @@ class HermesExtractor(BaseExtractor):
                 return magic == HERMES_MAGIC
         except Exception:
             return False
-    
+
     def extract_features(self, file_path: Path) -> List[str]:
         """Extract features from Hermes bytecode file"""
         features = set()
-        
+
         try:
             with open(file_path, 'rb') as f:
                 # Read and parse header
@@ -136,37 +136,37 @@ class HermesExtractor(BaseExtractor):
                 if not header or not header.is_valid:
                     logger.warning(f"Invalid Hermes header in {file_path}")
                     return []
-                
+
                 # Add header-based features
                 features.add("HermesInternal")
                 features.add(f"Hermes_v{header.version}")
                 features.add("hermes::vm")
                 features.add("HermesRuntime")
                 features.add("HBC_VERSION")
-                
+
                 # Extract metadata features
                 if header.function_count > 0:
                     features.add(f"hermes_functions_{header.function_count}")
                     features.add("hermes::Function")
-                
+
                 if header.string_count > 0:
                     features.add("hermes::StringTable")
                     # Extract ALL strings for better library detection
                     strings = self._extract_all_strings(f, header)
                     features.update(strings)  # Add all extracted strings
-                
+
                 if header.regexp_count > 0:
                     features.add("hermes::RegExp")
                     features.add("HermesRegExp")
-                
+
                 if header.cjs_module_count > 0:
                     features.add("hermes::CJSModule")
                     features.add("CommonJS")
-                
+
                 if header.debug_info_offset > 0:
                     features.add("hermes::DebugInfo")
                     features.add("HermesDebugger")
-                
+
                 # Add common Hermes runtime features
                 features.update([
                     "hermes_create_runtime",
@@ -178,7 +178,7 @@ class HermesExtractor(BaseExtractor):
                     "HermesValue",
                     "hermesLog"
                 ])
-                
+
                 # Try to identify React Native specific patterns
                 if self._has_react_native_patterns(f, header):
                     features.update([
@@ -188,26 +188,26 @@ class HermesExtractor(BaseExtractor):
                         "__fbBatchedBridge",
                         "NativeModules"
                     ])
-                
+
         except Exception as e:
             logger.error(f"Error extracting Hermes features from {file_path}: {e}")
             # Still return the magic signature as a feature
             features.add("Hermes_bytecode")
-        
+
         return list(features)
-    
+
     def _parse_header(self, f) -> Optional[HermesHeader]:
         """Parse Hermes bytecode header"""
         try:
             # Read the fixed-size header (version 89-96 format)
             # This is a simplified version - actual format varies by version
             f.seek(0)
-            
+
             # Basic header structure (first 88 bytes typically)
             data = f.read(88)
             if len(data) < 88:
                 return None
-            
+
             # Parse using little-endian format
             # Note: This is simplified - actual format depends on version
             magic = struct.unpack('<I', data[0:4])[0]
@@ -226,18 +226,18 @@ class HermesExtractor(BaseExtractor):
             array_buffer_size = struct.unpack('<I', data[68:72])[0]
             obj_key_buffer_size = struct.unpack('<I', data[72:76])[0]
             obj_value_buffer_size = struct.unpack('<I', data[76:80])[0]
-            
+
             # Additional fields for newer versions
             segment_id = 0
             cjs_module_count = 0
             cjs_module_offset = 0
             function_source_count = 0
             debug_info_offset = 0
-            
+
             if len(data) >= 88:
                 segment_id = struct.unpack('<I', data[80:84])[0]
                 cjs_module_count = struct.unpack('<I', data[84:88])[0]
-            
+
             return HermesHeader(
                 magic=magic,
                 version=version,
@@ -261,24 +261,24 @@ class HermesExtractor(BaseExtractor):
                 function_source_count=function_source_count,
                 debug_info_offset=debug_info_offset
             )
-            
+
         except Exception as e:
             logger.debug(f"Failed to parse Hermes header: {e}")
             return None
-    
+
     def _extract_strings(self, f, header: HermesHeader) -> List[str]:
         """Extract readable strings from the string table"""
         strings = []
-        
+
         try:
             # String table typically follows the header
             # This is a simplified extraction - actual format is complex
             f.seek(88)  # Skip header
-            
+
             # Read string storage area
             if header.string_storage_size > 0 and header.string_storage_size < 10*1024*1024:  # Sanity check: < 10MB
                 string_data = f.read(min(header.string_storage_size, 100000))  # Limit to 100KB
-                
+
                 # Extract ASCII strings (simplified approach)
                 current_string = bytearray()
                 for byte in string_data:
@@ -292,7 +292,7 @@ class HermesExtractor(BaseExtractor):
                         except:
                             pass
                         current_string = bytearray()
-                
+
                 # Don't forget the last string
                 if current_string and len(current_string) >= self.min_string_length:
                     try:
@@ -301,21 +301,21 @@ class HermesExtractor(BaseExtractor):
                             strings.append(s)
                     except:
                         pass
-        
+
         except Exception as e:
             logger.debug(f"Failed to extract strings: {e}")
-        
+
         return strings[:self.max_strings]
-    
+
     def _extract_all_strings(self, f, header: HermesHeader) -> List[str]:
         """Extract ALL readable strings from the entire bytecode file for library detection"""
         strings = []
-        
+
         try:
             # Read the entire file
             f.seek(0)
             data = f.read()
-            
+
             # Extract longer strings that might be library signatures
             current_string = bytearray()
             for byte in data:
@@ -330,7 +330,7 @@ class HermesExtractor(BaseExtractor):
                     except:
                         pass
                     current_string = bytearray()
-            
+
             # Don't forget the last string
             if current_string and len(current_string) >= 10:
                 try:
@@ -339,13 +339,13 @@ class HermesExtractor(BaseExtractor):
                         strings.append(s)
                 except:
                     pass
-        
+
         except Exception as e:
             logger.debug(f"Failed to extract all strings: {e}")
-        
+
         # Limit to reasonable number
         return strings[:5000]
-    
+
     def _is_library_indicator(self, s: str) -> bool:
         """Check if a string might be a library indicator"""
         # Look for patterns that indicate library code
@@ -358,17 +358,17 @@ class HermesExtractor(BaseExtractor):
             'warning', 'assert', 'check', 'validate', 'transform',
             'compile', 'parse', 'serialize', 'decode', 'encode'
         ]
-        
+
         s_lower = s.lower()
         return any(ind in s_lower for ind in indicators)
-    
+
     def _has_react_native_patterns(self, f, header: HermesHeader) -> bool:
         """Check if the bytecode contains React Native patterns"""
         try:
             # Look for common React Native strings in the file
             f.seek(0)
             data = f.read(min(header.file_length, 1024*1024))  # Read up to 1MB
-            
+
             # Common React Native markers
             rn_markers = [
                 b'ReactNative',
@@ -379,16 +379,16 @@ class HermesExtractor(BaseExtractor):
                 b'renderApplication',
                 b'requireNativeComponent'
             ]
-            
+
             for marker in rn_markers:
                 if marker in data:
                     return True
-                    
+
         except Exception as e:
             logger.debug(f"Failed to check React Native patterns: {e}")
-        
+
         return False
-    
+
     def get_metadata(self, file_path: Path) -> Dict[str, Any]:
         """Extract metadata from Hermes bytecode file"""
         metadata = {
@@ -396,7 +396,7 @@ class HermesExtractor(BaseExtractor):
             'file_path': str(file_path),
             'file_name': file_path.name
         }
-        
+
         try:
             with open(file_path, 'rb') as f:
                 header = self._parse_header(f)
@@ -413,5 +413,5 @@ class HermesExtractor(BaseExtractor):
                     })
         except Exception as e:
             logger.debug(f"Failed to extract Hermes metadata: {e}")
-        
+
         return metadata
