@@ -56,17 +56,20 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Pickle File Parser**: Safe analysis of Python pickle files without code execution
 - **ONNX Model Parser**: Comprehensive analysis of ONNX format models
 - **SafeTensors Parser**: Validation of secure tensor storage format
+- **PyTorch/TensorFlow Native**: Handles .pt, .pth, .pb, .h5 native formats
 - **Malicious Detection**: 100% detection rate on real-world ML exploits
 - **Framework Detection**: Identifies PyTorch, TensorFlow, sklearn, XGBoost origins
+- **XGBoost Support**: Detects gradient boosting models with specific patterns
 - **Architecture Recognition**: Detects ResNet, BERT, YOLO, LLaMA, ViT, etc.
 - **Format Validation**: Detects tampering, injection attempts, and format violations
+- **Malformed File Detection**: Identifies corrupted or invalid model files with clear warnings
 - **Data Exfiltration Detection**: Flags oversized tensors and suspicious patterns
 - **Supply Chain Security**: Verifies model provenance and integrity
-- **Risk Assessment**: Multi-level safety analysis (safe, suspicious, dangerous)
+- **Risk Assessment**: Multi-level safety analysis (safe, suspicious, dangerous, malformed, error)
 - **Protocol Support**: Handles all pickle protocols, ONNX versions, and SafeTensors formats
 
 ### Signature Database
-- **186 OSS Components**: Comprehensive coverage including libraries, frameworks, ML models, and multimedia codecs
+- **188 OSS Components**: Comprehensive coverage including libraries, frameworks, ML models, and multimedia codecs
 - **1,400+ Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
 - **Multimedia Support**: H.264/H.265, AAC, Dolby, AV1, GStreamer, GLib, FFmpeg components
 - **System Libraries**: libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, Opus
