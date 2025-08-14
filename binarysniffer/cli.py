@@ -1173,7 +1173,7 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         table = Table()
         table.add_column("Component", style="cyan")
         table.add_column("Confidence", style="green")
-        table.add_column("License", style="yellow")
+        table.add_column("Classification", style="yellow")
         table.add_column("Type", style="blue")
         table.add_column("Evidence", style="magenta")
         
