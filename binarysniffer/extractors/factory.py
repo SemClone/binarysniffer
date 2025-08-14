@@ -14,6 +14,7 @@ from .dex import DexExtractor
 from .binary_lief import LiefBinaryExtractor
 from .hermes import HermesExtractor
 from .static_library import StaticLibraryExtractor
+from .pickle_model import PickleModelExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -49,6 +50,7 @@ class ExtractorFactory:
         self.extractors.extend([
             DexExtractor(),        # DEX files (Android bytecode)
             HermesExtractor(),     # Hermes bytecode (React Native)
+            PickleModelExtractor(), # Pickle files (ML models)
         ])
         
         # Add LIEF-based binary extractor if available

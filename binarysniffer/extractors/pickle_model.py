@@ -1,0 +1,322 @@
+"""
+Pickle file parser for ML model security analysis.
+
+This module extracts features from pickle files without executing them,
+focusing on detecting potentially malicious operations and ML framework signatures.
+"""
+
+import pickle
+import pickletools
+from pathlib import Path
+from typing import List, Set, Dict, Any, Optional
+import logging
+import struct
+import io
+
+from binarysniffer.extractors.base import BaseExtractor, ExtractedFeatures
+
+logger = logging.getLogger(__name__)
+
+# Pickle opcodes that can execute code
+DANGEROUS_OPCODES = {
+    'GLOBAL',     # Import a module/class
+    'REDUCE',     # Call a function
+    'BUILD',      # Call __setstate__ or similar
+    'INST',       # Instantiate a class (protocol 0)
+    'OBJ',        # Build a class instance
+    'NEWOBJ',     # New-style class instance
+    'NEWOBJ_EX',  # New-style class with kwargs
+    'STACK_GLOBAL',  # Import via stack
+}
+
+# Known dangerous imports
+DANGEROUS_IMPORTS = {
+    'os.system', 'os.popen', 'os.execv', 'os.execve', 'os.spawnv',
+    'subprocess.call', 'subprocess.run', 'subprocess.Popen', 'subprocess.check_output',
+    'eval', 'exec', '__import__', 'compile', 'execfile',
+    'socket.socket', 'socket.create_connection', 'socket.AddressFamily', 'socket.SocketKind',
+    'requests.get', 'requests.post', 'urllib.request.urlopen', 'urllib.urlopen',
+    'webbrowser.open', 'antigravity',  # Yes, antigravity can open browser
+    'builtins.eval', 'builtins.exec', 'builtins.__import__',
+    'importlib.import_module', 'importlib.__import__',
+    'code.interact', 'code.compile_command',
+    'commands.getoutput', 'commands.getstatusoutput',
+    'pty.spawn', 'pty.fork',
+    'multiprocessing.Process', 'threading.Thread',
+}
+
+# Suspicious string patterns
+SUSPICIOUS_PATTERNS = {
+    # Shell indicators
+    '/bin/sh', '/bin/bash', 'cmd.exe', 'powershell.exe',
+    'reverse_tcp', 'bind_shell', 'meterpreter',
+    
+    # Network indicators  
+    'LHOST=', 'LPORT=', '0.0.0.0', '127.0.0.1',
+    'nc -e', 'ncat ', 'socat ',
+    
+    # Encoding/obfuscation
+    'base64.b64decode', 'zlib.decompress', 'codecs.decode',
+    'marshal.loads', 'pickle.loads',
+    
+    # Common exploit patterns
+    '__reduce__', '__setstate__', '__getstate__',
+    'os._wrap_close', 'subprocess._wrap_close',
+}
+
+# ML framework signatures
+ML_FRAMEWORK_SIGNATURES = {
+    'sklearn': {
+        'sklearn.', 'sklearn.tree._tree.Tree', 'sklearn.ensemble',
+        'sklearn.linear_model', 'sklearn.svm', 'sklearn.neural_network',
+        'sklearn.preprocessing', 'sklearn.pipeline',
+    },
+    'torch': {
+        'torch.', 'torch.nn', 'torch.tensor', 'torch.cuda',
+        'torch.jit', 'torch.onnx', 'torch.optim',
+        'torch._utils._rebuild_tensor',
+    },
+    'tensorflow': {
+        'tensorflow.', 'tf.', 'tensorflow.keras', 'tensorflow.lite',
+        'tensorflow.saved_model', 'tensorflow.estimator',
+    },
+    'numpy': {
+        'numpy.', 'numpy.ndarray', 'numpy.core.multiarray',
+        'numpy.dtype', 'numpy.random',
+    },
+    'pandas': {
+        'pandas.', 'pandas.core', 'pandas.DataFrame',
+        'pandas.Series', 'pandas.Index',
+    },
+    'xgboost': {
+        'xgboost.', 'xgboost.core', 'xgboost.sklearn',
+        'xgboost.Booster', 'xgboost.DMatrix',
+    },
+    'lightgbm': {
+        'lightgbm.', 'lightgbm.sklearn', 'lightgbm.Booster',
+        'lightgbm.Dataset', 'lightgbm.LGBMClassifier',
+    },
+}
+
+
+class PickleModelExtractor(BaseExtractor):
+    """Extract features from pickle files for security analysis."""
+    
+    def can_handle(self, file_path: Path) -> bool:
+        """Check if file is a pickle file."""
+        # Check extension
+        if file_path.suffix.lower() in ['.pkl', '.pickle', '.p', '.pth']:
+            return True
+            
+        # Check magic bytes for pickle protocol
+        try:
+            with open(file_path, 'rb') as f:
+                header = f.read(2)
+                # Protocol 0-2: ASCII '(', 'c', etc.
+                # Protocol 3: b'\x80\x03'
+                # Protocol 4: b'\x80\x04'  
+                # Protocol 5: b'\x80\x05'
+                if header in [b'\x80\x03', b'\x80\x04', b'\x80\x05']:
+                    return True
+                # Check for protocol 0-2 (ASCII-based)
+                if header[0:1] in [b'(', b'c', b'}', b']']:
+                    return True
+        except Exception:
+            pass
+            
+        return False
+    
+    def extract(self, file_path: Path) -> ExtractedFeatures:
+        """Extract features from pickle file without executing it."""
+        features = set()
+        imports = set()
+        suspicious_items = set()
+        ml_frameworks = set()
+        risk_indicators = []
+        risk_level = "unknown"  # Initialize risk_level
+        
+        try:
+            with open(file_path, 'rb') as f:
+                content = f.read()
+            
+            # Parse opcodes using pickletools (safe, no execution)
+            opcodes = list(pickletools.genops(content))
+            
+            # Track stack for STACK_GLOBAL resolution
+            stack = []
+            
+            for opcode, arg, pos in opcodes:
+                opname = opcode.name
+                
+                
+                # Track dangerous opcodes
+                if opname in DANGEROUS_OPCODES:
+                    features.add(f"pickle_opcode:{opname}")
+                    
+                    # Handle STACK_GLOBAL (builds name from stack)
+                    if opname == 'STACK_GLOBAL':
+                        if len(stack) >= 2:
+                            module_name = stack[-2]
+                            attr_name = stack[-1]
+                            import_str = f"{module_name}.{attr_name}"
+                            stack = stack[:-2]
+                            
+                            # Normalize posix.system to os.system
+                            if import_str == 'posix.system':
+                                import_str = 'os.system'
+                            elif import_str == 'nt.system':
+                                import_str = 'os.system'
+                            
+                            imports.add(import_str)
+                            features.add(f"pickle_import:{import_str}")
+                            
+                            # Check for dangerous imports
+                            for dangerous in DANGEROUS_IMPORTS:
+                                if dangerous in import_str or import_str.startswith(dangerous):
+                                    suspicious_items.add(f"dangerous_import:{import_str}")
+                                    risk_indicators.append(f"DANGEROUS: {import_str}")
+                            
+                            # Check for ML frameworks
+                            for framework, signatures in ML_FRAMEWORK_SIGNATURES.items():
+                                for sig in signatures:
+                                    if import_str.startswith(sig):
+                                        ml_frameworks.add(framework)
+                                        features.add(f"ml_framework:{framework}")
+                                        break
+                    
+                    # Handle regular GLOBAL opcodes
+                    elif opname == 'GLOBAL' and arg:
+                        # Handle different formats of GLOBAL arguments
+                        if isinstance(arg, str):
+                            import_str = arg
+                        elif isinstance(arg, (list, tuple)) and len(arg) >= 2:
+                            import_str = f"{arg[0]}.{arg[1]}"
+                        else:
+                            import_str = str(arg).replace('\n', '.')
+                        
+                        imports.add(import_str)
+                        features.add(f"pickle_import:{import_str}")
+                        
+                        # Check for dangerous imports
+                        for dangerous in DANGEROUS_IMPORTS:
+                            if dangerous in import_str or import_str.startswith(dangerous):
+                                suspicious_items.add(f"dangerous_import:{import_str}")
+                                risk_indicators.append(f"DANGEROUS: {import_str}")
+                        
+                        # Check for ML frameworks
+                        for framework, signatures in ML_FRAMEWORK_SIGNATURES.items():
+                            for sig in signatures:
+                                if import_str.startswith(sig):
+                                    ml_frameworks.add(framework)
+                                    features.add(f"ml_framework:{framework}")
+                                    break
+                
+                # Extract string constants (also track for STACK_GLOBAL)
+                elif opname in ['STRING', 'BINSTRING', 'SHORT_BINSTRING', 
+                               'UNICODE', 'BINUNICODE', 'SHORT_BINUNICODE']:
+                    if arg and isinstance(arg, (str, bytes)):
+                        string_val = arg.decode('utf-8', errors='ignore') if isinstance(arg, bytes) else arg
+                        
+                        # Add to stack for STACK_GLOBAL resolution
+                        stack.append(string_val)
+                        
+                        # Check for suspicious patterns
+                        for pattern in SUSPICIOUS_PATTERNS:
+                            if pattern in string_val.lower():
+                                suspicious_items.add(f"suspicious_string:{pattern}")
+                                risk_indicators.append(f"SUSPICIOUS: Found '{pattern}'")
+                        
+                        # Add significant strings as features
+                        if len(string_val) > 4 and len(string_val) < 100:
+                            # Clean the string for feature extraction
+                            clean_str = ''.join(c for c in string_val if c.isalnum() or c in '._-')
+                            if clean_str:
+                                features.add(f"pickle_string:{clean_str[:50]}")
+                
+                # Track other interesting opcodes
+                elif opname in ['MARK', 'STOP', 'FRAME', 'MEMOIZE']:
+                    features.add(f"pickle_structure:{opname}")
+            
+            # Add risk assessment
+            risk_level = self._assess_risk(imports, suspicious_items, ml_frameworks)
+            features.add(f"pickle_risk:{risk_level}")
+            
+            # Add detected frameworks
+            for framework in ml_frameworks:
+                features.add(f"detected_framework:{framework}")
+            
+            # Add all suspicious items as features
+            features.update(suspicious_items)
+            
+            # Log findings
+            if risk_indicators:
+                logger.warning(f"Pickle file {file_path.name} contains risky operations: {risk_indicators}")
+            
+            logger.info(f"Extracted {len(features)} features from pickle file {file_path.name}")
+            
+        except Exception as e:
+            logger.error(f"Error parsing pickle file {file_path}: {e}")
+            features.add("pickle_parse_error")
+        
+        return ExtractedFeatures(
+            file_path=str(file_path),
+            file_type='pickle',
+            strings=list(features),
+            imports=list(imports),
+            functions=[],  # Pickle doesn't have traditional functions
+            constants=list(ml_frameworks),  # Use constants for detected frameworks
+            symbols=[],
+            metadata={'risk_level': risk_level, 'frameworks': list(ml_frameworks)}
+        )
+    
+    def _assess_risk(self, imports: Set[str], suspicious: Set[str], frameworks: Set[str]) -> str:
+        """Assess the risk level of the pickle file."""
+        # Count dangerous indicators
+        dangerous_count = sum(1 for i in imports for d in DANGEROUS_IMPORTS if d in i)
+        suspicious_count = len(suspicious)
+        
+        # If it's a known ML framework with no dangerous operations, it's probably safe
+        if frameworks and dangerous_count == 0 and suspicious_count == 0:
+            return "safe"
+        
+        # Determine risk level
+        if dangerous_count > 0:
+            return "dangerous"
+        elif suspicious_count > 2:
+            return "high_risk"
+        elif suspicious_count > 0:
+            return "suspicious"
+        elif frameworks:
+            return "likely_safe"
+        else:
+            return "unknown"
+    
+    def validate_safe_unpickle(self, file_path: Path) -> bool:
+        """
+        Check if a pickle file is safe to unpickle.
+        This is a more thorough check for when actual unpickling might be needed.
+        """
+        try:
+            with open(file_path, 'rb') as f:
+                content = f.read()
+            
+            # Parse all opcodes
+            for opcode, arg, pos in pickletools.genops(content):
+                if opcode.name == 'GLOBAL' and arg:
+                    import_str = arg if isinstance(arg, str) else f"{arg[0]}.{arg[1]}"
+                    # Check against dangerous imports
+                    for dangerous in DANGEROUS_IMPORTS:
+                        if dangerous in import_str or import_str.startswith(dangerous):
+                            logger.warning(f"Unsafe pickle: contains {import_str}")
+                            return False
+                            
+                elif opcode.name in ['REDUCE', 'BUILD', 'INST', 'OBJ']:
+                    # These can execute arbitrary code
+                    logger.warning(f"Unsafe pickle: contains {opcode.name} opcode")
+                    return False
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error validating pickle safety: {e}")
+            return False

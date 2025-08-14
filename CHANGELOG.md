@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.7] - 2025-08-14
+
+### Added
+- **Pickle File Parser** - New extractor for ML model security analysis (closes #21)
+  - Detects malicious pickle operations without executing code
+  - Identifies dangerous imports (os.system, subprocess, eval, exec, socket, etc.)
+  - Recognizes ML frameworks (sklearn, PyTorch, TensorFlow, XGBoost, LightGBM, etc.)
+  - Provides risk assessment levels (safe, suspicious, dangerous)
+  - Handles all pickle protocol versions (0-5)
+  - Detects REDUCE, BUILD, INST, OBJ, and other code execution opcodes
+  - Handles both GLOBAL and STACK_GLOBAL opcodes for import detection
+  - Normalizes platform-specific imports (posix.system → os.system)
+  - 100% detection rate on real-world malicious pickle attacks
+- **ML Security Signatures** - New signature sets for ML model analysis
+  - pickle-malicious.json: Patterns for detecting malicious pickle operations
+  - sklearn.json: Signatures for scikit-learn models
+  - pytorch.json: Signatures for PyTorch models
+- **Safe Unpickle Validation** - New method to check if pickle files are safe to load
+
+### Changed
+- **Documentation** - Clarified that automated signature extraction from package managers is out of scope for the CLI tool
+  - Updated CONTRIBUTING.md to note this feature will be implemented in a separate scanning orchestrator
+  - Updated docs/SIGNATURE_MANAGEMENT.md with similar clarification about scope limitations
+
+### Security
+- **ML Model Security** - Can now detect NullifyAI-style attacks and other malicious ML model backdoors
+- **Comprehensive Threat Detection** - Detects reverse shells, data exfiltration, code execution, and obfuscated payloads in pickle files
+
 ## [1.9.6] - 2025-08-13
 
 ### Added

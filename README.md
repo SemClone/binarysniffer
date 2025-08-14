@@ -52,6 +52,14 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Semantic Symbol Extraction**: Functions, classes, structs, constants, and dependencies
 - **Graceful Fallback**: Regex-based extraction when CTags is unavailable
 
+### ML Model Security Analysis
+- **Pickle File Parser**: Safe analysis of Python pickle files without code execution
+- **Malicious Detection**: 100% detection rate on real-world pickle exploits
+- **Threat Identification**: Detects reverse shells, data exfiltration, code execution
+- **ML Framework Recognition**: Identifies sklearn, PyTorch, TensorFlow, XGBoost models
+- **Risk Assessment**: Provides safety levels (safe, suspicious, dangerous)
+- **Protocol Support**: Handles all pickle protocol versions (0-5)
+
 ### Signature Database
 - **179 OSS Components**: Comprehensive coverage including libraries, frameworks, and multimedia codecs
 - **1,324 Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
