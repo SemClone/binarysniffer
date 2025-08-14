@@ -187,7 +187,32 @@ binarysniffer analyze suspicious_binary --deep --enhanced
 binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
 ```
 
-### Example 5: Package Inventory Extraction (v1.8.6+)
+### Example 5: ML Model Security Analysis (v1.9.7+)
+```bash
+# Analyze pickle files for malicious code
+binarysniffer analyze model.pkl --show-features
+
+# Analyze ONNX models for security risks
+binarysniffer analyze model.onnx
+
+# Analyze SafeTensors format for tampering
+binarysniffer analyze model.safetensors
+
+# Batch analysis of ML models
+binarysniffer analyze models/ -r -p "*.pkl" -p "*.onnx" -p "*.pt" -p "*.safetensors"
+
+# Output shows risk assessment:
+# ┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━┓
+# ┃ Component         ┃ Confidence ┃ Classification  ┃ Type   ┃ Evidence         ┃
+# ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━┩
+# │ PyTorch-Native    │ 94.0%      │ BSD-3-Clause    │ string │ 2 patterns       │
+# │ XGBoost           │ 77.3%      │ Apache-2.0      │ string │ 7 patterns       │
+# │ Pickle-Malicious  │ 98.5%      │ CRITICAL        │ string │ 4 patterns       │
+# │ Malformed-Pickle  │ 100.0%     │ WARNING         │ string │ 2 patterns       │
+# └───────────────────┴────────────┴─────────────────┴────────┴──────────────────┘
+```
+
+### Example 6: Package Inventory Extraction (v1.8.6+)
 ```bash
 # Basic inventory summary
 binarysniffer inventory app.apk
@@ -215,7 +240,8 @@ binarysniffer inventory app.ipa \
 ## Output Formats
 
 ### Table Format (Default)
-- Human-readable table with components, confidence scores, licenses, and evidence
+- Human-readable table with components, confidence scores, classification, and evidence
+- **Classification column** shows either software licenses (e.g., Apache-2.0, MIT) or security severity levels (CRITICAL, HIGH, MEDIUM, LOW, WARNING)
 - Color-coded output for easy reading
 - Summary statistics at the end
 

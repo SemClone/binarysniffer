@@ -7,8 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.9] - 2025-08-14
+
 ### Added
-- **SafeTensors Format Parser** - New extractor for secure tensor storage format (addresses #23)
+- **XGBoost Detection** - New signature file for XGBoost gradient boosting framework
+  - Detects xgboost.sklearn, XGBClassifier, XGBRegressor patterns
+  - Identifies gradient boosting specific parameters (max_depth, n_estimators, learning_rate)
+  - Successfully detects XGBoost in mixed ML model files
+  - Apache-2.0 license attribution for XGBoost components
+- **Malformed File Detection** - Enhanced handling of corrupted and invalid files
+  - New signature set for detecting malformed pickle files
+  - Categorizes errors: invalid opcodes, truncated files, unknown errors
+  - Provides clear WARNING classification for problematic files
+  - Tracks risk levels in metadata (malformed, error, dangerous, safe)
+
+### Improved
+- **Enhanced Pickle Extractor** - Better error handling and user feedback
+  - Distinguishes between different types of file corruption
+  - Adds specific error features for signature matching
+  - Provides suspicious_items metadata for detailed diagnostics
+  - Improved risk assessment with new "malformed" and "error" categories
+- **CLI User Experience** - Clearer warnings and feedback for problematic files
+  - Table components can display warning titles and captions
+  - Special formatting for malformed file detection
+  - Risk level indicators shown before component tables
+  - Better visual distinction between normal detections and warnings
+
+### Fixed
+- Mixed ML model files (e.g., XGBoost models) now properly detected instead of showing "No components"
+- Malformed pickle files now show clear WARNING instead of generic error messages
+- Classification column properly handles both licenses and security warnings
+
+## [1.9.8] - 2025-08-14
+
+### Added
+- **SafeTensors Format Parser** - New extractor for secure tensor storage format
   - Validates SafeTensors format integrity and detects tampering
   - Identifies format violations that could indicate file manipulation
   - Detects injection attempts via unexpected metadata keys
