@@ -54,15 +54,18 @@ A high-performance CLI tool and Python library for detecting open source compone
 
 ### ML Model Security Analysis
 - **Pickle File Parser**: Safe analysis of Python pickle files without code execution
-- **Malicious Detection**: 100% detection rate on real-world pickle exploits
-- **Threat Identification**: Detects reverse shells, data exfiltration, code execution
-- **ML Framework Recognition**: Identifies sklearn, PyTorch, TensorFlow, XGBoost models
-- **Risk Assessment**: Provides safety levels (safe, suspicious, dangerous)
-- **Protocol Support**: Handles all pickle protocol versions (0-5)
+- **ONNX Model Parser**: Comprehensive analysis of ONNX format models
+- **Malicious Detection**: 100% detection rate on real-world ML exploits
+- **Framework Detection**: Identifies PyTorch, TensorFlow, sklearn, XGBoost origins
+- **Architecture Recognition**: Detects ResNet, BERT, YOLO, EfficientNet, etc.
+- **Operator Analysis**: Extracts and validates ONNX operators and custom operations
+- **Threat Identification**: Detects backdoors, code injection, data exfiltration
+- **Risk Assessment**: Multi-level safety analysis (safe, suspicious, dangerous)
+- **Protocol Support**: Handles all pickle protocols and ONNX versions
 
 ### Signature Database
-- **179 OSS Components**: Comprehensive coverage including libraries, frameworks, and multimedia codecs
-- **1,324 Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
+- **186 OSS Components**: Comprehensive coverage including libraries, frameworks, ML models, and multimedia codecs
+- **1,400+ Total Signatures**: High-quality patterns with improved accuracy and reduced false positives
 - **Multimedia Support**: H.264/H.265, AAC, Dolby, AV1, GStreamer, GLib, FFmpeg components
 - **System Libraries**: libcap, Expat XML, LZ4, XZ Utils, WebP, cURL, Cairo, Opus
 - **License Detection**: Automatic license identification for detected components
@@ -244,6 +247,11 @@ binarysniffer analyze /path/to/binary
 binarysniffer analyze app.apk                    # Android APK
 binarysniffer analyze app.ipa                    # iOS IPA
 binarysniffer analyze library.jar                # Java JAR
+
+# ML model security analysis
+binarysniffer analyze model.pkl                  # Pickle files
+binarysniffer analyze model.onnx                 # ONNX models
+binarysniffer analyze suspicious_model.pkl --show-features  # Detailed analysis
 
 # Analyze directories recursively
 binarysniffer analyze /path/to/project -r
