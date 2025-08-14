@@ -1,0 +1,76 @@
+{
+  "component": {
+    "name": "XGBoost",
+    "version": "*",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python",
+      "c++"
+    ],
+    "description": "Scalable and flexible gradient boosting library",
+    "license": "Apache-2.0",
+    "publisher": "dmlc"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "xgboost.sklearn",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "xgboost.core",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "xgboost.training",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "XGBClassifier",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "XGBRegressor",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "xgboost.Booster",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "xgboost.DMatrix",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "pickle_string:xgboost.sklearn",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "ml_framework:xgboost",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "binarylogistic",
+      "confidence": 0.70
+    },
+    {
+      "pattern": "gbtree",
+      "confidence": 0.70
+    },
+    {
+      "pattern": "max_depth",
+      "confidence": 0.60
+    },
+    {
+      "pattern": "n_estimators",
+      "confidence": 0.60
+    },
+    {
+      "pattern": "learning_rate",
+      "confidence": 0.60
+    }
+  ]
+}

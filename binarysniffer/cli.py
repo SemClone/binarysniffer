@@ -1149,6 +1149,18 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
             console.print(f"[red]Error: {result.error}[/red]")
             continue
         
+        # Check for malformed or suspicious files
+        if hasattr(result, 'metadata') and result.metadata:
+            risk_level = result.metadata.get('risk_level', '')
+            if risk_level == 'malformed':
+                console.print("[red bold]⚠ WARNING: Malformed pickle file detected![/red bold]")
+                console.print("  [yellow]This file appears to have an invalid structure and may be corrupted.[/yellow]")
+                if result.metadata.get('suspicious_items'):
+                    console.print(f"  Issues: {', '.join(result.metadata['suspicious_items'])}")
+            elif risk_level == 'error':
+                console.print("[orange1]⚠ File parsing error detected[/orange1]")
+                console.print("  [yellow]This file could not be properly analyzed.[/yellow]")
+        
         if not result.matches:
             console.print("[yellow]No components detected[/yellow]")
             console.print(f"  Confidence threshold: {result.confidence_threshold}")
@@ -1175,6 +1187,14 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         
         # Create matches table
         table = Table()
+        
+        # Add warning header for malformed files
+        if hasattr(result, 'metadata') and result.metadata:
+            risk_level = result.metadata.get('risk_level', '')
+            if risk_level == 'malformed' and any('Malformed' in m.component for m in filtered_matches):
+                table.title = "[red bold]⚠ WARNING: Malformed/Corrupted File Detected[/red bold]"
+                table.caption = "[yellow]This file has an invalid structure and may be corrupted or tampered with[/yellow]"
+        
         table.add_column("Component", style="cyan")
         table.add_column("Confidence", style="green")
         table.add_column("Classification", style="yellow")

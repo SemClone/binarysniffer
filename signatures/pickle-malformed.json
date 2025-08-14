@@ -1,0 +1,43 @@
+{
+  "component": {
+    "name": "Malformed-Pickle-File",
+    "version": "1.0.0",
+    "category": "anomaly",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Detected malformed or corrupted pickle file structure",
+    "license": "WARNING",
+    "publisher": "Unknown"
+  },
+  "confidence_threshold": 0.5,
+  "patterns": [
+    {
+      "pattern": "pickle_parse_error",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "malformed_pickle:invalid_opcode",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "malformed_pickle:truncated",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "malformed_pickle:unknown_error",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "invalid_pickle_structure",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "truncated_pickle_file",
+      "confidence": 0.95
+    }
+  ]
+}
