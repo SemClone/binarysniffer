@@ -5,13 +5,10 @@ This module extracts features from pickle files without executing them,
 focusing on detecting potentially malicious operations and ML framework signatures.
 """
 
-import pickle
+import logging
 import pickletools
 from pathlib import Path
-from typing import List, Set, Dict, Any, Optional
-import logging
-import struct
-import io
+from typing import Set
 
 from binarysniffer.extractors.base import BaseExtractor, ExtractedFeatures
 
@@ -50,15 +47,15 @@ SUSPICIOUS_PATTERNS = {
     # Shell indicators
     '/bin/sh', '/bin/bash', 'cmd.exe', 'powershell.exe',
     'reverse_tcp', 'bind_shell', 'meterpreter',
-    
-    # Network indicators  
+
+    # Network indicators
     'LHOST=', 'LPORT=', '0.0.0.0', '127.0.0.1',
     'nc -e', 'ncat ', 'socat ',
-    
+
     # Encoding/obfuscation
     'base64.b64decode', 'zlib.decompress', 'codecs.decode',
     'marshal.loads', 'pickle.loads',
-    
+
     # Common exploit patterns
     '__reduce__', '__setstate__', '__getstate__',
     'os._wrap_close', 'subprocess._wrap_close',
@@ -101,20 +98,21 @@ ML_FRAMEWORK_SIGNATURES = {
 
 class PickleModelExtractor(BaseExtractor):
     """Extract features from pickle files for security analysis."""
-    
+
     def can_handle(self, file_path: Path) -> bool:
         """Check if file is a pickle file."""
         # Check extension
-        if file_path.suffix.lower() in ['.pkl', '.pickle', '.p', '.pth']:
+        # Note: .pth files are handled by PyTorchNativeExtractor
+        if file_path.suffix.lower() in ['.pkl', '.pickle', '.p']:
             return True
-            
+
         # Check magic bytes for pickle protocol
         try:
             with open(file_path, 'rb') as f:
                 header = f.read(2)
                 # Protocol 0-2: ASCII '(', 'c', etc.
                 # Protocol 3: b'\x80\x03'
-                # Protocol 4: b'\x80\x04'  
+                # Protocol 4: b'\x80\x04'
                 # Protocol 5: b'\x80\x05'
                 if header in [b'\x80\x03', b'\x80\x04', b'\x80\x05']:
                     return True
@@ -123,9 +121,9 @@ class PickleModelExtractor(BaseExtractor):
                     return True
         except Exception:
             pass
-            
+
         return False
-    
+
     def extract(self, file_path: Path) -> ExtractedFeatures:
         """Extract features from pickle file without executing it."""
         features = set()
@@ -134,25 +132,25 @@ class PickleModelExtractor(BaseExtractor):
         ml_frameworks = set()
         risk_indicators = []
         risk_level = "unknown"  # Initialize risk_level
-        
+
         try:
             with open(file_path, 'rb') as f:
                 content = f.read()
-            
+
             # Parse opcodes using pickletools (safe, no execution)
             opcodes = list(pickletools.genops(content))
-            
+
             # Track stack for STACK_GLOBAL resolution
             stack = []
-            
+
             for opcode, arg, pos in opcodes:
                 opname = opcode.name
-                
-                
+
+
                 # Track dangerous opcodes
                 if opname in DANGEROUS_OPCODES:
                     features.add(f"pickle_opcode:{opname}")
-                    
+
                     # Handle STACK_GLOBAL (builds name from stack)
                     if opname == 'STACK_GLOBAL':
                         if len(stack) >= 2:
@@ -160,22 +158,20 @@ class PickleModelExtractor(BaseExtractor):
                             attr_name = stack[-1]
                             import_str = f"{module_name}.{attr_name}"
                             stack = stack[:-2]
-                            
+
                             # Normalize posix.system to os.system
-                            if import_str == 'posix.system':
+                            if import_str == 'posix.system' or import_str == 'nt.system':
                                 import_str = 'os.system'
-                            elif import_str == 'nt.system':
-                                import_str = 'os.system'
-                            
+
                             imports.add(import_str)
                             features.add(f"pickle_import:{import_str}")
-                            
+
                             # Check for dangerous imports
                             for dangerous in DANGEROUS_IMPORTS:
                                 if dangerous in import_str or import_str.startswith(dangerous):
                                     suspicious_items.add(f"dangerous_import:{import_str}")
                                     risk_indicators.append(f"DANGEROUS: {import_str}")
-                            
+
                             # Check for ML frameworks
                             for framework, signatures in ML_FRAMEWORK_SIGNATURES.items():
                                 for sig in signatures:
@@ -183,7 +179,7 @@ class PickleModelExtractor(BaseExtractor):
                                         ml_frameworks.add(framework)
                                         features.add(f"ml_framework:{framework}")
                                         break
-                    
+
                     # Handle regular GLOBAL opcodes
                     elif opname == 'GLOBAL' and arg:
                         # Handle different formats of GLOBAL arguments
@@ -193,16 +189,16 @@ class PickleModelExtractor(BaseExtractor):
                             import_str = f"{arg[0]}.{arg[1]}"
                         else:
                             import_str = str(arg).replace('\n', '.')
-                        
+
                         imports.add(import_str)
                         features.add(f"pickle_import:{import_str}")
-                        
+
                         # Check for dangerous imports
                         for dangerous in DANGEROUS_IMPORTS:
                             if dangerous in import_str or import_str.startswith(dangerous):
                                 suspicious_items.add(f"dangerous_import:{import_str}")
                                 risk_indicators.append(f"DANGEROUS: {import_str}")
-                        
+
                         # Check for ML frameworks
                         for framework, signatures in ML_FRAMEWORK_SIGNATURES.items():
                             for sig in signatures:
@@ -210,54 +206,54 @@ class PickleModelExtractor(BaseExtractor):
                                     ml_frameworks.add(framework)
                                     features.add(f"ml_framework:{framework}")
                                     break
-                
+
                 # Extract string constants (also track for STACK_GLOBAL)
-                elif opname in ['STRING', 'BINSTRING', 'SHORT_BINSTRING', 
+                elif opname in ['STRING', 'BINSTRING', 'SHORT_BINSTRING',
                                'UNICODE', 'BINUNICODE', 'SHORT_BINUNICODE']:
                     if arg and isinstance(arg, (str, bytes)):
                         string_val = arg.decode('utf-8', errors='ignore') if isinstance(arg, bytes) else arg
-                        
+
                         # Add to stack for STACK_GLOBAL resolution
                         stack.append(string_val)
-                        
+
                         # Check for suspicious patterns
                         for pattern in SUSPICIOUS_PATTERNS:
                             if pattern in string_val.lower():
                                 suspicious_items.add(f"suspicious_string:{pattern}")
                                 risk_indicators.append(f"SUSPICIOUS: Found '{pattern}'")
-                        
+
                         # Add significant strings as features
                         if len(string_val) > 4 and len(string_val) < 100:
                             # Clean the string for feature extraction
                             clean_str = ''.join(c for c in string_val if c.isalnum() or c in '._-')
                             if clean_str:
                                 features.add(f"pickle_string:{clean_str[:50]}")
-                
+
                 # Track other interesting opcodes
                 elif opname in ['MARK', 'STOP', 'FRAME', 'MEMOIZE']:
                     features.add(f"pickle_structure:{opname}")
-            
+
             # Add risk assessment
             risk_level = self._assess_risk(imports, suspicious_items, ml_frameworks)
             features.add(f"pickle_risk:{risk_level}")
-            
+
             # Add detected frameworks
             for framework in ml_frameworks:
                 features.add(f"detected_framework:{framework}")
-            
+
             # Add all suspicious items as features
             features.update(suspicious_items)
-            
+
             # Log findings
             if risk_indicators:
                 logger.warning(f"Pickle file {file_path.name} contains risky operations: {risk_indicators}")
-            
+
             logger.info(f"Extracted {len(features)} features from pickle file {file_path.name}")
-            
+
         except Exception as e:
             logger.error(f"Error parsing pickle file {file_path}: {e}")
             features.add("pickle_parse_error")
-        
+
         return ExtractedFeatures(
             file_path=str(file_path),
             file_type='pickle',
@@ -268,29 +264,28 @@ class PickleModelExtractor(BaseExtractor):
             symbols=[],
             metadata={'risk_level': risk_level, 'frameworks': list(ml_frameworks)}
         )
-    
+
     def _assess_risk(self, imports: Set[str], suspicious: Set[str], frameworks: Set[str]) -> str:
         """Assess the risk level of the pickle file."""
         # Count dangerous indicators
         dangerous_count = sum(1 for i in imports for d in DANGEROUS_IMPORTS if d in i)
         suspicious_count = len(suspicious)
-        
+
         # If it's a known ML framework with no dangerous operations, it's probably safe
         if frameworks and dangerous_count == 0 and suspicious_count == 0:
             return "safe"
-        
+
         # Determine risk level
         if dangerous_count > 0:
             return "dangerous"
-        elif suspicious_count > 2:
+        if suspicious_count > 2:
             return "high_risk"
-        elif suspicious_count > 0:
+        if suspicious_count > 0:
             return "suspicious"
-        elif frameworks:
+        if frameworks:
             return "likely_safe"
-        else:
-            return "unknown"
-    
+        return "unknown"
+
     def validate_safe_unpickle(self, file_path: Path) -> bool:
         """
         Check if a pickle file is safe to unpickle.
@@ -299,7 +294,7 @@ class PickleModelExtractor(BaseExtractor):
         try:
             with open(file_path, 'rb') as f:
                 content = f.read()
-            
+
             # Parse all opcodes
             for opcode, arg, pos in pickletools.genops(content):
                 if opcode.name == 'GLOBAL' and arg:
@@ -309,14 +304,14 @@ class PickleModelExtractor(BaseExtractor):
                         if dangerous in import_str or import_str.startswith(dangerous):
                             logger.warning(f"Unsafe pickle: contains {import_str}")
                             return False
-                            
+
                 elif opcode.name in ['REDUCE', 'BUILD', 'INST', 'OBJ']:
                     # These can execute arbitrary code
                     logger.warning(f"Unsafe pickle: contains {opcode.name} opcode")
                     return False
-            
+
             return True
-            
+
         except Exception as e:
             logger.error(f"Error validating pickle safety: {e}")
             return False

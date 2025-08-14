@@ -6,11 +6,9 @@ containing model state dictionaries, optimizer states, and metadata.
 """
 
 import logging
-import pickle
 import pickletools
-import struct
 from pathlib import Path
-from typing import Dict, List, Optional, Set
+from typing import Optional, Set
 
 from .base import BaseExtractor, ExtractedFeatures
 
@@ -19,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 class PyTorchNativeExtractor(BaseExtractor):
     """Extractor for PyTorch native format files (.pt, .pth)."""
-    
+
     # PyTorch-specific pickle protocol markers
     PYTORCH_MARKERS = {
         'torch._utils._rebuild_tensor',
@@ -39,7 +37,7 @@ class PyTorchNativeExtractor(BaseExtractor):
         'torch.CharStorage',
         'torch.BoolStorage',
     }
-    
+
     # Common PyTorch model architectures
     ARCHITECTURES = {
         'resnet': ['resnet', 'ResNet', 'layer1', 'layer2', 'layer3', 'layer4'],
@@ -53,13 +51,13 @@ class PyTorchNativeExtractor(BaseExtractor):
         'vit': ['vit', 'ViT', 'patch_embed', 'cls_token'],
         'unet': ['unet', 'UNet', 'down', 'up', 'middle'],
     }
-    
+
     def can_handle(self, file_path: Path) -> bool:
         """Check if file is a PyTorch native format file."""
         # Check extension
         if file_path.suffix.lower() not in ['.pt', '.pth']:
             return False
-        
+
         try:
             # PyTorch files are pickle files, check magic number
             with open(file_path, 'rb') as f:
@@ -69,16 +67,16 @@ class PyTorchNativeExtractor(BaseExtractor):
                     # Try to check for PyTorch-specific content
                     f.seek(0)
                     content = f.read(min(10000, file_path.stat().st_size))
-                    
+
                     # Look for PyTorch markers in the content
                     content_str = content.decode('latin-1', errors='ignore')
                     return any(marker in content_str for marker in ['torch', 'cuda', 'state_dict'])
-                    
+
         except Exception as e:
             logger.debug(f"Error checking PyTorch file {file_path}: {e}")
-            
+
         return False
-    
+
     def extract(self, file_path: Path) -> ExtractedFeatures:
         """Extract features from PyTorch native file."""
         features = ExtractedFeatures(
@@ -90,15 +88,15 @@ class PyTorchNativeExtractor(BaseExtractor):
             imports=[],
             metadata={}
         )
-        
+
         try:
             # Extract pickle opcodes for analysis
             with open(file_path, 'rb') as f:
                 content = f.read()
-            
+
             # Analyze pickle structure
             opcodes = list(pickletools.genops(content))
-            
+
             # Track imports and state
             imports = set()
             keys = set()
@@ -106,7 +104,7 @@ class PyTorchNativeExtractor(BaseExtractor):
             has_optimizer = False
             has_state_dict = False
             suspicious_ops = []
-            
+
             for opcode, arg, pos in opcodes:
                 # Track imports
                 if opcode.name in ['GLOBAL', 'STACK_GLOBAL']:
@@ -115,55 +113,55 @@ class PyTorchNativeExtractor(BaseExtractor):
                     else:
                         # STACK_GLOBAL needs stack reconstruction
                         import_str = "stack_global"
-                    
+
                     imports.add(import_str)
                     features.imports.append(import_str)
-                    
+
                     # Check for PyTorch modules
                     if 'torch' in import_str:
                         features.strings.append(import_str.replace('.', '_'))
-                    
+
                     # Check for optimizer
                     if 'optim' in import_str:
                         has_optimizer = True
-                    
+
                     # Check for dangerous operations
                     if any(danger in import_str for danger in [
-                        'os.system', 'subprocess', 'eval', 'exec', 
+                        'os.system', 'subprocess', 'eval', 'exec',
                         'compile', '__import__', 'open'
                     ]):
                         suspicious_ops.append(import_str)
-                
+
                 # Track string keys (likely layer names)
                 elif opcode.name in ['SHORT_BINSTRING', 'BINSTRING', 'BINUNICODE']:
                     if isinstance(arg, (bytes, str)):
                         key = arg.decode('utf-8') if isinstance(arg, bytes) else arg
                         keys.add(key)
-                        
+
                         # Check for state_dict
                         if key == 'state_dict':
                             has_state_dict = True
-                        
+
                         # Extract layer names
                         if any(pattern in key for pattern in [
                             'weight', 'bias', 'running_mean', 'running_var',
                             'num_batches_tracked', 'layer', 'conv', 'bn', 'fc'
                         ]):
                             features.constants.append(key)
-                
+
                 # Track tensor rebuild operations
                 elif opcode.name == 'REDUCE':
                     if arg and len(arg) > 0:
                         func = str(arg[0])
                         if 'rebuild_tensor' in func:
                             tensor_info.append('tensor_rebuild')
-            
+
             # Detect architecture
             architecture = self._detect_architecture(keys)
             if architecture:
                 features.metadata['architecture'] = architecture
                 features.strings.append(f'architecture:{architecture}')
-            
+
             # Add metadata
             features.metadata['format'] = 'pytorch_native'
             features.metadata['has_state_dict'] = has_state_dict
@@ -172,7 +170,7 @@ class PyTorchNativeExtractor(BaseExtractor):
             features.metadata['parameter_keys'] = len([k for k in keys if any(
                 p in k for p in ['weight', 'bias', 'running_mean', 'running_var']
             )])
-            
+
             # Security assessment
             if suspicious_ops:
                 features.metadata['suspicious_operations'] = suspicious_ops
@@ -181,7 +179,7 @@ class PyTorchNativeExtractor(BaseExtractor):
                     features.strings.append(f'dangerous:{op}')
             else:
                 features.metadata['risk_level'] = 'safe'
-            
+
             # Add PyTorch identifiers
             features.strings.append('pytorch_native_format')
             features.strings.append('__pytorch__')
@@ -189,35 +187,35 @@ class PyTorchNativeExtractor(BaseExtractor):
                 features.strings.append('state_dict')
             if has_optimizer:
                 features.strings.append('optimizer_state')
-            
+
             # Add import signatures
             pytorch_imports = [imp for imp in imports if 'torch' in imp]
             features.metadata['pytorch_modules'] = list(pytorch_imports)
-            
+
             logger.info(f"Extracted {len(features.strings)} features from PyTorch file")
-            
+
         except Exception as e:
             logger.error(f"Error extracting from PyTorch file: {e}")
             features.metadata['extraction_error'] = str(e)
-        
+
         return features
-    
+
     def _detect_architecture(self, keys: Set[str]) -> Optional[str]:
         """Detect model architecture from layer keys."""
         keys_lower = {k.lower() for k in keys}
         all_keys = ' '.join(keys_lower)
-        
+
         for arch_name, patterns in self.ARCHITECTURES.items():
             matches = sum(1 for pattern in patterns if pattern.lower() in all_keys)
             if matches >= 2:  # Need at least 2 pattern matches
                 return arch_name
-        
+
         # Check for generic patterns
         if 'conv' in all_keys and 'pool' in all_keys:
             return 'cnn'
-        elif 'attention' in all_keys or 'transformer' in all_keys:
+        if 'attention' in all_keys or 'transformer' in all_keys:
             return 'transformer'
-        elif 'lstm' in all_keys or 'gru' in all_keys or 'rnn' in all_keys:
+        if 'lstm' in all_keys or 'gru' in all_keys or 'rnn' in all_keys:
             return 'rnn'
-        
+
         return None

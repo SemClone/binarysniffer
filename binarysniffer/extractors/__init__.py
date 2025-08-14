@@ -2,8 +2,8 @@
 Feature extraction modules
 """
 
-from .factory import ExtractorFactory
 from .base import BaseExtractor, ExtractedFeatures
+from .factory import ExtractorFactory
 
 __all__ = [
     "ExtractorFactory",
