@@ -1,34 +1,95 @@
 {
-  "component": "SafeTensors-PyTorch",
-  "description": "PyTorch models in SafeTensors format",
-  "version": "2.0",
-  "license": "Apache-2.0",
-  "publisher": "PyTorch/Hugging Face",
-  "signatures": [
-    "weight",
-    "bias",
-    "running_mean",
-    "running_var",
-    "num_batches_tracked",
-    "_orig_mod",
-    "module.",
-    "features.",
-    "classifier.",
-    "conv1.weight",
-    "conv2.weight",
-    "fc.weight",
-    "fc.bias",
-    "bn1.weight",
-    "bn1.bias",
-    "layer1.0.conv1.weight",
-    "layer2.0.conv1.weight",
-    "layer3.0.conv1.weight",
-    "layer4.0.conv1.weight"
-  ],
-  "metadata": {
-    "ecosystem": "pytorch",
-    "language": "python",
-    "created": "2025-08-14",
-    "source": "PyTorch SafeTensors integration"
-  }
+  "component": {
+    "name": "SafeTensors-PyTorch",
+    "version": "2.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "PyTorch models in SafeTensors format",
+    "license": "Apache-2.0",
+    "publisher": "PyTorch/Hugging Face"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "weight",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "bias",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "running_mean",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "running_var",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "num_batches_tracked",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "_orig_mod",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "module.",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "features.",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "classifier.",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "conv2.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "fc.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "fc.bias",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "bn1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "bn1.bias",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer1.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer2.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer3.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer4.0.conv1.weight",
+      "confidence": 0.9
+    }
+  ]
 }

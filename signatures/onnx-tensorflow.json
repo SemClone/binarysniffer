@@ -1,26 +1,79 @@
 {
-  "component": "TensorFlow-ONNX",
-  "version": "*",
-  "license": "Apache-2.0",
-  "description": "TensorFlow models exported to ONNX format",
+  "component": {
+    "name": "TensorFlow-ONNX",
+    "version": "*",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "TensorFlow models exported to ONNX format",
+    "license": "Apache-2.0",
+    "publisher": "Unknown"
+  },
+  "confidence_threshold": 0.3,
   "patterns": [
-    "detected_framework:tensorflow",
-    "framework_hint:tf.",
-    "framework_hint:tensorflow::",
-    "framework_hint:tf2onnx",
-    "framework_hint:produced_by_tensorflow",
-    "framework_hint:StatefulPartitionedCall",
-    "framework_hint:PartitionedCall",
-    "onnx_producer:tf2onnx",
-    "onnx_producer:tensorflow",
-    "onnx_operator:TensorFlow",
-    "onnx_operator:StatefulPartitionedCall",
-    "onnx_opset:ai.onnx.tf",
-    "model_architecture:bert",
-    "model_architecture:efficientnet",
-    "model_architecture:mobilenet"
-  ],
-  "confidence": 0.85,
-  "file_types": ["onnx"],
-  "tags": ["ml", "tensorflow", "deep-learning", "onnx"]
+    {
+      "pattern": "detected_framework:tensorflow",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:tf.",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:tensorflow::",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:tf2onnx",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:produced_by_tensorflow",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:StatefulPartitionedCall",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "framework_hint:PartitionedCall",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "onnx_producer:tf2onnx",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "onnx_producer:tensorflow",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "onnx_operator:TensorFlow",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "onnx_operator:StatefulPartitionedCall",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "onnx_opset:ai.onnx.tf",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "model_architecture:bert",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "model_architecture:efficientnet",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "model_architecture:mobilenet",
+      "confidence": 0.9
+    }
+  ]
 }

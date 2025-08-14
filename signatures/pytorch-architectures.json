@@ -1,36 +1,103 @@
 {
-  "component": "PyTorch-Architectures",
-  "description": "Common PyTorch model architectures",
-  "version": "1.0",
-  "license": "Various",
-  "publisher": "PyTorch Community",
-  "signatures": [
-    "architecture:resnet",
-    "architecture:vgg",
-    "architecture:densenet",
-    "architecture:mobilenet",
-    "architecture:efficientnet",
-    "architecture:transformer",
-    "architecture:bert",
-    "architecture:gpt",
-    "architecture:vit",
-    "architecture:unet",
-    "layer1.0.conv1.weight",
-    "layer2.0.conv1.weight",
-    "layer3.0.conv1.weight",
-    "layer4.0.conv1.weight",
-    "features.0.weight",
-    "classifier.0.weight",
-    "encoder.layer.0",
-    "decoder.layer.0",
-    "attention.self.query",
-    "attention.self.key",
-    "attention.self.value"
-  ],
-  "metadata": {
-    "ecosystem": "pytorch",
-    "language": "python",
-    "created": "2025-08-14",
-    "source": "PyTorch architecture patterns"
-  }
+  "component": {
+    "name": "PyTorch-Architectures",
+    "version": "1.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Common PyTorch model architectures",
+    "license": "Various",
+    "publisher": "PyTorch Community"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "architecture:resnet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:vgg",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:densenet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:mobilenet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:efficientnet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:transformer",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:bert",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:gpt",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:vit",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "architecture:unet",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "layer1.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer2.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer3.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "layer4.0.conv1.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "features.0.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "classifier.0.weight",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "encoder.layer.0",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "decoder.layer.0",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.query",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.key",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "attention.self.value",
+      "confidence": 0.9
+    }
+  ]
 }

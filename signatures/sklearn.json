@@ -1,44 +1,151 @@
 {
-  "component": "scikit-learn",
-  "version": "*",
-  "license": "BSD-3-Clause",
-  "description": "Scikit-learn machine learning library",
+  "component": {
+    "name": "scikit-learn",
+    "version": "*",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Scikit-learn machine learning library",
+    "license": "BSD-3-Clause",
+    "publisher": "Unknown"
+  },
+  "confidence_threshold": 0.3,
   "patterns": [
-    "pickle_import:sklearn.",
-    "pickle_import:sklearn.tree",
-    "pickle_import:sklearn.tree._tree.Tree",
-    "pickle_import:sklearn.ensemble",
-    "pickle_import:sklearn.ensemble._forest",
-    "pickle_import:sklearn.ensemble._gb",
-    "pickle_import:sklearn.linear_model",
-    "pickle_import:sklearn.linear_model._base",
-    "pickle_import:sklearn.svm",
-    "pickle_import:sklearn.svm._classes",
-    "pickle_import:sklearn.neural_network",
-    "pickle_import:sklearn.preprocessing",
-    "pickle_import:sklearn.pipeline",
-    "pickle_import:sklearn.decomposition",
-    "pickle_import:sklearn.cluster",
-    "pickle_import:sklearn.neighbors",
-    "pickle_import:sklearn.naive_bayes",
-    "pickle_import:sklearn.discriminant_analysis",
-    "pickle_import:sklearn.gaussian_process",
-    "pickle_import:sklearn.model_selection",
-    "pickle_import:sklearn.metrics",
-    "pickle_import:sklearn.feature_extraction",
-    "pickle_import:sklearn.feature_selection",
-    "pickle_import:sklearn.utils",
-    "pickle_import:sklearn.base",
-    "pickle_import:sklearn.externals",
-    "ml_framework:sklearn",
-    "detected_framework:sklearn",
-    "pickle_string:RandomForestClassifier",
-    "pickle_string:GradientBoostingClassifier",
-    "pickle_string:LogisticRegression",
-    "pickle_string:SVC",
-    "pickle_string:DecisionTreeClassifier"
-  ],
-  "confidence": 0.9,
-  "file_types": ["pickle"],
-  "tags": ["ml", "machine-learning", "sklearn", "python"]
+    {
+      "pattern": "pickle_import:sklearn.",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.tree",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.tree._tree.Tree",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.ensemble",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.ensemble._forest",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.ensemble._gb",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.linear_model",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.linear_model._base",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.svm",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.svm._classes",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.neural_network",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.preprocessing",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.pipeline",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.decomposition",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.cluster",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.neighbors",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.naive_bayes",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.discriminant_analysis",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.gaussian_process",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.model_selection",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.metrics",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.feature_extraction",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.feature_selection",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.utils",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.base",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_import:sklearn.externals",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "ml_framework:sklearn",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "detected_framework:sklearn",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "pickle_string:RandomForestClassifier",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "pickle_string:GradientBoostingClassifier",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "pickle_string:LogisticRegression",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "pickle_string:SVC",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "pickle_string:DecisionTreeClassifier",
+      "confidence": 0.9
+    }
+  ]
 }

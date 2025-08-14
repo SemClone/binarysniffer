@@ -1,27 +1,83 @@
 {
-  "component": "ONNX-Security-Risks",
-  "version": "1.0.0",
-  "license": "Detection",
-  "description": "Security risk patterns in ONNX models",
+  "component": {
+    "name": "ONNX-Security-Risks",
+    "version": "1.0.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "Security risk patterns in ONNX models",
+    "license": "Detection",
+    "publisher": "Unknown"
+  },
+  "confidence_threshold": 0.3,
   "patterns": [
-    "suspicious_operator:CustomOp",
-    "suspicious_operator:UnknownOp",
-    "suspicious_operator:PrivateOp",
-    "suspicious_pattern:exec",
-    "suspicious_pattern:eval",
-    "suspicious_pattern:__import__",
-    "suspicious_pattern:subprocess",
-    "suspicious_pattern:shell",
-    "suspicious_pattern:reverse_tcp",
-    "suspicious_pattern:bind_shell",
-    "suspicious_metadata:",
-    "onnx_risk:dangerous",
-    "onnx_risk:high_risk",
-    "onnx_risk:suspicious",
-    "custom_operator_detected",
-    "unknown_operator_detected"
-  ],
-  "confidence": 0.95,
-  "file_types": ["onnx"],
-  "tags": ["security", "ml-model", "onnx", "threat-detection"]
+    {
+      "pattern": "suspicious_operator:CustomOp",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_operator:UnknownOp",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_operator:PrivateOp",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:exec",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:eval",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:__import__",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:subprocess",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:shell",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:reverse_tcp",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_pattern:bind_shell",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "suspicious_metadata:",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "onnx_risk:dangerous",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "onnx_risk:high_risk",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "onnx_risk:suspicious",
+      "confidence": 0.99
+    },
+    {
+      "pattern": "custom_operator_detected",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "unknown_operator_detected",
+      "confidence": 0.9
+    }
+  ]
 }

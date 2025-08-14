@@ -1,39 +1,115 @@
 {
-  "component": "PyTorch-Native",
-  "description": "PyTorch native model format (.pt, .pth)",
-  "version": "2.0",
-  "license": "BSD-3-Clause",
-  "publisher": "PyTorch",
-  "signatures": [
-    "__pytorch__",
-    "pytorch_native_format",
-    "state_dict",
-    "optimizer_state",
-    "torch._utils._rebuild_tensor",
-    "torch._utils._rebuild_tensor_v2",
-    "torch._utils._rebuild_parameter",
-    "torch._tensor._rebuild_from_type_v2",
-    "torch.nn.modules",
-    "torch.optim",
-    "torch.cuda",
-    "torch.FloatStorage",
-    "torch.LongStorage",
-    "torch.ByteStorage",
-    "torch.HalfStorage",
-    "torch.DoubleStorage",
-    "torch.IntStorage",
-    "torch.ShortStorage",
-    "torch.CharStorage",
-    "torch.BoolStorage",
-    "collections.OrderedDict",
-    "_metadata",
-    "training",
-    "eval"
-  ],
-  "metadata": {
-    "ecosystem": "pytorch",
-    "language": "python",
-    "created": "2025-08-14",
-    "source": "PyTorch native format analysis"
-  }
+  "component": {
+    "name": "PyTorch-Native",
+    "version": "2.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "PyTorch native model format (.pt, .pth)",
+    "license": "BSD-3-Clause",
+    "publisher": "PyTorch"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "__pytorch__",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "pytorch_native_format",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "state_dict",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "optimizer_state",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch._utils._rebuild_tensor",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch._utils._rebuild_tensor_v2",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch._utils._rebuild_parameter",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch._tensor._rebuild_from_type_v2",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.nn.modules",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.optim",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.cuda",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.FloatStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.LongStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.ByteStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.HalfStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.DoubleStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.IntStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.ShortStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.CharStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "torch.BoolStorage",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "collections.OrderedDict",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "_metadata",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "training",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "eval",
+      "confidence": 0.85
+    }
+  ]
 }

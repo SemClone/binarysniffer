@@ -1,42 +1,127 @@
 {
-  "component": "TensorFlow-Native",
-  "description": "TensorFlow native model formats (.pb, .h5)",
-  "version": "2.0",
-  "license": "Apache-2.0",
-  "publisher": "TensorFlow",
-  "signatures": [
-    "__tensorflow__",
-    "tensorflow_native_format",
-    "saved_model",
-    "graph_def",
-    "node_def",
-    "keras_model",
-    "optimizer_weights",
-    "Conv2D",
-    "MatMul",
-    "BiasAdd",
-    "Relu",
-    "MaxPool",
-    "BatchNorm",
-    "FusedBatchNorm",
-    "DepthwiseConv2dNative",
-    "dense",
-    "conv2d",
-    "lstm",
-    "embedding",
-    "batch_normalization",
-    "dropout",
-    "model_config",
-    "keras_version",
-    "tensorflow_version",
-    "tf.GraphDef",
-    "tf.SavedModel",
-    "tf.Variable"
-  ],
-  "metadata": {
-    "ecosystem": "tensorflow",
-    "language": "python",
-    "created": "2025-08-14",
-    "source": "TensorFlow native format analysis"
-  }
+  "component": {
+    "name": "TensorFlow-Native",
+    "version": "2.0",
+    "category": "machine-learning",
+    "platforms": [
+      "all"
+    ],
+    "languages": [
+      "python"
+    ],
+    "description": "TensorFlow native model formats (.pb, .h5)",
+    "license": "Apache-2.0",
+    "publisher": "TensorFlow"
+  },
+  "confidence_threshold": 0.3,
+  "patterns": [
+    {
+      "pattern": "__tensorflow__",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "tensorflow_native_format",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "saved_model",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "graph_def",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "node_def",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "keras_model",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "optimizer_weights",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "Conv2D",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "MatMul",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "BiasAdd",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "Relu",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "MaxPool",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "BatchNorm",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "FusedBatchNorm",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "DepthwiseConv2dNative",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "dense",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "conv2d",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "lstm",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "embedding",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "batch_normalization",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "dropout",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "model_config",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "keras_version",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "tensorflow_version",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "tf.GraphDef",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "tf.SavedModel",
+      "confidence": 0.9
+    },
+    {
+      "pattern": "tf.Variable",
+      "confidence": 0.9
+    }
+  ]
 }
