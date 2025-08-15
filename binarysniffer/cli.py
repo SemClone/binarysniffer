@@ -120,6 +120,9 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
               help='Display extracted features (for debugging)')
 @click.option('--save-features', type=click.Path(),
               help='Save features to JSON (for signature creation)')
+# ML Security options
+@click.option('--ml-security', is_flag=True,
+              help='Enable ML model security analysis')
 # Advanced options (hidden from basic help)
 @click.option('--tlsh-threshold', type=int, default=70, hidden=True,
               help='TLSH distance threshold (0-300, lower=more similar)')
@@ -139,7 +142,7 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
             with_hashes, basic_hashes, min_matches, license_focus, license_only,
-            show_evidence, show_features, save_features,
+            show_evidence, show_features, save_features, ml_security,
             tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
             include_fuzzy_hashes, use_tlsh):
     """
@@ -247,7 +250,8 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                     path, threshold, deep, effective_show_features,
                     use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold,
                     include_hashes=include_hashes,
-                    include_fuzzy_hashes=include_fuzzy_hashes
+                    include_fuzzy_hashes=include_fuzzy_hashes,
+                    ml_security=ml_security
                 )
             results = {str(path): result}
             # Create BatchAnalysisResult for single file
@@ -680,6 +684,458 @@ def config(ctx):
     
     console.print(table)
     console.print(f"\nConfiguration file: {cfg.data_dir / 'config.json'}")
+
+
+@cli.command(name='ml-scan')
+@click.argument('path', type=click.Path(exists=True))
+@click.option('-r', '--recursive', is_flag=True, help='Scan directories recursively')
+@click.option('--security-only', is_flag=True, help='Only show security findings')
+@click.option('--risk-threshold', type=click.Choice(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']),
+              default='LOW', help='Minimum risk level to report')
+@click.option('-f', '--format', type=click.Choice(['table', 'json', 'sarif', 'markdown', 'sbom']),
+              default='table', help='Output format')
+@click.option('-o', '--output', type=click.Path(), help='Save results to file')
+@click.option('--deep', is_flag=True, help='Perform deep analysis including weight inspection')
+@click.option('--sandbox', is_flag=True, help='Run analysis in isolated environment (not implemented)')
+@click.option('--show-features', is_flag=True, help='Show extracted features')
+@click.pass_context
+def ml_scan(ctx, path, recursive, security_only, risk_threshold, format, output, deep, sandbox, show_features):
+    """Perform security analysis on ML models.
+    
+    This command specializes in detecting malicious code, backdoors,
+    and supply chain attacks in ML model files.
+    
+    Examples:
+        binarysniffer ml-scan model.pkl
+        binarysniffer ml-scan models/ --recursive --format sarif -o report.sarif
+        binarysniffer ml-scan suspicious.pkl --security-only --risk-threshold HIGH
+    """
+    from pathlib import Path
+    from binarysniffer.security.pickle_analyzer import PickleSecurityAnalyzer
+    from binarysniffer.security.risk_scorer import RiskLevel
+    from binarysniffer.security.obfuscation import ObfuscationDetector
+    from binarysniffer.security.validators import ModelIntegrityValidator
+    
+    if sandbox:
+        console.print("[yellow]Warning: Sandbox mode not yet implemented[/yellow]")
+    
+    path = Path(path)
+    files_to_scan = []
+    
+    # Collect files to scan
+    if path.is_file():
+        files_to_scan = [path]
+    elif path.is_dir():
+        if recursive:
+            # Find all ML model files
+            ml_extensions = ['.pkl', '.pickle', '.p', '.onnx', '.safetensors', '.pt', '.pth', '.pb', '.h5']
+            for ext in ml_extensions:
+                files_to_scan.extend(path.rglob(f'*{ext}'))
+        else:
+            files_to_scan = [f for f in path.iterdir() if f.is_file()]
+    
+    if not files_to_scan:
+        console.print("[yellow]No ML model files found to scan[/yellow]")
+        return
+    
+    results = []
+    risk_threshold_map = {
+        'LOW': RiskLevel.LOW,
+        'MEDIUM': RiskLevel.MEDIUM,
+        'HIGH': RiskLevel.HIGH,
+        'CRITICAL': RiskLevel.CRITICAL
+    }
+    min_risk = risk_threshold_map[risk_threshold]
+    
+    # Initialize analyzers
+    pickle_analyzer = PickleSecurityAnalyzer()
+    obfuscation_detector = ObfuscationDetector()
+    integrity_validator = ModelIntegrityValidator()
+    
+    # Scan each file
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(),
+        TaskProgressColumn(),
+        console=console
+    ) as progress:
+        scan_task = progress.add_task(f"Scanning {len(files_to_scan)} files...", total=len(files_to_scan))
+        
+        for file_path in files_to_scan:
+            progress.update(scan_task, description=f"Scanning {file_path.name}...")
+            
+            # Determine file type
+            file_type = 'unknown'
+            if file_path.suffix.lower() in ['.pkl', '.pickle', '.p']:
+                file_type = 'pickle'
+            elif file_path.suffix.lower() == '.onnx':
+                file_type = 'onnx'
+            elif file_path.suffix.lower() == '.safetensors':
+                file_type = 'safetensors'
+            elif file_path.suffix.lower() in ['.pt', '.pth']:
+                file_type = 'pytorch'
+            elif file_path.suffix.lower() in ['.pb', '.h5']:
+                file_type = 'tensorflow'
+            
+            # Perform security analysis based on file type
+            if file_type == 'pickle':
+                risk_assessment, features = pickle_analyzer.analyze_pickle(str(file_path))
+                
+                # Check obfuscation
+                with open(file_path, 'rb') as f:
+                    content = f.read()
+                obfusc_results = obfuscation_detector.detect_obfuscation(content, features)
+                
+                # Validate integrity
+                integrity_results = integrity_validator.validate_model(str(file_path), file_type)
+                
+                # Combine results
+                result = {
+                    'file': str(file_path),
+                    'type': file_type,
+                    'risk_assessment': risk_assessment,
+                    'obfuscation': obfusc_results,
+                    'integrity': integrity_results,
+                    'features': list(features) if show_features else None
+                }
+                
+                # Filter by risk threshold
+                if risk_assessment.level.value >= min_risk.value:
+                    results.append(result)
+            else:
+                # For other file types, use basic validation for now
+                integrity_results = integrity_validator.validate_model(str(file_path), file_type)
+                result = {
+                    'file': str(file_path),
+                    'type': file_type,
+                    'integrity': integrity_results
+                }
+                results.append(result)
+            
+            progress.advance(scan_task)
+    
+    # Output results
+    if format == 'table':
+        _display_ml_security_table(results, security_only)
+    elif format == 'json':
+        _output_ml_security_json(results, output)
+    elif format == 'sarif':
+        _output_ml_security_sarif(results, output)
+    elif format == 'markdown':
+        _output_ml_security_markdown(results, output)
+    elif format == 'sbom':
+        _output_ml_security_sbom(results, output)
+    
+    # Summary
+    if results:
+        critical_count = sum(1 for r in results if 'risk_assessment' in r and r['risk_assessment'].level == RiskLevel.CRITICAL)
+        high_count = sum(1 for r in results if 'risk_assessment' in r and r['risk_assessment'].level == RiskLevel.HIGH)
+        
+        if critical_count > 0:
+            console.print(f"\n[red bold]⚠ {critical_count} CRITICAL risk files detected![/red bold]")
+        if high_count > 0:
+            console.print(f"[yellow]⚠ {high_count} HIGH risk files detected[/yellow]")
+        
+        console.print(f"\nTotal files with issues: {len(results)}/{len(files_to_scan)}")
+
+
+def _display_ml_security_table(results, security_only):
+    """Display ML security results in table format."""
+    if not results:
+        console.print("[green]✓ No security issues found[/green]")
+        return
+    
+    table = Table(title="ML Model Security Analysis")
+    table.add_column("File", style="cyan")
+    table.add_column("Type", style="magenta")
+    table.add_column("Risk Level", style="red")
+    table.add_column("Issues", style="yellow")
+    table.add_column("Recommendations", style="green")
+    
+    for result in results:
+        file_name = Path(result['file']).name
+        file_type = result['type']
+        
+        # Get risk level
+        risk_level = "UNKNOWN"
+        issues = []
+        recommendations = []
+        
+        if 'risk_assessment' in result:
+            risk = result['risk_assessment']
+            risk_level = risk.level.value
+            issues.extend([ind.detail for ind in risk.indicators[:3]])  # Top 3 issues
+            recommendations.extend(risk.recommendations[:2])  # Top 2 recommendations
+        
+        if 'obfuscation' in result and result['obfuscation']['is_obfuscated']:
+            issues.append("Obfuscation detected")
+        
+        if 'integrity' in result:
+            integrity = result['integrity']
+            if integrity.status.value != 'VALID':
+                issues.append(f"Integrity: {integrity.status.value}")
+        
+        # Format for display
+        issues_str = '\n'.join(issues) if issues else "None"
+        recommendations_str = '\n'.join(recommendations) if recommendations else "Review model"
+        
+        # Color code risk level
+        if risk_level == 'CRITICAL':
+            risk_display = f"[red bold]{risk_level}[/red bold]"
+        elif risk_level == 'HIGH':
+            risk_display = f"[red]{risk_level}[/red]"
+        elif risk_level == 'MEDIUM':
+            risk_display = f"[yellow]{risk_level}[/yellow]"
+        elif risk_level == 'LOW':
+            risk_display = f"[blue]{risk_level}[/blue]"
+        else:
+            risk_display = f"[green]{risk_level}[/green]"
+        
+        table.add_row(file_name, file_type, risk_display, issues_str, recommendations_str)
+    
+    console.print(table)
+
+
+def _output_ml_security_json(results, output_path):
+    """Output ML security results in JSON format."""
+    import json
+    
+    # Convert results to JSON-serializable format
+    json_results = []
+    for result in results:
+        json_result = {
+            'file': result['file'],
+            'type': result['type']
+        }
+        
+        if 'risk_assessment' in result:
+            json_result['risk_assessment'] = result['risk_assessment'].to_dict()
+        
+        if 'obfuscation' in result:
+            json_result['obfuscation'] = result['obfuscation']
+        
+        if 'integrity' in result:
+            json_result['integrity'] = result['integrity'].to_dict()
+        
+        if 'features' in result and result['features']:
+            json_result['features'] = result['features']
+        
+        json_results.append(json_result)
+    
+    output_data = {
+        'scan_results': json_results,
+        'summary': {
+            'total_files': len(json_results),
+            'critical': sum(1 for r in json_results if 'risk_assessment' in r and r['risk_assessment']['risk_assessment']['level'] == 'CRITICAL'),
+            'high': sum(1 for r in json_results if 'risk_assessment' in r and r['risk_assessment']['risk_assessment']['level'] == 'HIGH'),
+            'medium': sum(1 for r in json_results if 'risk_assessment' in r and r['risk_assessment']['risk_assessment']['level'] == 'MEDIUM'),
+            'low': sum(1 for r in json_results if 'risk_assessment' in r and r['risk_assessment']['risk_assessment']['level'] == 'LOW'),
+            'safe': sum(1 for r in json_results if 'risk_assessment' in r and r['risk_assessment']['risk_assessment']['level'] == 'SAFE')
+        }
+    }
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            json.dump(output_data, f, indent=2)
+        console.print(f"[green]Results saved to {output_path}[/green]")
+    else:
+        console.print(json.dumps(output_data, indent=2))
+
+
+def _output_ml_security_sarif(results, output_path):
+    """Output ML security results in SARIF format."""
+    import json
+    from datetime import datetime
+    
+    # Create SARIF structure
+    sarif = {
+        "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+        "version": "2.1.0",
+        "runs": [{
+            "tool": {
+                "driver": {
+                    "name": "BinarySniffer-ML",
+                    "version": "2.0.0",
+                    "informationUri": "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer",
+                    "rules": []
+                }
+            },
+            "results": [],
+            "invocations": [{
+                "executionSuccessful": True,
+                "endTimeUtc": datetime.utcnow().isoformat() + "Z"
+            }]
+        }]
+    }
+    
+    # Add rules and results
+    rule_index = {}
+    for result in results:
+        if 'risk_assessment' not in result:
+            continue
+        
+        risk = result['risk_assessment']
+        for indicator in risk.indicators:
+            # Create rule if not exists
+            rule_id = f"ML-{indicator.type.upper()}"
+            if rule_id not in rule_index:
+                rule_index[rule_id] = len(sarif["runs"][0]["tool"]["driver"]["rules"])
+                sarif["runs"][0]["tool"]["driver"]["rules"].append({
+                    "id": rule_id,
+                    "shortDescription": {"text": indicator.type.replace('_', ' ').title()},
+                    "fullDescription": {"text": indicator.detail},
+                    "helpUri": f"https://attack.mitre.org/techniques/{indicator.mitre_technique}/" if indicator.mitre_technique else "",
+                    "properties": {
+                        "severity": indicator.severity.value
+                    }
+                })
+            
+            # Add result
+            sarif["runs"][0]["results"].append({
+                "ruleId": rule_id,
+                "ruleIndex": rule_index[rule_id],
+                "level": "error" if indicator.severity.value in ['CRITICAL', 'HIGH'] else "warning",
+                "message": {"text": indicator.detail},
+                "locations": [{
+                    "physicalLocation": {
+                        "artifactLocation": {
+                            "uri": result['file']
+                        }
+                    }
+                }]
+            })
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            json.dump(sarif, f, indent=2)
+        console.print(f"[green]SARIF report saved to {output_path}[/green]")
+    else:
+        console.print(json.dumps(sarif, indent=2))
+
+
+def _output_ml_security_markdown(results, output_path):
+    """Output ML security results in Markdown format."""
+    from datetime import datetime
+    
+    markdown = []
+    markdown.append("# ML Model Security Report")
+    markdown.append(f"\n**Generated**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    markdown.append(f"\n**Files Scanned**: {len(results)}")
+    
+    # Summary
+    critical = sum(1 for r in results if 'risk_assessment' in r and r['risk_assessment'].level.value == 'CRITICAL')
+    high = sum(1 for r in results if 'risk_assessment' in r and r['risk_assessment'].level.value == 'HIGH')
+    
+    markdown.append("\n## Summary")
+    if critical > 0:
+        markdown.append(f"- **🔴 CRITICAL**: {critical} files")
+    if high > 0:
+        markdown.append(f"- **🟠 HIGH**: {high} files")
+    
+    # Detailed findings
+    markdown.append("\n## Detailed Findings")
+    
+    for result in results:
+        file_name = Path(result['file']).name
+        markdown.append(f"\n### {file_name}")
+        markdown.append(f"- **Type**: {result['type']}")
+        
+        if 'risk_assessment' in result:
+            risk = result['risk_assessment']
+            markdown.append(f"- **Risk Level**: {risk.level.value}")
+            markdown.append(f"- **Risk Score**: {risk.score}/100")
+            markdown.append(f"- **Summary**: {risk.summary}")
+            
+            if risk.indicators:
+                markdown.append("\n#### Security Indicators")
+                for ind in risk.indicators[:5]:  # Top 5
+                    markdown.append(f"- **{ind.severity.value}**: {ind.detail}")
+            
+            if risk.recommendations:
+                markdown.append("\n#### Recommendations")
+                for rec in risk.recommendations:
+                    markdown.append(f"- {rec}")
+        
+        if 'obfuscation' in result and result['obfuscation']['is_obfuscated']:
+            markdown.append("\n#### Obfuscation Analysis")
+            markdown.append(f"- **Detected**: Yes")
+            markdown.append(f"- **Confidence**: {result['obfuscation']['confidence']:.0%}")
+            markdown.append(f"- **Techniques**: {', '.join(result['obfuscation']['techniques'])}")
+    
+    markdown_text = '\n'.join(markdown)
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            f.write(markdown_text)
+        console.print(f"[green]Markdown report saved to {output_path}[/green]")
+    else:
+        console.print(markdown_text)
+
+
+def _output_ml_security_sbom(results, output_path):
+    """Output ML security results as enhanced SBOM."""
+    import json
+    import uuid
+    from datetime import datetime
+    
+    # Create CycloneDX SBOM structure
+    sbom = {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.4",
+        "serialNumber": f"urn:uuid:{uuid.uuid4()}",
+        "version": 1,
+        "metadata": {
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "tools": [{
+                "vendor": "BinarySniffer",
+                "name": "ML Security Scanner",
+                "version": "2.0.0"
+            }]
+        },
+        "components": []
+    }
+    
+    for result in results:
+        component = {
+            "type": "machine-learning-model",
+            "bom-ref": f"model-{uuid.uuid4()}",
+            "name": Path(result['file']).name,
+            "properties": []
+        }
+        
+        if 'risk_assessment' in result:
+            risk = result['risk_assessment']
+            component["properties"].extend([
+                {"name": "security:risk-score", "value": str(risk.score)},
+                {"name": "security:risk-level", "value": risk.level.value},
+                {"name": "security:summary", "value": risk.summary}
+            ])
+            
+            # Add vulnerabilities
+            if "vulnerabilities" not in sbom:
+                sbom["vulnerabilities"] = []
+            
+            for indicator in risk.indicators:
+                if indicator.severity.value in ['CRITICAL', 'HIGH']:
+                    sbom["vulnerabilities"].append({
+                        "id": f"ML-{len(sbom['vulnerabilities'])+1:04d}",
+                        "description": indicator.detail,
+                        "ratings": [{
+                            "severity": indicator.severity.value.lower(),
+                            "method": "other"
+                        }],
+                        "affects": [{"ref": component["bom-ref"]}]
+                    })
+        
+        sbom["components"].append(component)
+    
+    if output_path:
+        with open(output_path, 'w') as f:
+            json.dump(sbom, f, indent=2)
+        console.print(f"[green]SBOM saved to {output_path}[/green]")
+    else:
+        console.print(json.dumps(sbom, indent=2))
 
 
 @cli.group(name='signatures')

@@ -124,8 +124,50 @@ class PickleModelExtractor(BaseExtractor):
 
         return False
 
-    def extract(self, file_path: Path) -> ExtractedFeatures:
-        """Extract features from pickle file without executing it."""
+    def extract(self, file_path: Path, use_advanced_security: bool = False) -> ExtractedFeatures:
+        """Extract features from pickle file without executing it.
+        
+        Args:
+            file_path: Path to pickle file
+            use_advanced_security: Use advanced security module for deep analysis
+        """
+        # If advanced security is requested, use the security module
+        if use_advanced_security:
+            try:
+                from binarysniffer.security.pickle_analyzer import PickleSecurityAnalyzer
+                analyzer = PickleSecurityAnalyzer()
+                risk_assessment, security_features = analyzer.analyze_pickle(str(file_path))
+                
+                # Convert security features to standard format
+                features = security_features
+                imports = {f for f in features if f.startswith('import:')}
+                imports = {f.replace('import:', '') for f in imports}
+                
+                ml_frameworks = {f.replace('ml_framework:', '') 
+                               for f in features if f.startswith('ml_framework:')}
+                
+                suspicious_items = {f for f in features if f.startswith('suspicious:')}
+                
+                return ExtractedFeatures(
+                    file_path=str(file_path),
+                    file_type='pickle',
+                    strings=list(features),
+                    imports=list(imports),
+                    functions=[],
+                    constants=list(ml_frameworks),
+                    symbols=[],
+                    metadata={
+                        'risk_assessment': risk_assessment.to_dict(),
+                        'frameworks': list(ml_frameworks),
+                        'suspicious_items': list(suspicious_items) if suspicious_items else None
+                    }
+                )
+            except ImportError:
+                logger.debug("Advanced security module not available, using standard extraction")
+            except Exception as e:
+                logger.error(f"Error in advanced security analysis: {e}")
+        
+        # Standard extraction
         features = set()
         imports = set()
         suspicious_items = set()
