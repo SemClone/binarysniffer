@@ -207,17 +207,6 @@ class MaliciousPatterns:
         all_patterns.extend(cls.KNOWN_EXPLOITS)
         return all_patterns
     
-    @classmethod
-    def get_critical_patterns(cls) -> List[ThreatPattern]:
-        """Get only critical severity patterns"""
-        return [p for p in cls.get_all_patterns() 
-                if p.severity == ThreatSeverity.CRITICAL]
-    
-    @classmethod
-    def get_patterns_by_category(cls, category: str) -> List[ThreatPattern]:
-        """Get patterns by category"""
-        return [p for p in cls.get_all_patterns() 
-                if p.category == category]
     
     @classmethod
     def check_pattern(cls, text: str) -> List[Tuple[ThreatPattern, int]]:

@@ -25,11 +25,12 @@ class TestMaliciousPatterns:
         assert len(patterns) > 0
         assert all(isinstance(p, ThreatPattern) for p in patterns)
     
-    def test_get_critical_patterns(self):
-        """Test filtering critical patterns"""
-        critical = MaliciousPatterns.get_critical_patterns()
-        assert all(p.severity == ThreatSeverity.CRITICAL for p in critical)
+    def test_critical_patterns_exist(self):
+        """Test that critical patterns exist"""
+        all_patterns = MaliciousPatterns.get_all_patterns()
+        critical = [p for p in all_patterns if p.severity == ThreatSeverity.CRITICAL]
         assert len(critical) > 0
+        assert all(p.severity == ThreatSeverity.CRITICAL for p in critical)
     
     def test_check_pattern_detection(self):
         """Test pattern detection in text"""
@@ -46,14 +47,15 @@ class TestMaliciousPatterns:
             for expected in expected_patterns:
                 assert any(expected in p for p in found_patterns), f"Expected {expected} in {found_patterns}"
     
-    def test_patterns_by_category(self):
-        """Test retrieving patterns by category"""
+    def test_patterns_have_categories(self):
+        """Test that patterns have valid categories"""
+        all_patterns = MaliciousPatterns.get_all_patterns()
         categories = ['code_execution', 'network', 'shell', 'obfuscation']
         
         for category in categories:
-            patterns = MaliciousPatterns.get_patterns_by_category(category)
+            patterns = [p for p in all_patterns if p.category == category]
+            assert len(patterns) > 0, f"No patterns found for category {category}"
             assert all(p.category == category for p in patterns)
-            assert len(patterns) > 0
 
 
 class TestRiskScorer:

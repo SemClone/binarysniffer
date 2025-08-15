@@ -343,32 +343,3 @@ class PickleModelExtractor(BaseExtractor):
             return "likely_safe"
         return "unknown"
 
-    def validate_safe_unpickle(self, file_path: Path) -> bool:
-        """
-        Check if a pickle file is safe to unpickle.
-        This is a more thorough check for when actual unpickling might be needed.
-        """
-        try:
-            with open(file_path, 'rb') as f:
-                content = f.read()
-
-            # Parse all opcodes
-            for opcode, arg, pos in pickletools.genops(content):
-                if opcode.name == 'GLOBAL' and arg:
-                    import_str = arg if isinstance(arg, str) else f"{arg[0]}.{arg[1]}"
-                    # Check against dangerous imports
-                    for dangerous in DANGEROUS_IMPORTS:
-                        if dangerous in import_str or import_str.startswith(dangerous):
-                            logger.warning(f"Unsafe pickle: contains {import_str}")
-                            return False
-
-                elif opcode.name in ['REDUCE', 'BUILD', 'INST', 'OBJ']:
-                    # These can execute arbitrary code
-                    logger.warning(f"Unsafe pickle: contains {opcode.name} opcode")
-                    return False
-
-            return True
-
-        except Exception as e:
-            logger.error(f"Error validating pickle safety: {e}")
-            return False

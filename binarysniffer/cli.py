@@ -120,9 +120,6 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
               help='Display extracted features (for debugging)')
 @click.option('--save-features', type=click.Path(),
               help='Save features to JSON (for signature creation)')
-# ML Security options
-@click.option('--ml-security', is_flag=True,
-              help='Enable ML model security analysis')
 # Advanced options (hidden from basic help)
 @click.option('--tlsh-threshold', type=int, default=70, hidden=True,
               help='TLSH distance threshold (0-300, lower=more similar)')
@@ -142,7 +139,7 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
             with_hashes, basic_hashes, min_matches, license_focus, license_only,
-            show_evidence, show_features, save_features, ml_security,
+            show_evidence, show_features, save_features,
             tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
             include_fuzzy_hashes, use_tlsh):
     """
