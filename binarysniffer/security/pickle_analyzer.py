@@ -329,7 +329,8 @@ class PickleSecurityAnalyzer:
         if not data:
             return 0.0
             
-        entropy = 0
+        import math
+        entropy = 0.0
         data_len = len(data)
         
         # Count byte frequencies
@@ -337,10 +338,10 @@ class PickleSecurityAnalyzer:
         for byte in data:
             frequencies[byte] = frequencies.get(byte, 0) + 1
             
-        # Calculate entropy
+        # Calculate entropy using Shannon entropy formula
         for count in frequencies.values():
             if count > 0:
-                freq = count / data_len
-                entropy -= freq * (freq and freq * freq.bit_length() or 0)
+                probability = float(count) / float(data_len)
+                entropy -= probability * math.log2(probability)
                 
         return entropy

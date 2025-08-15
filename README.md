@@ -52,21 +52,25 @@ A high-performance CLI tool and Python library for detecting open source compone
 - **Semantic Symbol Extraction**: Functions, classes, structs, constants, and dependencies
 - **Graceful Fallback**: Regex-based extraction when CTags is unavailable
 
-### ML Model Security Analysis
+### ML Model Security Analysis (v1.10.0+)
+- **Comprehensive Security Module**: Deep analysis of ML models for security threats
+- **MITRE ATT&CK Integration**: Maps threats to ATT&CK framework techniques
+- **Multi-Level Risk Assessment**: SAFE, LOW, MEDIUM, HIGH, CRITICAL risk levels
 - **Pickle File Parser**: Safe analysis of Python pickle files without code execution
 - **ONNX Model Parser**: Comprehensive analysis of ONNX format models
 - **SafeTensors Parser**: Validation of secure tensor storage format
 - **PyTorch/TensorFlow Native**: Handles .pt, .pth, .pb, .h5 native formats
 - **Malicious Detection**: 100% detection rate on real-world ML exploits
-- **Framework Detection**: Identifies PyTorch, TensorFlow, sklearn, XGBoost origins
-- **XGBoost Support**: Detects gradient boosting models with specific patterns
+- **Framework Detection**: Identifies PyTorch (96%), TensorFlow, sklearn (94%), XGBoost (77%) origins
+- **Obfuscation Detection**: Entropy analysis and pattern matching for hidden threats
+- **Model Integrity Validation**: Hash verification and tampering detection
 - **Architecture Recognition**: Detects ResNet, BERT, YOLO, LLaMA, ViT, etc.
 - **Format Validation**: Detects tampering, injection attempts, and format violations
 - **Malformed File Detection**: Identifies corrupted or invalid model files with clear warnings
 - **Data Exfiltration Detection**: Flags oversized tensors and suspicious patterns
 - **Supply Chain Security**: Verifies model provenance and integrity
-- **Risk Assessment**: Multi-level safety analysis (safe, suspicious, dangerous, malformed, error)
-- **Protocol Support**: Handles all pickle protocols, ONNX versions, and SafeTensors formats
+- **SARIF Output**: CI/CD integration with GitHub Actions and security tools
+- **Security-Enhanced SBOM**: CycloneDX format with ML security metadata
 
 ### Signature Database
 - **188 OSS Components**: Comprehensive coverage including libraries, frameworks, ML models, and multimedia codecs
@@ -254,11 +258,18 @@ binarysniffer analyze app.apk                    # Android APK
 binarysniffer analyze app.ipa                    # iOS IPA
 binarysniffer analyze library.jar                # Java JAR
 
-# ML model security analysis
+# ML model component detection
 binarysniffer analyze model.pkl                  # Pickle files
 binarysniffer analyze model.onnx                 # ONNX models
 binarysniffer analyze model.safetensors          # SafeTensors format
 binarysniffer analyze suspicious_model.pkl --show-features  # Detailed analysis
+
+# ML model security scanning (v1.10.0+)
+binarysniffer ml-scan model.pkl                  # Security analysis of ML models
+binarysniffer ml-scan model.pkl --deep           # Deep security analysis
+binarysniffer ml-scan models/ -r --format sarif  # SARIF output for CI/CD
+binarysniffer ml-scan model.pkl -o report.md     # Markdown security report
+binarysniffer ml-scan model.pkl --risk-threshold 0.5  # Custom risk threshold
 
 # Analyze directories recursively
 binarysniffer analyze /path/to/project -r

@@ -13,7 +13,7 @@ from typing import Optional, Dict, Any
 import click
 from rich.console import Console
 from rich.table import Table
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeElapsedColumn
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeElapsedColumn, TaskProgressColumn
 from tabulate import tabulate
 
 from .core.analyzer_enhanced import EnhancedBinarySniffer
@@ -250,8 +250,7 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                     path, threshold, deep, effective_show_features,
                     use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold,
                     include_hashes=include_hashes,
-                    include_fuzzy_hashes=include_fuzzy_hashes,
-                    ml_security=ml_security
+                    include_fuzzy_hashes=include_fuzzy_hashes
                 )
             results = {str(path): result}
             # Create BatchAnalysisResult for single file

@@ -7,6 +7,55 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.0] - 2025-08-15
+
+### Added
+- **ML Model Security Analysis System** - Comprehensive security module for ML models (Issues #25, #26)
+  - New `ml-scan` CLI command for dedicated ML security analysis
+  - MITRE ATT&CK framework integration for threat categorization
+  - Multi-level risk assessment (SAFE, LOW, MEDIUM, HIGH, CRITICAL)
+  - Deep pickle opcode analysis without code execution
+  - Obfuscation detection using entropy analysis and pattern matching
+  - Model integrity validation with hash verification
+  - Support for multiple output formats: JSON, SARIF, Markdown, CycloneDX SBOM
+
+- **Malicious Pattern Detection** - Extensive database of threat patterns
+  - Code execution patterns (os.system, subprocess.Popen, eval, exec)
+  - Network operation detection (socket, requests, urllib)
+  - Shell command indicators (/bin/bash, cmd.exe, reverse shells)
+  - Obfuscation techniques (base64, zlib, marshal encoding)
+  - 50+ critical threat patterns mapped to MITRE techniques
+
+- **Security-Enhanced SBOM** - CycloneDX format with ML security metadata
+  - Risk assessment metadata in SBOM components
+  - Security indicators and recommendations
+  - ML framework detection integrated with security analysis
+  - Threat pattern evidence in component properties
+
+- **SARIF Output Format** - CI/CD integration support
+  - Static Analysis Results Interchange Format for security tools
+  - GitHub Actions and IDE integration ready
+  - Detailed security findings with line-level precision
+  - Actionable remediation suggestions
+
+### Improved
+- **Pickle Analysis** - Enhanced detection capabilities
+  - Fixed entropy calculation for better obfuscation detection
+  - Improved STACK_GLOBAL opcode resolution
+  - Better handling of malformed pickle files
+  - Risk level assessment integrated into standard analysis
+
+- **ML Framework Detection** - Better accuracy
+  - XGBoost detection improved to 77.3% confidence
+  - PyTorch detection at 96% confidence
+  - scikit-learn detection at 94% confidence
+  - Proper license attribution for all ML frameworks
+
+### Fixed
+- Entropy calculation error in PickleSecurityAnalyzer (float.bit_length() issue)
+- Missing TaskProgressColumn import in CLI module
+- Malicious pickle files now properly flagged as CRITICAL risk
+
 ## [1.9.9] - 2025-08-14
 
 ### Added
