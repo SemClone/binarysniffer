@@ -288,9 +288,9 @@ class PickleModelExtractor(BaseExtractor):
 
             # Log findings
             if risk_indicators:
-                logger.warning(f"Pickle file {file_path.name} contains risky operations: {risk_indicators}")
+                logger.debug(f"Pickle file {file_path.name} contains risky operations: {risk_indicators}")
 
-            logger.info(f"Extracted {len(features)} features from pickle file {file_path.name}")
+            logger.debug(f"Extracted {len(features)} features from pickle file {file_path.name}")
 
         except Exception as e:
             error_msg = str(e)

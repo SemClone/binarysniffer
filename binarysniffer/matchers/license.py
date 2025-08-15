@@ -59,7 +59,7 @@ class LicenseMatcher:
                 except Exception as e:
                     logger.warning(f"Failed to load license signature {sig_file}: {e}")
         
-        logger.info(f"Loaded {len(license_sigs)} license signatures")
+        logger.debug(f"Loaded {len(license_sigs)} license signatures")
         return license_sigs
     
     def is_license_file(self, file_path: str) -> bool:

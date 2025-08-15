@@ -227,8 +227,126 @@ class Exploit:
 
 ### GitHub Actions
 
+Here's a comprehensive example workflow for automated ML model security scanning:
+
 ```yaml
-name: ML Security Scan
+name: ML Model Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  ml-security-scan:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      # Required for uploading SARIF results
+      security-events: write
+      # Required for checking out code
+      contents: read
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install BinarySniffer
+      run: |
+        pip install semantic-copycat-binarysniffer
+        # Or install from source:
+        # pip install -e .
+        
+    - name: Run ML Security Scan
+      run: |
+        # Scan all ML models in the repository
+        binarysniffer ml-scan . \
+          --recursive \
+          --format sarif \
+          --output ml-security-results.sarif \
+          --risk-threshold LOW
+      continue-on-error: true  # Don't fail the build, just report
+      
+    - name: Upload SARIF results to GitHub
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: ml-security-results.sarif
+        category: ml-security
+      if: always()  # Upload even if scan found issues
+      
+    - name: Generate Markdown Report
+      run: |
+        # Also generate human-readable report
+        binarysniffer ml-scan . \
+          --recursive \
+          --format markdown \
+          --output ml-security-report.md \
+          --security-only
+      if: always()
+      
+    - name: Upload Markdown Report as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ml-security-report
+        path: ml-security-report.md
+      if: always()
+      
+    - name: Comment PR with Summary (Pull Request only)
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          // Read the markdown report
+          let report = '## 🔒 ML Security Scan Results\n\n';
+          
+          try {
+            const markdown = fs.readFileSync('ml-security-report.md', 'utf8');
+            // Extract summary section
+            const lines = markdown.split('\n');
+            const summaryStart = lines.findIndex(line => line.includes('Summary'));
+            if (summaryStart !== -1) {
+              report += lines.slice(summaryStart, summaryStart + 10).join('\n');
+            }
+            report += '\n\n[View full security report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
+          } catch (e) {
+            report += 'No security issues detected in ML models.';
+          }
+          
+          // Post comment on PR
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: report
+          });
+      
+    - name: Fail if Critical Issues Found
+      run: |
+        # Parse SARIF and fail if critical issues exist
+        if grep -q '"level": "error"' ml-security-results.sarif; then
+          echo "❌ Critical security issues found in ML models!"
+          echo "Please review the security report in the Actions tab."
+          exit 1
+        else
+          echo "✅ No critical security issues found."
+        fi
+```
+
+#### Simpler Version
+
+For a basic security check without SARIF integration:
+
+```yaml
+name: ML Security Check
 
 on: [push, pull_request]
 
@@ -236,7 +354,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Install BinarySniffer
         run: pip install semantic-copycat-binarysniffer

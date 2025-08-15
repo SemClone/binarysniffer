@@ -1731,7 +1731,12 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         console.print(f"  High confidence matches: {len([m for m in filtered_matches if m.confidence >= 0.8])}")
         console.print(f"  Unique components: {len(set(m.component for m in filtered_matches))}")
         if result.licenses:
-            console.print(f"  Licenses detected: {', '.join(result.licenses)}")
+            # Check if any licenses are actually security classifications
+            has_security_classifications = any(lic in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'SAFE'] for lic in result.licenses)
+            if has_security_classifications:
+                console.print(f"  Classifications detected: {', '.join(result.licenses)}")
+            else:
+                console.print(f"  Licenses detected: {', '.join(result.licenses)}")
 
 
 def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0, verbose_evidence: bool = False):
