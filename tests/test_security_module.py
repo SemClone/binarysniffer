@@ -108,10 +108,14 @@ class TestRiskScorer:
         
         test_cases = [
             (0, RiskLevel.SAFE),
-            (15, RiskLevel.LOW),
+            (15, RiskLevel.SAFE),  # Below 20 threshold
+            (20, RiskLevel.LOW),   # At LOW threshold
             (25, RiskLevel.LOW),
+            (40, RiskLevel.MEDIUM), # At MEDIUM threshold
             (45, RiskLevel.MEDIUM),
+            (60, RiskLevel.HIGH),   # At HIGH threshold
             (65, RiskLevel.HIGH),
+            (80, RiskLevel.CRITICAL), # At CRITICAL threshold
             (85, RiskLevel.CRITICAL),
             (100, RiskLevel.CRITICAL),
         ]
@@ -148,7 +152,8 @@ class TestPickleSecurityAnalyzer:
         # Test dangerous opcode detection
         opcodes = analyzer._analyze_opcodes(b'\x80\x04\x95\x15\x00\x00\x00\x00\x00\x00\x00\x8c\x02os\x94\x8c\x06system\x94\x93\x94.')
         
-        assert 'opcode:GLOBAL' in opcodes['features']
+        # Should detect either GLOBAL or STACK_GLOBAL
+        assert any('opcode:GLOBAL' in opcodes['features'] or 'opcode:STACK_GLOBAL' in opcodes['features'])
         assert any('os.system' in imp for imp in opcodes['imports'])
         assert len(opcodes['dangerous_calls']) > 0
     

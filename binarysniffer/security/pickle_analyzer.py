@@ -143,8 +143,8 @@ class PickleSecurityAnalyzer:
         dangerous_calls = set()
         
         try:
-            # Use pickletools for safe static analysis
-            opcodes = pickletools.dis(io.BytesIO(content), annotate=0, memo=io.StringIO())
+            # Use pickletools for safe static analysis (dis is for display only)
+            pickletools.dis(io.BytesIO(content), annotate=0)
             opcode_list = []
             
             # Parse opcodes
@@ -157,15 +157,49 @@ class PickleSecurityAnalyzer:
                     
                     # Analyze GLOBAL imports
                     if opcode.name == 'GLOBAL' and arg:
-                        module, name = arg.split(' ') if ' ' in arg else (arg, '')
-                        imports.add(f"{module}.{name}" if name else module)
+                        if isinstance(arg, str):
+                            if ' ' in arg:
+                                module, name = arg.split(' ', 1)
+                            else:
+                                module, name = arg, ''
+                        elif isinstance(arg, (tuple, list)) and len(arg) >= 2:
+                            module, name = arg[0], arg[1]
+                        else:
+                            module, name = str(arg), ''
+                        
+                        import_str = f"{module}.{name}" if name else module
+                        imports.add(import_str)
                         
                         # Check for malicious imports
                         if module in self.MALICIOUS_IMPORTS:
                             if not name or name in self.MALICIOUS_IMPORTS[module]:
-                                dangerous_calls.add(f"{module}.{name}" if name else module)
-                                features.add(f"malicious_import:{module}.{name}")
+                                dangerous_calls.add(import_str)
+                                features.add(f"malicious_import:{import_str}")
                                 suspicious.add(f"dangerous_import_{module}_{name}")
+                    
+                    # Analyze STACK_GLOBAL 
+                    elif opcode.name == 'STACK_GLOBAL':
+                        # STACK_GLOBAL builds module.name from the two strings on stack
+                        if len(opcode_list) >= 2:
+                            # Look for the two STRING opcodes before this
+                            prev_strings = []
+                            for i in range(len(opcode_list) - 1, -1, -1):
+                                if opcode_list[i][0] in ['SHORT_BINUNICODE', 'BINUNICODE', 'STRING']:
+                                    prev_strings.insert(0, opcode_list[i][1])
+                                    if len(prev_strings) == 2:
+                                        break
+                            
+                            if len(prev_strings) == 2:
+                                module, name = prev_strings
+                                import_str = f"{module}.{name}"
+                                imports.add(import_str)
+                                
+                                # Check for malicious imports
+                                if module in self.MALICIOUS_IMPORTS:
+                                    if not name or name in self.MALICIOUS_IMPORTS[module]:
+                                        dangerous_calls.add(import_str)
+                                        features.add(f"malicious_import:{import_str}")
+                                        suspicious.add(f"dangerous_import_{module}_{name}")
                     
                     # Analyze REDUCE calls
                     elif opcode.name == 'REDUCE' and len(opcode_list) > 1:
