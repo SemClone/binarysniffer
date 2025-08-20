@@ -1,25 +1,28 @@
 {
   "component": {
-    "name": "Libunwind",
+    "name": "libunwind",
     "version": "unknown",
-    "category": "imported",
+    "category": "system",
     "platforms": [
-      "all"
+      "linux",
+      "macos",
+      "unix"
     ],
     "languages": [
-      "unknown"
+      "c",
+      "c++"
     ],
-    "description": "Signatures for Libunwind - Libunwind",
+    "description": "Portable and efficient C API for determining the call-chain of a program",
     "license": "MIT",
-    "publisher": "Libunwind"
+    "publisher": "libunwind project"
   },
   "signature_metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2025-08-04T15:40:01.443822Z",
-    "updated": "2025-08-05T00:00:00Z",
-    "signature_count": 1,
-    "confidence_threshold": 0.7,
-    "source": "converted_from_bsa_format",
+    "updated": "2025-08-20T00:00:00Z",
+    "signature_count": 51,
+    "confidence_threshold": 0.3,
+    "source": "converted_from_bsa_format_and_enhanced",
     "original_file": "libunwind.json",
     "cleaned": true,
     "cleaning_version": "2.0"
@@ -34,6 +37,356 @@
       "platforms": [
         "all"
       ]
+    },
+    {
+      "id": "libunwind_1",
+      "type": "string_pattern",
+      "pattern": "unw_init_local",
+      "confidence": 0.9,
+      "description": "Core libunwind initialization function"
+    },
+    {
+      "id": "libunwind_2",
+      "type": "string_pattern",
+      "pattern": "unw_init_remote",
+      "confidence": 0.9,
+      "description": "Remote unwinding initialization"
+    },
+    {
+      "id": "libunwind_3",
+      "type": "string_pattern",
+      "pattern": "unw_get_reg",
+      "confidence": 0.85,
+      "description": "Register access function"
+    },
+    {
+      "id": "libunwind_4",
+      "type": "string_pattern",
+      "pattern": "unw_set_reg",
+      "confidence": 0.85,
+      "description": "Register modification function"
+    },
+    {
+      "id": "libunwind_5",
+      "type": "string_pattern",
+      "pattern": "unw_get_fpreg",
+      "confidence": 0.85,
+      "description": "Floating point register access"
+    },
+    {
+      "id": "libunwind_6",
+      "type": "string_pattern",
+      "pattern": "unw_set_fpreg",
+      "confidence": 0.85,
+      "description": "Floating point register modification"
+    },
+    {
+      "id": "libunwind_7",
+      "type": "string_pattern",
+      "pattern": "unw_get_proc_info",
+      "confidence": 0.9,
+      "description": "Process information retrieval"
+    },
+    {
+      "id": "libunwind_8",
+      "type": "string_pattern",
+      "pattern": "unw_get_proc_name",
+      "confidence": 0.9,
+      "description": "Get procedure name"
+    },
+    {
+      "id": "libunwind_9",
+      "type": "string_pattern",
+      "pattern": "unw_step",
+      "confidence": 0.9,
+      "description": "Stack unwinding step function"
+    },
+    {
+      "id": "libunwind_10",
+      "type": "string_pattern",
+      "pattern": "unw_resume",
+      "confidence": 0.85,
+      "description": "Resume execution"
+    },
+    {
+      "id": "libunwind_11",
+      "type": "string_pattern",
+      "pattern": "unw_create_addr_space",
+      "confidence": 0.9,
+      "description": "Address space creation"
+    },
+    {
+      "id": "libunwind_12",
+      "type": "string_pattern",
+      "pattern": "unw_destroy_addr_space",
+      "confidence": 0.9,
+      "description": "Address space destruction"
+    },
+    {
+      "id": "libunwind_13",
+      "type": "string_pattern",
+      "pattern": "unw_set_caching_policy",
+      "confidence": 0.85,
+      "description": "Caching policy configuration"
+    },
+    {
+      "id": "libunwind_14",
+      "type": "string_pattern",
+      "pattern": "unw_flush_cache",
+      "confidence": 0.85,
+      "description": "Cache flush operation"
+    },
+    {
+      "id": "libunwind_15",
+      "type": "string_pattern",
+      "pattern": "unw_regname",
+      "confidence": 0.8,
+      "description": "Register name lookup"
+    },
+    {
+      "id": "libunwind_16",
+      "type": "string_pattern",
+      "pattern": "unw_backtrace",
+      "confidence": 0.95,
+      "description": "Backtrace generation function"
+    },
+    {
+      "id": "libunwind_17",
+      "type": "string_pattern",
+      "pattern": "unw_getcontext",
+      "confidence": 0.9,
+      "description": "Get context function"
+    },
+    {
+      "id": "libunwind_18",
+      "type": "string_pattern",
+      "pattern": "_ULx86_64_init_local",
+      "confidence": 0.85,
+      "description": "x86_64 specific initialization"
+    },
+    {
+      "id": "libunwind_19",
+      "type": "string_pattern",
+      "pattern": "_ULaarch64_init_local",
+      "confidence": 0.85,
+      "description": "ARM64 specific initialization"
+    },
+    {
+      "id": "libunwind_20",
+      "type": "string_pattern",
+      "pattern": "_Unwind_Resume",
+      "confidence": 0.8,
+      "description": "C++ exception unwinding"
+    },
+    {
+      "id": "libunwind_21",
+      "type": "string_pattern",
+      "pattern": "_Unwind_RaiseException",
+      "confidence": 0.8,
+      "description": "Exception raising"
+    },
+    {
+      "id": "libunwind_22",
+      "type": "string_pattern",
+      "pattern": "_Unwind_DeleteException",
+      "confidence": 0.8,
+      "description": "Exception cleanup"
+    },
+    {
+      "id": "libunwind_23",
+      "type": "string_pattern",
+      "pattern": "_Unwind_GetLanguageSpecificData",
+      "confidence": 0.8,
+      "description": "Language-specific data access"
+    },
+    {
+      "id": "libunwind_24",
+      "type": "string_pattern",
+      "pattern": "_Unwind_GetRegionStart",
+      "confidence": 0.8,
+      "description": "Region start address"
+    },
+    {
+      "id": "libunwind_25",
+      "type": "string_pattern",
+      "pattern": "_Unwind_GetIP",
+      "confidence": 0.8,
+      "description": "Get instruction pointer"
+    },
+    {
+      "id": "libunwind_26",
+      "type": "string_pattern",
+      "pattern": "_Unwind_SetIP",
+      "confidence": 0.8,
+      "description": "Set instruction pointer"
+    },
+    {
+      "id": "libunwind_27",
+      "type": "string_pattern",
+      "pattern": "_Unwind_GetGR",
+      "confidence": 0.8,
+      "description": "Get general register"
+    },
+    {
+      "id": "libunwind_28",
+      "type": "string_pattern",
+      "pattern": "_Unwind_SetGR",
+      "confidence": 0.8,
+      "description": "Set general register"
+    },
+    {
+      "id": "libunwind_29",
+      "type": "string_pattern",
+      "pattern": "libunwind.so",
+      "confidence": 0.7,
+      "description": "Library file reference"
+    },
+    {
+      "id": "libunwind_30",
+      "type": "string_pattern",
+      "pattern": "libunwind.dylib",
+      "confidence": 0.7,
+      "description": "macOS library reference"
+    },
+    {
+      "id": "libunwind_31",
+      "type": "string_pattern",
+      "pattern": "UNW_X86_64",
+      "confidence": 0.75,
+      "description": "x86_64 architecture constant"
+    },
+    {
+      "id": "libunwind_32",
+      "type": "string_pattern",
+      "pattern": "UNW_AARCH64",
+      "confidence": 0.75,
+      "description": "ARM64 architecture constant"
+    },
+    {
+      "id": "libunwind_33",
+      "type": "string_pattern",
+      "pattern": "UNW_ERROR",
+      "confidence": 0.7,
+      "description": "Error constant"
+    },
+    {
+      "id": "libunwind_34",
+      "type": "string_pattern",
+      "pattern": "unw_word_t",
+      "confidence": 0.75,
+      "description": "Type definition"
+    },
+    {
+      "id": "libunwind_35",
+      "type": "string_pattern",
+      "pattern": "unw_cursor_t",
+      "confidence": 0.85,
+      "description": "Cursor type"
+    },
+    {
+      "id": "libunwind_36",
+      "type": "string_pattern",
+      "pattern": "unw_context_t",
+      "confidence": 0.85,
+      "description": "Context type"
+    },
+    {
+      "id": "libunwind_37",
+      "type": "string_pattern",
+      "pattern": "unw_proc_info_t",
+      "confidence": 0.85,
+      "description": "Process info type"
+    },
+    {
+      "id": "libunwind_38",
+      "type": "string_pattern",
+      "pattern": "dwarf_regtable",
+      "confidence": 0.75,
+      "description": "DWARF register table"
+    },
+    {
+      "id": "libunwind_39",
+      "type": "string_pattern",
+      "pattern": "dwarf_cie_info",
+      "confidence": 0.75,
+      "description": "DWARF CIE information"
+    },
+    {
+      "id": "libunwind_40",
+      "type": "string_pattern",
+      "pattern": "unw_dyn_info",
+      "confidence": 0.8,
+      "description": "Dynamic info structure"
+    },
+    {
+      "id": "libunwind_41",
+      "type": "string_pattern",
+      "pattern": "UNW_ESUCCESS",
+      "confidence": 0.7,
+      "description": "Success code"
+    },
+    {
+      "id": "libunwind_42",
+      "type": "string_pattern",
+      "pattern": "UNW_EUNSPEC",
+      "confidence": 0.7,
+      "description": "Unspecified error"
+    },
+    {
+      "id": "libunwind_43",
+      "type": "string_pattern",
+      "pattern": "UNW_ENOMEM",
+      "confidence": 0.7,
+      "description": "No memory error"
+    },
+    {
+      "id": "libunwind_44",
+      "type": "string_pattern",
+      "pattern": "UNW_EBADREG",
+      "confidence": 0.7,
+      "description": "Bad register error"
+    },
+    {
+      "id": "libunwind_45",
+      "type": "string_pattern",
+      "pattern": "UNW_EREADONLYREG",
+      "confidence": 0.7,
+      "description": "Read-only register error"
+    },
+    {
+      "id": "libunwind_46",
+      "type": "string_pattern",
+      "pattern": "unw_is_signal_frame",
+      "confidence": 0.85,
+      "description": "Signal frame detection"
+    },
+    {
+      "id": "libunwind_47",
+      "type": "string_pattern",
+      "pattern": "unw_get_save_loc",
+      "confidence": 0.8,
+      "description": "Get save location"
+    },
+    {
+      "id": "libunwind_48",
+      "type": "string_pattern",
+      "pattern": "unw_strerror",
+      "confidence": 0.8,
+      "description": "Error string function"
+    },
+    {
+      "id": "libunwind_49",
+      "type": "string_pattern",
+      "pattern": "unw_set_cache_size",
+      "confidence": 0.8,
+      "description": "Cache size configuration"
+    },
+    {
+      "id": "libunwind_50",
+      "type": "string_pattern",
+      "pattern": "LIBUNWIND",
+      "confidence": 0.7,
+      "description": "Library name constant"
     }
   ]
 }

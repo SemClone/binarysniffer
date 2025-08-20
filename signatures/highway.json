@@ -1,0 +1,269 @@
+{
+  "component": {
+    "name": "Highway",
+    "version": "unknown",
+    "category": "library",
+    "platforms": ["linux", "macos", "windows", "unix"],
+    "languages": ["c++"],
+    "description": "Google Highway - Efficient and portable SIMD library",
+    "license": "Apache-2.0",
+    "publisher": "Google"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-20T00:00:00Z",
+    "updated": "2025-08-20T00:00:00Z",
+    "signature_count": 35,
+    "confidence_threshold": 0.3,
+    "source": "manual_extraction",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "highway_1",
+      "type": "string_pattern",
+      "pattern": "hwy::N_EMU128",
+      "confidence": 0.9,
+      "description": "Highway EMU128 namespace"
+    },
+    {
+      "id": "highway_2",
+      "type": "string_pattern",
+      "pattern": "hwy::N_AVX2",
+      "confidence": 0.9,
+      "description": "Highway AVX2 namespace"
+    },
+    {
+      "id": "highway_3",
+      "type": "string_pattern",
+      "pattern": "hwy::N_AVX3",
+      "confidence": 0.9,
+      "description": "Highway AVX3 namespace"
+    },
+    {
+      "id": "highway_4",
+      "type": "string_pattern",
+      "pattern": "hwy::N_SSE4",
+      "confidence": 0.9,
+      "description": "Highway SSE4 namespace"
+    },
+    {
+      "id": "highway_5",
+      "type": "string_pattern",
+      "pattern": "hwy::N_NEON",
+      "confidence": 0.9,
+      "description": "Highway NEON namespace"
+    },
+    {
+      "id": "highway_6",
+      "type": "string_pattern",
+      "pattern": "hwy::LoadDup",
+      "confidence": 0.85,
+      "description": "Load duplicate function"
+    },
+    {
+      "id": "highway_7",
+      "type": "string_pattern",
+      "pattern": "hwy::StoreU",
+      "confidence": 0.85,
+      "description": "Unaligned store function"
+    },
+    {
+      "id": "highway_8",
+      "type": "string_pattern",
+      "pattern": "hwy::LoadU",
+      "confidence": 0.85,
+      "description": "Unaligned load function"
+    },
+    {
+      "id": "highway_9",
+      "type": "string_pattern",
+      "pattern": "hwy::Store",
+      "confidence": 0.8,
+      "description": "Aligned store function"
+    },
+    {
+      "id": "highway_10",
+      "type": "string_pattern",
+      "pattern": "hwy::Load",
+      "confidence": 0.8,
+      "description": "Aligned load function"
+    },
+    {
+      "id": "highway_11",
+      "type": "string_pattern",
+      "pattern": "hwy::SupportedTargets",
+      "confidence": 0.9,
+      "description": "Target support check"
+    },
+    {
+      "id": "highway_12",
+      "type": "string_pattern",
+      "pattern": "hwy::ChosenTarget",
+      "confidence": 0.9,
+      "description": "Target selection"
+    },
+    {
+      "id": "highway_13",
+      "type": "string_pattern",
+      "pattern": "hwy::aligned_allocator",
+      "confidence": 0.85,
+      "description": "Aligned memory allocator"
+    },
+    {
+      "id": "highway_14",
+      "type": "string_pattern",
+      "pattern": "hwy/aligned_allocator",
+      "confidence": 0.8,
+      "description": "Allocator header path"
+    },
+    {
+      "id": "highway_15",
+      "type": "string_pattern",
+      "pattern": "HWY_NAMESPACE",
+      "confidence": 0.85,
+      "description": "Namespace macro"
+    },
+    {
+      "id": "highway_16",
+      "type": "string_pattern",
+      "pattern": "HWY_BEFORE_NAMESPACE",
+      "confidence": 0.85,
+      "description": "Namespace setup macro"
+    },
+    {
+      "id": "highway_17",
+      "type": "string_pattern",
+      "pattern": "HWY_AFTER_NAMESPACE",
+      "confidence": 0.85,
+      "description": "Namespace cleanup macro"
+    },
+    {
+      "id": "highway_18",
+      "type": "string_pattern",
+      "pattern": "HWY_API",
+      "confidence": 0.8,
+      "description": "API macro"
+    },
+    {
+      "id": "highway_19",
+      "type": "string_pattern",
+      "pattern": "HWY_ATTR",
+      "confidence": 0.8,
+      "description": "Attribute macro"
+    },
+    {
+      "id": "highway_20",
+      "type": "string_pattern",
+      "pattern": "HWY_TARGET",
+      "confidence": 0.85,
+      "description": "Target macro"
+    },
+    {
+      "id": "highway_21",
+      "type": "string_pattern",
+      "pattern": "highway-1.",
+      "confidence": 0.75,
+      "description": "Version pattern"
+    },
+    {
+      "id": "highway_22",
+      "type": "string_pattern",
+      "pattern": "libhwy",
+      "confidence": 0.8,
+      "description": "Library name"
+    },
+    {
+      "id": "highway_23",
+      "type": "string_pattern",
+      "pattern": "hwy::Lanes",
+      "confidence": 0.85,
+      "description": "Lane count function"
+    },
+    {
+      "id": "highway_24",
+      "type": "string_pattern",
+      "pattern": "hwy::Zero",
+      "confidence": 0.8,
+      "description": "Zero initialization"
+    },
+    {
+      "id": "highway_25",
+      "type": "string_pattern",
+      "pattern": "hwy::Set",
+      "confidence": 0.8,
+      "description": "Set function"
+    },
+    {
+      "id": "highway_26",
+      "type": "string_pattern",
+      "pattern": "hwy::Add",
+      "confidence": 0.75,
+      "description": "Addition function"
+    },
+    {
+      "id": "highway_27",
+      "type": "string_pattern",
+      "pattern": "hwy::Sub",
+      "confidence": 0.75,
+      "description": "Subtraction function"
+    },
+    {
+      "id": "highway_28",
+      "type": "string_pattern",
+      "pattern": "hwy::Mul",
+      "confidence": 0.75,
+      "description": "Multiplication function"
+    },
+    {
+      "id": "highway_29",
+      "type": "string_pattern",
+      "pattern": "hwy::MulAdd",
+      "confidence": 0.85,
+      "description": "Fused multiply-add"
+    },
+    {
+      "id": "highway_30",
+      "type": "string_pattern",
+      "pattern": "hwy::TableLookupBytes",
+      "confidence": 0.85,
+      "description": "Table lookup function"
+    },
+    {
+      "id": "highway_31",
+      "type": "string_pattern",
+      "pattern": "info.is_float && !info.is_signed && !info.is_bf16",
+      "confidence": 0.8,
+      "description": "Type checking pattern"
+    },
+    {
+      "id": "highway_32",
+      "type": "string_pattern",
+      "pattern": "abs_mad=",
+      "confidence": 0.7,
+      "description": "Absolute MAD metric"
+    },
+    {
+      "id": "highway_33",
+      "type": "string_pattern",
+      "pattern": "rel_mad=",
+      "confidence": 0.7,
+      "description": "Relative MAD metric"
+    },
+    {
+      "id": "highway_34",
+      "type": "string_pattern",
+      "pattern": "HWY_SCALAR",
+      "confidence": 0.8,
+      "description": "Scalar target"
+    },
+    {
+      "id": "highway_35",
+      "type": "string_pattern",
+      "pattern": "HWY_EMU128",
+      "confidence": 0.8,
+      "description": "EMU128 target"
+    }
+  ]
+}

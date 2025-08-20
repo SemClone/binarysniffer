@@ -1,0 +1,304 @@
+{
+  "component": {
+    "name": "Little CMS 2",
+    "version": "unknown",
+    "category": "library",
+    "platforms": ["linux", "macos", "windows", "unix"],
+    "languages": ["c", "c++"],
+    "description": "Little Color Management System - A small-footprint color management engine",
+    "license": "MIT",
+    "publisher": "Marti Maria"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-20T00:00:00Z",
+    "updated": "2025-08-20T00:00:00Z",
+    "signature_count": 40,
+    "confidence_threshold": 0.3,
+    "source": "manual_extraction",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "lcms2_1",
+      "type": "string_pattern",
+      "pattern": "cmsOpenProfileFromFile",
+      "confidence": 0.95,
+      "description": "Profile opening function"
+    },
+    {
+      "id": "lcms2_2",
+      "type": "string_pattern",
+      "pattern": "cmsOpenProfileFromMem",
+      "confidence": 0.95,
+      "description": "Memory profile opening"
+    },
+    {
+      "id": "lcms2_3",
+      "type": "string_pattern",
+      "pattern": "cmsCreateTransform",
+      "confidence": 0.95,
+      "description": "Transform creation"
+    },
+    {
+      "id": "lcms2_4",
+      "type": "string_pattern",
+      "pattern": "cmsDoTransform",
+      "confidence": 0.95,
+      "description": "Transform execution"
+    },
+    {
+      "id": "lcms2_5",
+      "type": "string_pattern",
+      "pattern": "cmsDeleteTransform",
+      "confidence": 0.9,
+      "description": "Transform cleanup"
+    },
+    {
+      "id": "lcms2_6",
+      "type": "string_pattern",
+      "pattern": "cmsCloseProfile",
+      "confidence": 0.9,
+      "description": "Profile cleanup"
+    },
+    {
+      "id": "lcms2_7",
+      "type": "string_pattern",
+      "pattern": "cmsCreateRGBProfile",
+      "confidence": 0.9,
+      "description": "RGB profile creation"
+    },
+    {
+      "id": "lcms2_8",
+      "type": "string_pattern",
+      "pattern": "cmsCreateGrayProfile",
+      "confidence": 0.9,
+      "description": "Gray profile creation"
+    },
+    {
+      "id": "lcms2_9",
+      "type": "string_pattern",
+      "pattern": "cmsCreateLab2Profile",
+      "confidence": 0.85,
+      "description": "Lab profile creation"
+    },
+    {
+      "id": "lcms2_10",
+      "type": "string_pattern",
+      "pattern": "cmsCreateLab4Profile",
+      "confidence": 0.85,
+      "description": "Lab v4 profile creation"
+    },
+    {
+      "id": "lcms2_11",
+      "type": "string_pattern",
+      "pattern": "cmsCreateXYZProfile",
+      "confidence": 0.85,
+      "description": "XYZ profile creation"
+    },
+    {
+      "id": "lcms2_12",
+      "type": "string_pattern",
+      "pattern": "cmsCreateProofingTransform",
+      "confidence": 0.9,
+      "description": "Proofing transform"
+    },
+    {
+      "id": "lcms2_13",
+      "type": "string_pattern",
+      "pattern": "cmsGetColorSpace",
+      "confidence": 0.85,
+      "description": "Color space retrieval"
+    },
+    {
+      "id": "lcms2_14",
+      "type": "string_pattern",
+      "pattern": "cmsGetDeviceClass",
+      "confidence": 0.85,
+      "description": "Device class retrieval"
+    },
+    {
+      "id": "lcms2_15",
+      "type": "string_pattern",
+      "pattern": "cmsReadTag",
+      "confidence": 0.85,
+      "description": "Tag reading"
+    },
+    {
+      "id": "lcms2_16",
+      "type": "string_pattern",
+      "pattern": "cmsWriteTag",
+      "confidence": 0.85,
+      "description": "Tag writing"
+    },
+    {
+      "id": "lcms2_17",
+      "type": "string_pattern",
+      "pattern": "cmsD50_xyY",
+      "confidence": 0.8,
+      "description": "D50 illuminant"
+    },
+    {
+      "id": "lcms2_18",
+      "type": "string_pattern",
+      "pattern": "cmsWhitePointFromTemp",
+      "confidence": 0.85,
+      "description": "White point calculation"
+    },
+    {
+      "id": "lcms2_19",
+      "type": "string_pattern",
+      "pattern": "cmsBuildGamma",
+      "confidence": 0.85,
+      "description": "Gamma curve building"
+    },
+    {
+      "id": "lcms2_20",
+      "type": "string_pattern",
+      "pattern": "cmsBuildParametricToneCurve",
+      "confidence": 0.85,
+      "description": "Tone curve building"
+    },
+    {
+      "id": "lcms2_21",
+      "type": "string_pattern",
+      "pattern": "Bradford Cone Space",
+      "confidence": 0.8,
+      "description": "Bradford adaptation"
+    },
+    {
+      "id": "lcms2_22",
+      "type": "string_pattern",
+      "pattern": "VonKries-like transform",
+      "confidence": 0.8,
+      "description": "Von Kries adaptation"
+    },
+    {
+      "id": "lcms2_23",
+      "type": "string_pattern",
+      "pattern": "Absolute colorimetric",
+      "confidence": 0.75,
+      "description": "Rendering intent"
+    },
+    {
+      "id": "lcms2_24",
+      "type": "string_pattern",
+      "pattern": "#DefineDblFormat",
+      "confidence": 0.75,
+      "description": "Format definition"
+    },
+    {
+      "id": "lcms2_25",
+      "type": "string_pattern",
+      "pattern": "cmsIT8LoadFromFile",
+      "confidence": 0.85,
+      "description": "IT8 file loading"
+    },
+    {
+      "id": "lcms2_26",
+      "type": "string_pattern",
+      "pattern": "cmsIT8SaveToFile",
+      "confidence": 0.85,
+      "description": "IT8 file saving"
+    },
+    {
+      "id": "lcms2_27",
+      "type": "string_pattern",
+      "pattern": "cmsPipelineAlloc",
+      "confidence": 0.85,
+      "description": "Pipeline allocation"
+    },
+    {
+      "id": "lcms2_28",
+      "type": "string_pattern",
+      "pattern": "cmsPipelineFree",
+      "confidence": 0.85,
+      "description": "Pipeline cleanup"
+    },
+    {
+      "id": "lcms2_29",
+      "type": "string_pattern",
+      "pattern": "cmsStageAllocCLut",
+      "confidence": 0.8,
+      "description": "CLUT stage allocation"
+    },
+    {
+      "id": "lcms2_30",
+      "type": "string_pattern",
+      "pattern": "cmsStageAllocMatrix",
+      "confidence": 0.8,
+      "description": "Matrix stage allocation"
+    },
+    {
+      "id": "lcms2_31",
+      "type": "string_pattern",
+      "pattern": "cmsStageSampleCLut",
+      "confidence": 0.8,
+      "description": "CLUT sampling"
+    },
+    {
+      "id": "lcms2_32",
+      "type": "string_pattern",
+      "pattern": "liblcms2",
+      "confidence": 0.8,
+      "description": "Library name"
+    },
+    {
+      "id": "lcms2_33",
+      "type": "string_pattern",
+      "pattern": "LCMS2_VERSION",
+      "confidence": 0.75,
+      "description": "Version constant"
+    },
+    {
+      "id": "lcms2_34",
+      "type": "string_pattern",
+      "pattern": "cmsFloat2LabEncoded",
+      "confidence": 0.85,
+      "description": "Lab encoding"
+    },
+    {
+      "id": "lcms2_35",
+      "type": "string_pattern",
+      "pattern": "cmsLabEncoded2Float",
+      "confidence": 0.85,
+      "description": "Lab decoding"
+    },
+    {
+      "id": "lcms2_36",
+      "type": "string_pattern",
+      "pattern": "cmsGetProfileVersion",
+      "confidence": 0.85,
+      "description": "Profile version"
+    },
+    {
+      "id": "lcms2_37",
+      "type": "string_pattern",
+      "pattern": "cmsGetEncodedICCversion",
+      "confidence": 0.85,
+      "description": "ICC version"
+    },
+    {
+      "id": "lcms2_38",
+      "type": "string_pattern",
+      "pattern": "cmsSaveProfileToIOhandler",
+      "confidence": 0.85,
+      "description": "Profile saving"
+    },
+    {
+      "id": "lcms2_39",
+      "type": "string_pattern",
+      "pattern": "cmsSetAdaptationState",
+      "confidence": 0.8,
+      "description": "Adaptation state"
+    },
+    {
+      "id": "lcms2_40",
+      "type": "string_pattern",
+      "pattern": "cmsSetAlarmCodes",
+      "confidence": 0.8,
+      "description": "Alarm codes setting"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "component": {
+    "name": "GNU MP",
+    "version": "unknown",
+    "category": "library",
+    "platforms": ["linux", "macos", "windows", "unix"],
+    "languages": ["c", "c++"],
+    "description": "GNU Multiple Precision Arithmetic Library",
+    "license": "LGPL-3.0-or-later OR GPL-2.0-or-later",
+    "publisher": "GNU Project"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-20T00:00:00Z",
+    "updated": "2025-08-20T00:00:00Z",
+    "signature_count": 45,
+    "confidence_threshold": 0.3,
+    "source": "manual_extraction",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "gmp_1",
+      "type": "string_pattern",
+      "pattern": "mpz_init",
+      "confidence": 0.95,
+      "description": "Integer initialization"
+    },
+    {
+      "id": "gmp_2",
+      "type": "string_pattern",
+      "pattern": "mpz_clear",
+      "confidence": 0.95,
+      "description": "Integer cleanup"
+    },
+    {
+      "id": "gmp_3",
+      "type": "string_pattern",
+      "pattern": "mpz_set",
+      "confidence": 0.9,
+      "description": "Integer assignment"
+    },
+    {
+      "id": "gmp_4",
+      "type": "string_pattern",
+      "pattern": "mpz_set_ui",
+      "confidence": 0.9,
+      "description": "Set from unsigned int"
+    },
+    {
+      "id": "gmp_5",
+      "type": "string_pattern",
+      "pattern": "mpz_set_si",
+      "confidence": 0.9,
+      "description": "Set from signed int"
+    },
+    {
+      "id": "gmp_6",
+      "type": "string_pattern",
+      "pattern": "mpz_set_str",
+      "confidence": 0.9,
+      "description": "Set from string"
+    },
+    {
+      "id": "gmp_7",
+      "type": "string_pattern",
+      "pattern": "mpz_add",
+      "confidence": 0.9,
+      "description": "Integer addition"
+    },
+    {
+      "id": "gmp_8",
+      "type": "string_pattern",
+      "pattern": "mpz_sub",
+      "confidence": 0.9,
+      "description": "Integer subtraction"
+    },
+    {
+      "id": "gmp_9",
+      "type": "string_pattern",
+      "pattern": "mpz_mul",
+      "confidence": 0.9,
+      "description": "Integer multiplication"
+    },
+    {
+      "id": "gmp_10",
+      "type": "string_pattern",
+      "pattern": "mpz_tdiv",
+      "confidence": 0.85,
+      "description": "Truncating division"
+    },
+    {
+      "id": "gmp_11",
+      "type": "string_pattern",
+      "pattern": "mpz_fdiv",
+      "confidence": 0.85,
+      "description": "Floor division"
+    },
+    {
+      "id": "gmp_12",
+      "type": "string_pattern",
+      "pattern": "mpz_cdiv",
+      "confidence": 0.85,
+      "description": "Ceiling division"
+    },
+    {
+      "id": "gmp_13",
+      "type": "string_pattern",
+      "pattern": "mpz_mod",
+      "confidence": 0.9,
+      "description": "Modulo operation"
+    },
+    {
+      "id": "gmp_14",
+      "type": "string_pattern",
+      "pattern": "mpz_gcd",
+      "confidence": 0.9,
+      "description": "Greatest common divisor"
+    },
+    {
+      "id": "gmp_15",
+      "type": "string_pattern",
+      "pattern": "mpz_lcm",
+      "confidence": 0.9,
+      "description": "Least common multiple"
+    },
+    {
+      "id": "gmp_16",
+      "type": "string_pattern",
+      "pattern": "mpz_powm",
+      "confidence": 0.9,
+      "description": "Modular exponentiation"
+    },
+    {
+      "id": "gmp_17",
+      "type": "string_pattern",
+      "pattern": "mpz_sqrt",
+      "confidence": 0.85,
+      "description": "Square root"
+    },
+    {
+      "id": "gmp_18",
+      "type": "string_pattern",
+      "pattern": "mpz_probab_prime_p",
+      "confidence": 0.9,
+      "description": "Primality testing"
+    },
+    {
+      "id": "gmp_19",
+      "type": "string_pattern",
+      "pattern": "mpz_nextprime",
+      "confidence": 0.9,
+      "description": "Next prime finding"
+    },
+    {
+      "id": "gmp_20",
+      "type": "string_pattern",
+      "pattern": "mpz_cmp",
+      "confidence": 0.85,
+      "description": "Comparison function"
+    },
+    {
+      "id": "gmp_21",
+      "type": "string_pattern",
+      "pattern": "mpf_init",
+      "confidence": 0.9,
+      "description": "Float initialization"
+    },
+    {
+      "id": "gmp_22",
+      "type": "string_pattern",
+      "pattern": "mpf_clear",
+      "confidence": 0.9,
+      "description": "Float cleanup"
+    },
+    {
+      "id": "gmp_23",
+      "type": "string_pattern",
+      "pattern": "mpf_set_prec",
+      "confidence": 0.85,
+      "description": "Set precision"
+    },
+    {
+      "id": "gmp_24",
+      "type": "string_pattern",
+      "pattern": "mpf_add",
+      "confidence": 0.85,
+      "description": "Float addition"
+    },
+    {
+      "id": "gmp_25",
+      "type": "string_pattern",
+      "pattern": "mpf_sub",
+      "confidence": 0.85,
+      "description": "Float subtraction"
+    },
+    {
+      "id": "gmp_26",
+      "type": "string_pattern",
+      "pattern": "mpf_mul",
+      "confidence": 0.85,
+      "description": "Float multiplication"
+    },
+    {
+      "id": "gmp_27",
+      "type": "string_pattern",
+      "pattern": "mpf_div",
+      "confidence": 0.85,
+      "description": "Float division"
+    },
+    {
+      "id": "gmp_28",
+      "type": "string_pattern",
+      "pattern": "mpq_init",
+      "confidence": 0.9,
+      "description": "Rational initialization"
+    },
+    {
+      "id": "gmp_29",
+      "type": "string_pattern",
+      "pattern": "mpq_clear",
+      "confidence": 0.9,
+      "description": "Rational cleanup"
+    },
+    {
+      "id": "gmp_30",
+      "type": "string_pattern",
+      "pattern": "mpq_canonicalize",
+      "confidence": 0.85,
+      "description": "Rational canonicalization"
+    },
+    {
+      "id": "gmp_31",
+      "type": "string_pattern",
+      "pattern": "mpq_add",
+      "confidence": 0.85,
+      "description": "Rational addition"
+    },
+    {
+      "id": "gmp_32",
+      "type": "string_pattern",
+      "pattern": "mpq_sub",
+      "confidence": 0.85,
+      "description": "Rational subtraction"
+    },
+    {
+      "id": "gmp_33",
+      "type": "string_pattern",
+      "pattern": "mpq_mul",
+      "confidence": 0.85,
+      "description": "Rational multiplication"
+    },
+    {
+      "id": "gmp_34",
+      "type": "string_pattern",
+      "pattern": "mpq_div",
+      "confidence": 0.85,
+      "description": "Rational division"
+    },
+    {
+      "id": "gmp_35",
+      "type": "string_pattern",
+      "pattern": "mpn_add",
+      "confidence": 0.8,
+      "description": "Low-level addition"
+    },
+    {
+      "id": "gmp_36",
+      "type": "string_pattern",
+      "pattern": "mpn_sub",
+      "confidence": 0.8,
+      "description": "Low-level subtraction"
+    },
+    {
+      "id": "gmp_37",
+      "type": "string_pattern",
+      "pattern": "mpn_mul",
+      "confidence": 0.8,
+      "description": "Low-level multiplication"
+    },
+    {
+      "id": "gmp_38",
+      "type": "string_pattern",
+      "pattern": "gmp_randinit",
+      "confidence": 0.85,
+      "description": "Random state initialization"
+    },
+    {
+      "id": "gmp_39",
+      "type": "string_pattern",
+      "pattern": "gmp_randseed",
+      "confidence": 0.85,
+      "description": "Random seeding"
+    },
+    {
+      "id": "gmp_40",
+      "type": "string_pattern",
+      "pattern": "gmp_randclear",
+      "confidence": 0.85,
+      "description": "Random state cleanup"
+    },
+    {
+      "id": "gmp_41",
+      "type": "string_pattern",
+      "pattern": "libgmp",
+      "confidence": 0.8,
+      "description": "Library name"
+    },
+    {
+      "id": "gmp_42",
+      "type": "string_pattern",
+      "pattern": "__gmpz_",
+      "confidence": 0.85,
+      "description": "Internal integer prefix"
+    },
+    {
+      "id": "gmp_43",
+      "type": "string_pattern",
+      "pattern": "__gmpf_",
+      "confidence": 0.85,
+      "description": "Internal float prefix"
+    },
+    {
+      "id": "gmp_44",
+      "type": "string_pattern",
+      "pattern": "__gmpq_",
+      "confidence": 0.85,
+      "description": "Internal rational prefix"
+    },
+    {
+      "id": "gmp_45",
+      "type": "string_pattern",
+      "pattern": "GMP version",
+      "confidence": 0.75,
+      "description": "Version string"
+    }
+  ]
+}

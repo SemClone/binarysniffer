@@ -1,0 +1,304 @@
+{
+  "component": {
+    "name": "PCRE2",
+    "version": "unknown",
+    "category": "library",
+    "platforms": ["linux", "macos", "windows", "unix"],
+    "languages": ["c", "c++"],
+    "description": "Perl Compatible Regular Expressions library version 2",
+    "license": "BSD-3-Clause",
+    "publisher": "Philip Hazel"
+  },
+  "signature_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-20T00:00:00Z",
+    "updated": "2025-08-20T00:00:00Z",
+    "signature_count": 40,
+    "confidence_threshold": 0.3,
+    "source": "manual_extraction",
+    "cleaned": true,
+    "cleaning_version": "2.0"
+  },
+  "signatures": [
+    {
+      "id": "pcre2_1",
+      "type": "string_pattern",
+      "pattern": "pcre2_compile",
+      "confidence": 0.95,
+      "description": "Core compilation function"
+    },
+    {
+      "id": "pcre2_2",
+      "type": "string_pattern",
+      "pattern": "pcre2_match",
+      "confidence": 0.95,
+      "description": "Main matching function"
+    },
+    {
+      "id": "pcre2_3",
+      "type": "string_pattern",
+      "pattern": "pcre2_match_data_create",
+      "confidence": 0.9,
+      "description": "Match data creation"
+    },
+    {
+      "id": "pcre2_4",
+      "type": "string_pattern",
+      "pattern": "pcre2_match_data_free",
+      "confidence": 0.9,
+      "description": "Match data cleanup"
+    },
+    {
+      "id": "pcre2_5",
+      "type": "string_pattern",
+      "pattern": "pcre2_code_free",
+      "confidence": 0.9,
+      "description": "Code cleanup function"
+    },
+    {
+      "id": "pcre2_6",
+      "type": "string_pattern",
+      "pattern": "pcre2_substring",
+      "confidence": 0.85,
+      "description": "Substring operations"
+    },
+    {
+      "id": "pcre2_7",
+      "type": "string_pattern",
+      "pattern": "pcre2_get_ovector",
+      "confidence": 0.85,
+      "description": "Get offset vector"
+    },
+    {
+      "id": "pcre2_8",
+      "type": "string_pattern",
+      "pattern": "pcre2_pattern_info",
+      "confidence": 0.85,
+      "description": "Pattern information"
+    },
+    {
+      "id": "pcre2_9",
+      "type": "string_pattern",
+      "pattern": "pcre2_config",
+      "confidence": 0.85,
+      "description": "Configuration function"
+    },
+    {
+      "id": "pcre2_10",
+      "type": "string_pattern",
+      "pattern": "pcre2_jit_compile",
+      "confidence": 0.9,
+      "description": "JIT compilation"
+    },
+    {
+      "id": "pcre2_11",
+      "type": "string_pattern",
+      "pattern": "pcre2_jit_match",
+      "confidence": 0.9,
+      "description": "JIT matching"
+    },
+    {
+      "id": "pcre2_12",
+      "type": "string_pattern",
+      "pattern": "pcre2_jit_stack",
+      "confidence": 0.85,
+      "description": "JIT stack management"
+    },
+    {
+      "id": "pcre2_13",
+      "type": "string_pattern",
+      "pattern": "PCRE2_ERROR",
+      "confidence": 0.75,
+      "description": "Error constant prefix"
+    },
+    {
+      "id": "pcre2_14",
+      "type": "string_pattern",
+      "pattern": "PCRE2_UTF8",
+      "confidence": 0.75,
+      "description": "UTF-8 flag"
+    },
+    {
+      "id": "pcre2_15",
+      "type": "string_pattern",
+      "pattern": "PCRE2_UTF16",
+      "confidence": 0.75,
+      "description": "UTF-16 flag"
+    },
+    {
+      "id": "pcre2_16",
+      "type": "string_pattern",
+      "pattern": "PCRE2_UTF32",
+      "confidence": 0.75,
+      "description": "UTF-32 flag"
+    },
+    {
+      "id": "pcre2_17",
+      "type": "string_pattern",
+      "pattern": "PCRE2_CASELESS",
+      "confidence": 0.7,
+      "description": "Case-insensitive flag"
+    },
+    {
+      "id": "pcre2_18",
+      "type": "string_pattern",
+      "pattern": "PCRE2_MULTILINE",
+      "confidence": 0.7,
+      "description": "Multiline flag"
+    },
+    {
+      "id": "pcre2_19",
+      "type": "string_pattern",
+      "pattern": "PCRE2_DOTALL",
+      "confidence": 0.7,
+      "description": "Dot-all flag"
+    },
+    {
+      "id": "pcre2_20",
+      "type": "string_pattern",
+      "pattern": "pcre2_set_match_limit",
+      "confidence": 0.85,
+      "description": "Match limit setting"
+    },
+    {
+      "id": "pcre2_21",
+      "type": "string_pattern",
+      "pattern": "pcre2_set_recursion_limit",
+      "confidence": 0.85,
+      "description": "Recursion limit"
+    },
+    {
+      "id": "pcre2_22",
+      "type": "string_pattern",
+      "pattern": "pcre2_callout",
+      "confidence": 0.8,
+      "description": "Callout functionality"
+    },
+    {
+      "id": "pcre2_23",
+      "type": "string_pattern",
+      "pattern": "pcre2_serialize",
+      "confidence": 0.8,
+      "description": "Serialization function"
+    },
+    {
+      "id": "pcre2_24",
+      "type": "string_pattern",
+      "pattern": "pcre2_substitute",
+      "confidence": 0.85,
+      "description": "Substitution function"
+    },
+    {
+      "id": "pcre2_25",
+      "type": "string_pattern",
+      "pattern": "pcre2_dfa_match",
+      "confidence": 0.85,
+      "description": "DFA matching"
+    },
+    {
+      "id": "pcre2_26",
+      "type": "string_pattern",
+      "pattern": "libpcre2",
+      "confidence": 0.8,
+      "description": "Library name"
+    },
+    {
+      "id": "pcre2_27",
+      "type": "string_pattern",
+      "pattern": "PCRE2_ANCHORED",
+      "confidence": 0.7,
+      "description": "Anchored flag"
+    },
+    {
+      "id": "pcre2_28",
+      "type": "string_pattern",
+      "pattern": "PCRE2_NO_UTF_CHECK",
+      "confidence": 0.7,
+      "description": "Skip UTF check flag"
+    },
+    {
+      "id": "pcre2_29",
+      "type": "string_pattern",
+      "pattern": "pcre2_maketables",
+      "confidence": 0.8,
+      "description": "Character tables"
+    },
+    {
+      "id": "pcre2_30",
+      "type": "string_pattern",
+      "pattern": "pcre2_general_context",
+      "confidence": 0.8,
+      "description": "General context"
+    },
+    {
+      "id": "pcre2_31",
+      "type": "string_pattern",
+      "pattern": "pcre2_compile_context",
+      "confidence": 0.8,
+      "description": "Compile context"
+    },
+    {
+      "id": "pcre2_32",
+      "type": "string_pattern",
+      "pattern": "pcre2_match_context",
+      "confidence": 0.8,
+      "description": "Match context"
+    },
+    {
+      "id": "pcre2_33",
+      "type": "string_pattern",
+      "pattern": "pcre2_get_error_message",
+      "confidence": 0.85,
+      "description": "Error message retrieval"
+    },
+    {
+      "id": "pcre2_34",
+      "type": "string_pattern",
+      "pattern": "pcre2_set_character_tables",
+      "confidence": 0.8,
+      "description": "Character table setting"
+    },
+    {
+      "id": "pcre2_35",
+      "type": "string_pattern",
+      "pattern": "PCRE2_EXTENDED",
+      "confidence": 0.7,
+      "description": "Extended regex flag"
+    },
+    {
+      "id": "pcre2_36",
+      "type": "string_pattern",
+      "pattern": "PCRE2_UNGREEDY",
+      "confidence": 0.7,
+      "description": "Ungreedy flag"
+    },
+    {
+      "id": "pcre2_37",
+      "type": "string_pattern",
+      "pattern": "pcre2_set_bsr",
+      "confidence": 0.75,
+      "description": "BSR setting"
+    },
+    {
+      "id": "pcre2_38",
+      "type": "string_pattern",
+      "pattern": "pcre2_set_newline",
+      "confidence": 0.75,
+      "description": "Newline setting"
+    },
+    {
+      "id": "pcre2_39",
+      "type": "string_pattern",
+      "pattern": "(*MARK) must have an argument",
+      "confidence": 0.8,
+      "description": "PCRE2 error message"
+    },
+    {
+      "id": "pcre2_40",
+      "type": "string_pattern",
+      "pattern": "PCRE2_VERSION",
+      "confidence": 0.75,
+      "description": "Version constant"
+    }
+  ]
+}
