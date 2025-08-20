@@ -9,7 +9,7 @@
     "license": "LGPL-2.1+",
     "publisher": "GStreamer Project"
   },
-  "confidence_threshold": 0.8,
+  "confidence_threshold": 0.7,
   "patterns": [
     {
       "pattern": "gst_init",
@@ -20,12 +20,40 @@
       "confidence": 0.95
     },
     {
+      "pattern": "gst_element_factory_make",
+      "confidence": 0.95
+    },
+    {
       "pattern": "gst_pipeline_new",
       "confidence": 0.95
     },
     {
       "pattern": "gst_element_set_state",
-      "confidence": 0.90
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_caps_new_simple",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_pad_push",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_buffer_new",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_object_unref",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_bus_timed_pop_filtered",
+      "confidence": 0.95
+    },
+    {
+      "pattern": "gst_message_parse_error",
+      "confidence": 0.95
     },
     {
       "pattern": "GST_STATE_PLAYING",
@@ -130,6 +158,238 @@
     {
       "pattern": "GstElement",
       "confidence": 0.90
+    },
+    {
+      "pattern": "gst_element_message_full_with_details",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_unmap",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_pool_config_set_allocator",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_get_int",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_copy",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_caps_append",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_set_property",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_get_fraction",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_element_get_type",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_pool_new",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_remove_field",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_pad_template_new",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_element_class_add_static_pad_template",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_amzn_decrypt_class_init",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_mini_object_ref",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_copy_into",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_has_field",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_get_size",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_nth_field_name",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_debug_log",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_new",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_sink_event",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_plugin_register_static",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_query_parse_caps",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_caps_intersect_full",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_get_property",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_amzn_decrypt_init",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_prepare_output_buffer",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_get_name",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_parse_protection_info",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_get_uint",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_transform",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_structure_get_value",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_buffer_pool_set_active",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_decrypt_before_transform",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_stream_error_quark",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_base_transform_get_type",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_pad_get_current_caps",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "gst_core_error_quark",
+      "confidence": 0.90
+    },
+    {
+      "pattern": "GST_PERFORMANCE",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_CAT_DEFAULT",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_PLUGIN_PATH",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_PLUGIN_SYSTEM_PATH_1_0",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_REGISTRY_1_0",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_PLUGIN_PATH_1_0",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_DEBUG_DUMP_DOT_DIR",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_LEAKY_TYPE_UPSTREAM",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_STREAM_TYPE_STREAM",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_STREAM_TYPE_SEEKABLE",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_STREAM_TYPE_RANDOM_ACCESS",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_LEAKY_TYPE_DOWNSTREAM",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_APP_LEAKY_TYPE_NONE",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_FORMAT_S18LE",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_CHANNEL_POSITION_INVALID",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_RING_BUFFER_FORMAT_TYPE_EAC3",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_RESAMPLER_FLAG_NON_INTERLEAVED_IN",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_CHANNEL_POSITION_TOP_FRONT_CENTER",
+      "confidence": 0.85
+    },
+    {
+      "pattern": "GST_AUDIO_NOISE_SHAPING_HIGH",
+      "confidence": 0.85
     }
   ]
 }

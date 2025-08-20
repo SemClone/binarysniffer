@@ -53,6 +53,10 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         # Initialize TLSH components
         self.tlsh_hasher = TLSHHasher()
         self.tlsh_store = TLSHSignatureStore()
+        
+        # Instance attributes for feature collection
+        self.show_features = False
+        self.full_export = False
     
     def analyze_file(
         self, 
@@ -63,7 +67,8 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         use_tlsh: bool = True,
         tlsh_threshold: int = 70,
         include_hashes: bool = False,
-        include_fuzzy_hashes: bool = False
+        include_fuzzy_hashes: bool = False,
+        full_export: bool = False
     ) -> AnalysisResult:
         """
         Analyze a single file for OSS components using enhanced detection.
@@ -128,13 +133,14 @@ class EnhancedBinarySniffer(BaseAnalyzer):
             # Categorize features by type
             features_by_type = {}
             if features.strings:
-                features_by_type["strings"] = features.strings[:100]  # Limit for display
+                # No limit if full_export is enabled
+                features_by_type["strings"] = features.strings if full_export else features.strings[:100]
             if features.symbols:
-                features_by_type["symbols"] = features.symbols[:100]
+                features_by_type["symbols"] = features.symbols if full_export else features.symbols[:100]
             if hasattr(features, 'functions') and features.functions:
-                features_by_type["functions"] = features.functions[:50]
+                features_by_type["functions"] = features.functions if full_export else features.functions[:50]
             if hasattr(features, 'classes') and features.classes:
-                features_by_type["classes"] = features.classes[:50]
+                features_by_type["classes"] = features.classes if full_export else features.classes[:50]
             
             extractor_info = {
                 "count": len(features.strings) + len(features.symbols),

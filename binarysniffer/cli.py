@@ -7,6 +7,7 @@ import sys
 import json
 import time
 import logging
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
@@ -120,6 +121,8 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
               help='Display extracted features (for debugging)')
 @click.option('--save-features', type=click.Path(),
               help='Save features to JSON (for signature creation)')
+@click.option('--full-export', type=click.Path(),
+              help='Export ALL features without limits to JSON (includes file relationships)')
 # Advanced options (hidden from basic help)
 @click.option('--tlsh-threshold', type=int, default=70, hidden=True,
               help='TLSH distance threshold (0-300, lower=more similar)')
@@ -139,7 +142,7 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
             with_hashes, basic_hashes, min_matches, license_focus, license_only,
-            show_evidence, show_features, save_features,
+            show_evidence, show_features, save_features, full_export,
             tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
             include_fuzzy_hashes, use_tlsh):
     """
@@ -241,13 +244,15 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
         if path.is_file():
             # Single file analysis
             # Enable show_features if show_evidence is set (to get archive contents)
-            effective_show_features = show_features or show_evidence
+            # Enable for full_export as well to collect all features
+            effective_show_features = show_features or show_evidence or full_export
             with console.status(f"Analyzing {path.name}..."):
                 result = sniffer.analyze_file(
                     path, threshold, deep, effective_show_features,
                     use_tlsh=use_tlsh, tlsh_threshold=tlsh_threshold,
                     include_hashes=include_hashes,
-                    include_fuzzy_hashes=include_fuzzy_hashes
+                    include_fuzzy_hashes=include_fuzzy_hashes,
+                    full_export=bool(full_export)  # Pass flag to enable full feature collection
                 )
             results = {str(path): result}
             # Create BatchAnalysisResult for single file
@@ -260,6 +265,9 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             )
         else:
             # Directory analysis
+            # Enable show_features for full_export to collect all features
+            effective_show_features = show_features or show_evidence or full_export
+            
             with Progress(
                 SpinnerColumn(),
                 TextColumn("[progress.description]{task.description}"),
@@ -269,6 +277,13 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                 console=console
             ) as progress:
                 task = progress.add_task("Analyzing files...", total=None)
+                
+                # For directory analysis, we need to set show_features on the analyzer
+                # This is a bit different from single file analysis
+                if effective_show_features:
+                    sniffer.show_features = effective_show_features
+                if full_export:
+                    sniffer.full_export = True
                 
                 batch_result = sniffer.analyze_directory(
                     path,
@@ -332,6 +347,10 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
         # Save features to file if requested
         if save_features:
             save_extracted_features(batch_result, save_features)
+        
+        # Full export of all features if requested
+        if full_export:
+            export_all_features(batch_result, full_export)
         
         # Output results
         if format == 'json':
@@ -1565,6 +1584,59 @@ def save_extracted_features(batch_result: BatchAnalysisResult, output_path: str)
         console.print(f"[green]Saved extracted features to {output_path}[/green]")
     else:
         console.print("[yellow]No features to save (use --show-features to enable feature collection)[/yellow]")
+
+
+def export_all_features(batch_result: BatchAnalysisResult, output_path: str):
+    """Export ALL features without limits to a comprehensive JSON file"""
+    export_data = {
+        "metadata": {
+            "total_files": len(batch_result.results),
+            "export_timestamp": datetime.now().isoformat(),
+            "analysis_time": getattr(batch_result, 'total_time', 0)
+        },
+        "files": {}
+    }
+    
+    total_features = 0
+    for file_path, result in batch_result.results.items():
+        if result.extracted_features:
+            file_data = {
+                "file_info": {
+                    "path": file_path,
+                    "size": result.file_size,
+                    "type": result.file_type,
+                    "analysis_time": result.analysis_time
+                },
+                "features": result.extracted_features.to_dict(),
+                "components_detected": [
+                    {
+                        "name": match.component,
+                        "confidence": match.confidence,
+                        "version": match.version,
+                        "license": match.license
+                    } for match in result.matches
+                ] if result.matches else []
+            }
+            
+            # Count features
+            if result.extracted_features and result.extracted_features.by_extractor:
+                for extractor_data in result.extracted_features.by_extractor.values():
+                    if 'features_by_type' in extractor_data:
+                        for feature_list in extractor_data['features_by_type'].values():
+                            total_features += len(feature_list)
+            
+            export_data["files"][file_path] = file_data
+    
+    export_data["metadata"]["total_features_extracted"] = total_features
+    
+    if export_data["files"]:
+        with open(output_path, 'w') as f:
+            json.dump(export_data, f, indent=2)
+        console.print(f"[green]✓ Full feature export saved to {output_path}[/green]")
+        console.print(f"  • Files analyzed: {len(export_data['files'])}")
+        console.print(f"  • Total features extracted: {total_features:,}")
+    else:
+        console.print("[yellow]No features to export (use --full-export with file analysis)[/yellow]")
 
 
 def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False, show_features: bool = False, feature_limit: int = 20):

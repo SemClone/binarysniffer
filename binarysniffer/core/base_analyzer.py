@@ -43,7 +43,21 @@ class BaseAnalyzer:
         # Create subdirectories
         (self.config.data_dir / "bloom_filters").mkdir(exist_ok=True)
         (self.config.data_dir / "index").mkdir(exist_ok=True)
-        (self.config.data_dir / "cache").mkdir(exist_ok=True)
+    
+    def _analyze_file_with_features(self, file_path: Union[str, Path], confidence_threshold: Optional[float] = None) -> AnalysisResult:
+        """Helper method to analyze file with instance-level feature settings"""
+        # Check if we have the enhanced analyze_file method with additional parameters
+        if hasattr(self, 'show_features') and hasattr(self, 'full_export'):
+            # Call analyze_file with the instance attributes
+            return self.analyze_file(
+                file_path,
+                confidence_threshold,
+                show_features=self.show_features,
+                full_export=self.full_export
+            )
+        else:
+            # Fallback to basic analyze_file
+            return self.analyze_file(file_path, confidence_threshold)
     
     def _initialize_database(self):
         """Initialize database with packaged signatures (auto-import)"""
@@ -102,7 +116,7 @@ class BaseAnalyzer:
             with ThreadPoolExecutor(max_workers=self.config.parallel_workers) as executor:
                 future_to_file = {
                     executor.submit(
-                        self.analyze_file, 
+                        self._analyze_file_with_features, 
                         file, 
                         confidence_threshold
                     ): file 
@@ -130,7 +144,7 @@ class BaseAnalyzer:
             # Sequential processing
             for file_path in files:
                 try:
-                    result = self.analyze_file(
+                    result = self._analyze_file_with_features(
                         file_path, 
                         confidence_threshold
                     )
