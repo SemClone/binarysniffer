@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.1] - 2025-08-30
+
+### Added
+- **OSLiLi Integration** - Enhanced license detection using semantic-copycat-oslili
+  - Automatic license detection from package metadata (package.json, pom.xml, etc.)
+  - SPDX-compliant license identifiers
+  - ML-based license matching with higher accuracy
+  - Support for license categorization (declared, detected, referenced)
+  - Integrated into archive extraction pipeline
+
+### Improved
+- **License Detection Accuracy** - Better detection rates
+  - Correctly identifies licenses from LICENSE files in archives
+  - Reduced false positives through ML-based matching
+  - TLSH fuzzy matching for license text similarity
+  - Proper detection of Apache-2.0, MIT, BSD, GPL, and other common licenses
+
+### Fixed
+- **Code Quality** - Removed dead code and fixed potential bugs
+  - Fixed potential None reference in analyze_licenses method
+  - Removed duplicate license detection implementations
+  - Cleaned up unused methods in integrations module
+  - Improved error handling when OSLiLi is unavailable
+
+### Changed
+- **Dependencies** - Added semantic-copycat-oslili as required dependency
+  - semantic-copycat-oslili >= 1.3.2 now required for license detection
+  - LicenseMatcher retained as fallback for compatibility
+
 ## [1.10.0] - 2025-08-15
 
 ### Added
