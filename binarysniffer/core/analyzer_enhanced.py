@@ -14,6 +14,7 @@ from ..extractors.factory import ExtractorFactory
 # Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
 from ..matchers.license import LicenseMatcher
+from ..integrations.oslili import OsliliIntegration
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
 from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
@@ -48,7 +49,11 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         
         # Create direct matcher only (bloom filters disabled for deterministic results)
         self.direct_matcher = DirectMatcher(self.config)
-        self.license_matcher = LicenseMatcher()
+        
+        # Initialize OSLiLi for license detection (primary)
+        self.oslili = OsliliIntegration()
+        # Keep LicenseMatcher as fallback if OSLiLi is not available
+        self.license_matcher = LicenseMatcher() if not self.oslili.is_available else None
         
         # Initialize TLSH components
         self.tlsh_hasher = TLSHHasher()
@@ -166,6 +171,24 @@ class EnhancedBinarySniffer(BaseAnalyzer):
                 file_hashes = calculate_file_hashes(file_path, include_fuzzy=include_fuzzy_hashes)
             except Exception as e:
                 logger.debug(f"Failed to calculate hashes: {e}")
+        
+        # Add licenses detected by OSLiLi from archive metadata
+        if hasattr(features, 'metadata') and features.metadata and 'licenses' in features.metadata:
+            for license_info in features.metadata['licenses']:
+                license_match = ComponentMatch(
+                    component=f"License: {license_info['name']}",
+                    ecosystem='license',
+                    confidence=license_info['confidence'],
+                    license=license_info['spdx_id'],
+                    match_type='oslili_detection',
+                    evidence={
+                        'detection_method': license_info['detection_method'],
+                        'category': license_info['category'],
+                        'source_file': license_info['source_file']
+                    }
+                )
+                filtered_matches.append(license_match)
+                logger.debug(f"Added OSLiLi-detected license: {license_info['spdx_id']} ({license_info['confidence']:.2%} confidence)")
         
         return AnalysisResult(
             file_path=str(file_path),
