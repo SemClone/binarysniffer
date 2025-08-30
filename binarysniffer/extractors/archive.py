@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from .base import BaseExtractor, ExtractedFeatures
+from ..integrations.oslili import OsliliIntegration
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +26,11 @@ class ArchiveExtractor(BaseExtractor):
         self._seven_zip_path = self._find_seven_zip()
         if self._seven_zip_path:
             logger.debug(f"7-Zip found at: {self._seven_zip_path}")
+        
+        # Initialize OSLiLi for license detection
+        self.oslili = OsliliIntegration()
+        if self.oslili.is_available:
+            logger.debug("OSLiLi integration available for license detection")
 
     # Archive extensions
     ARCHIVE_EXTENSIONS = {
@@ -334,6 +340,36 @@ class ArchiveExtractor(BaseExtractor):
                     'processed_count': len(processed_files),
                     'size': file_path.stat().st_size
                 })
+                
+                # Use OSLiLi to detect licenses in extracted files
+                if self.oslili.is_available:
+                    try:
+                        logger.debug(f"Running OSLiLi license detection on extracted files from {file_path}")
+                        license_results = self.oslili.detect_licenses_in_path(str(temp_path))
+                        
+                        if license_results:
+                            # Store license information in metadata
+                            features.metadata['licenses'] = []
+                            features.metadata['license_spdx_ids'] = []
+                            
+                            for license_result in license_results:
+                                license_info = {
+                                    'spdx_id': license_result.spdx_id,
+                                    'name': license_result.name,
+                                    'confidence': license_result.confidence,
+                                    'detection_method': license_result.detection_method,
+                                    'source_file': license_result.source_file,
+                                    'category': license_result.category
+                                }
+                                features.metadata['licenses'].append(license_info)
+                                
+                                # Add SPDX ID to list if not already there
+                                if license_result.spdx_id not in features.metadata['license_spdx_ids']:
+                                    features.metadata['license_spdx_ids'].append(license_result.spdx_id)
+                            
+                            logger.info(f"Detected {len(license_results)} licenses in {file_path}: {features.metadata['license_spdx_ids']}")
+                    except Exception as e:
+                        logger.warning(f"OSLiLi license detection failed for {file_path}: {e}")
 
             except Exception as e:
                 logger.error(f"Error extracting archive {file_path}: {e}")
