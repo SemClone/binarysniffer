@@ -1,4 +1,4 @@
-# Semantic Copycat BinarySniffer
+# BinarySniffer - Binary Static Analyzer
 
 A high-performance CLI tool and Python library for detecting open source components and security threats in binaries through semantic signature matching. Specialized for analyzing mobile apps (APK/IPA), Java archives, ML models, and source code to identify OSS components, their licenses, and potential security risks.
 
