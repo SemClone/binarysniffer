@@ -56,7 +56,7 @@ class Config:
     update_check_interval_days: int = 7
     
     # Logging
-    log_level: str = "INFO"
+    log_level: str = "WARNING"
     log_file: Optional[str] = None
     
     def __post_init__(self):
