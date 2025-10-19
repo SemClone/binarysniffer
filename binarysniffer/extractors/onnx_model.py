@@ -129,9 +129,8 @@ class ONNXModelExtractor(BaseExtractor):
     def can_handle(self, file_path: Path) -> bool:
         """Check if file is an ONNX model."""
         # Check extension
-        # Note: .pb files are primarily handled by TensorFlowNativeExtractor
-        # We only handle .pb if it's specifically an ONNX protobuf
-        if file_path.suffix.lower() in ['.onnx', '.onnxmodel']:
+        # Note: .pb files can be used for ONNX models (sometimes)
+        if file_path.suffix.lower() in ['.onnx', '.onnxmodel', '.pb']:
             return True
 
         # Check for ONNX identifiers in file

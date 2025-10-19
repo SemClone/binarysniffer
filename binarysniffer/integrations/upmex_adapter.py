@@ -2,6 +2,7 @@
 
 import logging
 import json
+import zipfile
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
@@ -134,7 +135,6 @@ class UPMEXAdapter:
 
     def _analyze_jar_basic(self, jar_path: Path) -> Dict[str, Any]:
         """Basic JAR analysis for Maven packages."""
-        import zipfile
 
         metadata = {}
         try:
@@ -237,7 +237,6 @@ class UPMEXAdapter:
 
     def _analyze_wheel_basic(self, wheel_path: Path) -> Dict[str, Any]:
         """Basic wheel analysis for PyPI packages."""
-        import zipfile
 
         metadata = {}
         try:

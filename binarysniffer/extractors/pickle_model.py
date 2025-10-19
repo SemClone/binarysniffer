@@ -102,8 +102,8 @@ class PickleModelExtractor(BaseExtractor):
     def can_handle(self, file_path: Path) -> bool:
         """Check if file is a pickle file."""
         # Check extension
-        # Note: .pth files are handled by PyTorchNativeExtractor
-        if file_path.suffix.lower() in ['.pkl', '.pickle', '.p']:
+        # Note: .pth files can be pickled PyTorch models
+        if file_path.suffix.lower() in ['.pkl', '.pickle', '.p', '.pth']:
             return True
 
         # Check magic bytes for pickle protocol
@@ -342,4 +342,49 @@ class PickleModelExtractor(BaseExtractor):
         if frameworks:
             return "likely_safe"
         return "unknown"
+
+    def validate_safe_unpickle(self, file_path: Path) -> bool:
+        """Validate if a pickle file is safe to unpickle.
+
+        Args:
+            file_path: Path to the pickle file
+
+        Returns:
+            True if safe to unpickle, False if dangerous
+        """
+        try:
+            features = self.extract(file_path)
+
+            # Check for dangerous imports in features
+            dangerous_features = [
+                f for f in features.strings
+                if 'dangerous_import:' in f or 'pickle_risk:dangerous' in f
+            ]
+
+            # Check for suspicious items in metadata
+            metadata = features.metadata or {}
+            suspicious_items = metadata.get('suspicious_items', [])
+            risk_level = metadata.get('risk_level', 'unknown')
+
+            # File is NOT safe if:
+            # 1. Contains dangerous imports
+            # 2. Has suspicious items
+            # 3. Risk level is dangerous or high_risk
+            if dangerous_features or suspicious_items or risk_level in ['dangerous', 'high_risk']:
+                return False
+
+            # File is safe if:
+            # 1. Risk level is safe or likely_safe
+            # 2. Contains ML frameworks (indicates legitimate model)
+            # 3. No dangerous patterns detected
+            if risk_level in ['safe', 'likely_safe']:
+                return True
+
+            # For unknown/suspicious but not dangerous files, err on the side of caution
+            return risk_level not in ['suspicious', 'malformed', 'error']
+
+        except Exception as e:
+            logger.error(f"Error validating pickle safety for {file_path}: {e}")
+            # If we can't analyze it, assume it's not safe
+            return False
 

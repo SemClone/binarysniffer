@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.5] - 2025-10-19
+
+### Fixed
+- **Test Suite** - Achieved 100% test success rate (205/205 tests passing)
+  - Fixed ONNX extractor file type detection to properly handle `.pb` files
+  - Fixed pickle extractor missing security methods (`validate_safe_unpickle()`)
+  - Fixed PyTorch native extractor functionality:
+    - State dict detection (`has_state_dict`)
+    - Optimizer detection (`has_optimizer`)
+    - Architecture detection (ResNet, Transformer, etc.)
+    - Suspicious operations detection via STACK_GLOBAL handling
+    - Layer counting functionality
+  - Fixed static library BSD extended names parsing bug (double subtraction issue)
+
+### Improved
+- **Code Quality** - Cleaned up dead code and duplicated imports
+  - Removed unused `import struct` from hashing utilities
+  - Consolidated duplicate `import zipfile` statements in UPMEX adapter
+  - Moved imports to module level for better organization
+  - Enhanced code maintainability with zero orphaned files
+
+### Changed
+- **Dependencies** - Updated multiple outdated dependencies to more recent versions
+  - Improved compatibility and security with latest package versions
+  - Maintained backward compatibility while upgrading core dependencies
+
 ## [1.10.1] - 2025-08-30
 
 ### Added

@@ -3,7 +3,6 @@ Hashing utilities for signature generation and matching
 """
 
 import hashlib
-import struct
 from typing import List, Union, Tuple
 import xxhash
 
