@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from .base import BaseExtractor, ExtractedFeatures
-from ..integrations.oslili import OsliliIntegration
+from ..integrations.enhanced_oslili import EnhancedOsliliIntegration
 from ..integrations import UPMEXAdapter
 
 logger = logging.getLogger(__name__)
@@ -29,7 +29,7 @@ class ArchiveExtractor(BaseExtractor):
             logger.debug(f"7-Zip found at: {self._seven_zip_path}")
         
         # Initialize OSLiLi for license detection
-        self.oslili = OsliliIntegration()
+        self.oslili = EnhancedOsliliIntegration()
         if self.oslili.is_available:
             logger.debug("OSLiLi integration available for license detection")
 
