@@ -14,7 +14,7 @@ from ..extractors.factory import ExtractorFactory
 # Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
 from ..matchers.license import LicenseMatcher
-from ..integrations.oslili import OsliliIntegration
+# Enhanced OSLiLi integration imported in __init__ method
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
 from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
@@ -50,8 +50,9 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         # Create direct matcher only (bloom filters disabled for deterministic results)
         self.direct_matcher = DirectMatcher(self.config)
         
-        # Initialize OSLiLi for license detection (primary)
-        self.oslili = OsliliIntegration()
+        # Initialize enhanced OSLiLi for license detection (primary)
+        from ..integrations.enhanced_oslili import EnhancedOsliliIntegration
+        self.oslili = EnhancedOsliliIntegration()
         # Keep LicenseMatcher as fallback if OSLiLi is not available
         self.license_matcher = LicenseMatcher() if not self.oslili.is_available else None
         
