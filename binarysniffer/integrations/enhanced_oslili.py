@@ -50,7 +50,7 @@ class EnhancedOsliliIntegration:
         self._init_detector()
 
     def _init_detector(self):
-        """Initialize the OSLiLi detector"""
+        """Initialize the OSLiLi detector - this is a required dependency"""
         try:
             from semantic_copycat_oslili.core.generator import LicenseCopyrightDetector
             from semantic_copycat_oslili.core.models import Config
@@ -70,14 +70,16 @@ class EnhancedOsliliIntegration:
             self._is_available = True
             logger.debug("Initialized enhanced OSLiLi detector successfully")
 
-        except ImportError:
-            logger.warning("semantic-copycat-oslili not available. License detection will be limited.")
-            self._detector = None
-            self._is_available = False
+        except ImportError as e:
+            # OSLiLi is a required dependency - this should not happen
+            logger.error(f"Required dependency semantic-copycat-oslili not available: {e}")
+            raise ImportError(
+                "semantic-copycat-oslili is a required dependency. "
+                "Please install with: pip install semantic-copycat-oslili>=1.3.2"
+            ) from e
         except Exception as e:
             logger.error(f"Failed to initialize OSLiLi detector: {e}")
-            self._detector = None
-            self._is_available = False
+            raise RuntimeError(f"Failed to initialize required OSLiLi detector: {e}") from e
 
     @property
     def is_available(self) -> bool:
@@ -405,3 +407,73 @@ class EnhancedOsliliIntegration:
         except Exception as e:
             logger.error(f"OSLiLi copyright extraction failed: {e}")
             return []
+
+    def get_license_compatibility_info(self, spdx_ids: Set[str]) -> Dict[str, Any]:
+        """
+        Get basic compatibility information for detected licenses.
+        This provides simplified compatibility analysis using SPDX identifiers.
+
+        Args:
+            spdx_ids: Set of SPDX license identifiers
+
+        Returns:
+            Basic compatibility information
+        """
+        # Simplified license categorization using SPDX IDs
+        COPYLEFT_LICENSES = {
+            'GPL-2.0', 'GPL-2.0+', 'GPL-2.0-only', 'GPL-2.0-or-later',
+            'GPL-3.0', 'GPL-3.0+', 'GPL-3.0-only', 'GPL-3.0-or-later',
+            'AGPL-3.0', 'AGPL-3.0-only', 'AGPL-3.0-or-later'
+        }
+
+        WEAK_COPYLEFT = {
+            'LGPL-2.1', 'LGPL-2.1+', 'LGPL-2.1-only', 'LGPL-2.1-or-later',
+            'LGPL-3.0', 'LGPL-3.0+', 'LGPL-3.0-only', 'LGPL-3.0-or-later',
+            'MPL-2.0', 'EPL-1.0', 'EPL-2.0'
+        }
+
+        PERMISSIVE = {
+            'MIT', 'Apache-2.0', 'BSD-3-Clause', 'BSD-2-Clause',
+            'ISC', 'BSD-3-Clause-Clear'
+        }
+
+        compatibility = {
+            'compatible': True,
+            'warnings': [],
+            'license_types': {
+                'copyleft': [],
+                'weak_copyleft': [],
+                'permissive': [],
+                'unknown': []
+            },
+            'spdx_ids': list(spdx_ids)
+        }
+
+        for spdx_id in spdx_ids:
+            if spdx_id in COPYLEFT_LICENSES:
+                compatibility['license_types']['copyleft'].append(spdx_id)
+            elif spdx_id in WEAK_COPYLEFT:
+                compatibility['license_types']['weak_copyleft'].append(spdx_id)
+            elif spdx_id in PERMISSIVE:
+                compatibility['license_types']['permissive'].append(spdx_id)
+            else:
+                compatibility['license_types']['unknown'].append(spdx_id)
+
+        # Basic compatibility checks
+        copyleft_count = len(compatibility['license_types']['copyleft'])
+        if copyleft_count > 1:
+            compatibility['warnings'].append(
+                f"Multiple copyleft licenses detected - review compatibility: {compatibility['license_types']['copyleft']}"
+            )
+
+        if compatibility['license_types']['copyleft'] and compatibility['license_types']['permissive']:
+            compatibility['warnings'].append(
+                "Mixing copyleft and permissive licenses - copyleft terms may apply"
+            )
+
+        if compatibility['license_types']['unknown']:
+            compatibility['warnings'].append(
+                f"Unknown/unrecognized licenses: {compatibility['license_types']['unknown']}"
+            )
+
+        return compatibility
