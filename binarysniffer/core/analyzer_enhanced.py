@@ -14,7 +14,7 @@ from ..extractors.factory import ExtractorFactory
 # Progressive matcher removed - using only direct matching for deterministic results
 from ..matchers.direct import DirectMatcher
 from ..matchers.license import LicenseMatcher
-from ..integrations.oslili import OsliliIntegration
+# Enhanced OSLiLi integration imported in __init__ method
 from ..storage.database import SignatureDatabase
 from ..signatures.manager import SignatureManager
 from ..hashing.tlsh_hasher import TLSHHasher, TLSHSignatureStore
@@ -50,10 +50,11 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         # Create direct matcher only (bloom filters disabled for deterministic results)
         self.direct_matcher = DirectMatcher(self.config)
         
-        # Initialize OSLiLi for license detection (primary)
-        self.oslili = OsliliIntegration()
-        # Keep LicenseMatcher as fallback if OSLiLi is not available
-        self.license_matcher = LicenseMatcher() if not self.oslili.is_available else None
+        # Initialize enhanced OSLiLi for license detection (required dependency)
+        from ..integrations.enhanced_oslili import EnhancedOsliliIntegration
+        self.oslili = EnhancedOsliliIntegration()
+        # OSLiLi is now a required dependency, no fallback needed
+        self.license_matcher = None
         
         # Initialize TLSH components
         self.tlsh_hasher = TLSHHasher()
@@ -189,7 +190,38 @@ class EnhancedBinarySniffer(BaseAnalyzer):
                 )
                 filtered_matches.append(license_match)
                 logger.debug(f"Added OSLiLi-detected license: {license_info['spdx_id']} ({license_info['confidence']:.2%} confidence)")
+
+        # Add direct OSLiLi license detection for source code files and individual files
+        if file_path.is_file():
+            # Check if it's a source code file or readable text file
+            source_extensions = {'.py', '.js', '.java', '.c', '.cpp', '.h', '.hpp', '.go', '.rs', '.rb', '.php', '.cs', '.swift', '.kt', '.txt', '.md', '.license', '.copyright'}
+            if file_path.suffix.lower() in source_extensions or file_path.name.lower() in {'license', 'copyright', 'notice', 'copying', 'licence'}:
+                try:
+                    license_results = self.oslili.detect_licenses_in_path(str(file_path))
+                    for license_result in license_results:
+                        license_match = ComponentMatch(
+                            component=f"License: {license_result.name}",
+                            ecosystem='license',
+                            confidence=license_result.confidence,
+                            license=license_result.spdx_id,
+                            match_type='oslili_detection',
+                            evidence={
+                                'detection_method': license_result.detection_method,
+                                'category': license_result.category,
+                                'source_file': license_result.source_file or str(file_path),
+                                'match_type': license_result.match_type
+                            }
+                        )
+                        filtered_matches.append(license_match)
+                        logger.debug(f"OSLiLi detected license in source file: {license_result.spdx_id} ({license_result.confidence:.2%} confidence, {license_result.detection_method})")
+                except Exception as e:
+                    logger.debug(f"OSLiLi license detection failed for {file_path}: {e}")
         
+        # Extract package metadata if available (from UPMEX integration)
+        package_metadata = None
+        if hasattr(features, 'metadata') and features.metadata and 'package_metadata' in features.metadata:
+            package_metadata = features.metadata['package_metadata']
+
         return AnalysisResult(
             file_path=str(file_path),
             file_size=file_path.stat().st_size,
@@ -199,7 +231,8 @@ class EnhancedBinarySniffer(BaseAnalyzer):
             features_extracted=len(features.strings) + len(features.symbols),
             confidence_threshold=threshold,
             extracted_features=extracted_features_summary,
-            file_hashes=file_hashes
+            file_hashes=file_hashes,
+            package_metadata=package_metadata
         )
     
     def _merge_matches(
@@ -515,33 +548,30 @@ class EnhancedBinarySniffer(BaseAnalyzer):
         all_matches = []
         license_files = {}
         
-        # Use OSLiLi if available, otherwise fall back to pattern matching
-        if self.oslili.is_available:
-            # OSLiLi will handle all license detection including file identification
-            license_results = self.oslili.detect_licenses_in_path(str(file_path))
-            
-            for license_result in license_results:
-                match = ComponentMatch(
-                    component=f"License: {license_result.name}",
-                    ecosystem='license',
-                    confidence=license_result.confidence,
-                    license=license_result.spdx_id,
-                    match_type='oslili_detection',
-                    evidence={
-                        'detection_method': license_result.detection_method,
-                        'category': license_result.category,
-                        'source_file': license_result.source_file
-                    }
-                )
-                all_matches.append(match)
-                
-                # Track license files
-                if license_result.source_file:
-                    if license_result.source_file not in license_files:
-                        license_files[license_result.source_file] = []
-                    license_files[license_result.source_file].append(match)
-        
-        elif self.license_matcher:
+        # Use OSLiLi for license detection (required dependency)
+        # OSLiLi will handle all license detection including file identification
+        license_results = self.oslili.detect_licenses_in_path(str(file_path))
+
+        for license_result in license_results:
+            match = ComponentMatch(
+                component=f"License: {license_result.name}",
+                ecosystem='license',
+                confidence=license_result.confidence,
+                license=license_result.spdx_id,
+                match_type='oslili_detection',
+                evidence={
+                    'detection_method': license_result.detection_method,
+                    'category': license_result.category,
+                    'source_file': license_result.source_file
+                }
+            )
+            all_matches.append(match)
+
+            # Track license files
+            if license_result.source_file:
+                if license_result.source_file not in license_files:
+                    license_files[license_result.source_file] = []
+                license_files[license_result.source_file].append(match)
             # Fallback to pattern matching if OSLiLi is not available
             if file_path.is_file():
                 # Analyze single file

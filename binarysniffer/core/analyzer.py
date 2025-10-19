@@ -88,6 +88,11 @@ class BinarySniffer(BaseAnalyzer):
             deep=deep_analysis
         )
         
+        # Extract package metadata if available (from UPMEX integration)
+        package_metadata = None
+        if hasattr(features, 'metadata') and features.metadata and 'package_metadata' in features.metadata:
+            package_metadata = features.metadata['package_metadata']
+
         # Build result
         return AnalysisResult(
             file_path=str(file_path),
@@ -96,7 +101,8 @@ class BinarySniffer(BaseAnalyzer):
             matches=matches,
             analysis_time=self.matcher.last_analysis_time,
             features_extracted=len(features.all_features),
-            confidence_threshold=threshold
+            confidence_threshold=threshold,
+            package_metadata=package_metadata
         )
     
     

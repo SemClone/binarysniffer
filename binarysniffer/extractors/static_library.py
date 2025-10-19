@@ -167,8 +167,8 @@ class StaticLibraryExtractor(BaseExtractor):
                     name_bytes = f.read(name_len)
                     # Remove null terminators and decode
                     name = name_bytes.rstrip(b'\x00').decode('ascii', errors='ignore')
-                    # Adjust size to account for name
-                    actual_data_size = size - name_len
+                    # Size is already adjusted by _parse_ar_header
+                    actual_data_size = size
                 elif name:
                     actual_data_size = size
                 else:

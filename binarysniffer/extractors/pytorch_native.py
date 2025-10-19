@@ -104,15 +104,32 @@ class PyTorchNativeExtractor(BaseExtractor):
             has_optimizer = False
             has_state_dict = False
             suspicious_ops = []
+            stack = []  # For tracking stack operations
 
             for opcode, arg, pos in opcodes:
                 # Track imports
                 if opcode.name in ['GLOBAL', 'STACK_GLOBAL']:
                     if opcode.name == 'GLOBAL':
-                        import_str = f"{arg[0]}.{arg[1]}"
+                        # Handle different GLOBAL formats
+                        if isinstance(arg, (tuple, list)) and len(arg) >= 2:
+                            import_str = f"{arg[0]}.{arg[1]}"
+                        elif isinstance(arg, str):
+                            import_str = arg
+                        else:
+                            import_str = str(arg).replace('\n', '.')
                     else:
-                        # STACK_GLOBAL needs stack reconstruction
-                        import_str = "stack_global"
+                        # STACK_GLOBAL builds module.attribute from stack
+                        if len(stack) >= 2:
+                            module_name = stack[-2]
+                            attr_name = stack[-1]
+                            import_str = f"{module_name}.{attr_name}"
+                            stack = stack[:-2]  # Remove the two items used
+
+                            # Normalize posix.system to os.system
+                            if import_str == 'posix.system' or import_str == 'nt.system':
+                                import_str = 'os.system'
+                        else:
+                            import_str = "stack_global_incomplete"
 
                     imports.add(import_str)
                     features.imports.append(import_str)
@@ -133,19 +150,25 @@ class PyTorchNativeExtractor(BaseExtractor):
                         suspicious_ops.append(import_str)
 
                 # Track string keys (likely layer names)
-                elif opcode.name in ['SHORT_BINSTRING', 'BINSTRING', 'BINUNICODE']:
+                elif opcode.name in ['SHORT_BINSTRING', 'BINSTRING', 'BINUNICODE', 'UNICODE', 'STRING', 'SHORT_BINUNICODE']:
                     if isinstance(arg, (bytes, str)):
                         key = arg.decode('utf-8') if isinstance(arg, bytes) else arg
                         keys.add(key)
+                        stack.append(key)  # Add to stack for STACK_GLOBAL resolution
 
-                        # Check for state_dict
-                        if key == 'state_dict':
+                        # Check for state_dict variations
+                        if key in ['state_dict', 'model_state_dict']:
                             has_state_dict = True
 
-                        # Extract layer names
+                        # Check for optimizer variations
+                        if key in ['optimizer_state_dict', 'optimizer']:
+                            has_optimizer = True
+
+                        # Extract layer names and parameter names
                         if any(pattern in key for pattern in [
                             'weight', 'bias', 'running_mean', 'running_var',
-                            'num_batches_tracked', 'layer', 'conv', 'bn', 'fc'
+                            'num_batches_tracked', 'layer', 'conv', 'bn', 'fc',
+                            'attention', 'encoder', 'decoder', 'query', 'key', 'value'
                         ]):
                             features.constants.append(key)
 

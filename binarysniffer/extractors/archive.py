@@ -12,7 +12,8 @@ from pathlib import Path
 from typing import List, Optional
 
 from .base import BaseExtractor, ExtractedFeatures
-from ..integrations.oslili import OsliliIntegration
+from ..integrations.enhanced_oslili import EnhancedOsliliIntegration
+from ..integrations import UPMEXAdapter
 
 logger = logging.getLogger(__name__)
 
@@ -28,9 +29,13 @@ class ArchiveExtractor(BaseExtractor):
             logger.debug(f"7-Zip found at: {self._seven_zip_path}")
         
         # Initialize OSLiLi for license detection
-        self.oslili = OsliliIntegration()
+        self.oslili = EnhancedOsliliIntegration()
         if self.oslili.is_available:
             logger.debug("OSLiLi integration available for license detection")
+
+        # Initialize UPMEX for package metadata extraction
+        self.upmex = UPMEXAdapter()
+        logger.debug("UPMEX integration initialized for package metadata")
 
     # Archive extensions
     ARCHIVE_EXTENSIONS = {
@@ -119,6 +124,17 @@ class ArchiveExtractor(BaseExtractor):
             file_type=self._get_archive_type(file_path)
         )
         features.metadata = {}
+
+        # UPMEX Integration: Extract package metadata if supported
+        package_type = self.upmex.is_supported_package(file_path)
+        if package_type:
+            logger.debug(f"Detected supported package type: {package_type}")
+            upmex_result = self.upmex.extract_metadata(file_path, package_type)
+            if "error" not in upmex_result:
+                features.metadata['package_metadata'] = upmex_result
+                logger.info(f"Extracted {package_type} package metadata: {upmex_result.get('metadata', {}).get('name', 'Unknown')}")
+            else:
+                logger.debug(f"UPMEX extraction failed: {upmex_result['error']}")
 
         # Extract archive to temporary directory
         with tempfile.TemporaryDirectory() as temp_dir:
