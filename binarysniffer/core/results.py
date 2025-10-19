@@ -62,7 +62,7 @@ class ExtractedFeaturesSummary:
 @dataclass
 class AnalysisResult:
     """Results from analyzing a single file"""
-    
+
     file_path: str
     file_size: int
     file_type: str
@@ -74,6 +74,7 @@ class AnalysisResult:
     timestamp: datetime = field(default_factory=datetime.now)
     extracted_features: Optional[ExtractedFeaturesSummary] = None  # For --show-features flag
     file_hashes: Optional[Dict[str, str]] = None  # For --include-hashes flag
+    package_metadata: Optional[Dict[str, Any]] = None  # Package metadata from UPMEX
     
     @property
     def has_matches(self) -> bool:
@@ -123,7 +124,11 @@ class AnalysisResult:
         # Add file hashes if present
         if self.file_hashes:
             result["file_hashes"] = self.file_hashes
-        
+
+        # Add package metadata if present
+        if self.package_metadata:
+            result["package_metadata"] = self.package_metadata
+
         return result
     
     def to_json(self, indent: int = 2) -> str:

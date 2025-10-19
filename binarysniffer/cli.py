@@ -1647,7 +1647,45 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
         console.print(f"  File type: {result.file_type}")
         console.print(f"  Features extracted: {result.features_extracted}")
         console.print(f"  Analysis time: {result.analysis_time:.3f}s")
-        
+
+        # Show package metadata if available
+        if result.package_metadata:
+            pkg = result.package_metadata
+            meta = pkg['metadata']
+            console.print(f"  [green]Package: {meta.get('name', 'Unknown')} ({pkg['package_type']})[/green]")
+
+            # Show Maven coordinates if available
+            if 'maven_groupId' in meta and 'maven_artifactId' in meta:
+                console.print(f"  [green]Maven: {meta['maven_groupId']}:{meta['maven_artifactId']}")
+                if 'maven_version' in meta:
+                    console.print(f":{meta['maven_version']}[/green]")
+                else:
+                    console.print("[/green]")
+
+            # Show homepage/URL if available
+            if 'manifest_implementation_url' in meta:
+                console.print(f"  [blue]Homepage: {meta['manifest_implementation_url']}[/blue]")
+            elif 'manifest_bundle_homepage' in meta:
+                console.print(f"  [blue]Homepage: {meta['manifest_bundle_homepage']}[/blue]")
+
+            # Show license information
+            license_info = []
+            if 'extracted_license_info' in meta:
+                license_info.extend(meta['extracted_license_info'])
+            if 'manifest_bundle_license' in meta:
+                license_info.append(f"Bundle License: {meta['manifest_bundle_license']}")
+
+            if license_info:
+                console.print(f"  [yellow]License Info:[/yellow]")
+                for lic in license_info[:3]:  # Show first 3 license lines
+                    console.print(f"    [yellow]{lic}[/yellow]")
+
+            # Show structure info
+            if 'class_count' in meta:
+                console.print(f"  [green]Classes: {meta['class_count']:,}[/green]")
+            if 'total_entries' in meta:
+                console.print(f"  [green]Entries: {meta['total_entries']:,}[/green]")
+
         # Show detected licenses if available
         if hasattr(result, 'detected_licenses') and result.detected_licenses:
             console.print(f"  [cyan]Detected licenses: {', '.join(result.detected_licenses)}[/cyan]")

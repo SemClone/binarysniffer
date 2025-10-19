@@ -190,6 +190,11 @@ class EnhancedBinarySniffer(BaseAnalyzer):
                 filtered_matches.append(license_match)
                 logger.debug(f"Added OSLiLi-detected license: {license_info['spdx_id']} ({license_info['confidence']:.2%} confidence)")
         
+        # Extract package metadata if available (from UPMEX integration)
+        package_metadata = None
+        if hasattr(features, 'metadata') and features.metadata and 'package_metadata' in features.metadata:
+            package_metadata = features.metadata['package_metadata']
+
         return AnalysisResult(
             file_path=str(file_path),
             file_size=file_path.stat().st_size,
@@ -199,7 +204,8 @@ class EnhancedBinarySniffer(BaseAnalyzer):
             features_extracted=len(features.strings) + len(features.symbols),
             confidence_threshold=threshold,
             extracted_features=extracted_features_summary,
-            file_hashes=file_hashes
+            file_hashes=file_hashes,
+            package_metadata=package_metadata
         )
     
     def _merge_matches(
