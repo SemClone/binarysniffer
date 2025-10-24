@@ -83,12 +83,24 @@ binarysniffer analyze [OPTIONS] PATH
 **Options:**
 - `-r, --recursive` - Analyze directories recursively
 - `-t, --threshold FLOAT` - Confidence threshold (0.0-1.0, default: 0.5)
-- `--deep` - Enable deep analysis mode
-- `-f, --format [table|json|csv]` - Output format (default: table)
-- `-o, --output PATH` - Save results to file
 - `-p, --patterns TEXT` - File patterns to match (e.g., *.exe, *.so)
+- `-o, --output PATH` - Save results to file
+- `-f, --format [table|json|csv|cyclonedx|sbom]` - Output format (default: table)
+- `--deep` - Enable deep analysis mode (slower, more thorough)
+- `--fast` - Fast mode (skip TLSH fuzzy matching for speed)
 - `--parallel/--no-parallel` - Enable/disable parallel processing
-- `--threshold FLOAT` - Confidence threshold (default: 0.3)
+- `--with-hashes` - Include all hashes (MD5, SHA1, SHA256, TLSH, ssdeep)
+- `--basic-hashes` - Include only basic hashes (MD5, SHA1, SHA256)
+- `--min-matches INTEGER` - Minimum pattern matches to show component
+- `--license-focus` - Focus on license detection and compliance
+- `--license-only` - Only detect licenses, skip component detection
+- `-v, --debug` - Enable debug output (shows each file being processed)
+- `--show-evidence` - Show detailed match evidence
+- `--show-features` - Display extracted features (for debugging)
+- `--save-features PATH` - Save features to JSON (for signature creation)
+- `-l, --include-large` - Include large files (>50MB) in analysis
+- `--skip-metadata` - Skip metadata files (plist, config, etc.) - speeds up analysis
+- `--timeout INTEGER` - Timeout in seconds for analyzing each file (default: 60)
 
 #### `update` - Update signature database
 ```bash
@@ -152,8 +164,8 @@ Options:
 
 ### Example 1: Analyzing an Android APK
 ```bash
-# Enhanced analysis of an APK
-binarysniffer analyze my_android_app.apk --enhanced
+# Fast analysis of an APK
+binarysniffer analyze my_android_app.apk --fast
 
 # Output:
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┓
@@ -169,22 +181,37 @@ binarysniffer analyze my_android_app.apk --enhanced
 ### Example 2: Batch Analysis with Filtering
 ```bash
 # Analyze only .so files in lib directory
-binarysniffer analyze app/lib -r -p "*.so" --enhanced -f json -o libs_analysis.json
+binarysniffer analyze app/lib -r -p "*.so" --fast -f json -o libs_analysis.json
 
 # Analyze with custom threshold
-binarysniffer analyze app/lib -r --threshold 0.3 --enhanced
+binarysniffer analyze app/lib -r --threshold 0.3 --fast
+
+# Skip metadata files for faster analysis
+binarysniffer analyze app/lib -r --skip-metadata --fast
 ```
 
-### Example 3: Deep Analysis Mode
+### Example 3: Performance Modes
 ```bash
-# Enable deep analysis for thorough scanning
-binarysniffer analyze suspicious_binary --deep --enhanced
+# Fast mode - skip TLSH fuzzy matching for speed
+binarysniffer analyze large_binary --fast
+
+# Deep analysis mode for thorough scanning (slower)
+binarysniffer analyze suspicious_binary --deep
+
+# Custom timeout for slow files
+binarysniffer analyze problematic_file --timeout 120
 ```
 
-### Example 4: Parallel Processing
+### Example 4: Parallel Processing and Large Files
 ```bash
 # Analyze large directory with parallel processing
-binarysniffer analyze /opt/android-sdk -r --parallel --enhanced
+binarysniffer analyze /opt/android-sdk -r --parallel --fast
+
+# Include large files (>50MB) in analysis
+binarysniffer analyze /opt/android-sdk -r --include-large --fast
+
+# Debug mode to see which files are being processed
+binarysniffer analyze /opt/android-sdk -r -v --fast
 ```
 
 ### Example 5: ML Model Security Analysis (v1.9.7+)
@@ -212,7 +239,26 @@ binarysniffer analyze models/ -r -p "*.pkl" -p "*.onnx" -p "*.pt" -p "*.safetens
 # └───────────────────┴────────────┴─────────────────┴────────┴──────────────────┘
 ```
 
-### Example 6: Package Inventory Extraction (v1.8.6+)
+### Example 6: Hash Calculation and Evidence
+```bash
+# Include file hashes in the output
+binarysniffer analyze binary.exe --with-hashes
+
+# Basic hashes only (MD5, SHA1, SHA256)
+binarysniffer analyze binary.exe --basic-hashes
+
+# Show detailed evidence of matches
+binarysniffer analyze binary.so --show-evidence
+
+# Output with hashes:
+# File Hashes:
+#   MD5:    009b6a807f883fc3e50ed7b5fcdd9db4
+#   SHA1:   bf4b401d898b7ac454aa82bc97a50c121ccbe2ea
+#   SHA256: a2f5fda6ba24ad67ec7eaa48a0bf61bba94a49b34c744eb02a9700feff79451e
+#   TLSH:   T142C5AD12E77E1429DE997078A3873AF7E120BD540132D8D33BA6DA118BA94C53B25F37
+```
+
+### Example 7: Package Inventory Extraction (v1.8.6+)
 ```bash
 # Basic inventory summary
 binarysniffer inventory app.apk
@@ -342,9 +388,9 @@ binarysniffer analyze project/ -r -f json -o results.json
 ### Common Issues
 
 #### 1. "No components detected"
-**Solution**: Try enhanced mode with lower threshold
+**Solution**: Try with lower threshold
 ```bash
-binarysniffer analyze file --enhanced --threshold 0.2
+binarysniffer analyze file --threshold 0.2
 ```
 
 #### 2. False Positives (v1.5.1+)
@@ -357,9 +403,22 @@ If you still experience false positives:
 - Increase the confidence threshold: `--threshold 0.7`
 - Report specific false positives for further signature refinement
 
-#### 3. "Analysis taking too long"
-**Solution**: Use file patterns to limit scope
+#### 3. "Analysis taking too long" or "Tool gets stuck"
+**Solutions**: Multiple options to speed up or fix hanging analysis
 ```bash
+# Use fast mode to skip TLSH fuzzy matching
+binarysniffer analyze dir/ -r --fast
+
+# Skip metadata files (plist, xcprivacy, etc.) that can cause hangs
+binarysniffer analyze app.app -r --skip-metadata
+
+# Set custom timeout for problematic files (default: 60s)
+binarysniffer analyze dir/ -r --timeout 10
+
+# Debug mode to see which file is causing issues
+binarysniffer analyze dir/ -r -v
+
+# Use file patterns to limit scope
 binarysniffer analyze dir/ -r -p "*.so" --no-parallel
 ```
 
@@ -427,11 +486,15 @@ for match in result.matches:
 
 ## Best Practices
 
-1. **Always use `--enhanced` for security audits**
-2. **Start with default threshold, adjust based on results**
-3. **Use JSON output for automated processing**
-4. **Regularly update signature database**
-5. **Combine with other tools for comprehensive analysis**
+1. **Use `--fast` for quick scans, `--deep` for thorough analysis**
+2. **Start with default threshold (0.5), adjust based on results**
+3. **Use `--with-hashes` for security audits and verification**
+4. **Use `-v/--debug` to troubleshoot hanging scans**
+5. **Use `--skip-metadata` to speed up analysis of app bundles**
+6. **Set custom `--timeout` for problematic files**
+7. **Use JSON output for automated processing**
+8. **Regularly update signature database**
+9. **Combine with other tools for comprehensive analysis**
 
 ## Support
 

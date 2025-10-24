@@ -74,11 +74,17 @@ class BinarySniffer(BaseAnalyzer):
         if not file_path.exists():
             raise FileNotFoundError(f"File not found: {file_path}")
         
-        logger.info(f"Analyzing file: {file_path}")
-        
+        logger.info(f"Analyzing file: {file_path} (size: {file_path.stat().st_size:,} bytes)")
+
         # Extract features from file
+        import time
+        start_time = time.time()
         extractor = self.extractor_factory.get_extractor(file_path)
+        logger.debug(f"Using extractor: {extractor.__class__.__name__} for {file_path}")
         features = extractor.extract(file_path)
+        extract_time = time.time() - start_time
+        if extract_time > 1.0:
+            logger.warning(f"Feature extraction took {extract_time:.2f}s for {file_path}")
         
         # Perform matching
         threshold = confidence_threshold or self.config.min_confidence

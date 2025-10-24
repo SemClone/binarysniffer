@@ -5,6 +5,50 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.1] - 2025-10-23
+
+### Fixed
+- **Progress Display** - Fixed progress bar stuck at 0% for directory analysis
+  - Progress callbacks now properly track file processing
+  - Consolidated summary table for directory scans instead of individual file results
+
+- **File Processing** - Resolved hanging issues with problematic files
+  - Added configurable timeout system (60s default) with `--timeout` option
+  - Automatic detection and exclusion of XML/plist metadata files
+  - Fixed processing of large files (>50MB excluded by default, use `--include-large` to analyze)
+
+### Added
+- **CLI Enhancements** - New options for better control and visibility
+  - `--timeout` - Configure per-file timeout (default: 60 seconds)
+  - `--include-large` / `-l` - Include files larger than 50MB in analysis
+  - `--debug` / `-v` - Show files being processed in real-time
+  - `--skip-metadata` - Skip XML/plist metadata files entirely
+  - `--with-hashes` - Now properly displays file hash values
+
+### Improved
+- **Performance** - Optimized file processing for large directories
+  - Sequential processing for large directories (>100 files) to prevent resource exhaustion
+  - Smart file filtering to skip problematic formats early
+  - Reduced timeout for metadata files (3 seconds)
+
+- **Documentation** - Updated user guide with all new CLI options
+  - Comprehensive option descriptions and usage examples
+  - Fixed outdated references to deprecated flags
+
+- **License Detection** - Verified OSLiLi integration functionality
+  - Successfully detects BSD, ISC, Python-2.0 licenses with high confidence (85-97%)
+  - Proper `oslili_detection` type matching in evidence display
+
+- **TLSH Fuzzy Matching** - Enabled and documented TLSH support
+  - Created example TLSH signature database
+  - Comprehensive setup guide in docs/TLSH_SETUP_GUIDE.md
+  - 100% confidence matching for system binaries
+
+### Removed
+- **Deprecated Options** - Cleaned up obsolete CLI flags
+  - Removed `--enhanced` flag (enhanced mode is now always enabled)
+  - Fixed partially wired options to be fully functional
+
 ## [1.10.5] - 2025-10-19
 
 ### Fixed
