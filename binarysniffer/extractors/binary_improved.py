@@ -38,10 +38,30 @@ class ImprovedBinaryExtractor(BaseExtractor):
         if file_path.suffix.lower() in self.BINARY_EXTENSIONS:
             return True
 
+        # Explicitly reject known text/metadata files
+        rejected_extensions = {
+            '.txt', '.md', '.rst', '.json', '.xml', '.yml', '.yaml',
+            '.plist', '.xcprivacy', '.xcconfig',  # Apple metadata
+            '.html', '.htm', '.css', '.scss', '.less',
+            '.ini', '.cfg', '.conf', '.config',
+            '.log', '.gitignore', '.gitattributes',
+            '.properties', '.toml', '.svg', '.strings',
+            '.js', '.ts', '.jsx', '.tsx',  # JavaScript/TypeScript
+            '.py', '.rb', '.go', '.rs',  # Other source code
+            '.java', '.kt', '.swift', '.m', '.mm', '.h', '.hpp', '.cpp', '.c',
+        }
+        if file_path.suffix.lower() in rejected_extensions:
+            return False
+
         # Check if file is binary by reading first bytes
         try:
             with open(file_path, 'rb') as f:
                 chunk = f.read(1024)
+
+                # Reject if it starts with XML declaration
+                if chunk.startswith(b'<?xml') or chunk.startswith(b'<!DOCTYPE'):
+                    return False
+
                 # Check for null bytes (common in binaries)
                 if b'\x00' in chunk:
                     return True

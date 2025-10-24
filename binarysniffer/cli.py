@@ -115,6 +115,8 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
 @click.option('--license-only', is_flag=True,
               help='Only detect licenses, skip component detection')
 # Debug options
+@click.option('-v', '--debug', is_flag=True,
+              help='Enable debug output (shows each file being processed)')
 @click.option('--show-evidence', is_flag=True,
               help='Show detailed match evidence')
 @click.option('--show-features', is_flag=True,
@@ -128,23 +130,17 @@ def cli(ctx, config, data_dir, verbose, log_level, non_deterministic):
               help='TLSH distance threshold (0-300, lower=more similar)')
 @click.option('--feature-limit', type=int, default=20, hidden=True,
               help='Number of features to display per category')
-# Legacy options (deprecated but kept for compatibility)
-@click.option('--verbose-evidence', '-ve', is_flag=True, hidden=True,
-              help='[Deprecated] Use --show-evidence')
-@click.option('--min-patterns', '-m', type=int, hidden=True,
-              help='[Deprecated] Use --min-matches')
-@click.option('--include-hashes', is_flag=True, hidden=True,
-              help='[Deprecated] Use --with-hashes')
-@click.option('--include-fuzzy-hashes', is_flag=True, hidden=True,
-              help='[Deprecated] Use --with-hashes')
-@click.option('--use-tlsh/--no-tlsh', default=True, hidden=True,
-              help='[Deprecated] Use --fast to disable')
+@click.option('-l', '--include-large', is_flag=True, default=False,
+              help='Include large files (>50MB) in analysis')
+@click.option('--skip-metadata', is_flag=True, default=False,
+              help='Skip metadata files (plist, config, etc.) - speeds up analysis')
+@click.option('--timeout', type=int, default=60, show_default=True,
+              help='Timeout in seconds for analyzing each file')
 @click.pass_context
 def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fast, parallel,
             with_hashes, basic_hashes, min_matches, license_focus, license_only,
-            show_evidence, show_features, save_features, full_export,
-            tlsh_threshold, feature_limit, verbose_evidence, min_patterns, include_hashes, 
-            include_fuzzy_hashes, use_tlsh):
+            debug, show_evidence, show_features, save_features, full_export,
+            tlsh_threshold, feature_limit, include_large, skip_metadata, timeout):
     """
     Analyze files for open source components and security issues.
     
@@ -175,45 +171,33 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
         binarysniffer analyze app.apk -t 0.8            # High confidence only
         binarysniffer analyze lib.so --min-matches 5    # 5+ pattern matches
     """
+    # Enable debug logging if requested
+    if debug:
+        import logging
+        logging.basicConfig(level=logging.DEBUG,
+                          format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                          force=True)
+        console.print("[yellow]Debug mode enabled - showing detailed processing information[/yellow]")
+
     # Initialize sniffer (always use enhanced mode for better detection)
     if ctx.obj['sniffer'] is None:
         ctx.obj['sniffer'] = EnhancedBinarySniffer(ctx.obj['config'])
-    
+
     sniffer = ctx.obj['sniffer']
     
     # Set defaults for new options
     threshold = threshold or ctx.obj['config'].min_confidence
-    
-    # Handle deprecated options with warnings
-    if verbose_evidence:
-        console.print("[yellow]Warning: --verbose-evidence is deprecated, using --show-evidence[/yellow]")
-        show_evidence = True
-    
-    if min_patterns and min_patterns > 0:
-        console.print("[yellow]Warning: --min-patterns is deprecated, using --min-matches[/yellow]")
-        min_matches = min_patterns
-    
-    if include_hashes or include_fuzzy_hashes:
-        console.print("[yellow]Warning: --include-hashes/--include-fuzzy-hashes are deprecated, using --with-hashes[/yellow]")
-        with_hashes = True
-    
-    # Handle new hash options
-    if basic_hashes:
-        include_hashes = True
-        include_fuzzy_hashes = False
-    elif with_hashes:
-        include_hashes = True
-        include_fuzzy_hashes = True
-    else:
-        include_hashes = False
-        include_fuzzy_hashes = False
+
+    # Handle hash options properly
+    include_hashes = basic_hashes or with_hashes
+    include_fuzzy_hashes = with_hashes and not basic_hashes
     
     # Handle performance modes
+    use_tlsh = not fast  # TLSH enabled by default, disabled in fast mode
     if fast:
-        use_tlsh = False
-        deep = False
+        deep = False  # Fast mode disables deep analysis
     elif deep:
-        use_tlsh = True
+        use_tlsh = True  # Deep mode ensures TLSH is enabled
     
     # Auto-detect format from output filename if not specified
     if output and format == 'table':
@@ -233,11 +217,24 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
     
     path = Path(path)
     
+    # Set the include_large flag on the analyzer
+    sniffer.include_large_files = include_large
+    if not include_large:
+        console.print("[dim]Note: Files >50MB will be skipped. Use --include-large to analyze them.[/dim]")
+
+    # Set skip_metadata flag if requested
+    if skip_metadata:
+        sniffer.skip_metadata_files = True
+        console.print("[dim]Note: Metadata files (plist, config, etc.) will be skipped.[/dim]")
+
+    # Set the timeout value on the analyzer
+    sniffer.file_timeout = timeout
+
     # Check for updates if auto-update is enabled
     if ctx.obj['config'].auto_update:
         if sniffer.check_updates():
             console.print("[yellow]Updates available. Run 'binarysniffer update' to get latest signatures.[/yellow]")
-    
+
     start_time = time.time()
     
     try:
@@ -246,6 +243,12 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
             # Enable show_features if show_evidence is set (to get archive contents)
             # Enable for full_export as well to collect all features
             effective_show_features = show_features or show_evidence or full_export
+            # Set analyzer properties for single file analysis
+            if hasattr(sniffer, 'tlsh_threshold'):
+                sniffer.tlsh_threshold = tlsh_threshold
+            if debug:
+                console.print(f"[cyan]Starting analysis of: {path}[/cyan]")
+                console.print(f"[dim]File size: {path.stat().st_size / (1024*1024):.1f} MB[/dim]")
             with console.status(f"Analyzing {path.name}..."):
                 result = sniffer.analyze_file(
                     path, threshold, deep, effective_show_features,
@@ -254,6 +257,11 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                     include_fuzzy_hashes=include_fuzzy_hashes,
                     full_export=bool(full_export)  # Pass flag to enable full feature collection
                 )
+            if debug:
+                if result.error:
+                    console.print(f"[red]Failed: {result.error}[/red]")
+                else:
+                    console.print(f"[green]Completed: Found {len(result.matches)} components[/green]")
             results = {str(path): result}
             # Create BatchAnalysisResult for single file
             batch_result = BatchAnalysisResult(
@@ -276,25 +284,53 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
                 TimeElapsedColumn(),
                 console=console
             ) as progress:
-                task = progress.add_task("Analyzing files...", total=None)
-                
-                # For directory analysis, we need to set show_features on the analyzer
-                # This is a bit different from single file analysis
+                # First, collect files to get the total count
+                task = None
+                current_file = None
+
+                def update_progress(current, total, file_path=None):
+                    nonlocal task, current_file
+                    if file_path:
+                        current_file = file_path
+                        if debug:
+                            console.print(f"[dim]Processing [{current}/{total}]: {file_path}[/dim]")
+                    if task is None and total > 0:
+                        if debug:
+                            desc = f"Analyzing {total} files (current: {current_file or 'starting'})..."
+                        else:
+                            desc = f"Analyzing {total} files..."
+                        task = progress.add_task(desc, total=total)
+                    if task is not None:
+                        if debug and current_file:
+                            progress.update(task, completed=current, description=f"[{current}/{total}] {Path(current_file).name}")
+                        else:
+                            progress.update(task, completed=current)
+
+                # For directory analysis, we need to set properties on the analyzer
                 if effective_show_features:
                     sniffer.show_features = effective_show_features
                 if full_export:
                     sniffer.full_export = True
-                
+                # Set TLSH threshold for directory analysis
+                if hasattr(sniffer, 'tlsh_threshold'):
+                    sniffer.tlsh_threshold = tlsh_threshold
+                if hasattr(sniffer, 'use_tlsh'):
+                    sniffer.use_tlsh = use_tlsh
+                # Set hash options
+                if hasattr(sniffer, 'include_hashes'):
+                    sniffer.include_hashes = include_hashes
+                    sniffer.include_fuzzy_hashes = include_fuzzy_hashes
+
                 batch_result = sniffer.analyze_directory(
                     path,
                     recursive=recursive,
                     file_patterns=list(patterns) if patterns else None,
                     confidence_threshold=threshold,
-                    parallel=parallel
+                    parallel=parallel,
+                    progress_callback=update_progress,
+                    include_large=include_large
                 )
                 results = batch_result.results
-                
-                progress.update(task, completed=len(results))
         
         # Add license detection if requested
         if license_focus or license_only:
@@ -390,12 +426,7 @@ def analyze(ctx, path, recursive, threshold, patterns, output, format, deep, fas
 @click.option('--with-hashes', is_flag=True, help='Include all hashes (MD5, SHA1, SHA256, TLSH, ssdeep)')
 @click.option('--with-components', is_flag=True, help='Detect OSS components in files')
 @click.option('-v', '--verbose', is_flag=True, help='Detailed output')
-# Legacy options
-@click.option('--include-hashes', is_flag=True, hidden=True, help='[Deprecated] Use --with-hashes')
-@click.option('--include-fuzzy-hashes', is_flag=True, hidden=True, help='[Deprecated] Use --with-hashes')
-@click.option('--detect-components', is_flag=True, hidden=True, help='[Deprecated] Use --with-components')
-def inventory(package_path, output, format, analyze, with_hashes, with_components, verbose,
-              include_hashes, include_fuzzy_hashes, detect_components):
+def inventory(package_path, output, format, analyze, with_hashes, with_components, verbose):
     """
     Extract and export file inventory from a package/archive.
     
@@ -414,15 +445,6 @@ def inventory(package_path, output, format, analyze, with_hashes, with_component
         # With component detection
         binarysniffer inventory lib.jar --with-components -o components.csv
     """
-    # Handle deprecated options
-    if include_hashes or include_fuzzy_hashes:
-        console.print("[yellow]Warning: --include-hashes/--include-fuzzy-hashes are deprecated, using --with-hashes[/yellow]")
-        with_hashes = True
-    
-    if detect_components:
-        console.print("[yellow]Warning: --detect-components is deprecated, using --with-components[/yellow]")
-        with_components = True
-    
     # Auto-detect format from output filename
     if output and format == 'summary':
         output_path = Path(output)
@@ -1641,12 +1663,33 @@ def export_all_features(batch_result: BatchAnalysisResult, output_path: str):
 
 def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False, show_features: bool = False, feature_limit: int = 20):
     """Output results as a table"""
+    # Check if this is a multi-file analysis (directory scan)
+    if len(batch_result.results) > 1:
+        # Show consolidated summary for directory scans
+        output_consolidated_summary(batch_result, min_patterns, verbose_evidence)
+        return
+
+    # Single file analysis - show detailed results
     for file_path, result in batch_result.results.items():
         console.print(f"\n[bold]{file_path}[/bold]")
         console.print(f"  File size: {result.file_size:,} bytes")
         console.print(f"  File type: {result.file_type}")
         console.print(f"  Features extracted: {result.features_extracted}")
         console.print(f"  Analysis time: {result.analysis_time:.3f}s")
+
+        # Show file hashes if available
+        if hasattr(result, 'file_hashes') and result.file_hashes:
+            console.print("  [cyan]File Hashes:[/cyan]")
+            if 'md5' in result.file_hashes:
+                console.print(f"    MD5:    {result.file_hashes['md5']}")
+            if 'sha1' in result.file_hashes:
+                console.print(f"    SHA1:   {result.file_hashes['sha1']}")
+            if 'sha256' in result.file_hashes:
+                console.print(f"    SHA256: {result.file_hashes['sha256']}")
+            if 'tlsh' in result.file_hashes and result.file_hashes['tlsh']:
+                console.print(f"    TLSH:   {result.file_hashes['tlsh']}")
+            if 'ssdeep' in result.file_hashes and result.file_hashes['ssdeep']:
+                console.print(f"    ssdeep: {result.file_hashes['ssdeep']}")
 
         # Show package metadata if available
         if result.package_metadata:
@@ -1847,6 +1890,191 @@ def output_table(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbo
                 console.print(f"  Classifications detected: {', '.join(result.licenses)}")
             else:
                 console.print(f"  Licenses detected: {', '.join(result.licenses)}")
+
+
+def output_consolidated_summary(batch_result: BatchAnalysisResult, min_patterns: int = 0, verbose_evidence: bool = False):
+    """Output consolidated summary for directory scans"""
+    from collections import defaultdict
+    from rich.table import Table
+
+    # Collect all components across all files
+    component_files = defaultdict(list)  # component -> list of (file, confidence)
+    component_licenses = defaultdict(set)  # component -> set of licenses
+    component_max_confidence = defaultdict(float)  # component -> max confidence
+    total_matches = 0
+    files_with_matches = 0
+
+    for file_path, result in batch_result.results.items():
+        if result.error:
+            continue
+
+        if result.matches:
+            files_with_matches += 1
+
+        for match in result.matches:
+            # Apply min_patterns filter
+            pattern_count = 0
+            if match.evidence:
+                if 'signatures_matched' in match.evidence:
+                    pattern_count = match.evidence['signatures_matched']
+                elif 'signature_count' in match.evidence:
+                    pattern_count = match.evidence['signature_count']
+
+            if pattern_count >= min_patterns:
+                total_matches += 1
+                component_files[match.component].append((file_path, match.confidence))
+                if match.license:
+                    component_licenses[match.component].add(match.license)
+                component_max_confidence[match.component] = max(
+                    component_max_confidence[match.component],
+                    match.confidence
+                )
+
+    if not component_files:
+        console.print("\n[yellow]No components detected across all files[/yellow]")
+        return
+
+    # Create summary table
+    console.print("\n[bold]Component Detection Summary[/bold]")
+    console.print()
+
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("Component", style="cyan")
+    table.add_column("Max Confidence", justify="right")
+    table.add_column("Files Found", justify="right")
+    table.add_column("License(s)")
+
+    # Sort by number of files found in (descending)
+    sorted_components = sorted(
+        component_files.items(),
+        key=lambda x: (len(x[1]), component_max_confidence[x[0]]),
+        reverse=True
+    )
+
+    for component, files_list in sorted_components[:50]:  # Show top 50 components
+        licenses = component_licenses.get(component, set())
+        license_str = ', '.join(sorted(licenses)) if licenses else "Unknown"
+
+        # Color code confidence
+        confidence = component_max_confidence[component]
+        if confidence >= 0.8:
+            conf_str = f"[green]{confidence:.0%}[/green]"
+        elif confidence >= 0.6:
+            conf_str = f"[yellow]{confidence:.0%}[/yellow]"
+        else:
+            conf_str = f"[red]{confidence:.0%}[/red]"
+
+        table.add_row(
+            component,
+            conf_str,
+            str(len(files_list)),
+            license_str
+        )
+
+    console.print(table)
+
+    if len(component_files) > 50:
+        console.print(f"\n[dim]... and {len(component_files) - 50} more components[/dim]")
+
+    # Show detailed evidence if requested
+    if verbose_evidence:
+        console.print("\n[bold]Evidence Details:[/bold]")
+
+        # Show top components with evidence details
+        for component, files_list in sorted_components[:10]:  # Show evidence for top 10
+            console.print(f"\n  [cyan]{component}[/cyan]:")
+            console.print(f"    Total files matched: {len(files_list)}")
+
+            # Collect all evidence and files for this component
+            component_evidence = {}
+            file_matches = []
+            match_types = set()
+
+            for file_path, result in batch_result.results.items():
+                if result.matches:
+                    for match in result.matches:
+                        if match.component == component:
+                            # Store file and confidence
+                            file_name = file_path.split('/')[-1] if '/' in file_path else file_path
+                            file_matches.append((file_name, match.confidence, file_path))
+
+                            # Collect evidence details and match types
+                            if match.evidence:
+                                # Collect match type
+                                if 'match_method' in match.evidence:
+                                    match_types.add(match.evidence['match_method'])
+                                elif 'match_type' in match.evidence:
+                                    match_types.add(match.evidence['match_type'])
+                                else:
+                                    match_types.add('direct string')
+
+                                # Store best evidence values
+                                for key, value in match.evidence.items():
+                                    if key not in component_evidence or (isinstance(value, (int, float)) and value > component_evidence.get(key, 0)):
+                                        component_evidence[key] = value
+
+            # Display match types
+            if match_types:
+                console.print(f"    Match types: {', '.join(sorted(match_types))}")
+            else:
+                console.print(f"    Match types: direct string matching")
+
+            # Display evidence details
+            if component_evidence:
+                if 'signature_count' in component_evidence:
+                    console.print(f"    Patterns matched: {component_evidence['signature_count']}")
+                elif 'signatures_matched' in component_evidence:
+                    console.print(f"    Patterns matched: {component_evidence['signatures_matched']}")
+
+                if 'bloom_probability' in component_evidence:
+                    console.print(f"    Bloom filter probability: {component_evidence['bloom_probability']:.6f}")
+
+                if 'minhash_similarity' in component_evidence:
+                    console.print(f"    MinHash similarity: {component_evidence['minhash_similarity']:.2%}")
+
+                if 'tlsh_score' in component_evidence:
+                    console.print(f"    TLSH fuzzy match score: {component_evidence['tlsh_score']}")
+
+            # Show top files where this component was found
+            console.print(f"    Found in files:")
+            for i, (file_name, confidence, full_path) in enumerate(sorted(file_matches, key=lambda x: x[1], reverse=True)[:5]):
+                # Shorten long file names
+                display_name = file_name if len(file_name) <= 50 else file_name[:47] + "..."
+                console.print(f"      • {display_name} ({confidence:.0%})")
+            if len(file_matches) > 5:
+                console.print(f"      ... and {len(file_matches) - 5} more files")
+
+        # Show file breakdown if not too many files
+        if files_with_matches <= 50:
+            console.print("\n[bold]Files with Components:[/bold]")
+            file_count = 0
+            for file_path, result in batch_result.results.items():
+                if result.matches and not result.error:
+                    components = set(m.component for m in result.matches)
+                    console.print(f"  • {file_path}: {', '.join(sorted(components))}")
+                    file_count += 1
+                    if file_count >= 30:  # Limit to first 30 files
+                        if files_with_matches > 30:
+                            console.print(f"  [dim]... and {files_with_matches - 30} more files[/dim]")
+                        break
+
+    # Overall statistics
+    console.print("\n[bold]Statistics:[/bold]")
+    console.print(f"  Total files analyzed: {batch_result.total_files}")
+    console.print(f"  Files with components: {files_with_matches}")
+    console.print(f"  Unique components found: {len(component_files)}")
+    console.print(f"  Total component instances: {total_matches}")
+
+    # License summary
+    all_licenses = set()
+    for licenses in component_licenses.values():
+        all_licenses.update(licenses)
+
+    if all_licenses:
+        console.print(f"\n[bold]Licenses Detected:[/bold]")
+        for license in sorted(all_licenses):
+            count = sum(1 for licenses in component_licenses.values() if license in licenses)
+            console.print(f"  • {license}: {count} components")
 
 
 def output_json(batch_result: BatchAnalysisResult, output_path: Optional[str], min_patterns: int = 0, verbose_evidence: bool = False):

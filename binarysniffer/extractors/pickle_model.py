@@ -109,16 +109,31 @@ class PickleModelExtractor(BaseExtractor):
         # Check magic bytes for pickle protocol
         try:
             with open(file_path, 'rb') as f:
-                header = f.read(2)
-                # Protocol 0-2: ASCII '(', 'c', etc.
+                header = f.read(8)  # Read more bytes for better identification
                 # Protocol 3: b'\x80\x03'
                 # Protocol 4: b'\x80\x04'
                 # Protocol 5: b'\x80\x05'
-                if header in [b'\x80\x03', b'\x80\x04', b'\x80\x05']:
+                if len(header) >= 2 and header[:2] in [b'\x80\x03', b'\x80\x04', b'\x80\x05']:
                     return True
-                # Check for protocol 0-2 (ASCII-based)
-                if header[0:1] in [b'(', b'c', b'}', b']']:
-                    return True
+
+                # Protocol 0-2 are ASCII-based and more complex to detect
+                # Only check for specific known patterns, not just any single character
+                if len(header) >= 1:
+                    first_byte = header[0:1]
+                    # More restrictive checks for pickle protocol 0-2
+                    if first_byte == b'(':
+                        # Likely a tuple start in protocol 0
+                        return True
+                    elif first_byte == b'c' and len(header) >= 4:
+                        # Check for pickle GLOBAL opcode pattern: c<module>\n<name>\n
+                        # Look for newline characters which indicate pickle format
+                        if b'\n' in header[1:4] or b'\r' in header[1:4]:
+                            return True
+                    elif first_byte in [b'}', b']'] and len(header) >= 2:
+                        # Dict/list end markers - check if followed by reasonable pickle data
+                        # This is quite rare as a file start, so be more careful
+                        if header[1:2] in [b'q', b'p', b'(', b'.']: # Common pickle opcodes
+                            return True
         except Exception:
             pass
 
