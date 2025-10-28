@@ -121,7 +121,7 @@ def analyze_signature_file(file_path: Path):
     return None
 
 def main():
-    signatures_dir = Path('/Users/ovalenzuela/Projects/semantic-copycat-binarysniffer/signatures')
+    signatures_dir = Path('/Users/ovalenzuela/Projects/SEMCL.ONE/binarysniffer/signatures')
     
     results = []
     for json_file in signatures_dir.glob('*.json'):

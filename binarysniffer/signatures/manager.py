@@ -97,7 +97,7 @@ class SignatureManager:
     
     def download_from_github(
         self, 
-        repo_url: str = "https://api.github.com/repos/oscarvalenzuelab/semantic-copycat-binarysniffer",
+        repo_url: str = "https://api.github.com/repos/SemClone/binarysniffer",
         target_dir: Optional[Path] = None
     ) -> int:
         """

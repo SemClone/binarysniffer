@@ -2,7 +2,7 @@
 
 ## Overview
 
-Successfully restructured the xmonkey-curator project into a new, efficient implementation called **semantic-copycat-binarysniffer** v1.0.0.
+Successfully restructured the xmonkey-curator project into a new, efficient implementation called **binarysniffer** v1.0.0.
 
 ## Key Achievements
 
@@ -35,7 +35,7 @@ Successfully restructured the xmonkey-curator project into a new, efficient impl
 ## Package Structure
 
 ```
-semantic-copycat-binarysniffer/
+binarysniffer/
 ├── binarysniffer/           # Core library
 │   ├── core/               # Analyzer, config, results
 │   ├── extractors/         # Feature extraction

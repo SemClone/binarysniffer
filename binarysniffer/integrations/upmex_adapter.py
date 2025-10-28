@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 class UPMEXAdapter:
-    """Adapter for semantic-copycat-upmex metadata extraction"""
+    """Adapter for upmex metadata extraction"""
 
     # Package types that UPMEX can handle
     SUPPORTED_PACKAGE_TYPES = {

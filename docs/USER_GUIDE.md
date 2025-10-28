@@ -27,13 +27,13 @@ BinarySniffer is a high-performance CLI tool for detecting open source component
 
 ### From PyPI (when available)
 ```bash
-pip install semantic-copycat-binarysniffer
+pip install binarysniffer
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/semantic-copycat-binarysniffer.git
-cd semantic-copycat-binarysniffer
+git clone https://github.com/yourusername/binarysniffer.git
+cd binarysniffer
 pip install -e .
 ```
 

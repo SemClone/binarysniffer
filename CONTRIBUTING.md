@@ -14,7 +14,7 @@ The easiest way to contribute is by using BinarySniffer itself to extract signat
 
 ```bash
 # Install BinarySniffer
-pip install semantic-copycat-binarysniffer
+pip install binarysniffer
 
 # Analyze a binary containing your target component
 binarysniffer analyze path/to/binary.so --detailed --format json -o analysis.json
@@ -143,8 +143,8 @@ Categorize your signatures by context:
 ### Step 1: Fork the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/semantic-copycat-binarysniffer.git
-cd semantic-copycat-binarysniffer
+git clone https://github.com/YOUR_USERNAME/binarysniffer.git
+cd binarysniffer
 ```
 
 ### Step 2: Create Your Signature

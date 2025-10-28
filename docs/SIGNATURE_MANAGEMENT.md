@@ -472,8 +472,8 @@ We welcome signature contributions from the community! Contributing your signatu
 3. **Fork and Clone the Repository**
    ```bash
    # Fork the repository on GitHub first, then:
-   git clone https://github.com/YOUR_USERNAME/semantic-copycat-binarysniffer
-   cd semantic-copycat-binarysniffer
+   git clone https://github.com/YOUR_USERNAME/binarysniffer
+   cd binarysniffer
    ```
 
 4. **Add Your Signature File**

@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.11.1] - 2025-10-23
+## [1.11.1] - 2025-10-27
+
+### Changed
+- **Dependencies Updated** - Migrated from legacy semantic-copycat packages to renamed versions
+  - Updated `semantic-copycat-oslili>=1.5.0` → `osslili>=1.5.6` for license detection
+  - Updated `semantic-copycat-upmex>=1.6.2` → `upmex>=1.6.7` for package metadata extraction
+  - Updated import statements and error messages to use new package names
+  - All functionality maintained with improved dependency management
 
 ### Fixed
 - **Progress Display** - Fixed progress bar stuck at 0% for directory analysis
@@ -78,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.10.1] - 2025-08-30
 
 ### Added
-- **OSLiLi Integration** - Enhanced license detection using semantic-copycat-oslili
+- **OSLiLi Integration** - Enhanced license detection using osslili
   - Automatic license detection from package metadata (package.json, pom.xml, etc.)
   - SPDX-compliant license identifiers
   - ML-based license matching with higher accuracy
@@ -100,8 +107,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Improved error handling when OSLiLi is unavailable
 
 ### Changed
-- **Dependencies** - Added semantic-copycat-oslili as required dependency
-  - semantic-copycat-oslili >= 1.3.2 now required for license detection
+- **Dependencies** - Added osslili as required dependency
+  - osslili >= 1.5.6 now required for license detection
   - LicenseMatcher retained as fallback for compatibility
 
 ## [1.10.0] - 2025-08-15
@@ -980,7 +987,7 @@ binarysniffer signatures create binary --name Component \\
 - JSON output format
 - Configurable confidence thresholds
 
-[1.3.0]: https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/compare/v1.2.0...v1.3.0
-[1.2.0]: https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/releases/tag/v1.0.0
+[1.3.0]: https://github.com/SemClone/binarysniffer/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/SemClone/binarysniffer/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/SemClone/binarysniffer/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/SemClone/binarysniffer/releases/tag/v1.0.0

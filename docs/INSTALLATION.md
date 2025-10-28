@@ -4,13 +4,13 @@
 
 ### From PyPI
 ```bash
-pip install semantic-copycat-binarysniffer
+pip install binarysniffer
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer
-cd semantic-copycat-binarysniffer
+git clone https://github.com/SemClone/binarysniffer
+cd binarysniffer
 pip install -e .
 ```
 
@@ -18,25 +18,25 @@ pip install -e .
 
 ### Performance Extras
 ```bash
-pip install semantic-copycat-binarysniffer[fast]
+pip install binarysniffer[fast]
 ```
 
 ### Fuzzy Matching Support
 Includes TLSH for detecting modified/recompiled components:
 ```bash
-pip install semantic-copycat-binarysniffer[fuzzy]
+pip install binarysniffer[fuzzy]
 ```
 
 ### Extended Archive Support
 Includes support for 7z, RAR, DEB, RPM formats:
 ```bash
-pip install semantic-copycat-binarysniffer[archives]
+pip install binarysniffer[archives]
 ```
 
 ### Android APK Analysis
 Includes Androguard for advanced APK analysis:
 ```bash
-pip install semantic-copycat-binarysniffer[android]
+pip install binarysniffer[android]
 ```
 
 ## Optional Tools for Enhanced Format Support
@@ -83,7 +83,7 @@ When using the `[archives]` installation option, these tools enhance format supp
 ```bash
 # For DEB packages (Debian/Ubuntu)
 # Option 1: Install python-debian (included with [archives])
-pip install semantic-copycat-binarysniffer[archives]
+pip install binarysniffer[archives]
 
 # Option 2: Use system ar command (usually pre-installed)
 # Ubuntu/Debian
@@ -182,7 +182,7 @@ If CTags is not found, the tool will fallback to regex extraction. Install unive
 ### Archive Extraction Issues
 For archive-related errors, install the appropriate system tools or use the `[archives]` extra:
 ```bash
-pip install semantic-copycat-binarysniffer[archives]
+pip install binarysniffer[archives]
 ```
 
 ### Memory Issues

@@ -52,8 +52,8 @@ class EnhancedOsliliIntegration:
     def _init_detector(self):
         """Initialize the OSLiLi detector - this is a required dependency"""
         try:
-            from semantic_copycat_oslili.core.generator import LicenseCopyrightDetector
-            from semantic_copycat_oslili.core.models import Config
+            from osslili.core.generator import LicenseCopyrightDetector
+            from osslili.core.models import Config
 
             # Create OSLiLi config from our config
             oslili_config = Config(
@@ -72,10 +72,10 @@ class EnhancedOsliliIntegration:
 
         except ImportError as e:
             # OSLiLi is a required dependency - this should not happen
-            logger.error(f"Required dependency semantic-copycat-oslili not available: {e}")
+            logger.error(f"Required dependency osslili not available: {e}")
             raise ImportError(
-                "semantic-copycat-oslili is a required dependency. "
-                "Please install with: pip install semantic-copycat-oslili>=1.3.2"
+                "osslili is a required dependency. "
+                "Please install with: pip install osslili>=1.5.6"
             ) from e
         except Exception as e:
             logger.error(f"Failed to initialize OSLiLi detector: {e}")

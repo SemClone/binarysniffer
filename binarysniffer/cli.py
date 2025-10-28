@@ -994,7 +994,7 @@ def _output_ml_security_sarif(results, output_path):
                 "driver": {
                     "name": "BinarySniffer-ML",
                     "version": "2.0.0",
-                    "informationUri": "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer",
+                    "informationUri": "https://github.com/SemClone/binarysniffer",
                     "rules": []
                 }
             },

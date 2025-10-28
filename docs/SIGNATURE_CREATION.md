@@ -180,8 +180,8 @@ done
 
 1. **Fork the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/semantic-copycat-binarysniffer
-   cd semantic-copycat-binarysniffer
+   git clone https://github.com/YOUR_USERNAME/binarysniffer
+   cd binarysniffer
    ```
 
 2. **Create signature**:

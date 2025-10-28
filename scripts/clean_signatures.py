@@ -189,7 +189,7 @@ def main():
     parser.add_argument('--target', help='Clean only specific file(s), comma-separated')
     args = parser.parse_args()
     
-    signatures_dir = Path('/Users/ovalenzuela/Projects/semantic-copycat-binarysniffer/signatures')
+    signatures_dir = Path('/Users/ovalenzuela/Projects/SEMCL.ONE/binarysniffer/signatures')
     
     # Files to clean
     if args.target:

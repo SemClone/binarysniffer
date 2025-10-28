@@ -25,7 +25,7 @@ TLSH support requires the `python-tlsh` library:
 
 ```bash
 # Install with fuzzy matching support
-pip install semantic-copycat-binarysniffer[fuzzy]
+pip install binarysniffer[fuzzy]
 
 # Or install TLSH separately
 pip install python-tlsh

@@ -260,7 +260,7 @@ jobs:
         
     - name: Install BinarySniffer
       run: |
-        pip install semantic-copycat-binarysniffer
+        pip install binarysniffer
         # Or install from source:
         # pip install -e .
         
@@ -357,7 +357,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Install BinarySniffer
-        run: pip install semantic-copycat-binarysniffer
+        run: pip install binarysniffer
       
       - name: Scan ML Models
         run: |
