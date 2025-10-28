@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "semantic-copycat-binarysniffer"
+name = "binarysniffer"
 version = "1.11.1"
 description = "A high-performance CLI and library for detecting open source components in binaries through semantic signature matching"
 readme = "README.md"
@@ -40,8 +40,8 @@ dependencies = [
     "pygments>=2.18.0",
     "rich>=13.0.0",
     "tabulate>=0.9.0",
-    "semantic-copycat-oslili>=1.5.0",
-    "semantic-copycat-upmex>=1.6.2",
+    "osslili>=1.5.6",
+    "upmex>=1.6.7",
 ]
 
 [project.optional-dependencies]
@@ -74,9 +74,9 @@ fast = [
 binarysniffer = "binarysniffer.cli:main"
 
 [project.urls]
-"Homepage" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer"
-"Bug Tracker" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/issues"
-"Documentation" = "https://github.com/oscarvalenzuelab/semantic-copycat-binarysniffer/tree/main/docs"
+"Homepage" = "https://github.com/SemClone/binarysniffer"
+"Bug Tracker" = "https://github.com/SemClone/binarysniffer/issues"
+"Documentation" = "https://github.com/SemClone/binarysniffer/tree/main/docs"
 
 [tool.setuptools.packages.find]
 where = ["."]

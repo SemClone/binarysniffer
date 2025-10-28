@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.11.1] - 2025-10-23
+## [1.11.1] - 2025-10-27
+
+### Changed
+- **Dependencies Updated** - Migrated from legacy semantic-copycat packages to renamed versions
+  - Updated `semantic-copycat-oslili>=1.5.0` → `osslili>=1.5.6` for license detection
+  - Updated `semantic-copycat-upmex>=1.6.2` → `upmex>=1.6.7` for package metadata extraction
+  - Updated import statements and error messages to use new package names
+  - All functionality maintained with improved dependency management
 
 ### Fixed
 - **Progress Display** - Fixed progress bar stuck at 0% for directory analysis
