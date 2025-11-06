@@ -362,12 +362,12 @@ class ArchiveExtractor(BaseExtractor):
                     try:
                         logger.debug(f"Running OSLiLi license detection on extracted files from {file_path}")
                         license_results = self.oslili.detect_licenses_in_path(str(temp_path))
-                        
+
                         if license_results:
                             # Store license information in metadata
                             features.metadata['licenses'] = []
                             features.metadata['license_spdx_ids'] = []
-                            
+
                             for license_result in license_results:
                                 license_info = {
                                     'spdx_id': license_result.spdx_id,
@@ -378,11 +378,11 @@ class ArchiveExtractor(BaseExtractor):
                                     'category': license_result.category
                                 }
                                 features.metadata['licenses'].append(license_info)
-                                
+
                                 # Add SPDX ID to list if not already there
                                 if license_result.spdx_id not in features.metadata['license_spdx_ids']:
                                     features.metadata['license_spdx_ids'].append(license_result.spdx_id)
-                            
+
                             logger.info(f"Detected {len(license_results)} licenses in {file_path}: {features.metadata['license_spdx_ids']}")
                     except Exception as e:
                         logger.warning(f"OSLiLi license detection failed for {file_path}: {e}")
