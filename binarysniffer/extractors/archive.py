@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import List, Optional
 
 from .base import BaseExtractor, ExtractedFeatures
+from ..integrations.enhanced_oslili import EnhancedOsliliIntegration
+from ..integrations import UPMEXAdapter
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +28,14 @@ class ArchiveExtractor(BaseExtractor):
         if self._seven_zip_path:
             logger.debug(f"7-Zip found at: {self._seven_zip_path}")
         
-        # Integration modules removed during cleanup
+        # Initialize OSLiLi for license detection
+        self.oslili = EnhancedOsliliIntegration()
+        if self.oslili.is_available:
+            logger.debug("OSLiLi integration available for license detection")
+
+        # Initialize UPMEX for package metadata extraction
+        self.upmex = UPMEXAdapter()
+        logger.debug("UPMEX integration initialized for package metadata")
 
     # Archive extensions
     ARCHIVE_EXTENSIONS = {
@@ -116,7 +125,16 @@ class ArchiveExtractor(BaseExtractor):
         )
         features.metadata = {}
 
-        # Package metadata extraction removed during cleanup
+        # UPMEX Integration: Extract package metadata if supported
+        package_type = self.upmex.is_supported_package(file_path)
+        if package_type:
+            logger.debug(f"Detected supported package type: {package_type}")
+            upmex_result = self.upmex.extract_metadata(file_path, package_type)
+            if "error" not in upmex_result:
+                features.metadata['package_metadata'] = upmex_result
+                logger.info(f"Extracted {package_type} package metadata: {upmex_result.get('metadata', {}).get('name', 'Unknown')}")
+            else:
+                logger.debug(f"UPMEX extraction failed: {upmex_result['error']}")
 
         # Extract archive to temporary directory
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -339,7 +357,35 @@ class ArchiveExtractor(BaseExtractor):
                     'size': file_path.stat().st_size
                 })
                 
-                # License detection removed during cleanup
+                # Use OSLiLi to detect licenses in extracted files
+                if self.oslili.is_available:
+                    try:
+                        logger.debug(f"Running OSLiLi license detection on extracted files from {file_path}")
+                        license_results = self.oslili.detect_licenses_in_path(str(temp_path))
+
+                        if license_results:
+                            # Store license information in metadata
+                            features.metadata['licenses'] = []
+                            features.metadata['license_spdx_ids'] = []
+
+                            for license_result in license_results:
+                                license_info = {
+                                    'spdx_id': license_result.spdx_id,
+                                    'name': license_result.name,
+                                    'confidence': license_result.confidence,
+                                    'detection_method': license_result.detection_method,
+                                    'source_file': license_result.source_file,
+                                    'category': license_result.category
+                                }
+                                features.metadata['licenses'].append(license_info)
+
+                                # Add SPDX ID to list if not already there
+                                if license_result.spdx_id not in features.metadata['license_spdx_ids']:
+                                    features.metadata['license_spdx_ids'].append(license_result.spdx_id)
+
+                            logger.info(f"Detected {len(license_results)} licenses in {file_path}: {features.metadata['license_spdx_ids']}")
+                    except Exception as e:
+                        logger.warning(f"OSLiLi license detection failed for {file_path}: {e}")
 
             except Exception as e:
                 logger.error(f"Error extracting archive {file_path}: {e}")
