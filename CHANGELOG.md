@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.3] - 2025-11-05
+
+### Fixed
+- **Integration Restoration** - Restored critical osslili and UPMEX integrations that were incorrectly removed
+  - Re-added `binarysniffer/integrations/enhanced_oslili.py` for comprehensive license detection
+  - Re-added `binarysniffer/integrations/upmex_adapter.py` for package metadata extraction
+  - Re-added `binarysniffer/integrations/__init__.py` with proper module exports
+  - Fixed analyzer_enhanced.py to properly initialize and use both integrations
+  - Fixed archive.py to extract licenses and package metadata from archives
+  - Added conversion of UPMEX license data to ComponentMatch objects with `upmex_detection` match type
+  - OSLiLi license detection now shows `oslili_detection` match type with proper confidence scores
+  - Package metadata now properly extracted and displayed for JAR, WAR, WHL, and other supported formats
+
+### Verified
+- **Complete Integration Testing** - Verified all integrations work correctly across file types
+  - OSLiLi detects licenses in source code files (.py, .js, .java, .c, .cpp, etc.) with 80-100% confidence
+  - UPMEX extracts package metadata including Maven coordinates, SPDX licenses, and notice text
+  - Archive files (JAR, IPA) properly analyzed with both component signatures and license detection
+  - Binary files (libssl.so, libcurl.so) correctly identify OpenSSL, cURL, and other components
+  - CLI output displays package type, license info, and comprehensive match evidence
+
 ## [1.11.2] - 2025-10-27
 
 ### Fixed
