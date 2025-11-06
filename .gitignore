@@ -78,6 +78,10 @@ Thumbs.db
 test_binary.bin
 ~/.binarysniffer/
 
+# Cache files
+*.cache.json
+purl2notices.cache.json
+
 # Logs
 *.logdist/
 
